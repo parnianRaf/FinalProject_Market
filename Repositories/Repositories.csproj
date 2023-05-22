@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppSqlDataBase\AppSqlDataBase.csproj" />
+    <ProjectReference Include="..\AppCore\AppCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="AutoMapper\" />
+    <None Remove="Repository\" />
+    <None Remove="Repository\UserRepository\" />
+    <None Remove="Repository\ProductRepository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AutoMapper\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\UserRepository\" />
+    <Folder Include="Repository\ProductRepository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+</Project>

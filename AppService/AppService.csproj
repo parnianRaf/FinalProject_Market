@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Repositories\Repositories.csproj" />
+      <ProjectReference Include="..\AppCore\AppCore.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Seller\" />
+      <None Remove="Seller\Command\" />
+      <None Remove="Seller\Query\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Seller\" />
+      <Folder Include="Seller\Command\" />
+      <Folder Include="Seller\Query\" />
+    </ItemGroup>
+</Project>

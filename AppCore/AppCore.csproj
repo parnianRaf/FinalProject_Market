@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="DtoModels\" />
+      <None Remove="AppServices\" />
+      <None Remove="Data Access\" />
+      <None Remove="AppServices\Seller\" />
+      <None Remove="AppServices\Seller\Command\" />
+      <None Remove="AppServices\Seller\Query\" />
+      <None Remove="DtoModels\Product\" />
+      <None Remove="Data Access\Product\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="DtoModels\" />
+      <Folder Include="AppServices\" />
+      <Folder Include="Data Access\" />
+      <Folder Include="AppServices\Seller\" />
+      <Folder Include="AppServices\Seller\Command\" />
+      <Folder Include="AppServices\Seller\Query\" />
+      <Folder Include="DtoModels\Product\" />
+      <Folder Include="Data Access\Product\" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/Repositories.deps.json
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/Repositories.dll
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/Repositories.pdb
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/AppCore.dll
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/AppSqlDataBase.dll
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/AppSqlDataBase.pdb
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/bin/Debug/net7.0/AppCore.pdb
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.csproj.AssemblyReference.cache
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.GeneratedMSBuildEditorConfig.editorconfig
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.AssemblyInfoInputs.cache
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.AssemblyInfo.cs
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.csproj.CoreCompileInputs.cache
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.csproj.CopyComplete
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.dll
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/refint/Repositories.dll
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/Repositories.pdb
+/Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/Repositories/obj/Debug/net7.0/ref/Repositories.dll
