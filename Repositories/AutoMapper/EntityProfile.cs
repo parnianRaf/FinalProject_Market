@@ -27,6 +27,14 @@ namespace Repositories.AutoMapper
             CreateMap<Auction, DetailedAuctionDto>();
             #endregion
 
+            #region Offer
+            CreateMap<AddOfferDto, Offer>();
+            CreateMap<Offer, EditOfferDto>();
+            CreateMap<Offer, DetailedOfferDto>();
+            #endregion
+
+
+
 
             CreateMap<AddCustomerDto, Customer>();
 
