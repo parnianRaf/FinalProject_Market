@@ -29,7 +29,7 @@ public  class Category
 
     public int? DeleteBy { get; set; }
 
-    public int? DeleteAt { get; set; }
+    public DateTime? DeleteAt { get; set; }
     #endregion
 
     #region Navigation Property

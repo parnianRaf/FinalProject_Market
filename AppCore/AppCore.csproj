@@ -21,6 +21,7 @@
       <None Remove="DtoModels\Customer\" />
       <None Remove="DtoModels\Pavilion\" />
       <None Remove="Data Access\User\" />
+      <None Remove="DtoModels\Category\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -34,5 +35,6 @@
       <Folder Include="DtoModels\Customer\" />
       <Folder Include="DtoModels\Pavilion\" />
       <Folder Include="Data Access\User\" />
+      <Folder Include="DtoModels\Category\" />
     </ItemGroup>
 </Project>

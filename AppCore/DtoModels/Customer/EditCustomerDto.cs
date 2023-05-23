@@ -25,6 +25,8 @@ namespace AppCore.DtoModels.Customer
 
         public string NationalityCode { get; set; }
 
+        public virtual Wallet? Wallet { get; set; }
+
         public virtual List<DetailedDirctOrderDto>? DirectOrderDtos { get; set; }
 
         public virtual List<DetailedCustomerAdddressDto>? CustomerAddressDtos { get; set; }

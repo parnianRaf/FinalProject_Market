@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AppCore.Enum;
 
 namespace AppCore;
 
@@ -28,6 +29,8 @@ public class SellerAddress
     #endregion
 
     #region Navigation Property
+    //public virtual Region Region { get; set; }
+
     public virtual Seller Seller { get; set; } 
     #endregion
 }

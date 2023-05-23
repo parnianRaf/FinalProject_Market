@@ -19,13 +19,15 @@ namespace AppCore.DtoModels.Seller
 
         public string UserName { get; set; }
 
-        public string PasswordHash { get; set; }
+        public string Password { get; set; }
 
         public string? NationalityCode { get; set; }
 
         public virtual List<DetailedProductDto> ProductDtos { get; set; }
 
         public virtual List<PavilionDtoModel> PavilionDtos { get; set; }
+
+        public virtual SellerAddress SellerAddress { get; set; }
 
     }
 }

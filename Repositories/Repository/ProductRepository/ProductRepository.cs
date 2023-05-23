@@ -119,11 +119,7 @@ namespace Repositories.Repository.ProductRepository
 
         #region Category
 
-        public async Task<List<Category>> GetCategories(CancellationToken cancellation)
-        {
-            return await _context.Categories.ToListAsync(cancellation);
-        }
-
+      
         public async Task<List<PavilionDtoModel>> GetPavilions(int sellerId, CancellationToken cancellation)
         {
             List<Pavilion> pavilions = await _context.Pavilions.Where(p => p.SellerId == sellerId).ToListAsync();

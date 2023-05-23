@@ -3,6 +3,7 @@ using AppCore;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Admin;
 using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Offer;
@@ -68,6 +69,18 @@ namespace Repositories.AutoMapper
              opt.MapFrom(src => src.Products));
             #endregion
 
+            #region Category
+            CreateMap<Category, CategoryDtoModel>().ReverseMap();
+            #endregion
+
+            #region Pavilion
+            CreateMap<Pavilion, PavilionDtoModel>().ReverseMap();
+            #endregion
+
+            #region Customer Address
+            CreateMap<CustomerAddress, DetailedCustomerAdddressDto>().ReverseMap();
+            #endregion
+
             #region Customer
             CreateMap<AddCustomerDto, Customer>();
                
@@ -113,18 +126,20 @@ namespace Repositories.AutoMapper
                 .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
             CreateMap<AddSelllerDto, IdentityUser<int>>();
             CreateMap<EditSellerDto, IdentityUser<int>>();
+            CreateMap<Seller, DetailSellerDto>()
+                  .ForMember(dst => dst.ProductDtos, opt =>
+                opt.MapFrom(src => src.Products))
+                .ForMember(dst => dst.PavilionDtos, opt =>
+                opt.MapFrom(src => src.Pavilions));
             CreateMap<EditSellerDto, Seller>()
                 //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
                    .ForMember(dst => dst.Pavilions, opt =>
                 opt.MapFrom(src => src.PavilionDtos))
                 .ForMember(dst => dst.Products, opt =>
-                opt.MapFrom(src => src.ProductDtos));
-            CreateMap<Seller, DetailSellerDto>()
-                  .ForMember(dst => dst.ProductDtos, opt =>
-                opt.MapFrom(src => src.Products))
-                .ForMember(dst => dst.PavilionDtos, opt =>
-                opt.MapFrom(src => src.Pavilions));
+                opt.MapFrom(src => src.ProductDtos))
+                .ForMember(dst=>dst.PasswordHash,opt=>
+                opt.MapFrom(src=>src.Password));
             #endregion
         }
 

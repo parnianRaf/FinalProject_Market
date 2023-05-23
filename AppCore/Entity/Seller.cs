@@ -53,7 +53,6 @@ public class Seller
     #endregion
 
     #region Navigation Property
-    public virtual Region Region { get; set; }
 
     public virtual List<Product> Products { get; set; } 
 
