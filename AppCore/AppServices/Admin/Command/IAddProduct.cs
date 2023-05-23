@@ -4,7 +4,7 @@ namespace AppCore.AppServices.Admin.Command
 {
     public interface IAddProduct
     {
-        Task Execute(AddProductDto productDto, CancellationToken cancellation);
+        Task Execute(int id, CancellationToken cancellation);
     }
 
 
