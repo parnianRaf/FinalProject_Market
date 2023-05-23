@@ -107,7 +107,7 @@ namespace Repositories.Repository.ProductRepository
             return _mapper.Map<List<DetailedProductDto>>(products);
         }
 
-        public async Task<List<DetailedProductDto>> GetAllProductsInStore(CancellationToken cancellation, int pavilionId)
+        public async Task<List<DetailedProductDto>> GetAllProductsInSpecificPavilion(CancellationToken cancellation, int pavilionId)
         {
             List<Product> products = await _context.Products.Where(p => p.PavilionId == pavilionId).ToListAsync(cancellation);
             return _mapper.Map<List<DetailedProductDto>>(products);

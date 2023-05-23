@@ -59,6 +59,6 @@ public class Seller
 
     public virtual SellerAddress SellerAddress { get; set; }
 
-    public List<Pavilion> Pavilions { get; set; }
+    public virtual List<Pavilion> Pavilions { get; set; }
     #endregion
 }

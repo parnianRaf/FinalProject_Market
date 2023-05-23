@@ -4,6 +4,7 @@ using System.Linq;
 using AppCore;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.Seller;
 using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -12,7 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Repositories.UserRepository
 {
-    public class CustomerRepository : ICustomerRepository
+    public class SellerRepository : ISellerRepository
     {
         #region prop
         private readonly UserManager<IdentityUser<int>> _userManager;
@@ -22,7 +23,7 @@ namespace Repositories.UserRepository
         #endregion
 
         #region ctor
-        public CustomerRepository(UserManager<IdentityUser<int>> userManager
+        public SellerRepository(UserManager<IdentityUser<int>> userManager
             , SignInManager<IdentityUser<int>> signInManager
             , IMapper mapper, MarketContext context)
         {
@@ -34,7 +35,7 @@ namespace Repositories.UserRepository
         #endregion
 
         #region Implementation
-        public async Task<bool> AddCustomer(AddCustomerDto customerDto, CancellationToken cancellation)
+        public async Task<bool> AddSeller(AddSelllerDto sellerDto, CancellationToken cancellation)
         {
             //var user = new IdentityUser<int>()
             //{
@@ -42,15 +43,15 @@ namespace Repositories.UserRepository
             //    PhoneNumber=customerDto.PhoneNumber,
             //     UserName=customerDto.UserName,
             //};
-            var user = _mapper.Map<IdentityUser<int>>(customerDto);
-            var addResult = await _userManager.CreateAsync(user, customerDto.Password);
+            var user = _mapper.Map<IdentityUser<int>>(sellerDto);
+            var addResult = await _userManager.CreateAsync(user, sellerDto.Password);
 
 
 
             if (addResult.Succeeded)
             {
-                _userManager.AddToRoleAsync(user, "Customer");
-                _context.Customers.Add(_mapper.Map<Customer>(user));
+                _userManager.AddToRoleAsync(user, "Seller");
+                _context.Sellers.Add(_mapper.Map<Seller>(user));
                 await _context.SaveChangesAsync(cancellation);
                 //Logger.LogInformation("{0} added by {1}",user.UserName,user.Id);
                 return true;
@@ -58,18 +59,18 @@ namespace Repositories.UserRepository
             return false;
         }
 
-        public async Task<EditCustomerDto> UpdateGetCustomer(int id, CancellationToken cancellation)
+        public async Task<EditSellerDto> UpdateGetSeller(int id, CancellationToken cancellation)
         {
-            Customer? customer = await _context.Customers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellation);
-            if (customer != null)
+            Seller? seller = await _context.Sellers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellation);
+            if (seller != null)
             {
-                return _mapper.Map<EditCustomerDto>(customer);
+                return _mapper.Map<EditSellerDto>(seller);
 
             }
-            return new EditCustomerDto();
+            return new EditSellerDto();
         }
 
-        public async Task<bool> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation)
+        public async Task<bool> UpdateSeller(EditSellerDto sellerDto, CancellationToken cancellation)
         {
             //var user = new IdentityUser<int>()
             //{
@@ -77,27 +78,27 @@ namespace Repositories.UserRepository
             //    PhoneNumber = customerDto.PhoneNumber,
             //    UserName = customerDto.UserName,
             //};
-            var user = _mapper.Map<IdentityUser<int>>(customerDto);
+            var user = _mapper.Map<IdentityUser<int>>(sellerDto);
             var editResult = await _userManager.UpdateAsync(user);
             if (editResult.Succeeded)
             {
-                _context.Customers.Update(_mapper.Map<Customer>(customerDto));
+                _context.Sellers.Update(_mapper.Map<Seller>(sellerDto));
                 await _context.SaveChangesAsync(cancellation);
                 return true;
             }
             return false;
         }
 
-        public async Task<bool> DeleteCustomer(int id, CancellationToken cancellationToken)
+        public async Task<bool> DeleteSeller(int id, CancellationToken cancellationToken)
         {
             bool result = false;
-            Customer? customer = await _context.Customers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellationToken);
-            if (customer != null)
+            Seller? seller = await _context.Sellers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellationToken);
+            if (seller != null)
             {
-                customer.IsDeleted = true;
-                customer.DeleteAt = DateTime.Now;
+                seller.IsDeleted = true;
+                seller.DeletedAt = DateTime.Now;
                 //custoomer.DeleteBy
-                _context.Customers.Update(customer);
+                _context.Sellers.Update(seller);
                 await _context.SaveChangesAsync(cancellationToken);
                 return !result;
             }
@@ -105,10 +106,25 @@ namespace Repositories.UserRepository
 
         }
 
-        public async Task<List<DetailCustomerDto>> GetAllCustomers(CancellationToken cancellationToken)
+        public async Task<List<DetailSellerDto>> GetAllCustomers(CancellationToken cancellationToken)
         {
-            var result = await (_context.Customers.ToListAsync(cancellationToken));
-            return _mapper.Map<List<DetailCustomerDto>>(result);
+            var result = await (_context.Sellers.ToListAsync(cancellationToken));
+            return _mapper.Map<List<DetailSellerDto>>(result);
+        }
+
+        public async Task<bool> AchieveMedal(int sellerId, CancellationToken cancellationToken)
+        {
+            Seller? seller = await _context.Sellers.Where(s => s.Id == sellerId).FirstOrDefaultAsync(cancellationToken);
+            if (seller != null)
+            {
+                seller.HasMedal = true;
+                seller.MedalAchievedAt = DateTime.Now;
+                _context.Sellers.Update(seller);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+
         }
 
         #endregion

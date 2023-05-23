@@ -1,5 +1,8 @@
 ﻿using System;
-namespace AppCore.DtoModels.Product
+using AppCore.DtoModels.Offer;
+using AppCore.DtoModels.Product;
+
+namespace AppCore.DtoModels.Auction
 {
 	public class EditAuctionDto
 	{

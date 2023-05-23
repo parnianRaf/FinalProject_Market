@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AppCore.DtoModels.Admin
+namespace AppCore.DtoModels.Seller
 {
 	public class DetailedSellerAddressDto
     {

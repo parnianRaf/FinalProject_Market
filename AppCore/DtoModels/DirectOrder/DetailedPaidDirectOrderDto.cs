@@ -1,5 +1,7 @@
 ﻿using System;
-namespace AppCore.DtoModels.Product
+using AppCore.DtoModels.Product;
+
+namespace AppCore.DtoModels.DirectOrder
 {
 	public class DetailedPaidDirectOrderDto
     {

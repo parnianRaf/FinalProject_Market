@@ -19,6 +19,8 @@
       <None Remove="DtoModels\Product\" />
       <None Remove="Data Access\Product\" />
       <None Remove="DtoModels\Customer\" />
+      <None Remove="DtoModels\Pavilion\" />
+      <None Remove="Data Access\User\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -30,5 +32,7 @@
       <Folder Include="DtoModels\Product\" />
       <Folder Include="Data Access\Product\" />
       <Folder Include="DtoModels\Customer\" />
+      <Folder Include="DtoModels\Pavilion\" />
+      <Folder Include="Data Access\User\" />
     </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AppCore.DtoModels.Product
+namespace AppCore.DtoModels.Offer
 {
 	public class EditOfferDto
 	{

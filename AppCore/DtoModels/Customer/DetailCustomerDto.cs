@@ -1,5 +1,6 @@
 ﻿using System;
 using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 
 namespace AppCore.DtoModels.Customer

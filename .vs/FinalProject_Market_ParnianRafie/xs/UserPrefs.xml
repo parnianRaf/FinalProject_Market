@@ -8,10 +8,12 @@
             <Node name="01-Domain" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
+                  <Node name="Data Access" expanded="True">
+                    <Node name="Product" expanded="True" />
+                  </Node>
                   <Node name="DtoModels" expanded="True">
-                    <Node name="Customer" selected="True" />
-                    <Node name="Customer (copy)" expanded="True" />
-                    <Node name="DirectOrder" expanded="True" />
+                    <Node name="Admin" expanded="True" />
+                    <Node name="Seller" expanded="True" />
                   </Node>
                   <Node name="Entity" expanded="True" />
                   <Node name="Enum" expanded="True" />
@@ -24,8 +26,9 @@
                 <Node name="Repositories" expanded="True">
                   <Node name="AutoMapper" expanded="True" />
                   <Node name="Repository" expanded="True">
-                    <Node name="ProductRepository" expanded="True" />
-                    <Node name="UserRepository" expanded="True" />
+                    <Node name="UserRepository" expanded="True">
+                      <Node name="AdminRepository.cs" selected="True" />
+                    </Node>
                   </Node>
                 </Node>
               </Node>

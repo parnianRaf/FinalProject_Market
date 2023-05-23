@@ -1,7 +1,13 @@
 ﻿using System;
 using AppCore;
 using AppCore.DtoModels;
+using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.DirectOrder;
+using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.Product;
+using AppCore.DtoModels.Seller;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 
@@ -79,6 +85,46 @@ namespace Repositories.AutoMapper
                 opt.MapFrom(src => src.CustomerAddresses))
                 .ForMember(dst => dst.DirectOrderDtos, opt =>
                 opt.MapFrom(src => src.DirectOrders));
+            #endregion
+
+            #region Admin
+            CreateMap<AddAdminDto, Admin>();
+
+            CreateMap<IdentityUser<int>, Admin>()
+                .ForMember(dst => dst.UserId, opt => opt.MapFrom(src => src.Id))
+                //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
+            CreateMap<AddAdminDto, IdentityUser<int>>();
+            CreateMap<EditAdminDto, IdentityUser<int>>();
+            CreateMap<EditAdminDto, Admin>()
+                //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now));
+            CreateMap<Admin, DetailAdminDto>();
+
+
+            #endregion
+
+            #region Seller
+            CreateMap<AddSelllerDto, Seller>();
+
+            CreateMap<IdentityUser<int>, Seller>()
+                .ForMember(dst => dst.UserId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
+            CreateMap<AddSelllerDto, IdentityUser<int>>();
+            CreateMap<EditSellerDto, IdentityUser<int>>();
+            CreateMap<EditSellerDto, Seller>()
+                //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
+                   .ForMember(dst => dst.Pavilions, opt =>
+                opt.MapFrom(src => src.PavilionDtos))
+                .ForMember(dst => dst.Products, opt =>
+                opt.MapFrom(src => src.ProductDtos));
+            CreateMap<Seller, DetailSellerDto>()
+                  .ForMember(dst => dst.ProductDtos, opt =>
+                opt.MapFrom(src => src.Products))
+                .ForMember(dst => dst.PavilionDtos, opt =>
+                opt.MapFrom(src => src.Pavilions));
             #endregion
         }
 
