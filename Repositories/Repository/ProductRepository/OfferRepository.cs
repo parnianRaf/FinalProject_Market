@@ -3,11 +3,12 @@ using AppCore;
 using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-	public class OfferRepository
-	{
+    public class OfferRepository : IOfferRepository
+    {
         #region field
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
@@ -23,36 +24,38 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
         #region Implementation
-        public async Task AddOffer(AddAuctionDto auctionDto, CancellationToken cancellation)
+
+        //dar buissines barname gofte shavad ke harmoghe offer sabt shod moghayese sorat girad.
+        public async Task AddOffer(AddOfferDto offerDto, CancellationToken cancellation)
         {
-            Auction auction = _mapper.Map<Auction>(auctionDto);
-            auction.CreateAt = DateTime.Now;
-            //product.CreatedBy= .
-            _context.Auctions.Add(auction);
+            Offer offer = _mapper.Map<Offer>(offerDto);
+            offer.CreatedAt = DateTime.Now;
+            //offer.CreatedBy= .
+            _context.Offers.Add(offer);
             await _context.SaveChangesAsync(cancellation);
 
         }
 
         //moghe buissiness hatman baiad havasemon bashe ke datetime now o start auction moghayese shavad
 
-        public async Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation)
+        public async Task<EditOfferDto> EditGetOffer(int id, CancellationToken cancellation)
         {
-            Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            Offer? offer = await _context.Offers.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (offer != null)
             {
-                return _mapper.Map<EditAuctionDto>(auction);
+                return _mapper.Map<EditOfferDto>(offer);
             }
-            return new EditAuctionDto();
+            return new EditOfferDto();
         }
 
-        public async Task<bool> EditAuction(EditAuctionDto auctionDto, CancellationToken cancellation)
+        public async Task<bool> EditOffer(EditOfferDto offerDto, CancellationToken cancellation)
         {
             bool result = false;
-            Auction? auction = await _context.Auctions.Where(p => p.Id == auctionDto.Id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            Offer? offer = await _context.Offers.Where(p => p.Id == offerDto.Id).FirstOrDefaultAsync(cancellation);
+            if (offer != null)
             {
-                _context.Auctions.Update(auction);
-                auction.ModifiedAt = DateTime.Now;
+                _context.Offers.Update(offer);
+                offer.ModifiedAt = DateTime.Now;
                 //auction.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -62,15 +65,15 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<bool> RemoveAuction(int id, CancellationToken cancellation)
         {
-            Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            Offer? offer = await _context.Offers.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (offer != null)
             {
                 try
                 {
-                    auction.IsDeleted = true;
-                    auction.DeleteAt = DateTime.Now;
+                    offer.IsDeleted = true;
+                    offer.DeletedAt = DateTime.Now;
                     //auction.DeletedBy
-                    var res = _context.Auctions.Update(auction);
+                    var res = _context.Offers.Update(offer);
                     return true;
                 }
                 catch (Exception ex)
@@ -87,24 +90,11 @@ namespace Repositories.Repository.ProductRepository
         }
 
         //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation, int SellerId)
+        public async Task<List<DetailedOfferDto>> GetAllOffers(CancellationToken cancellation, int customerId)
         {
-            List<Auction> auctions = await _context.Auctions.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
-            return _mapper.Map<List<DetailedAuctionDto>>(auctions);
-        }
-
-        public async Task<List<DetailedProductDto>> GetProductsInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
-        {
-            List<Product> products = await _context.Products.Where(p => p.SellerId == sellerId && p.AuctionId == auctionId).ToListAsync();
-            return _mapper.Map<List<DetailedProductDto>>(products);
-        }
-
-        public async Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
-        {
-            List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.Auction.SellerId == sellerId).ToListAsync();
+            List<Offer> offers = await _context.Offers.Where(p => p.CustomerId == customerId).ToListAsync(cancellation);
             return _mapper.Map<List<DetailedOfferDto>>(offers);
         }
-
 
         #endregion
     }

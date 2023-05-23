@@ -240,3 +240,15 @@
 /Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.pdb
 /Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.genruntimeconfig.cache
 /Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/FinalProject_Market/obj/Debug/net7.0/ref/FinalProject_Market.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.AssemblyReference.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.GeneratedMSBuildEditorConfig.editorconfig
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.AssemblyInfoInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.AssemblyInfo.cs
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.CoreCompileInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.MvcApplicationPartsAssemblyInfo.cs
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.MvcApplicationPartsAssemblyInfo.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.RazorAssemblyInfo.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.RazorAssemblyInfo.cs
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/refint/FinalProject_Market.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.pdb

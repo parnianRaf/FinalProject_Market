@@ -43,6 +43,9 @@ namespace AppSqlDataBase.Configurations
             #endregion
 
             #region Relational Property
+            entity.HasMany(c => c.DirectOrders)
+                .WithOne(o => o.Customer)
+                .HasForeignKey(c => c.CustomerId);
             #endregion
 
             #region Seed Data

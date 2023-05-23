@@ -54,5 +54,7 @@ public class Customer
     public virtual List<Offer> Offers { get; set; } 
 
     public virtual Wallet? Wallet { get; set; }
+
+    public virtual List<DirectOrder> DirectOrders { get; set; }
     #endregion
 }

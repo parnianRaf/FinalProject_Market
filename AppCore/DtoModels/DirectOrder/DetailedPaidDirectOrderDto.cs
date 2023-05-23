@@ -1,15 +1,17 @@
 ﻿using System;
 namespace AppCore.DtoModels.Product
 {
-	public class AddAuctionDto
+	public class DetailedPaidDirectOrderDto
     {
         public int Id { get; set; }
 
-        public DateTime StartTime { get; set; }
-
-        public DateTime EndTime { get; set; }
+        public decimal TotalPrice { get; set; }
 
         public int SellerId { get; set; }
+
+        public string? CommentByCostumer { get; set; }
+
+        public virtual List<DetailedProductDto> ProductDtos { get; set; }
     }
 }
 

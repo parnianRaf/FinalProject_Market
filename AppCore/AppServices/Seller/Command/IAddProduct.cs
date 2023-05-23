@@ -5,7 +5,7 @@ namespace AppCore.AppServices.Seller.Command
 {
 	public interface IAddProduct
 	{
-		Task Execute(AddProductDto productDto);
+		Task Execute(AddProductDto productDto,CancellationToken cancellation);
 	}
 
    

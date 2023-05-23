@@ -21,6 +21,8 @@ public class DirectOrder
 
     public int SellerId { get; set; }
 
+    public int CustomerId { get; set; }
+
     public string? CommentByCostumer { get; set; }
 
     public bool IsCommentAcceptedByAdmin { get; set; }
@@ -43,6 +45,7 @@ public class DirectOrder
     #endregion
 
     #region Navigation Property
-    public virtual List<Product> Products { get; set; } 
+    public virtual List<Product> Products { get; set; }
+    public virtual Customer Customer { get; set; }
     #endregion
 }

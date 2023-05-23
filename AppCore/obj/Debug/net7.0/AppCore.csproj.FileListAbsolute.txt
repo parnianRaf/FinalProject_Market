@@ -34,3 +34,15 @@
 /Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/AppCore/obj/Debug/net7.0/refint/AppCore.dll
 /Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/AppCore/obj/Debug/net7.0/AppCore.pdb
 /Users/parnianrafei/Desktop/FinalProject_Market_ParnianRafie/AppCore/obj/Debug/net7.0/ref/AppCore.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/bin/Debug/net7.0/AppCore.deps.json
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/bin/Debug/net7.0/AppCore.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/bin/Debug/net7.0/AppCore.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.csproj.AssemblyReference.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.GeneratedMSBuildEditorConfig.editorconfig
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.AssemblyInfoInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.AssemblyInfo.cs
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.csproj.CoreCompileInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/refint/AppCore.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/AppCore.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppCore/obj/Debug/net7.0/ref/AppCore.dll

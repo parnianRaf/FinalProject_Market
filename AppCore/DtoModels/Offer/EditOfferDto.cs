@@ -1,15 +1,17 @@
 ﻿using System;
 namespace AppCore.DtoModels.Product
 {
-	public class EditAuctionDto
+	public class EditOfferDto
 	{
         public int Id { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public int CustomerId { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public int AuctionId { get; set; }
 
-        public int SellerId { get; set; }
+        public decimal Price { get; set; }
+
+        public DateTime SubmitAt { get; set; }
     }
 }
 

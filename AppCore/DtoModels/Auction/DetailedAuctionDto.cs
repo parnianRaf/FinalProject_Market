@@ -29,6 +29,10 @@ namespace AppCore.DtoModels.Product
 
         public bool IsFinished { get; set; }
 
+        public virtual List<DetailedOfferDto> OffersDto { get; set; }
+
+        public virtual List<DetailedProductDto> ProductDtos { get; set; }
+
     }
 }
 

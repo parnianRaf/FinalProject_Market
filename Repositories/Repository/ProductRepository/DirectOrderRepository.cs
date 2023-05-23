@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class AuctionRepository : IAuctionRepository
+    public class DirectOrderRepository : IDirectOrderRepository
     {
         #region field
         private readonly MarketContext _context;
@@ -17,7 +17,7 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
         #region ctor
-        public AuctionRepository(MarketContext context
+        public DirectOrderRepository(MarketContext context
             , IMapper mapper)
         {
             _context = context;
@@ -26,36 +26,36 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
         #region Implementation
-        public async Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation)
+        //baraye list productha aval foroshandaro azash miprsim, list sefareshha tanha az yek maghaqze mitavanad bashad
+        public async Task AddDirectOrder(AddDirectDto oredrDto, CancellationToken cancellation)
         {
-            Auction auction = _mapper.Map<Auction>(auctionDto);
-            auction.CreateAt = DateTime.Now;
+            DirectOrder order = _mapper.Map<DirectOrder>(oredrDto);
+            order.CreatedAt = DateTime.Now;
             //product.CreatedBy= .
-            _context.Auctions.Add(auction);
+            _context.DirectOrders.Add(order);
             await _context.SaveChangesAsync(cancellation);
 
         }
 
-        //moghe buissiness hatman baiad havasemon bashe ke datetime now o start auction moghayese shavad
-
-        public async Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation)
+        //baraye buissiness =>inke sefareshesho taghir bede baraye list productha aval befahmim az hamin foroshande mitone bekhare ya foroshande dg
+        public async Task<EditDirectOrderDto> EditGetOrer(int id, CancellationToken cancellation)
         {
-            Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (order != null)
             {
-                return _mapper.Map<EditAuctionDto>(auction);
+                return _mapper.Map<EditDirectOrderDto>(order);
             }
-            return new EditAuctionDto();
+            return new EditDirectOrderDto();
         }
 
-        public async Task<bool> EditAuction(EditAuctionDto auctionDto, CancellationToken cancellation)
+        public async Task<bool> EditAuction(EditDirectOrderDto orderDto, CancellationToken cancellation)
         {
             bool result = false;
-            Auction? auction = await _context.Auctions.Where(p => p.Id == auctionDto.Id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == orderDto.Id).FirstOrDefaultAsync(cancellation);
+            if (order != null)
             {
-                _context.Auctions.Update(auction);
-                auction.ModifiedAt = DateTime.Now;
+                _context.DirectOrders.Update(order);
+                order.ModifiedAt = DateTime.Now;
                 //auction.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -65,15 +65,15 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<bool> RemoveAuction(int id, CancellationToken cancellation)
         {
-            Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (order != null)
             {
                 try
                 {
-                    auction.IsDeleted = true;
-                    auction.DeleteAt = DateTime.Now;
+                    order.IsDeleted = true;
+                    order.DeletedAt = DateTime.Now;
                     //auction.DeletedBy
-                    var res = _context.Auctions.Update(auction);
+                    var res = _context.DirectOrders.Update(order);
                     return true;
                 }
                 catch (Exception ex)
@@ -89,24 +89,35 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation, int SellerId)
+        public async Task<bool> AddCommentByCustomer(int orderId, int customerId, string comment, CancellationToken cancellation)
         {
-            List<Auction> auctions = await _context.Auctions.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
-            return _mapper.Map<List<DetailedAuctionDto>>(auctions);
+            bool result = false;
+            DirectOrder? order = await _context.DirectOrders.Where(o => o.Id == orderId && o.CustomerId == customerId).FirstOrDefaultAsync(cancellation);
+            if (order != null)
+            {
+                order.CommentByCostumer = comment;
+                _context.DirectOrders.Update(order);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return result;
+
         }
 
-        public async Task<List<DetailedProductDto>> GetProductsInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
+        //customerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
+        public async Task<List<DetailedPaidDirectOrderDto>> GetAllPaidOrders(CancellationToken cancellation, int customerId)
         {
-            List<Product> products = await _context.Products.Where(p => p.SellerId == sellerId && p.AuctionId == auctionId).ToListAsync();
-            return _mapper.Map<List<DetailedProductDto>>(products);
+            List<DirectOrder> orders = await _context.DirectOrders.Where(p => p.CustomerId == customerId && p.IsPaid == true).ToListAsync(cancellation);
+            return _mapper.Map<List<DetailedPaidDirectOrderDto>>(orders);
         }
 
-        public async Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
+        //tanha yek sabad kharid pardakht nashode mitonim dashte bashim
+        public async Task<List<DetailedDirctOrderDto>> GetpaidOrder(int customerId, CancellationToken cancellation)
         {
-            List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.Auction.SellerId == sellerId).ToListAsync();
-            return _mapper.Map<List<DetailedOfferDto>>(offers);
+            List<DirectOrder> orders = await _context.DirectOrders.Where(p => p.CustomerId == customerId && p.IsPaid == false).ToListAsync();
+            return _mapper.Map<List<DetailedDirctOrderDto>>(orders);
         }
+
 
 
         #endregion
