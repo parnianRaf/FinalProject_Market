@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppSqlDataBase.Migrations
 {
     [DbContext(typeof(MarketContext))]
-    [Migration("20230521180754_init")]
+    [Migration("20230523115212_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -30,6 +30,18 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -40,25 +52,40 @@ namespace AppSqlDataBase.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMainAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifiedBy")
+                        .HasColumnType("int");
 
                     b.Property<string>("NationalityCode")
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("PhoneNo")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -79,6 +106,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int?>("AcceptedCustomerId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CommentByCostumer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -94,10 +124,22 @@ namespace AppSqlDataBase.Migrations
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FinalCommentByCostumer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal?>("FinalPrice")
                         .HasColumnType("decimal(10, 2)");
 
+                    b.Property<bool>("IsCommentAcceptedByAdmin")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsCommentDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsFinished")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModeifiedAt")
@@ -105,6 +147,12 @@ namespace AppSqlDataBase.Migrations
 
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
+
+                    b.Property<int?>("OfferSubmitByCustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("OfferSubmitWithPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SellerId")
                         .HasColumnType("int");
@@ -183,9 +231,6 @@ namespace AppSqlDataBase.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsMainAddress")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -201,16 +246,19 @@ namespace AppSqlDataBase.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("PhoneNo")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -254,6 +302,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsMainAddress")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
@@ -272,10 +323,16 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
+                    b.Property<string>("CommentByCostumer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DeletedAt")
@@ -283,6 +340,12 @@ namespace AppSqlDataBase.Migrations
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsCommentAcceptedByAdmin")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsCommentDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -296,10 +359,15 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
 
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(10, 2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("DirectOrders");
                 });
@@ -326,6 +394,9 @@ namespace AppSqlDataBase.Migrations
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -417,6 +488,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int?>("DirectOrderId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsAcceptedByAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -429,6 +503,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PavilionId")
+                        .HasColumnType("int");
+
                     b.Property<decimal?>("Price")
                         .HasColumnType("decimal(10, 2)");
 
@@ -439,6 +516,9 @@ namespace AppSqlDataBase.Migrations
 
                     b.Property<int>("SellerId")
                         .HasColumnType("int");
+
+                    b.Property<string>("filePathSource")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -504,18 +584,21 @@ namespace AppSqlDataBase.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("PhoneNo")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
                     b.Property<int>("Region")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -814,6 +897,17 @@ namespace AppSqlDataBase.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("AppCore.DirectOrder", b =>
+                {
+                    b.HasOne("AppCore.Customer", "Customer")
+                        .WithMany("DirectOrders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
             modelBuilder.Entity("AppCore.Offer", b =>
                 {
                     b.HasOne("AppCore.Auction", "Auction")
@@ -965,6 +1059,8 @@ namespace AppSqlDataBase.Migrations
             modelBuilder.Entity("AppCore.Customer", b =>
                 {
                     b.Navigation("CustomerAddresses");
+
+                    b.Navigation("DirectOrders");
 
                     b.Navigation("Offers");
 

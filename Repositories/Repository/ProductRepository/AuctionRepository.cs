@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using AppCore;
 using AppCore.DtoModels;
+using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;

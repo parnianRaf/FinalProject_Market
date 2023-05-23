@@ -1,5 +1,6 @@
 ﻿using System;
 using AppCore;
+using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;

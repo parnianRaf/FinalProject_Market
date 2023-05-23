@@ -1,4 +1,5 @@
-﻿using AppCore.DtoModels.Product;
+﻿using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.Offer;
 
 namespace Repositories.Repository.ProductRepository
 {

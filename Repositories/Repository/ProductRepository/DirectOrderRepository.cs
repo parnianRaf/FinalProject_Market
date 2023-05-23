@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AppCore;
 using AppCore.DtoModels;
+using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;

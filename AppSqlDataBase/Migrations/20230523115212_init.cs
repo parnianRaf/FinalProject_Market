@@ -16,13 +16,22 @@ namespace AppSqlDataBase.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    PhoneNo = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     UserName = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    NationalityCode = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true)
+                    PasswordHash = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    NationalityCode = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
+                    IsMainAdmin = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -77,9 +86,16 @@ namespace AppSqlDataBase.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OfferSubmitByCustomerId = table.Column<int>(type: "int", nullable: true),
+                    OfferSubmitWithPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     AcceptedCustomerId = table.Column<int>(type: "int", nullable: true),
                     FinalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     SellerId = table.Column<int>(type: "int", nullable: false),
+                    CommentByCostumer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsCommentAcceptedByAdmin = table.Column<bool>(type: "bit", nullable: false),
+                    IsCommentDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    FinalCommentByCostumer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsFinished = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreateBy = table.Column<int>(type: "int", nullable: false),
                     ModeifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -117,14 +133,14 @@ namespace AppSqlDataBase.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    PhoneNo = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     UserName = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    PasswordHash = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
                     NationalityCode = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    IsMainAddress = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreteBy = table.Column<int>(type: "int", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -139,36 +155,17 @@ namespace AppSqlDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DirectOrders",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    IsPaid = table.Column<bool>(type: "bit", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedBy = table.Column<int>(type: "int", nullable: true),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DirectOrders", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Sellers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    PhoneNo = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     UserName = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    PasswordHash = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
                     NationalityCode = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
                     HasMedal = table.Column<bool>(type: "bit", nullable: true),
                     MedalAchievedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -300,6 +297,7 @@ namespace AppSqlDataBase.Migrations
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     AddressTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     FullAddress = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    IsMainAddress = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreateBy = table.Column<int>(type: "int", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -320,6 +318,37 @@ namespace AppSqlDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DirectOrders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    IsPaid = table.Column<bool>(type: "bit", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    SellerId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    CommentByCostumer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsCommentAcceptedByAdmin = table.Column<bool>(type: "bit", nullable: false),
+                    IsCommentDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedBy = table.Column<int>(type: "int", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DirectOrders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DirectOrders_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Offers",
                 columns: table => new
                 {
@@ -328,6 +357,7 @@ namespace AppSqlDataBase.Migrations
                     AuctionId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     SubmitAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsAccepted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -405,6 +435,32 @@ namespace AppSqlDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SellerAddressess",
+                columns: table => new
+                {
+                    SellerId = table.Column<int>(type: "int", nullable: false),
+                    AddressTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    FullAddress = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedBy = table.Column<int>(type: "int", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SellerAddressess", x => x.SellerId);
+                    table.ForeignKey(
+                        name: "FK_SellerAddressess_Sellers_SellerId",
+                        column: x => x.SellerId,
+                        principalTable: "Sellers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -413,9 +469,12 @@ namespace AppSqlDataBase.Migrations
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     SellerId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
+                    PavilionId = table.Column<int>(type: "int", nullable: true),
                     AuctionId = table.Column<int>(type: "int", nullable: true),
                     DirectOrderId = table.Column<int>(type: "int", nullable: true),
+                    filePathSource = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsAcceptedByAdmin = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -447,32 +506,6 @@ namespace AppSqlDataBase.Migrations
                         column: x => x.DirectOrderId,
                         principalTable: "DirectOrders",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SellerAddressess",
-                columns: table => new
-                {
-                    SellerId = table.Column<int>(type: "int", nullable: false),
-                    AddressTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    FullAddress = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedBy = table.Column<int>(type: "int", nullable: true),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SellerAddressess", x => x.SellerId);
-                    table.ForeignKey(
-                        name: "FK_SellerAddressess_Sellers_SellerId",
-                        column: x => x.SellerId,
-                        principalTable: "Sellers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -517,6 +550,11 @@ namespace AppSqlDataBase.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_CustomerAddressess_CustomerId",
                 table: "CustomerAddressess",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DirectOrders_CustomerId",
+                table: "DirectOrders",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
