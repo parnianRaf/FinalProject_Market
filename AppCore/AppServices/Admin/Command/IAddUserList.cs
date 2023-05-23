@@ -1,13 +1,12 @@
-﻿using AppCore.DtoModels.Product;
+﻿using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Product;
 
 namespace AppCore.AppServices.Admin.Command
 {
     public interface IAddUserList
     {
-        Task Execute(AddProductDto productDto, CancellationToken cancellation);
+        //Task Execute(IdentityUser<int> entity, CancellationToken cancellation);
     }
-
-
 
 }
 

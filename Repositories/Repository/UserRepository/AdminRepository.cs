@@ -71,6 +71,13 @@ namespace Repositories.UserRepository
             return resultLogIn;
         }
 
+        public async Task LogOut(CancellationToken cancellation)
+        {
+            bool resultLogIn = false;
+            await _signInManager.SignOutAsync();
+        }
+
+
         public async Task<EditAdminDto> UpdateGetCustomer(int id, CancellationToken cancellation)
         {
             Admin? admin = await context.Admins.Where(c => c.Id == id).FirstOrDefaultAsync(cancellation);

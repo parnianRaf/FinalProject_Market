@@ -4,7 +4,7 @@ namespace AppCore.AppServices.Admin.Command
 {
     public interface ILogOut
     {
-        Task Execute(AddProductDto productDto, CancellationToken cancellation);
+        Task Execute( CancellationToken cancellation);
     }
 
 }

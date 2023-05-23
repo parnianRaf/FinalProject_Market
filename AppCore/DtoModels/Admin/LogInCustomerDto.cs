@@ -1,7 +1,7 @@
 ﻿using System;
-namespace AppCore.DtoModels
+namespace AppCore.DtoModels.Admin
 {
-	public class LogInCustomerDto
+	public class LogInAdminDto
 	{
 		public int Id { get; set; }
 		public string UserName { get; set; }

@@ -4,7 +4,7 @@ namespace AppCore.AppServices.Seller.Command
 {
     public interface IDeleteAuction
     {
-        Task Execute(AddProductDto productDto, CancellationToken cancellation);
+        Task Execute(int id, CancellationToken cancellation);
     }
 
 

@@ -57,8 +57,24 @@ namespace Repositories.UserRepository
             }
             return false;
         }
+        public async Task<bool> LogIn(LogInCustomerDto customerDto, CancellationToken cancellation)
+        {
+            bool resultLogIn = false;
+            var result = await _signInManager.PasswordSignInAsync(customerDto.UserName, customerDto.Password, false, false);
+            if (result.Succeeded)
+            {
+                return !resultLogIn;
+            }
+            return resultLogIn;
+        }
 
-        public async Task<EditCustomerDto> UpdateGetCustomer(int id, CancellationToken cancellation)
+        public async Task LogOut(CancellationToken cancellation)
+        {
+            bool resultLogIn = false;
+            await _signInManager.SignOutAsync();
+        }
+
+        public async Task<EditCustomerDto> GetCustomer(int id, CancellationToken cancellation)
         {
             Customer? customer = await _context.Customers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellation);
             if (customer != null)

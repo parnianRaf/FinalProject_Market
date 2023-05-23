@@ -70,6 +70,11 @@ namespace Repositories.UserRepository
             return resultLogIn;
         }
 
+        public async Task LogOut(CancellationToken cancellation)
+        {
+            bool resultLogIn = false;
+            await _signInManager.SignOutAsync();
+        }
 
         public async Task<EditSellerDto> UpdateGetSeller(int id, CancellationToken cancellation)
         {

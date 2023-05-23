@@ -1,10 +1,11 @@
-﻿using AppCore.DtoModels.Product;
+﻿using AppCore.DtoModels;
+using AppCore.DtoModels.Product;
 
 namespace AppCore.AppServices.Admin.Command
 {
     public interface IEditPavilion
     {
-        Task Execute(AddProductDto productDto, CancellationToken cancellation);
+        Task Execute(PavilionDtoModel productDto, CancellationToken cancellation);
     }
 
 

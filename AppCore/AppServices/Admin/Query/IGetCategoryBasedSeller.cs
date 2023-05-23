@@ -4,7 +4,7 @@ namespace AppCore.AppServices.Admin.Query
 {
     public interface IGetCategoryBasedSeller
     {
-        Task Execute(AddProductDto productDto, CancellationToken cancellation);
+        Task Execute(int sellerId, CancellationToken cancellation);
     }
 
 

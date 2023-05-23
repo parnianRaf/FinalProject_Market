@@ -7,7 +7,5 @@ namespace AppCore.AppServices.Admin.Command
         Task Execute(AddProductDto productDto, CancellationToken cancellation);
     }
 
-
-
 }
 
