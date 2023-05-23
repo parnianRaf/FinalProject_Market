@@ -46,7 +46,7 @@ namespace Repositories.Repository.ProductRepository
             _context.Products.Add(product);
             await _context.SaveChangesAsync(cancellation);
 
-
+            //amaliat ra dar service
         }
 
         public async Task<EditProductDto> EditGetProduct(int id, CancellationToken cancellation)
