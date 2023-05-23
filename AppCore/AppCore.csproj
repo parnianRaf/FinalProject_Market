@@ -18,6 +18,7 @@
       <None Remove="AppServices\Seller\Query\" />
       <None Remove="DtoModels\Product\" />
       <None Remove="Data Access\Product\" />
+      <None Remove="DtoModels\Customer\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -28,5 +29,6 @@
       <Folder Include="AppServices\Seller\Query\" />
       <Folder Include="DtoModels\Product\" />
       <Folder Include="Data Access\Product\" />
+      <Folder Include="DtoModels\Customer\" />
     </ItemGroup>
 </Project>

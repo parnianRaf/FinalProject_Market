@@ -20,7 +20,6 @@ namespace Repositories.AutoMapper
             CreateMap<Pavilion, PavilionDtoModel>();
             #endregion
 
-
             #region Auction
             CreateMap<AddAuctionDto, Auction>()
                 .ForMember(dst => dst.Products, opt =>
@@ -61,28 +60,26 @@ namespace Repositories.AutoMapper
             CreateMap<DirectOrder, DetailedDirctOrderDto>()
                 .ForMember(dst => dst.ProductDtos, opt =>
              opt.MapFrom(src => src.Products));
-
-            
             #endregion
 
-
+            #region Customer
             CreateMap<AddCustomerDto, Customer>();
-
-
+               
             CreateMap<IdentityUser<int>, Customer>()
 				.ForMember(dst=>dst.UserId,opt=>opt.MapFrom(src=>src.Id))
-				.ForMember(dst=>dst.CreteBy,opt=>opt.MapFrom(src=>src.Id))
+                .ForMember(dst => dst.CreteBy, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.CreateAt, opt => opt.MapFrom(src => DateTime.Now));
-
 			CreateMap<AddCustomerDto, IdentityUser<int>>();
             CreateMap<EditCustomerDto, IdentityUser<int>>();
             CreateMap<EditCustomerDto, Customer>()
-                .ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+                //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dst=>dst.ModifiedAt,opt=>opt.MapFrom(src=>DateTime.Now));
-
-			CreateMap<Customer, DetailCustomerDto>();
-
-
+			CreateMap<Customer, DetailCustomerDto>()
+                  .ForMember(dst => dst.CustomerAddressDtos, opt =>
+                opt.MapFrom(src => src.CustomerAddresses))
+                .ForMember(dst => dst.DirectOrderDtos, opt =>
+                opt.MapFrom(src => src.DirectOrders));
+            #endregion
         }
 
     }

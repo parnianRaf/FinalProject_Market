@@ -1,5 +1,8 @@
 ﻿using System;
-namespace AppCore.DtoModels
+using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.Product;
+
+namespace AppCore.DtoModels.Customer
 {
 	public class DetailCustomerDto
 	{
@@ -21,7 +24,9 @@ namespace AppCore.DtoModels
 
         public string NationalityCode { get; set; }
 
-        public bool IsMainAddress { get; set; }
+        public virtual List<DetailedDirctOrderDto>?DirectOrderDtos { get; set; }
+
+        public virtual List<DetailedCustomerAdddressDto>? CustomerAddressDtos { get; set; }
     }
 }
 

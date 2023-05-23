@@ -1,8 +1,11 @@
 ﻿using System;
-namespace AppCore.DtoModels
+using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.Product;
+
+namespace AppCore.DtoModels.Admin
 {
-	public class EditCustomerDto
-    {
+	public class DetailAdminDto
+	{
         public int Id { get; set; }
 
         public int UserId { get; set; }
@@ -17,12 +20,9 @@ namespace AppCore.DtoModels
 
         public string UserName { get; set; }
 
-        public string PasswordHash { get; set; }
+        public string Password { get; set; }
 
         public string NationalityCode { get; set; }
-
-        public bool IsMainAddress { get; set; }
-
     }
 }
 

@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,19 +8,16 @@
             <Node name="01-Domain" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
-                  <Node name="Data Access" expanded="True">
-                    <Node name="Product" expanded="True" />
+                  <Node name="DtoModels" expanded="True">
+                    <Node name="Customer" selected="True" />
+                    <Node name="Customer (copy)" expanded="True" />
+                    <Node name="DirectOrder" expanded="True" />
                   </Node>
+                  <Node name="Entity" expanded="True" />
+                  <Node name="Enum" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="Seller" expanded="True">
-                    <Node name="Command" expanded="True" />
-                    <Node name="Query" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
+              <Node name="Service" expanded="True" />
             </Node>
             <Node name="02-Infrastructure" expanded="True">
               <Node name="02-Repository" expanded="True">
@@ -34,25 +25,21 @@
                   <Node name="AutoMapper" expanded="True" />
                   <Node name="Repository" expanded="True">
                     <Node name="ProductRepository" expanded="True" />
+                    <Node name="UserRepository" expanded="True" />
                   </Node>
                 </Node>
               </Node>
             </Node>
-            <Node name="03-Endpoint" expanded="True">
-              <Node name="FinalProject_Market" expanded="True">
-                <Node name="Controllers" expanded="True" />
-                <Node name="Models" expanded="True">
-                  <Node name="ViewModels" expanded="True" />
-                </Node>
-                <Node name="Views" expanded="True">
-                  <Node name="Seller" expanded="True" />
-                </Node>
-                <Node name="wwwroot" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="03-Endpoint" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
