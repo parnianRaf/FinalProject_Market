@@ -1,4 +1,59 @@
 ﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppSqlDataBase/Configurations/ProductsEntityConfiguration.cs">
+    <Files>
+      <File FileName="AppCore/Entity/DirectOrder.cs" Line="52" Column="1" IsPinned="True" />
+      <File FileName="AppCore/DtoModels/DirectOrder/AddDirectOrderDto.cs" Line="12" Column="74" />
+      <File FileName="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" Line="92" Column="8" />
+      <File FileName="Repositories/AutoMapper/EntityProfile.cs" Line="50" Column="13" />
+      <File FileName="AppCore/DtoModels/DirectOrder/EditDirectOrderDto.cs" Line="10" Column="37" />
+      <File FileName="AppCore/Entity/Customer.cs" Line="59" Column="15" />
+      <File FileName="AppSqlDataBase/Configurations/CustomerEntityConfiguration.cs" Line="54" Column="6" />
+      <File FileName="AppCore/DtoModels/DirectOrder/DetailedAuctionDto.cs" Line="4" Column="36" />
+      <File FileName="Repositories/Repository/ProductRepository/AuctionRepository.cs" Line="130" Column="53" />
+      <File FileName="AppSqlDataBase/Configurations/ProductsEntityConfiguration.cs" Line="24" Column="34" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FinalProject_Market_ParnianRafie" expanded="True">
+            <Node name="01-Domain" expanded="True">
+              <Node name="Core" expanded="True">
+                <Node name="AppCore" expanded="True">
+                  <Node name="DtoModels" expanded="True">
+                    <Node name="DirectOrder" expanded="True" />
+                    <Node name="Offer" expanded="True" />
+                  </Node>
+                  <Node name="Entity" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="01-SqlDataBase" expanded="True">
+                <Node name="AppSqlDataBase" expanded="True">
+                  <Node name="Configurations" expanded="True">
+                    <Node name="ProductsEntityConfiguration.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="02-Repository" expanded="True">
+                <Node name="Repositories" expanded="True">
+                  <Node name="AutoMapper" expanded="True" />
+                  <Node name="Repository" expanded="True">
+                    <Node name="ProductRepository" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

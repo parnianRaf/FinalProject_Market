@@ -21,7 +21,7 @@ namespace AppSqlDataBase.Configurations
             entity.Property(e => e.ProductName)
                 .HasMaxLength(50);
 
-            entity.Ignore(e => e.fileImage);
+            entity.Ignore(e => e.filePathSource);
                 
             #endregion
 

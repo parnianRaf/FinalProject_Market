@@ -14,26 +14,56 @@ namespace Repositories.AutoMapper
             #region Product
             CreateMap<AddProductDto, Product>();
             CreateMap<Product,EditProductDto > ();
-            CreateMap<Product, DetailedProductDto>();
-            CreateMap<Product, List<DetailedProductDto>>();
+            CreateMap<Product, DetailedProductDto>()
+                .ReverseMap();
 
             CreateMap<Pavilion, PavilionDtoModel>();
             #endregion
 
 
             #region Auction
-            CreateMap<AddAuctionDto, Auction>();
-            CreateMap<Auction, EditAuctionDto>();
-            CreateMap<Auction, DetailedAuctionDto>();
+            CreateMap<AddAuctionDto, Auction>()
+                .ForMember(dst => dst.Products, opt =>
+                opt.MapFrom(src => src.ProductDtos))
+                .ForMember(dst => dst.Offers, opt =>
+                opt.MapFrom(src => src.OffersDto));
+
+            CreateMap<Auction, EditAuctionDto>()
+                 .ForMember(dst => dst.ProductDtos, opt =>
+                opt.MapFrom(src => src.Products))
+                .ForMember(dst => dst.OffersDto, opt =>
+                opt.MapFrom(src => src.Offers));
+
+            CreateMap<Auction, DetailedAuctionDto>()
+                 .ForMember(dst => dst.ProductDtos, opt =>
+                opt.MapFrom(src => src.Products))
+                .ForMember(dst => dst.OffersDto, opt =>
+                opt.MapFrom(src => src.Offers)); 
             #endregion
 
             #region Offer
             CreateMap<AddOfferDto, Offer>();
             CreateMap<Offer, EditOfferDto>();
-            CreateMap<Offer, DetailedOfferDto>();
+            CreateMap<Offer, DetailedOfferDto>()
+                .ReverseMap();
             #endregion
 
+            #region DirectOrder
+            CreateMap<AddDirectDto, DirectOrder>()
+                .ForMember(s => s.Products, opt =>
+                opt.MapFrom(src => src.ProductDtos));
+            CreateMap<DirectOrder, EditDirectOrderDto>()
+                .ForMember(dst => dst.ProductDtos, opt =>
+                opt.MapFrom(src => src.Products));
+            CreateMap<DirectOrder, DetailedPaidDirectOrderDto>()
+                   .ForMember(dst => dst.ProductDtos, opt =>
+                opt.MapFrom(src => src.Products));
+            CreateMap<DirectOrder, DetailedDirctOrderDto>()
+                .ForMember(dst => dst.ProductDtos, opt =>
+             opt.MapFrom(src => src.Products));
 
+            
+            #endregion
 
 
             CreateMap<AddCustomerDto, Customer>();

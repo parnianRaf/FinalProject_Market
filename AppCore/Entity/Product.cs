@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace AppCore;
 
@@ -21,6 +22,10 @@ public class Product
     public int? AuctionId { get; set; }
 
     public int? DirectOrderId { get; set; }
+
+    public string? filePathSource { get; set; }
+
+    public IFormFile? ImageFile { get; set; }
 
     public bool IsActive { get; set; }
 

@@ -55,7 +55,7 @@ namespace Repositories.Repository.ProductRepository
             if (auction != null)
             {
                 _context.Auctions.Update(auction);
-                auction.ModifiedAt = DateTime.Now;
+                auction.ModeifiedAt = DateTime.Now;
                 //auction.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -90,22 +90,60 @@ namespace Repositories.Repository.ProductRepository
         }
 
         //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation, int SellerId)
+        public async Task<List<DetailedAuctionDto>> GetAllSellerAuctions(CancellationToken cancellation, int SellerId)
         {
             List<Auction> auctions = await _context.Auctions.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
             return _mapper.Map<List<DetailedAuctionDto>>(auctions);
         }
 
-        public async Task<List<DetailedProductDto>> GetProductsInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
+        //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
+        public async Task<List<DetailedAuctionDto>> GetAllCustomersAuctions(CancellationToken cancellation, int CustomerId)
         {
-            List<Product> products = await _context.Products.Where(p => p.SellerId == sellerId && p.AuctionId == auctionId).ToListAsync();
-            return _mapper.Map<List<DetailedProductDto>>(products);
+            List<Auction> auctions = await _context.Auctions.Where(p => p.AcceptedCustomerId == CustomerId).ToListAsync(cancellation);
+            return _mapper.Map<List<DetailedAuctionDto>>(auctions);
         }
 
-        public async Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
+        //public async Task<List<DetailedProductDto>> GetProductsInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
+        //{
+        //    List<Product> products = await _context.Products.Where(p => p.SellerId == sellerId && p.AuctionId == auctionId).ToListAsync();
+        //    return _mapper.Map<List<DetailedProductDto>>(products);
+        //}
+
+        public async Task<List<DetailedOfferDto>> GetOffersInSpecificSellerAuction(int sellerId, int auctionId, CancellationToken cancellation)
         {
             List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.Auction.SellerId == sellerId).ToListAsync();
             return _mapper.Map<List<DetailedOfferDto>>(offers);
+        }
+
+        public async Task<List<DetailedOfferDto>> GetOffersInSpecificCustomerAuction(int customerId, int auctionId, CancellationToken cancellation)
+        {
+            List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.CustomerId == customerId).ToListAsync();
+            return _mapper.Map<List<DetailedOfferDto>>(offers);
+        }
+
+        public async Task<bool> AddCommentByCustomer(int auctionId, int customerId, string comment, CancellationToken cancellation)
+        {
+            bool result = false;
+            Auction? auction = await _context.Auctions.Where(o => o.Id == auctionId && o.AcceptedCustomerId == customerId).FirstOrDefaultAsync(cancellation);
+            if (auction != null)
+            {
+                auction.CommentByCostumer = comment;
+                _context.Auctions.Update(auction);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return result;
+
+        }
+
+        public Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation, int SellerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
+        {
+            throw new NotImplementedException();
         }
 
 

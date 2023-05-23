@@ -10,6 +10,10 @@ namespace AppCore.DtoModels.Product
         public DateTime EndTime { get; set; }
 
         public int SellerId { get; set; }
+
+        public virtual List<DetailedOfferDto> OffersDto { get; set; }
+
+        public virtual List<DetailedProductDto> ProductDtos { get; set; }
     }
 }
 
