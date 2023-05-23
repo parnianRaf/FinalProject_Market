@@ -1,14 +1,36 @@
 ﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppCore/AppServices/Seller/Command/IAddProduct.cs">
+    <Files>
+      <File FileName="Repositories/Repository/UserRepository/AdminRepository.cs" Line="1" Column="1" />
+      <File FileName="Repositories/Repository/UserRepository/CustomerRepository.cs" Line="1" Column="1" />
+      <File FileName="AppCore/AppServices/Seller/Command/IAddProduct.cs" Line="14" Column="1" />
+      <File FileName="AppCore/AppServices/Seller/Command/IEditProduct.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FinalProject_Market_ParnianRafie" expanded="True" selected="True">
-            <Node name="02-Infrastructure" expanded="True">
-              <Node name="01-SqlDataBase" expanded="True" />
+          <Node name="FinalProject_Market_ParnianRafie" expanded="True">
+            <Node name="01-Domain" expanded="True">
+              <Node name="Core" expanded="True">
+                <Node name="AppCore" expanded="True">
+                  <Node name="AppServices" expanded="True">
+                    <Node name="Seller (copy)" expanded="True" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
             </Node>
-            <Node name="03-Endpoint" expanded="True" />
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="02-Repository" expanded="True">
+                <Node name="Repositories" expanded="True">
+                  <Node name="AutoMapper" expanded="True" />
+                  <Node name="Repository" expanded="True">
+                    <Node name="ProductRepository" expanded="True" />
+                    <Node name="UserRepository" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>

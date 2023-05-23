@@ -137,6 +137,37 @@ namespace Repositories.Repository.ProductRepository
             return result;
 
         }
+        public async Task<bool> AcceptComment(int auctionId, CancellationToken cancellation)
+        {
+            bool result = false;
+            Auction? auction = await _context.Auctions.Where(p => p.Id == auctionId).FirstOrDefaultAsync(cancellation);
+            if (auction != null)
+            {
+                auction.IsCommentAcceptedByAdmin = true;
+                _context.Auctions.Update(auction);
+                auction.ModeifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
+        public async Task<bool> RejectComment(int auctionId, CancellationToken cancellation)
+        {
+            bool result = false;
+            Auction? auction = await _context.Auctions.Where(p => p.Id == auctionId).FirstOrDefaultAsync(cancellation);
+            if (auction != null)
+            {
+                auction.IsCommentAcceptedByAdmin = false;
+                _context.Auctions.Update(auction);
+                auction.ModeifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
 
         public Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation, int SellerId)
         {

@@ -63,8 +63,10 @@ namespace Repositories.Repository.ProductRepository
         {
             bool result = false;
             Product? product = await _context.Products.Where(p => p.Id == productDto.Id).FirstOrDefaultAsync(cancellation);
+           
             if (product != null)
             {
+                product = _mapper.Map<Product>(productDto);
                 _context.Products.Update(product);
                 product.ModifiedAt = DateTime.Now;
                 //product.ModifiedBy
@@ -73,6 +75,39 @@ namespace Repositories.Repository.ProductRepository
             }
             return result;
         }
+
+        public async Task<bool> AcceptProduct(int id, CancellationToken cancellation)
+        {
+            bool result = false;
+            Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (product != null)
+            {
+                product.IsActive = true;
+                _context.Products.Update(product);
+                product.ModifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
+        public async Task<bool> RejectProduct(int id, CancellationToken cancellation)
+        {
+            bool result = false;
+            Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (product != null)
+            {
+                product.IsActive = false;
+                _context.Products.Update(product);
+                product.ModifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
 
         public async Task<bool> RemoveProduct(int id, CancellationToken cancellation)
         {
@@ -117,16 +152,6 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
 
-        #region Category
-
-      
-        public async Task<List<PavilionDtoModel>> GetPavilions(int sellerId, CancellationToken cancellation)
-        {
-            List<Pavilion> pavilions = await _context.Pavilions.Where(p => p.SellerId == sellerId).ToListAsync();
-            return _mapper.Map<List<PavilionDtoModel>>(pavilions);
-        }
-
-        #endregion
 
     }
 }

@@ -12,6 +12,8 @@ public class Pavilion
 
     public int SellerId { get; set; }
 
+    public bool IsAccepted { get; set; }
+
     public DateTime CreatedAt { get; set; }
 
     public int CreatedBy { get; set; }

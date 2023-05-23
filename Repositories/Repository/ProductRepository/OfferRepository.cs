@@ -49,46 +49,43 @@ namespace Repositories.Repository.ProductRepository
             return new EditOfferDto();
         }
 
-        public async Task<bool> EditOffer(EditOfferDto offerDto, CancellationToken cancellation)
-        {
-            bool result = false;
-            Offer? offer = await _context.Offers.Where(p => p.Id == offerDto.Id).FirstOrDefaultAsync(cancellation);
-            if (offer != null)
-            {
-                _context.Offers.Update(offer);
-                offer.ModifiedAt = DateTime.Now;
-                //auction.ModifiedBy
-                await _context.SaveChangesAsync();
-                return !result;
-            }
-            return result;
-        }
+        //public async Task<bool> EditOffer(EditOfferDto offerDto, CancellationToken cancellation)
+        //{
+        //    bool result = false;
+        //    Offer? offer = await _context.Offers.Where(p => p.Id == offerDto.Id).FirstOrDefaultAsync(cancellation);
+        //    if (offer != null)
+        //    {
+        //        _context.Offers.Update(offer);
+        //        offer.ModifiedAt = DateTime.Now;
+        //        //auction.ModifiedBy
+        //        await _context.SaveChangesAsync();
+        //        return !result;
+        //    }
+        //    return result;
+        //}
 
-        public async Task<bool> RemoveAuction(int id, CancellationToken cancellation)
-        {
-            Offer? offer = await _context.Offers.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (offer != null)
-            {
-                try
-                {
-                    offer.IsDeleted = true;
-                    offer.DeletedAt = DateTime.Now;
-                    //auction.DeletedBy
-                    var res = _context.Offers.Update(offer);
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
+        //public async Task<bool> RemoveAuction(int id, CancellationToken cancellation)
+        //{
+        //    Offer? offer = await _context.Offers.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+        //    if (offer != null)
+        //    {
+        //        try
+        //        {
+        //            offer.IsDeleted = true;
+        //            offer.DeletedAt = DateTime.Now;
+        //            //auction.DeletedBy
+        //            var res = _context.Offers.Update(offer);
+        //            return true;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw ex;
 
-                }
-
-
-            }
-            return false;
+        //        }
 
 
-        }
+        //    }
+        //    return false;
 
         //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
         public async Task<List<DetailedOfferDto>> GetAllOffers(CancellationToken cancellation, int customerId)
@@ -96,8 +93,12 @@ namespace Repositories.Repository.ProductRepository
             List<Offer> offers = await _context.Offers.Where(p => p.CustomerId == customerId).ToListAsync(cancellation);
             return _mapper.Map<List<DetailedOfferDto>>(offers);
         }
-
         #endregion
     }
+
+
+
+
+
 }
 

@@ -105,6 +105,38 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
+        public async Task<bool> AcceptComment(int orderId, CancellationToken cancellation)
+        {
+            bool result = false;
+            DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == orderId).FirstOrDefaultAsync(cancellation);
+            if (order != null)
+            {
+                order.IsCommentAcceptedByAdmin = true;
+                _context.DirectOrders.Update(order);
+                order.ModifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
+        public async Task<bool> RejectComment(int orderId, CancellationToken cancellation)
+        {
+            bool result = false;
+            DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == orderId).FirstOrDefaultAsync(cancellation);
+            if (order != null)
+            {
+                order.IsCommentAcceptedByAdmin = false;
+                _context.DirectOrders.Update(order);
+                order.ModifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
         //customerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
         public async Task<List<DetailedPaidDirectOrderDto>> GetAllPaidOrders(CancellationToken cancellation, int customerId)
         {

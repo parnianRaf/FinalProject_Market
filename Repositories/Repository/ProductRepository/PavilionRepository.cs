@@ -37,6 +37,38 @@ namespace Repositories.Repository.ProductRepository
             _context.Pavilions.Add(pavilion);
             await _context.SaveChangesAsync(cancellation);
         }
+        public async Task<bool> AcceptPavilion(int pavilionId, CancellationToken cancellation)
+        {
+            bool result = false;
+            Pavilion? order = await _context.Pavilions.Where(p => p.Id == pavilionId).FirstOrDefaultAsync(cancellation);
+            if (order != null)
+            {
+                order.IsAccepted = true;
+                _context.Pavilions.Update(order);
+                order.ModifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
+        public async Task<bool> RejectPavilion(int pavilionId, CancellationToken cancellation)
+        {
+            bool result = false;
+            Pavilion? order = await _context.Pavilions.Where(p => p.Id == pavilionId).FirstOrDefaultAsync(cancellation);
+            if (order != null)
+            {
+                order.IsAccepted = false;
+                _context.Pavilions.Update(order);
+                order.ModifiedAt = DateTime.Now;
+                //product.ModifiedBy
+                await _context.SaveChangesAsync();
+                return !result;
+            }
+            return result;
+        }
+
 
         public async Task<PavilionDtoModel> EditGetPavilion(int id, CancellationToken cancellation)
         {
