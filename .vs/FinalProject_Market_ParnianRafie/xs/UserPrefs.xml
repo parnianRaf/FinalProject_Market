@@ -1,29 +1,13 @@
 ﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppCore/Data Access/User/IAdminRepository.cs">
-    <Files>
-      <File FileName="AppCore/Data Access/User/IAdminRepository.cs" Line="13" Column="2" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FinalProject_Market_ParnianRafie" expanded="True">
-            <Node name="01-Domain" expanded="True">
-              <Node name="Core" expanded="True">
-                <Node name="AppCore" expanded="True">
-                  <Node name="Data Access" expanded="True">
-                    <Node name="Product" expanded="True" />
-                    <Node name="User" expanded="True">
-                      <Node name="IAdminRepository.cs" selected="True" />
-                    </Node>
-                  </Node>
-                  <Node name="DtoModels" expanded="True">
-                    <Node name="Seller" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
+          <Node name="FinalProject_Market_ParnianRafie" expanded="True" selected="True">
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="01-SqlDataBase" expanded="True" />
             </Node>
-            <Node name="02-Infrastructure" expanded="True" />
             <Node name="03-Endpoint" expanded="True" />
           </Node>
         </State>
