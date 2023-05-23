@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AppCore;
 using AppCore.DtoModels;
+using AppCore.DtoModels.Admin;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.Seller;
 using AppSqlDataBase;
@@ -58,6 +59,17 @@ namespace Repositories.UserRepository
             }
             return false;
         }
+        public async Task<bool> LogIn(LogInSellerDto entity, CancellationToken cancellation)
+        {
+            bool resultLogIn = false;
+            var result = await _signInManager.PasswordSignInAsync(entity.UserName, entity.Password, false, false);
+            if (result.Succeeded)
+            {
+                return !resultLogIn;
+            }
+            return resultLogIn;
+        }
+
 
         public async Task<EditSellerDto> UpdateGetSeller(int id, CancellationToken cancellation)
         {

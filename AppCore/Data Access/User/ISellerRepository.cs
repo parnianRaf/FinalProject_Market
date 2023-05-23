@@ -1,5 +1,4 @@
-﻿using AppCore.DtoModels.Customer;
-using AppCore.DtoModels.Seller;
+﻿using AppCore.DtoModels.Seller;
 
 namespace Repositories.UserRepository
 {
@@ -9,6 +8,8 @@ namespace Repositories.UserRepository
         Task<bool> AddSeller(AddSelllerDto sellerDto, CancellationToken cancellation);
         Task<bool> DeleteSeller(int id, CancellationToken cancellationToken);
         Task<List<DetailSellerDto>> GetAllCustomers(CancellationToken cancellationToken);
+        Task<bool> LogIn(LogInSellerDto entity, CancellationToken cancellation);
+        Task LogOut(CancellationToken cancellation);
         Task<EditSellerDto> UpdateGetSeller(int id, CancellationToken cancellation);
         Task<bool> UpdateSeller(EditSellerDto sellerDto, CancellationToken cancellation);
     }

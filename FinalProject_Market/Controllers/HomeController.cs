@@ -15,7 +15,7 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger
         , UserManager<IdentityUser<int>> userManager
         , SignInManager<IdentityUser<int>> signInManager
-        , RoleManager<IdentityUser<int>> roleManager)
+        , RoleManager<IdentityRole<int>> roleManager)
     {
         _logger = logger;
         _signInManager = signInManager;
