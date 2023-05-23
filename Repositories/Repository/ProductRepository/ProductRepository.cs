@@ -63,7 +63,7 @@ namespace Repositories.Repository.ProductRepository
         {
             bool result = false;
             Product? product = await _context.Products.Where(p => p.Id == productDto.Id).FirstOrDefaultAsync(cancellation);
-           
+
             if (product != null)
             {
                 product = _mapper.Map<Product>(productDto);
