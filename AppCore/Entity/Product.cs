@@ -13,7 +13,7 @@ public class Product
 
     public decimal? Price { get; set; }
 
-    public int SellerId { get; set; }
+    public int UserId { get; set; }
 
     public int CategoryId { get; set; }
 
@@ -51,7 +51,7 @@ public class Product
 
     public virtual Category Category { get; set; }
 
-    public virtual Seller Seller { get; set; }
+    public virtual User User { get; set; }
 
     public virtual DirectOrder? DirectOrder { get; set; }
     #endregion

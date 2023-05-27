@@ -1,15 +1,15 @@
-﻿using System;
-using AppCore.AppServices.Seller.Command;
+﻿//using System;
+//using AppCore.AppServices.Seller.Command;
 
-namespace AppService.Seller.Command
-{
-	public class EditProduct
-	{
+//namespace AppService.Seller.Command
+//{
+//	public class EditProduct
+//	{
 
-        public Task Execute(int id, CancellationToken cancellation)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
+//        public Task Execute(int id, CancellationToken cancellation)
+//        {
+//            throw new NotImplementedException();
+//        }
+//    }
+//}
 

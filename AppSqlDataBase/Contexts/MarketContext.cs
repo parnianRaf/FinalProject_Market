@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppSqlDataBase;
-public class MarketContext : IdentityDbContext<IdentityUser<int>,IdentityRole<int>,int>
+public class MarketContext : IdentityDbContext<User, IdentityRole<int>,int>
 {
     #region ctor
     public MarketContext(DbContextOptions<MarketContext> options)
@@ -17,13 +17,11 @@ public class MarketContext : IdentityDbContext<IdentityUser<int>,IdentityRole<in
     #endregion
 
     #region DbSet
-    public virtual DbSet<Admin> Admins { get; set; }
+    public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<Auction> Auctions { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
-
-    public virtual DbSet<Customer> Customers { get; set; }
 
     public virtual DbSet<CustomerAddress> CustomerAddressess { get; set; }
 
@@ -35,8 +33,6 @@ public class MarketContext : IdentityDbContext<IdentityUser<int>,IdentityRole<in
 
     public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<Seller> Sellers { get; set; }
-
     public virtual DbSet<SellerAddress> SellerAddressess { get; set; }
 
     public virtual DbSet<Wallet> Wallets { get; set; }
@@ -47,7 +43,7 @@ public class MarketContext : IdentityDbContext<IdentityUser<int>,IdentityRole<in
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AdminEntityConfiguration).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserEntityConfiguration).Assembly);
     }
     #endregion
 }

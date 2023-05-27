@@ -8,7 +8,7 @@ public class Offer
     #region Property
     public int Id { get; set; }
 
-    public int CustomerId { get; set; }
+    public int UserId { get; set; }
 
     public int AuctionId { get; set; }
 
@@ -36,6 +36,6 @@ public class Offer
     #region Navigation Property
     public virtual Auction Auction { get; set; } 
 
-    public virtual Customer Customer { get; set; }
+    public virtual User User { get; set; }
     #endregion
 }

@@ -8,7 +8,7 @@ public class CustomerAddress
     #region Property
     public int Id { get; set; }
 
-    public int CustomerId { get; set; }
+    public int UserId { get; set; }
 
     public string? AddressTitle { get; set; }
 
@@ -32,6 +32,6 @@ public class CustomerAddress
     #endregion
 
     #region Navigation Property
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
     #endregion
 }

@@ -10,7 +10,7 @@ public class Pavilion
 
     public string? Title { get; set; }
 
-    public int SellerId { get; set; }
+    public int UserId { get; set; }
 
     public bool IsAccepted { get; set; }
 
@@ -30,6 +30,6 @@ public class Pavilion
     #endregion
 
     #region Navigation Property 
-    public virtual Seller Seller { get; set; } 
+    public virtual User User { get; set; } 
     #endregion
 }

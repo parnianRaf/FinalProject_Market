@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class AuctionRepository : IAuctionRepository
+    public class AuctionRepository 
     {
         #region field
         private readonly MarketContext _context;
@@ -117,11 +117,11 @@ namespace Repositories.Repository.ProductRepository
             return _mapper.Map<List<DetailedOfferDto>>(offers);
         }
 
-        public async Task<List<DetailedOfferDto>> GetOffersInSpecificCustomerAuction(int customerId, int auctionId, CancellationToken cancellation)
-        {
-            List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.CustomerId == customerId).ToListAsync();
-            return _mapper.Map<List<DetailedOfferDto>>(offers);
-        }
+        //public async Task<List<DetailedOfferDto>> GetOffersInSpecificCustomerAuction(int customerId, int auctionId, CancellationToken cancellation)
+        //{
+        //    List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.CustomerId == customerId).ToListAsync();
+        //    return _mapper.Map<List<DetailedOfferDto>>(offers);
+        //}
 
         public async Task<bool> AddCommentByCustomer(int auctionId, int customerId, string comment, CancellationToken cancellation)
         {

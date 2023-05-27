@@ -1,56 +1,58 @@
-﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
   <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Program.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Repositories/Repository/ProductRepository/AuctionRepository.cs">
     <Files>
-      <File FileName="AppService/Seller/Command/EditProduct.cs" Line="6" Column="26" />
-      <File FileName="FinalProject_Market/Program.cs" Line="39" Column="34" />
+      <File FileName="Repositories/Repository/UserRepository/AdminRepository.cs" />
+      <File FileName="Repositories/AutoMapper/EntityProfile.cs" />
+      <File FileName="Repositories/Repository/UserRepository/ToDo.txt" />
+      <File FileName="FinalProject_Market/Controllers/HomeController.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/OfferRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/CustomerAdressesRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/ProductRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/PavilionRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/AuctionRepository.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Program.cs" />
+      <File FileName="FinalProject_Market/Controllers/SellerController.cs" Line="9" Column="17" />
+      <File FileName="AppCore/Entity/User.cs" Line="36" Column="31" />
+      <File FileName="FinalProject_Market/Views/_ViewImports.cshtml" Line="6" Column="1" />
+      <File FileName="FinalProject_Market/Views/Admin/Index.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Views/Admin/LogIn.cshtml" Line="2" Column="22" />
+      <File FileName="FinalProject_Market/Models/ViewModels/LogInViewModel.cs" Line="2" Column="48" />
+      <File FileName="FinalProject_Market/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="17" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FinalProject_Market_ParnianRafie" expanded="True" selected="True">
+          <Node name="FinalProject_Market_ParnianRafie" expanded="True">
             <Node name="01-Domain" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
-                  <Node name="AppServices" expanded="True">
-                    <Node name="Admin" expanded="True">
-                      <Node name="Command" expanded="True" />
-                      <Node name="Query" expanded="True" />
-                    </Node>
-                    <Node name="Customer" expanded="True">
-                      <Node name="Command" expanded="True" />
-                      <Node name="Query" expanded="True" />
-                    </Node>
-                    <Node name="Seller" expanded="True">
-                      <Node name="Command" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="Data Access" expanded="True">
-                    <Node name="Product" expanded="True" />
-                    <Node name="User" expanded="True" />
-                  </Node>
-                  <Node name="DtoModels" expanded="True">
-                    <Node name="Admin" expanded="True" />
-                    <Node name="Customer" expanded="True" />
-                    <Node name="Seller" expanded="True" />
-                  </Node>
                   <Node name="Entity" expanded="True" />
+                  <Node name="Enum" expanded="True" />
                 </Node>
               </Node>
               <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="Seller" expanded="True">
-                    <Node name="Command" expanded="True" />
-                  </Node>
-                </Node>
+                <Node name="AppService" expanded="True" />
               </Node>
             </Node>
             <Node name="02-Infrastructure" expanded="True">
+              <Node name="01-SqlDataBase" expanded="True">
+                <Node name="AppSqlDataBase" expanded="True">
+                  <Node name="Configurations" expanded="True" />
+                  <Node name="Contexts" expanded="True" />
+                </Node>
+              </Node>
               <Node name="02-Repository" expanded="True">
                 <Node name="Repositories" expanded="True">
                   <Node name="AutoMapper" expanded="True" />
                   <Node name="Repository" expanded="True">
-                    <Node name="ProductRepository" expanded="True" />
+                    <Node name="ProductRepository" expanded="True">
+                      <Node name="AuctionRepository.cs" selected="True" />
+                    </Node>
                     <Node name="UserRepository" expanded="True" />
                   </Node>
                 </Node>
@@ -59,6 +61,14 @@
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
                 <Node name="Controllers" expanded="True" />
+                <Node name="Models" expanded="True">
+                  <Node name="ViewModels" expanded="True" />
+                </Node>
+                <Node name="Views" expanded="True">
+                  <Node name="Admin" expanded="True" />
+                  <Node name="Home" expanded="True" />
+                </Node>
+                <Node name="wwwroot" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -66,10 +76,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

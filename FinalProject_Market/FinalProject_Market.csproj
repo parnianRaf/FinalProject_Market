@@ -12,7 +12,6 @@
   <ItemGroup>
     <None Remove="Data\Migrations\" />
     <None Remove="Models\ViewModels\" />
-    <None Remove="Views\Seller\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -43,11 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="wwwroot\Images\" />
     <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\Seller\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\Images\" />
   </ItemGroup>
 </Project>

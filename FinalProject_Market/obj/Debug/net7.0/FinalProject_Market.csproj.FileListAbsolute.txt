@@ -364,3 +364,4 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.CopyComplete
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.genruntimeconfig.cache
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/ref/FinalProject_Market.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout_2.cshtml.rz.scp.css

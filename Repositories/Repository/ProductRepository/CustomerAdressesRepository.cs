@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class CustomerAdressesRepository : ICustomerAdressesRepository
+    public class CustomerAdressesRepository 
     {
         #region field
         private readonly MarketContext _context;
@@ -111,10 +111,10 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        public async Task<List<CustomerAddress>> GetAddresses(int id, CancellationToken cancellation)
-        {
-            return await _context.CustomerAddressess.Where(a => a.CustomerId == id).ToListAsync(cancellation);
-        }
+        //public async Task<List<CustomerAddress>> GetAddresses(int id, CancellationToken cancellation)
+        //{
+        //    return await _context.CustomerAddressess.Where(a => a.CustomerId == id).ToListAsync(cancellation);
+        //}
         #endregion
     }
 }

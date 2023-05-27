@@ -9,9 +9,9 @@ namespace AppSqlDataBase.Configurations
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Wallet> entity)
         {
             #region Property
-            entity.HasKey(e => e.CustomerId);
+            entity.HasKey(e => e.UserId);
 
-            entity.Property(e => e.CustomerId)
+            entity.Property(e => e.UserId)
                 .ValueGeneratedNever();
 
             entity.Property(e => e.Credit)
@@ -19,9 +19,9 @@ namespace AppSqlDataBase.Configurations
             #endregion
 
             #region Relational Property
-            entity.HasOne(d => d.Customer)
+            entity.HasOne(d => d.User)
                 .WithOne(p => p.Wallet)
-                .HasForeignKey<Wallet>(w=>w.CustomerId);
+                .HasForeignKey<User>(w=>w.UserId);
             #endregion
         }
     }

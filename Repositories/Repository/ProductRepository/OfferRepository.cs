@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class OfferRepository : IOfferRepository
+    public class OfferRepository 
     {
         #region field
         private readonly MarketContext _context;
@@ -88,11 +88,11 @@ namespace Repositories.Repository.ProductRepository
         //    return false;
 
         //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedOfferDto>> GetAllOffers(CancellationToken cancellation, int customerId)
-        {
-            List<Offer> offers = await _context.Offers.Where(p => p.CustomerId == customerId).ToListAsync(cancellation);
-            return _mapper.Map<List<DetailedOfferDto>>(offers);
-        }
+        //public async Task<List<DetailedOfferDto>> GetAllOffers(CancellationToken cancellation, int customerId)
+        //{
+        //    List<Offer> offers = await _context.Offers.Where(p => p.CustomerId == customerId).ToListAsync(cancellation);
+        //    return _mapper.Map<List<DetailedOfferDto>>(offers);
+        //}
         #endregion
     }
 

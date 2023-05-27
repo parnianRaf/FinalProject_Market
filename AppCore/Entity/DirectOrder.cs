@@ -19,7 +19,7 @@ public class DirectOrder
 
     public decimal TotalPrice { get; set; }
 
-    public int SellerId { get; set; }
+    public int UserId { get; set; }
 
     public int CustomerId { get; set; }
 
@@ -46,6 +46,6 @@ public class DirectOrder
 
     #region Navigation Property
     public virtual List<Product> Products { get; set; }
-    public virtual Customer Customer { get; set; }
+    public virtual User User { get; set; }
     #endregion
 }

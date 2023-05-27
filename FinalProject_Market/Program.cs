@@ -1,6 +1,5 @@
 ﻿using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
-using AppService.Seller.Command;
 using AppService.Seller.Query;
 using AppSqlDataBase;
 using Microsoft.AspNetCore.Identity;
@@ -12,9 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<MarketContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IProductRepository, ProductRepository> ();
-builder.Services.AddScoped<IAddProduct, AddPtoduct>();
-builder.Services.AddScoped<IGetCategories, GetCategories>();
+//builder.Services.AddScoped<IProductRepository, ProductRepository> ();
+//builder.Services.AddScoped<IAddProduct, AddPtoduct>();
+//builder.Services.AddScoped<IGetCategories, GetCategories>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -33,7 +32,6 @@ builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(option =>
     option.User.RequireUniqueEmail = true;
 })
     .AddEntityFrameworkStores<MarketContext>();
-
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();

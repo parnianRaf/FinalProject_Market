@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class PavilionRepository : IPavilionRepository
+    public class PavilionRepository 
     {
         #region field
         private readonly MarketContext _context;
@@ -121,10 +121,10 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        public async Task<List<Pavilion>> GetSellerPavilions(int selerId, CancellationToken cancellation)
-        {
-            return await _context.Pavilions.Where(p => p.SellerId == selerId).ToListAsync(cancellation);
-        }
+        //public async Task<List<Pavilion>> GetSellerPavilions(int selerId, CancellationToken cancellation)
+        //{
+        //    return await _context.Pavilions.Where(p => p.SellerId == selerId).ToListAsync(cancellation);
+        //}
 
         public async Task<List<Pavilion>> GetPavilions(CancellationToken cancellation)
         {

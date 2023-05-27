@@ -5,9 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AppSqlDataBase.Configurations
 {
-    public class AdminEntityConfiguration : IEntityTypeConfiguration<Admin>
+    public class UserEntityConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Admin> entity)
+
+        public void Configure(EntityTypeBuilder<User> entity)
         {
             #region Property
             entity.HasKey(e => e.Id);
@@ -42,6 +43,15 @@ namespace AppSqlDataBase.Configurations
             #endregion
 
             #region Relational Property
+            entity.HasMany(u => u.CustomerAddresses)
+                .WithOne(ca => ca.User)
+                .HasForeignKey(ca => ca.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasMany(u => u.Offers)
+                .WithOne(o => o.User)
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
             #endregion
 
             #region Seed Data

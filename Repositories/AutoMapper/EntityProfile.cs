@@ -82,64 +82,63 @@ namespace Repositories.AutoMapper
             #endregion
 
             #region Customer
-            CreateMap<AddCustomerDto, Customer>();
+   //         CreateMap<AddCustomerDto, Customer>();
                
-            CreateMap<IdentityUser<int>, Customer>()
-				.ForMember(dst=>dst.UserId,opt=>opt.MapFrom(src=>src.Id))
-                .ForMember(dst => dst.CreteBy, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreateAt, opt => opt.MapFrom(src => DateTime.Now));
-			CreateMap<AddCustomerDto, IdentityUser<int>>();
-            CreateMap<EditCustomerDto, IdentityUser<int>>();
-            CreateMap<EditCustomerDto, Customer>()
-                //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
-                .ForMember(dst=>dst.ModifiedAt,opt=>opt.MapFrom(src=>DateTime.Now));
-			CreateMap<Customer, DetailCustomerDto>()
-                  .ForMember(dst => dst.CustomerAddressDtos, opt =>
-                opt.MapFrom(src => src.CustomerAddresses))
-                .ForMember(dst => dst.DirectOrderDtos, opt =>
-                opt.MapFrom(src => src.DirectOrders));
+   //         CreateMap<IdentityUser<int>, Customer>()
+			//	.ForMember(dst=>dst.UserId,opt=>opt.MapFrom(src=>src.Id))
+   //             .ForMember(dst => dst.CreteBy, opt => opt.MapFrom(src => src.Id))
+   //             .ForMember(dst => dst.CreateAt, opt => opt.MapFrom(src => DateTime.Now));
+			//CreateMap<AddCustomerDto, IdentityUser<int>>();
+   //         CreateMap<EditCustomerDto, IdentityUser<int>>();
+   //         CreateMap<EditCustomerDto, Customer>()
+   //             //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+   //             .ForMember(dst=>dst.ModifiedAt,opt=>opt.MapFrom(src=>DateTime.Now));
+			//CreateMap<Customer, DetailCustomerDto>()
+   //               .ForMember(dst => dst.CustomerAddressDtos, opt =>
+   //             opt.MapFrom(src => src.CustomerAddresses))
+   //             .ForMember(dst => dst.DirectOrderDtos, opt =>
+   //             opt.MapFrom(src => src.DirectOrders));
             #endregion
 
             #region Admin
-            CreateMap<AddAdminDto, Admin>();
-
-            CreateMap<IdentityUser<int>, Admin>()
-                .ForMember(dst => dst.UserId, opt => opt.MapFrom(src => src.Id))
+            CreateMap<AddAdminDto, User>()
                 //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
-            CreateMap<AddAdminDto, IdentityUser<int>>();
-            CreateMap<EditAdminDto, IdentityUser<int>>();
-            CreateMap<EditAdminDto, Admin>()
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+            CreateMap<AddAdminDto, User>()
+                //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+            CreateMap<EditAdminDto, User>()
                 //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
-                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now));
-            CreateMap<Admin, DetailAdminDto>();
+                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
+                .ReverseMap();
+            CreateMap<User, DetailAdminDto>();
 
 
             #endregion
 
             #region Seller
-            CreateMap<AddSelllerDto, Seller>();
+            //CreateMap<AddSelllerDto, Seller>();
 
-            CreateMap<IdentityUser<int>, Seller>()
-                .ForMember(dst => dst.UserId, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
-            CreateMap<AddSelllerDto, IdentityUser<int>>();
-            CreateMap<EditSellerDto, IdentityUser<int>>();
-            CreateMap<Seller, DetailSellerDto>()
-                  .ForMember(dst => dst.ProductDtos, opt =>
-                opt.MapFrom(src => src.Products))
-                .ForMember(dst => dst.PavilionDtos, opt =>
-                opt.MapFrom(src => src.Pavilions));
-            CreateMap<EditSellerDto, Seller>()
-                //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
-                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
-                   .ForMember(dst => dst.Pavilions, opt =>
-                opt.MapFrom(src => src.PavilionDtos))
-                .ForMember(dst => dst.Products, opt =>
-                opt.MapFrom(src => src.ProductDtos))
-                .ForMember(dst=>dst.PasswordHash,opt=>
-                opt.MapFrom(src=>src.Password));
+            //CreateMap<IdentityUser<int>, Seller>()
+            //    .ForMember(dst => dst.UserId, opt => opt.MapFrom(src => src.Id))
+            //    .ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
+            //    .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
+            //CreateMap<AddSelllerDto, IdentityUser<int>>();
+            //CreateMap<EditSellerDto, IdentityUser<int>>();
+            //CreateMap<Seller, DetailSellerDto>()
+            //      .ForMember(dst => dst.ProductDtos, opt =>
+            //    opt.MapFrom(src => src.Products))
+            //    .ForMember(dst => dst.PavilionDtos, opt =>
+            //    opt.MapFrom(src => src.Pavilions));
+            //CreateMap<EditSellerDto, Seller>()
+            //    //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+            //    .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
+            //       .ForMember(dst => dst.Pavilions, opt =>
+            //    opt.MapFrom(src => src.PavilionDtos))
+            //    .ForMember(dst => dst.Products, opt =>
+            //    opt.MapFrom(src => src.ProductDtos))
+            //    .ForMember(dst=>dst.PasswordHash,opt=>
+            //    opt.MapFrom(src=>src.Password));
             #endregion
         }
 

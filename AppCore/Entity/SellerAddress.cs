@@ -7,7 +7,7 @@ namespace AppCore;
 public class SellerAddress
 {
     #region Property
-    public int SellerId { get; set; }
+    public int UserId { get; set; }
 
     public string? AddressTitle { get; set; }
 
@@ -31,6 +31,6 @@ public class SellerAddress
     #region Navigation Property
     //public virtual Region Region { get; set; }
 
-    public virtual Seller Seller { get; set; } 
+    public virtual User User { get; set; } 
     #endregion
 }

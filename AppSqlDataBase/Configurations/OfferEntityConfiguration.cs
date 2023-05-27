@@ -23,10 +23,6 @@ namespace AppSqlDataBase.Configurations
             entity.HasOne(d => d.Auction)
                 .WithMany(p => p.Offers)
                 .HasForeignKey(d => d.AuctionId);
-
-            entity.HasOne(d => d.Customer)
-                .WithMany(p => p.Offers)
-                .HasForeignKey(d => d.CustomerId);
             #endregion
 
             #region Seed Data

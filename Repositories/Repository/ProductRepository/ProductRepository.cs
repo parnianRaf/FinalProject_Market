@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository 
     {
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
@@ -136,11 +136,11 @@ namespace Repositories.Repository.ProductRepository
         }
 
         //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId)
-        {
-            List<Product> products = await _context.Products.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
-            return _mapper.Map<List<DetailedProductDto>>(products);
-        }
+        //public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId)
+        //{
+        //    List<Product> products = await _context.Products.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
+        //    return _mapper.Map<List<DetailedProductDto>>(products);
+        //}
 
         public async Task<List<DetailedProductDto>> GetAllProductsInSpecificPavilion(CancellationToken cancellation, int pavilionId)
         {
