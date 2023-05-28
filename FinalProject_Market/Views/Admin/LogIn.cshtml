@@ -1,25 +1,25 @@
 ﻿
 @model LogInViewModel
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
 
-        <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
 
-        <!-- Style -->
-        <link rel="stylesheet" href="~/css/style.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/style.css">
 
-    </head>
-    <body>
+</head>
+<body>
 
 
 
@@ -31,26 +31,26 @@
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
-                        <div class="col-md-8">
+                        <div class="col-md-8" style="direction:rtl">
                             <div class="mb-4">
-                                <h3 class="justify-contet-start">همکار گرامی جهت ورود اطلاعاتتان را وارد کنید.</h3>
+                                <h3 >همکار گرامی جهت ورود اطلاعاتتان را وارد کنید.</h3>
                             </div>
+                            <div asp-validation-summary="All"></div>
                             <form action="#" method="post">
-                                <div class="form-group first">
-                                    <label for="username">نام کاربری</label>
-                                    <input type="text" class="form-control" id="username">
 
+                                <div class="form-group first">
+                                    <label asp-for="UserName"></label>
+                                    <input type="text" asp-for="UserName" class="form-control" id="username">
                                 </div>
                                 <div class="form-group last mb-4">
-                                    <label for="password">رمز عبور</label>
-                                    <input type="password" class="form-control" id="password">
-
+                                    <label asp-for="Password"></label>
+                                    <input type="password" asp-for="Password" class="form-control" id="password">
                                 </div>
 
                                 <div class="d-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-0">
-                                        <span class="caption">مرا به خاطر بسپار</span>
-                                        <input type="checkbox" checked="checked" />
+                                        <label class="caption" asp-for="IsRememberMe" ></label>
+                                        <input type="checkbox" asp-for="IsRememberMe" checked="checked" />
                                         <div class="control__indicator"></div>
                                     </label>
                                     <span class="mr-auto"><a href="#" class="forgot-pass " style="text-decoration: none;">فراموشی رمز عبور</a></span>
@@ -85,9 +85,10 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-        <!-- Main JS File -->
+    <!-- Main JS File -->
 
-    </body>
+</body>
 </html>
-
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 

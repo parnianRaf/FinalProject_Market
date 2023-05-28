@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppSqlDataBase.Migrations
 {
     [DbContext(typeof(MarketContext))]
-    [Migration("20230527210214_init")]
+    [Migration("20230528144512_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -435,7 +435,10 @@ namespace AppSqlDataBase.Migrations
             modelBuilder.Entity("AppCore.User", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -457,10 +460,8 @@ namespace AppSqlDataBase.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -511,15 +512,10 @@ namespace AppSqlDataBase.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
@@ -530,14 +526,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
@@ -548,9 +539,6 @@ namespace AppSqlDataBase.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -819,15 +807,15 @@ namespace AppSqlDataBase.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("AppCore.User", b =>
+            modelBuilder.Entity("AppCore.Wallet", b =>
                 {
-                    b.HasOne("AppCore.Wallet", "Wallet")
-                        .WithOne("User")
-                        .HasForeignKey("AppCore.User", "UserId")
+                    b.HasOne("AppCore.User", "User")
+                        .WithOne("Wallet")
+                        .HasForeignKey("AppCore.Wallet", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Wallet");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -911,12 +899,8 @@ namespace AppSqlDataBase.Migrations
                     b.Navigation("Products");
 
                     b.Navigation("SellerAddress");
-                });
 
-            modelBuilder.Entity("AppCore.Wallet", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
+                    b.Navigation("Wallet");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,28 +1,25 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
   <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Repositories/Repository/ProductRepository/AuctionRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Controllers/AdminController.cs">
     <Files>
-      <File FileName="Repositories/Repository/UserRepository/AdminRepository.cs" />
-      <File FileName="Repositories/AutoMapper/EntityProfile.cs" />
       <File FileName="Repositories/Repository/UserRepository/ToDo.txt" />
-      <File FileName="FinalProject_Market/Controllers/HomeController.cs" />
-      <File FileName="Repositories/Repository/ProductRepository/OfferRepository.cs" />
-      <File FileName="Repositories/Repository/ProductRepository/CustomerAdressesRepository.cs" />
-      <File FileName="Repositories/Repository/ProductRepository/ProductRepository.cs" />
-      <File FileName="Repositories/Repository/ProductRepository/PavilionRepository.cs" />
-      <File FileName="Repositories/Repository/ProductRepository/AuctionRepository.cs" Line="1" Column="1" />
-      <File FileName="FinalProject_Market/Program.cs" />
-      <File FileName="FinalProject_Market/Controllers/SellerController.cs" Line="9" Column="17" />
-      <File FileName="AppCore/Entity/User.cs" Line="36" Column="31" />
-      <File FileName="FinalProject_Market/Views/_ViewImports.cshtml" Line="6" Column="1" />
+      <File FileName="Repositories/Repository/UserRepository/AdminRepository.cs" Line="69" Column="1" />
+      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="62" Column="10" />
+      <File FileName="AppSqlDataBase/Configurations/UserEntityConfiguration.cs" Line="1" Column="1" />
+      <File FileName="AppCore/DtoModels/Admin/LogInAdminDto.cs" Line="9" Column="20" />
+      <File FileName="AppCore/Data Access/User/IAdminRepository.cs" Line="11" Column="19" />
+      <File FileName="AppCore/AppServices/Admin/Command/ILogIn.cs" Line="1" Column="1" />
+      <File FileName="AppService/Admin/LogIn.cs" Line="24" Column="4" />
+      <File FileName="FinalProject_Market/Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Views/Admin/LogIn.cshtml" Line="44" Column="39" />
       <File FileName="FinalProject_Market/Views/Admin/Index.cshtml" Line="1" Column="1" />
-      <File FileName="FinalProject_Market/Views/Admin/LogIn.cshtml" Line="2" Column="22" />
-      <File FileName="FinalProject_Market/Models/ViewModels/LogInViewModel.cs" Line="2" Column="48" />
-      <File FileName="FinalProject_Market/Views/Home/Index.cshtml" Line="1" Column="1" />
-      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="17" Column="10" />
+      <File FileName="FinalProject_Market/Views/Shared/_Layout.cshtml" Line="623" Column="1" />
+      <File FileName="FinalProject_Market/Program.cs" Line="19" Column="31" />
+      <File FileName="Repositories/Repository/UserRepository/CustomerRepository.cs" Line="1" Column="1" />
+      <File FileName="Repositories/Repository/UserRepository/SellerRepository.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Views/Admin/AdminPannel.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Models/ViewModels/LogInViewModel.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/AutoMapper/EntityProfile.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -31,12 +28,24 @@
             <Node name="01-Domain" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
-                  <Node name="Entity" expanded="True" />
-                  <Node name="Enum" expanded="True" />
+                  <Node name="AppServices" expanded="True">
+                    <Node name="Admin" expanded="True" />
+                    <Node name="Customer" expanded="True">
+                      <Node name="Command" expanded="True" />
+                    </Node>
+                    <Node name="Seller" expanded="True">
+                      <Node name="Command" expanded="True" />
+                    </Node>
+                  </Node>
+                  <Node name="Data Access" expanded="True">
+                    <Node name="User" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
               <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True" />
+                <Node name="AppService" expanded="True">
+                  <Node name="Admin" expanded="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="02-Infrastructure" expanded="True">
@@ -48,11 +57,7 @@
               </Node>
               <Node name="02-Repository" expanded="True">
                 <Node name="Repositories" expanded="True">
-                  <Node name="AutoMapper" expanded="True" />
                   <Node name="Repository" expanded="True">
-                    <Node name="ProductRepository" expanded="True">
-                      <Node name="AuctionRepository.cs" selected="True" />
-                    </Node>
                     <Node name="UserRepository" expanded="True" />
                   </Node>
                 </Node>
@@ -60,15 +65,20 @@
             </Node>
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
-                <Node name="Controllers" expanded="True" />
+                <Node name="AutoMapper" expanded="True" />
+                <Node name="Controllers" expanded="True">
+                  <Node name="AdminController.cs" selected="True" />
+                </Node>
+                <Node name="Data">
+                  <Node name="Migrations" expanded="True" />
+                </Node>
                 <Node name="Models" expanded="True">
                   <Node name="ViewModels" expanded="True" />
                 </Node>
                 <Node name="Views" expanded="True">
                   <Node name="Admin" expanded="True" />
-                  <Node name="Home" expanded="True" />
+                  <Node name="Shared" expanded="True" />
                 </Node>
-                <Node name="wwwroot" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -76,7 +86,12 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/UserRepository/AdminRepository.cs" relfile="Repositories/Repository/UserRepository/AdminRepository.cs" line="135" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

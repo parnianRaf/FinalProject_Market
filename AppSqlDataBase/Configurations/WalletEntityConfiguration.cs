@@ -21,7 +21,7 @@ namespace AppSqlDataBase.Configurations
             #region Relational Property
             entity.HasOne(d => d.User)
                 .WithOne(p => p.Wallet)
-                .HasForeignKey<User>(w=>w.UserId);
+                .HasForeignKey<Wallet>(w=>w.UserId);
             #endregion
         }
     }

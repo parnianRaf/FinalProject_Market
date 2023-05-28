@@ -11,15 +11,6 @@ namespace AppSqlDataBase.Configurations
         public void Configure(EntityTypeBuilder<User> entity)
         {
             #region Property
-            entity.HasKey(e => e.Id);
-
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever();
-
-            entity.Property(e => e.Email)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50);
 
@@ -30,16 +21,6 @@ namespace AppSqlDataBase.Configurations
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
-            entity.Property(e => e.PasswordHash)
-                .HasMaxLength(20)
-                .IsUnicode(false);
-
-            entity.Property(e => e.PhoneNumber)
-                .HasMaxLength(11);
-
-            entity.Property(e => e.UserName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
             #endregion
 
             #region Relational Property

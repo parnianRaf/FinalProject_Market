@@ -1,24 +1,31 @@
-﻿using AppCore.AppServices.Seller.Command;
+﻿using AppCore;
+using AppCore.AppServices.Admin.Command;
+using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
+using AppService.Admin;
 using AppService.Seller.Query;
 using AppSqlDataBase;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Repository.ProductRepository;
+using Repositories.UserRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<MarketContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<ILogIn, LogIn>();
 //builder.Services.AddScoped<IProductRepository, ProductRepository> ();
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
+builder.Services.AddScoped<ISeedData, SeedData>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(option =>
+builder.Services.AddIdentity<User, IdentityRole<int>>(option =>
 {
     option.Password.RequireDigit = true;
     option.Password.RequiredLength = 8;

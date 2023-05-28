@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin/AdminPannel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5QYW5uZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -51,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin/_Layout_3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vX0xheW91dF8zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-y5g7vczgbm
 
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s

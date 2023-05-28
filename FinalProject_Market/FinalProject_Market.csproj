@@ -10,7 +10,6 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <None Remove="Data\Migrations\" />
     <None Remove="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -41,7 +40,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 </Project>

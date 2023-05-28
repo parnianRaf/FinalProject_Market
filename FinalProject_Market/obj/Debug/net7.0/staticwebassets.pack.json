@@ -5,6 +5,50 @@
       "PackagePath": "staticwebassets/FinalProject_Market.bundle.scp.css"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/adminlte.min.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/adminlte.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/blue.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/blue.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/bootstrap-rtl.min.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/bootstrap-rtl.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/bootstrap3-wysihtml5.min.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/bootstrap3-wysihtml5.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/custom-style.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/custom-style.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/datepicker3.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/datepicker3.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/daterangepicker-bs3.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/daterangepicker-bs3.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/font-awesome.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/font-awesome.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/jquery-jvectormap-1.2.2.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/jquery-jvectormap-1.2.2.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/morris.css",
+      "PackagePath": "staticwebassets/AdminPannel/css/morris.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/images/AdminLTELogo.png",
+      "PackagePath": "staticwebassets/AdminPannel/images/AdminLTELogo.png"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/assets/css/bootstrap-rtl.min.css",
       "PackagePath": "staticwebassets/assets/css/bootstrap-rtl.min.css"
     },
@@ -7759,6 +7803,10 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/assets/vendor/line-awesome/line-awesome/line-awesome/fonts/line-awesomeeb4feb4f.woff2",
       "PackagePath": "staticwebassets/assets/vendor/line-awesome/line-awesome/line-awesome/fonts/line-awesomeeb4feb4f.woff2"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap.min.css"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/css/bootstrap/bootstrap-grid.css",

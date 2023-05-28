@@ -27,6 +27,45 @@ namespace AppSqlDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    NationalityCode = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
+                    HasMedal = table.Column<bool>(type: "bit", nullable: true),
+                    IsMainAdmin = table.Column<bool>(type: "bit", nullable: true),
+                    MedalAchievedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<int>(type: "int", nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Auctions",
                 columns: table => new
                 {
@@ -76,25 +115,6 @@ namespace AppSqlDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Wallets",
-                columns: table => new
-                {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    Credit = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedBy = table.Column<int>(type: "int", nullable: true),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Wallets", x => x.UserId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -112,51 +132,6 @@ namespace AppSqlDataBase.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    UserName = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    PasswordHash = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    NationalityCode = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    HasMedal = table.Column<bool>(type: "bit", nullable: true),
-                    IsMainAdmin = table.Column<bool>(type: "bit", nullable: true),
-                    MedalAchievedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedBy = table.Column<int>(type: "int", nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_Wallets_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Wallets",
-                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -303,40 +278,6 @@ namespace AppSqlDataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Offers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    AuctionId = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    SubmitAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsAccepted = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedBy = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Offers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Offers_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Offers_Auctions_AuctionId",
-                        column: x => x.AuctionId,
-                        principalTable: "Auctions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Pavilions",
                 columns: table => new
                 {
@@ -385,6 +326,65 @@ namespace AppSqlDataBase.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Wallets",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Credit = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedBy = table.Column<int>(type: "int", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Wallets", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_Wallets_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Offers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    AuctionId = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    SubmitAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsAccepted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Offers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Offers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Offers_Auctions_AuctionId",
+                        column: x => x.AuctionId,
+                        principalTable: "Auctions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -466,12 +466,6 @@ namespace AppSqlDataBase.Migrations
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_UserId",
-                table: "AspNetUsers",
-                column: "UserId",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
@@ -560,6 +554,9 @@ namespace AppSqlDataBase.Migrations
                 name: "SellerAddressess");
 
             migrationBuilder.DropTable(
+                name: "Wallets");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -573,9 +570,6 @@ namespace AppSqlDataBase.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Wallets");
         }
     }
 }

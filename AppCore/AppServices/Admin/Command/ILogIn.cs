@@ -1,11 +1,12 @@
 ﻿using AppCore.DtoModels.Admin;
 using AppCore.DtoModels.Product;
+using Microsoft.AspNetCore.Identity;
 
 namespace AppCore.AppServices.Admin.Command
 {
     public interface ILogIn
     {
-        Task Execute(LogInAdminDto entity, CancellationToken cancellation);
+        Task<SignInResult> Execute(LogInAdminDto adminDto, CancellationToken cancellation);
     }
 
 
