@@ -1,5 +1,6 @@
 ﻿using AppCore;
 using AppCore.AppServices.Admin.Command;
+using AppCore.AppServices.Admin.Query;
 using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
 using AppService.Admin;
@@ -16,7 +17,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MarketContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ILogIn, LogIn>();
+builder.Services.AddScoped<IGetCustomers, GetCustomers>();
 //builder.Services.AddScoped<IProductRepository, ProductRepository> ();
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();

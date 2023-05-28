@@ -366,3 +366,5 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.genruntimeconfig.cache
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/ref/FinalProject_Market.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Views/Admin/_Layout_3.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/ExtensionMethods.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/ExtensionMethods.pdb

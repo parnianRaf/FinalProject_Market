@@ -17,7 +17,7 @@ namespace Repositories.UserRepository
     public class AdminRepository : IAdminRepository
     {
 
-        #region prop
+        #region field
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly RoleManager<IdentityRole<int>> _rolemanager;
@@ -130,45 +130,49 @@ namespace Repositories.UserRepository
         public async Task<bool> SeedAdminData()
         {
 
-            //byte[] salt = new byte[128 / 8];
-            //using (var rng = RandomNumberGenerator.Create())
+            #region AdminSeed
+
+            //var adminRole = await _rolemanager.CreateAsync(new IdentityRole<int>("admin"));
+            //var x = await _userManager.CreateAsync(new User() { UserName = "test", Email = "test.test@yahoo.com" }, "P@rni@n78");
+
+            ////await _userManager.CreateAsync(new User("te"));
+            //var test = await _userManager.FindByNameAsync("test");
+            //if (test != null)
             //{
-            //    rng.GetBytes(salt);
+            //    await _userManager.AddToRoleAsync(test, "admin");
+            //    return true;
             //}
+            //return false;
+            #endregion
 
-            
-            //Console.WriteLine($"Salt: {Convert.ToBase64String(salt)}");
-
-            // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
-            //string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            //    password: "123456",
-            //    salt: salt,
-            //    prf: KeyDerivationPrf.HMACSHA1,
-            //    iterationCount: 10000,
-            //    numBytesRequested: 256 / 8));
-
-            //var admin = new User()
-            //{
-            //    PasswordHash = hashed,
-            //    UserName = "test3",
-            //    Email = "test3.test3@yahoo.com"
-            //};
-        
-
-
-
-            var adminRole = await _rolemanager.CreateAsync(new IdentityRole<int>("admin"));
-            var x = await _userManager.CreateAsync(new User() { UserName="test",Email="test.test@yahoo.com"},"P@rni@n78");
-        
-            //await _userManager.CreateAsync(new User("te"));
-            var test = await _userManager.FindByNameAsync("test");
-            if (test != null)
+            #region SeedCustomers
+            var addCustomerRole = await _rolemanager.CreateAsync(new IdentityRole<int>("customer"));
+            var addCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "parnian", LastName = "Rafie", UserName = "pari", Email = "pari.pari@yahoo.com" }, "P@rni@n78");
+            var deletedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "zarnian", LastName = "zafie", IsDeleted = true, DeletedAt = DateTime.UtcNow, DeleteComment = "ziad harf mizad", UserName = "zari", Email = "zari.pari@yahoo.com" }, "P@rni@n78");
+            var acceptedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, IsActive = true, ActivatedAt = DateTime.UtcNow, FirstName = "xarnian", LastName = "xafie", UserName = "xari", Email = "xari.pari@yahoo.com" }, "P@rni@n78");
+            if (addCustomerRole.Succeeded)
             {
-                await _userManager.AddToRoleAsync(test, "admin");
+                var customer = await _userManager.FindByNameAsync("pari");
+                if (customer != null)
+                {
+                    await _userManager.AddToRoleAsync(customer, "customer");
+                }
+                var customer2 = await _userManager.FindByNameAsync("zari");
+                if (customer2 != null)
+                {
+                    await _userManager.AddToRoleAsync(customer2, "customer");
+                }
+                var customer3 = await _userManager.FindByNameAsync("xari");
+                if (customer3 != null)
+                {
+                    await _userManager.AddToRoleAsync(customer3, "customer");
+                }
                 return true;
+
             }
             return false;
-          
+            #endregion
+
         }
 
 

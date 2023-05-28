@@ -2,6 +2,7 @@
 using AppCore;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.Product;
 using AutoMapper;
 using FinalProject_Market.Models.ViewModels;
@@ -14,6 +15,7 @@ namespace Repositories.AutoMapper
 		public EntityProfile()
 		{
 			CreateMap<LogInViewModel, LogInAdminDto>();
+			CreateMap<DetailCustomerDto, GetCustomersViewModel> ();
 
         }
 

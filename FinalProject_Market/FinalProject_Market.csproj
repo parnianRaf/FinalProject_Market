@@ -38,8 +38,15 @@
     <ProjectReference Include="..\AppSqlDataBase\AppSqlDataBase.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\ExtensionMethods\ExtensionMethods.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="wwwroot\AdminPannel\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\AdminPannel\js\" />
   </ItemGroup>
 </Project>

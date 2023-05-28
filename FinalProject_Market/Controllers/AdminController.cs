@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AppCore.AppServices.Admin.Command;
+using AppCore.AppServices.Admin.Query;
 using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Customer;
 using AppService.Admin;
 using AutoMapper;
 using FinalProject_Market.Models;
@@ -21,17 +23,19 @@ namespace FinalProject_Market.Controllers
         private readonly ISeedData _data;
         private readonly IMapper _mapper;
         private readonly ILogIn _logIn;
+        private readonly IGetCustomers _customers;
 
         #endregion
 
         #region ctor
         public AdminController(ISeedData data
             ,ILogIn logIn,
-             IMapper mapper)
+             IMapper mapper, IGetCustomers customers)
         {
             _data = data;
             _mapper = mapper;
             _logIn = logIn;
+            _customers = customers;
         }
         #endregion
         // GET: /<controller>/
@@ -62,17 +66,24 @@ namespace FinalProject_Market.Controllers
 
         }
 
-
-
-        public async Task<IActionResult> SeedData()
+        public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
         {
-            var test1 = await _data.Execute();
-            if (!test1)
-            {
-                return RedirectToAction("Privacy", "Home");
-            }
-            return RedirectToAction("Index", "Home");
+            List<DetailCustomerDto> customerDtos =await  _customers.Execute(cancellation);
+            List<GetCustomersViewModel> customersViewModels = _mapper.Map<List<GetCustomersViewModel>>(customerDtos);
+            return PartialView(customersViewModels);
         }
+
+        //public async Task<IActionResult> SeedData()
+        //{
+
+        //    var test1 = await _data.Execute();
+        //    if (!test1)
+        //    {
+        //        return RedirectToAction("Privacy", "Home");
+        //    }
+        //    return RedirectToAction("Index", "Home");
+
+        //}
     }
 }
 

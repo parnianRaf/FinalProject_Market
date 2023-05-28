@@ -31,6 +31,10 @@ public class User: IdentityUser<int>
 
     public bool? IsMainAdmin { get; set; }
 
+    public bool IsActive { get; set; }
+
+    public DateTime? ActivatedAt { get; set; }
+
     public DateTime? MedalAchievedAt { get; set; }
 
     public DateTime CreatedAt { get; set; }
@@ -42,6 +46,8 @@ public class User: IdentityUser<int>
     public int? ModifiedBy { get; set; }
 
     public bool IsDeleted { get; set; }
+
+    public string? DeleteComment { get; set; }
 
     public DateTime? DeletedAt { get; set; }
 

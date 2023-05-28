@@ -1920,6 +1920,19 @@
           "bin/placeholder/AppSqlDataBase.dll": {}
         }
       },
+      "ExtensionMethods/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AppCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ExtensionMethods.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExtensionMethods.dll": {}
+        }
+      },
       "Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -4996,6 +5009,11 @@
       "path": "../AppSqlDataBase/AppSqlDataBase.csproj",
       "msbuildProject": "../AppSqlDataBase/AppSqlDataBase.csproj"
     },
+    "ExtensionMethods/1.0.0": {
+      "type": "project",
+      "path": "../ExtensionMethods/ExtensionMethods.csproj",
+      "msbuildProject": "../ExtensionMethods/ExtensionMethods.csproj"
+    },
     "Repositories/1.0.0": {
       "type": "project",
       "path": "../Repositories/Repositories.csproj",
@@ -5007,6 +5025,7 @@
       "AppCore >= 1.0.0",
       "AppService >= 1.0.0",
       "AppSqlDataBase >= 1.0.0",
+      "ExtensionMethods >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 7.0.5",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.5",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.5",
@@ -5050,6 +5069,9 @@
             },
             "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppSqlDataBase/AppSqlDataBase.csproj": {
               "projectPath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppSqlDataBase/AppSqlDataBase.csproj"
+            },
+            "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/ExtensionMethods.csproj": {
+              "projectPath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/ExtensionMethods.csproj"
             }
           }
         }

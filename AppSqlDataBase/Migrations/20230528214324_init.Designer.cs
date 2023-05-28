@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppSqlDataBase.Migrations
 {
     [DbContext(typeof(MarketContext))]
-    [Migration("20230528144512_init")]
+    [Migration("20230528214324_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -443,6 +443,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("ActivatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -452,6 +455,9 @@ namespace AppSqlDataBase.Migrations
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
+
+                    b.Property<string>("DeleteComment")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
@@ -471,6 +477,9 @@ namespace AppSqlDataBase.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<bool?>("HasMedal")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")

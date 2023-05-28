@@ -82,22 +82,19 @@ namespace Repositories.AutoMapper
             #endregion
 
             #region Customer
-   //         CreateMap<AddCustomerDto, Customer>();
-               
-   //         CreateMap<IdentityUser<int>, Customer>()
-			//	.ForMember(dst=>dst.UserId,opt=>opt.MapFrom(src=>src.Id))
-   //             .ForMember(dst => dst.CreteBy, opt => opt.MapFrom(src => src.Id))
-   //             .ForMember(dst => dst.CreateAt, opt => opt.MapFrom(src => DateTime.Now));
-			//CreateMap<AddCustomerDto, IdentityUser<int>>();
-   //         CreateMap<EditCustomerDto, IdentityUser<int>>();
-   //         CreateMap<EditCustomerDto, Customer>()
-   //             //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
-   //             .ForMember(dst=>dst.ModifiedAt,opt=>opt.MapFrom(src=>DateTime.Now));
-			//CreateMap<Customer, DetailCustomerDto>()
-   //               .ForMember(dst => dst.CustomerAddressDtos, opt =>
-   //             opt.MapFrom(src => src.CustomerAddresses))
-   //             .ForMember(dst => dst.DirectOrderDtos, opt =>
-   //             opt.MapFrom(src => src.DirectOrders));
+            CreateMap<AddCustomerDto, User>()
+               //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
+                 .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+            CreateMap<AddAdminDto, User>()
+                //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+            CreateMap<EditCustomerDto, User>()
+              //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
+                .ReverseMap();
+            CreateMap<User, DetailCustomerDto>()
+                .ForMember(dst=>dst.FullName,opt=>
+                opt.MapFrom(src=>$"{src.FirstName} {src.LastName}"));
             #endregion
 
             #region Admin

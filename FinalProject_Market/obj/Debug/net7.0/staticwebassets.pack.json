@@ -49,6 +49,70 @@
       "PackagePath": "staticwebassets/AdminPannel/images/AdminLTELogo.png"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/Dashboard1.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/Dashboard1.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/adminlte.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/adminlte.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/adminlte.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/adminlte.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/bootstrap-datepicker.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/bootstrap-datepicker.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/bootstrap3-wysihtml5.all.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/bootstrap3-wysihtml5.all.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/daterangepicker.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/daterangepicker.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/demo.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/demo.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/fastclick.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/fastclick.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/jquery-jvectormap-1.2.2.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/jquery-jvectormap-1.2.2.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/jquery-jvectormap-world-mill-en.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/jquery-jvectormap-world-mill-en.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/jquery.knob.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/jquery.knob.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/jquery.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/jquery.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/jquery.slimscroll.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/jquery.slimscroll.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/jquery.sparkline.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/jquery.sparkline.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/js/morris.min.js",
+      "PackagePath": "staticwebassets/AdminPannel/js/morris.min.js"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/assets/css/bootstrap-rtl.min.css",
       "PackagePath": "staticwebassets/assets/css/bootstrap-rtl.min.css"
     },

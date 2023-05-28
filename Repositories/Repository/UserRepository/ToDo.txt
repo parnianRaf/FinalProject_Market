@@ -8,3 +8,11 @@
 4-Add AsNoTracking========>?????fek  konm khode UserManager ino control carde
 
 5-Write Custome Middleware
+
+6-LogIn Admin mesle aghaye savarian she
+
+7-chek kon cancelationtoken haro khodesh barresi mikone usermanager ya na??
+
+8-confighaye program dakhel ye kelas dg beravanad
+
+9-Framework daghighan bara chie???????????ehsas mikonm vojodesh osol solid naghz mikone

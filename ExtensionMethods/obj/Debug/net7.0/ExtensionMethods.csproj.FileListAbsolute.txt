@@ -1,0 +1,15 @@
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/bin/Debug/net7.0/ExtensionMethods.deps.json
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/bin/Debug/net7.0/ExtensionMethods.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/bin/Debug/net7.0/ExtensionMethods.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/bin/Debug/net7.0/AppCore.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/bin/Debug/net7.0/AppCore.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.csproj.AssemblyReference.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.GeneratedMSBuildEditorConfig.editorconfig
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.AssemblyInfoInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.AssemblyInfo.cs
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.csproj.CoreCompileInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.csproj.CopyComplete
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/refint/ExtensionMethods.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ExtensionMethods.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/obj/Debug/net7.0/ref/ExtensionMethods.dll
