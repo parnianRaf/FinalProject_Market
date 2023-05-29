@@ -1,6 +1,6 @@
 ﻿@using ExtensionMethods;
 
-@model List<GetCustomersViewModel>
+@model List<GetSellersViewModel>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,50 +64,50 @@
                                             <th>مشاهده کامل پروفایل</th>
                                             <th>دلیل رد شدن</th>
                                         </tr>
-                                        @foreach (var customer in Model)
+                                        @foreach (var seller in Model)
                                         {
-                                            @if (customer.IsActive != true && customer.IsDeleted != true)
+                                            @if (seller.IsActive != true && seller.IsDeleted != true)
 
                                             {
                                                 <tr>
-                                                    <td>@customer.Id</td>
-                                                    <td>@customer.FullName</td>
-                                                    <td>@customer.CreatedAt</td>
+                                                    <td>@seller.Id</td>
+                                                    <td>@seller.FullName</td>
+                                                    <td>@seller.CreatedAt</td>
                                                     <td><span class="badge bg-danger">در حال بررسی</span></td>
-                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@seller.Id">مشاهده جزییات</a></td>
                                                     <td></td>
                                                 </tr>
 
                                             }
                                         }
 
-                                        @foreach (var customer in Model)
+                                        @foreach (var seller in Model)
                                         {
-                                            @if (customer.IsDeleted == true)
+                                            @if (seller.IsDeleted == true)
 
                                             {
                                                 <tr>
-                                                    <td>@customer.Id</td>
-                                                    <td>@customer.FullName</td>
-                                                    <td>@customer.DeletedAt</td>
+                                                    <td>@seller.Id</td>
+                                                    <td>@seller.FullName</td>
+                                                    <td>@seller.DeletedAt</td>
                                                     <td><span class="badge badge-danger">رد شده</span></td>
-                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
-                                                    <td>@customer.DeleteComment</td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@seller.Id">مشاهده جزییات</a></td>
+                                                    <td>@seller.DeleteComment</td>
                                                 </tr>
 
                                             }
                                         }
-                                        @foreach (var customer in Model)
+                                        @foreach (var seller in Model)
                                         {
-                                            @if (customer.IsActive == true)
+                                            @if (seller.IsActive == true)
 
                                             {
                                                 <tr>
-                                                    <td>@customer.Id</td>
-                                                    <td>@customer.FullName</td>
-                                                    <td>@customer.ActivatedAt</td>
+                                                    <td>@seller.Id</td>
+                                                    <td>@seller.FullName</td>
+                                                    <td>@seller.ActivatedAt</td>
                                                     <td><span class="badge badge-success">تایید شده</span></td>
-                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@seller.Id">مشاهده جزییات</a></td>
                                                     <td></td>
                                                 </tr>
 

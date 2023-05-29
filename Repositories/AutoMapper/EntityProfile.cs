@@ -95,6 +95,9 @@ namespace Repositories.AutoMapper
             CreateMap<User, DetailCustomerDto>()
                 .ForMember(dst=>dst.FullName,opt=>
                 opt.MapFrom(src=>$"{src.FirstName} {src.LastName}"));
+            CreateMap<User, FullDetailCustomerDto>()
+                .ForMember(dst => dst.CustomerAddressDtos,opt=>
+                opt.MapFrom(src=>src.CustomerAddresses));
             #endregion
 
             #region Admin

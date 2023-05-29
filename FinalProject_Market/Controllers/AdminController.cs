@@ -24,20 +24,26 @@ namespace FinalProject_Market.Controllers
         private readonly IMapper _mapper;
         private readonly ILogIn _logIn;
         private readonly IGetCustomers _customers;
+        private readonly IGetCustomer _customer;
+        private readonly IEditCustomer _editCustomer;
 
         #endregion
 
         #region ctor
         public AdminController(ISeedData data
-            ,ILogIn logIn,
-             IMapper mapper, IGetCustomers customers)
+            ,ILogIn logIn, IGetCustomer customer,
+             IMapper mapper, IGetCustomers customers
+            , IEditCustomer editCustomer)
         {
             _data = data;
             _mapper = mapper;
             _logIn = logIn;
             _customers = customers;
+            _customer = customer;
+            _editCustomer = editCustomer;
         }
         #endregion
+
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -66,11 +72,29 @@ namespace FinalProject_Market.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Profile (FullDetailCustomerViewModel viewModel,CancellationToken cancellation)
+        {
+            var customer = _mapper.Map<EditCustomerDto>(viewModel);
+            var result = await _editCustomer.Execute(customer, cancellation);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index","Home");
+            }
+            return View(viewModel);
+        }
+
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
         {
             List<DetailCustomerDto> customerDtos =await  _customers.Execute(cancellation);
             List<GetCustomersViewModel> customersViewModels = _mapper.Map<List<GetCustomersViewModel>>(customerDtos);
             return PartialView(customersViewModels);
+        }
+
+        public async Task<IActionResult> Profile(int id,CancellationToken cancellation)
+        {
+            FullDetailCustomerViewModel viewModel= _mapper.Map<FullDetailCustomerViewModel>(await _customer.Execute(id, cancellation));
+            return View(viewModel);
         }
 
         //public async Task<IActionResult> SeedData()

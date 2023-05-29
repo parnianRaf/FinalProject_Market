@@ -16,6 +16,10 @@ namespace Repositories.AutoMapper
 		{
 			CreateMap<LogInViewModel, LogInAdminDto>();
 			CreateMap<DetailCustomerDto, GetCustomersViewModel> ();
+			CreateMap<FullDetailCustomerDto, FullDetailCustomerViewModel > ();
+            CreateMap<DetailedCustomerAdddressDto, DetailedCustomerAddressViewModel>();
+            CreateMap<FullDetailCustomerDto, FullDetailCustomerViewModel>();
+            CreateMap<FullDetailCustomerViewModel, EditCustomerDto > ();
 
         }
 

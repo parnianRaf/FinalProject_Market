@@ -17,8 +17,6 @@ namespace AppCore.DtoModels.Customer
 
         public string PhoneNumber { get; set; }
 
-        public string UserName { get; set; }
-
         public string NationalityCode { get; set; }
 
         public DateTime CreatedAt { get; set; }
@@ -33,11 +31,7 @@ namespace AppCore.DtoModels.Customer
 
         public string? DeleteComment { get; set; }
 
-        public virtual List<DetailedDirctOrderDto>?DirectOrderDtos { get; set; }
-
         public virtual List<DetailedCustomerAdddressDto>? CustomerAddressDtos { get; set; }
-
-        public virtual Wallet? Wallet { get; set; }
 
     }
 }

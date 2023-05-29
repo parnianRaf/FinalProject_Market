@@ -72,7 +72,18 @@ namespace Repositories.UserRepository
             return new EditCustomerDto();
         }
 
-        public async Task<bool> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation)
+        public async Task<FullDetailCustomerDto> GetCustomerProfile(int id, CancellationToken cancellation)
+        {
+            User? customer = await _userManager.FindByIdAsync(id.ToString());
+            if (customer != null)
+            {
+                return _mapper.Map<FullDetailCustomerDto>(customer);
+
+            }
+            return new FullDetailCustomerDto();
+        }
+
+        public async Task<IdentityResult> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation)
         {
             //var user = new IdentityUser<int>()
             //{
@@ -80,13 +91,13 @@ namespace Repositories.UserRepository
             //    PhoneNumber = customerDto.PhoneNumber,
             //    UserName = customerDto.UserName,
             //};
-            var user = _mapper.Map<User>(customerDto);
-            var editResult = await _userManager.UpdateAsync(user);
-            if (editResult.Succeeded)
-            {
-                return true;
-            }
-            return false;
+            User? user =await _userManager.FindByEmailAsync(customerDto.Email);
+
+            user = _mapper.Map<User>(customerDto);
+
+            return await _userManager.UpdateAsync(user);
+
+
         }
 
         public async Task<bool> DeleteCustomer(int id, CancellationToken cancellationToken)
