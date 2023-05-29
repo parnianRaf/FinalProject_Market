@@ -6,6 +6,7 @@ using AppCore.AppServices.Admin.Command;
 using AppCore.AppServices.Admin.Query;
 using AppCore.DtoModels.Admin;
 using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.Seller;
 using AppService.Admin;
 using AutoMapper;
 using FinalProject_Market.Models;
@@ -24,6 +25,7 @@ namespace FinalProject_Market.Controllers
         private readonly IMapper _mapper;
         private readonly ILogIn _logIn;
         private readonly IGetCustomers _customers;
+        private readonly IGetSellers _sellers;
         private readonly IGetCustomer _customer;
         private readonly IEditCustomer _editCustomer;
 
@@ -33,7 +35,7 @@ namespace FinalProject_Market.Controllers
         public AdminController(ISeedData data
             ,ILogIn logIn, IGetCustomer customer,
              IMapper mapper, IGetCustomers customers
-            , IEditCustomer editCustomer)
+            , IEditCustomer editCustomer, IGetSellers sellers)
         {
             _data = data;
             _mapper = mapper;
@@ -41,6 +43,7 @@ namespace FinalProject_Market.Controllers
             _customers = customers;
             _customer = customer;
             _editCustomer = editCustomer;
+            _sellers = sellers;
         }
         #endregion
 
@@ -89,6 +92,13 @@ namespace FinalProject_Market.Controllers
             List<DetailCustomerDto> customerDtos =await  _customers.Execute(cancellation);
             List<GetCustomersViewModel> customersViewModels = _mapper.Map<List<GetCustomersViewModel>>(customerDtos);
             return PartialView(customersViewModels);
+        }
+
+        public async Task<IActionResult> GetSellerList(CancellationToken cancellation)
+        {
+            List<DetailSellerDto> sellerDtos = await _sellers.Execute(cancellation);
+            List<GetSellersViewModel> sellerViewModels = _mapper.Map<List<GetSellersViewModel>>(sellerDtos);
+            return PartialView(sellerViewModels);
         }
 
         public async Task<IActionResult> Profile(int id,CancellationToken cancellation)

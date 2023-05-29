@@ -20,8 +20,10 @@ builder.Services.AddDbContext<MarketContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ISellerRepository, SellerRepository>();
 builder.Services.AddScoped<ILogIn, LogIn>();
 builder.Services.AddScoped<IGetCustomers, GetCustomers>();
+builder.Services.AddScoped<IGetSellers, GetSellers>();
 builder.Services.AddScoped<IGetCustomer, GetCustomer>();
 builder.Services.AddScoped<IEditCustomer, EditCustomer>();
 //builder.Services.AddScoped<IProductRepository, ProductRepository> ();

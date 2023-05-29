@@ -8,7 +8,7 @@ namespace Repositories.UserRepository
         Task<IdentityResult> AddCustomer(AddCustomerDto customerDto, CancellationToken cancellation);
         Task<bool> DeleteCustomer(int id, CancellationToken cancellationToken);
         Task<List<DetailCustomerDto>> GetAllCustomers(CancellationToken cancellationToken);
-        Task<EditCustomerDto> GetCustomer(int id, CancellationToken cancellation);
+        Task<EditCustomerDto> GetUser(int id, CancellationToken cancellation);
         Task<FullDetailCustomerDto> GetCustomerProfile(int id, CancellationToken cancellation);
         Task<SignInResult> LogIn(LogInCustomerDto customerDto, CancellationToken cancellation);
         Task LogOut(CancellationToken cancellation);

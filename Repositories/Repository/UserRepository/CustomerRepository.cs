@@ -61,12 +61,12 @@ namespace Repositories.UserRepository
             await _signInManager.SignOutAsync();
         }
 
-        public async Task<EditCustomerDto> GetCustomer(int id, CancellationToken cancellation)
+        public async Task<EditCustomerDto> GetUser(int id, CancellationToken cancellation)
         {
-            User? customer = await _userManager.FindByIdAsync(id.ToString());
-            if (customer != null)
+            User? user = await _userManager.FindByIdAsync(id.ToString());
+            if (user != null)
             {
-                return _mapper.Map<EditCustomerDto>(customer);
+                return _mapper.Map<EditCustomerDto>(user);
 
             }
             return new EditCustomerDto();

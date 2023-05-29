@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Repositories.UserRepository
 {
-    public class SellerRepository
+    public class SellerRepository : ISellerRepository
     {
         #region prop
         private readonly UserManager<User> _userManager;
@@ -74,7 +74,7 @@ namespace Repositories.UserRepository
 
         public async Task<EditSellerDto> UpdateGetSeller(int id, CancellationToken cancellation)
         {
-            var seller=await _userManager.FindByIdAsync(id.ToString());
+            var seller = await _userManager.FindByIdAsync(id.ToString());
             if (seller != null)
             {
                 return _mapper.Map<EditSellerDto>(seller);
@@ -91,8 +91,8 @@ namespace Repositories.UserRepository
             //    PhoneNumber = customerDto.PhoneNumber,
             //    UserName = customerDto.UserName,
             //};
-            User? user =await _userManager.FindByIdAsync(sellerDto.Id.ToString());
-            if(user!=null)
+            User? user = await _userManager.FindByIdAsync(sellerDto.Id.ToString());
+            if (user != null)
             {
                 user = _mapper.Map<User>(sellerDto);
                 var editResult = await _userManager.UpdateAsync(user);
@@ -101,7 +101,7 @@ namespace Repositories.UserRepository
                     return true;
                 }
             }
-      
+
             return false;
         }
 
@@ -120,10 +120,21 @@ namespace Repositories.UserRepository
             return result;
 
         }
+        
+        //public async Task<EditSellerDto> GetSeller(int id, CancellationToken cancellation)
+        //{
+        //    User? seller = await _userManager.FindByIdAsync(id.ToString());
+        //    if (seller != null)
+        //    {
+        //        return _mapper.Map<EditSellerDto>(seller);
+
+        //    }
+        //    return new EditSellerDto();
+        //}
 
         public async Task<List<DetailSellerDto>> GetAllSellers(CancellationToken cancellationToken)
         {
-            var result = await _userManager.GetUsersInRoleAsync("admin");
+            var result = await _userManager.GetUsersInRoleAsync("seller");
             return _mapper.Map<List<DetailSellerDto>>(result);
         }
 

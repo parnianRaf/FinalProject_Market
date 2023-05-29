@@ -83,18 +83,27 @@ namespace Repositories.AutoMapper
 
             #region Customer
             CreateMap<AddCustomerDto, User>()
-               //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-                 .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+               //.ForMember(dst => dst.CreatedBy, opt =>
+               //opt.MapFrom(src => src.Id))
+                 .ForMember(dst => dst.CreatedAt, opt =>
+                 opt.MapFrom(src => DateTime.Now));
+
             CreateMap<AddAdminDto, User>()
                 //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+                .ForMember(dst => dst.CreatedAt, opt =>
+                opt.MapFrom(src => DateTime.Now));
+
             CreateMap<EditCustomerDto, User>()
-              //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
-                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
+              //.ForMember(dst => dst.ModifiedBy, opt =>
+              //opt.MapFrom(src => src.UserId))
+                .ForMember(dst => dst.ModifiedAt, opt =>
+                opt.MapFrom(src => DateTime.Now))
                 .ReverseMap();
+
             CreateMap<User, DetailCustomerDto>()
                 .ForMember(dst=>dst.FullName,opt=>
                 opt.MapFrom(src=>$"{src.FirstName} {src.LastName}"));
+
             CreateMap<User, FullDetailCustomerDto>()
                 .ForMember(dst => dst.CustomerAddressDtos,opt=>
                 opt.MapFrom(src=>src.CustomerAddresses));
@@ -103,42 +112,39 @@ namespace Repositories.AutoMapper
             #region Admin
             CreateMap<AddAdminDto, User>()
                 //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); 
             CreateMap<AddAdminDto, User>()
                 //.ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); ;
+                .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now)); 
             CreateMap<EditAdminDto, User>()
                 //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
                 .ReverseMap();
-            CreateMap<User, DetailAdminDto>();
+
 
 
             #endregion
 
             #region Seller
-            //CreateMap<AddSelllerDto, Seller>();
+            CreateMap<AddSelllerDto, User>()
+                 //.ForMember(dst => dst.CreatedBy, opt =>
+                 //opt.MapFrom(src => src.Id))
+                 .ForMember(dst => dst.CreatedAt, opt =>
+                 opt.MapFrom(src => DateTime.Now));
 
-            //CreateMap<IdentityUser<int>, Seller>()
-            //    .ForMember(dst => dst.UserId, opt => opt.MapFrom(src => src.Id))
-            //    .ForMember(dst => dst.CreatedBy, opt => opt.MapFrom(src => src.Id))
-            //    .ForMember(dst => dst.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
-            //CreateMap<AddSelllerDto, IdentityUser<int>>();
-            //CreateMap<EditSellerDto, IdentityUser<int>>();
-            //CreateMap<Seller, DetailSellerDto>()
-            //      .ForMember(dst => dst.ProductDtos, opt =>
-            //    opt.MapFrom(src => src.Products))
-            //    .ForMember(dst => dst.PavilionDtos, opt =>
-            //    opt.MapFrom(src => src.Pavilions));
-            //CreateMap<EditSellerDto, Seller>()
-            //    //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
-            //    .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
-            //       .ForMember(dst => dst.Pavilions, opt =>
-            //    opt.MapFrom(src => src.PavilionDtos))
-            //    .ForMember(dst => dst.Products, opt =>
-            //    opt.MapFrom(src => src.ProductDtos))
-            //    .ForMember(dst=>dst.PasswordHash,opt=>
-            //    opt.MapFrom(src=>src.Password));
+            CreateMap<EditSellerDto, User>()
+                //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
+                .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
+                .ReverseMap(); 
+
+            CreateMap<User, DetailSellerDto>()
+            .ForMember(dst => dst.FullName, opt =>
+            opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+
+            CreateMap<User, FullDetailCustomerDto>()
+            .ForMember(dst => dst.CustomerAddressDtos, opt =>
+            opt.MapFrom(src => src.CustomerAddresses));
+
             #endregion
         }
 

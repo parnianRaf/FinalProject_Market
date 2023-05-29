@@ -7,7 +7,7 @@ namespace AppCore.DtoModels.Customer
 {
 	public class FullDetailCustomerViewModel
     {
-        public int Id { get;  }
+        public int Id { get; set; }
 
         public string FirstName { get; set; }
 
