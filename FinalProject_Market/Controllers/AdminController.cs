@@ -80,7 +80,7 @@ namespace FinalProject_Market.Controllers
         {
             var customer = _mapper.Map<EditCustomerDto>(viewModel);
             var result = await _editCustomer.Execute(customer, cancellation);
-            if (result.Succeeded)
+            if (result)
             {
                 return RedirectToAction("Index","Home");
             }

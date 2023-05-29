@@ -1,6 +1,6 @@
 ﻿using AppCore.DtoModels.Product;
 
-namespace AppCore.AppServices.Customer.Query
+namespace AppCore.AppServices.Admin.Query
 {
     public interface IGetSellerList
     {

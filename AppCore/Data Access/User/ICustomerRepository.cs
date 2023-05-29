@@ -12,6 +12,6 @@ namespace Repositories.UserRepository
         Task<FullDetailCustomerDto> GetCustomerProfile(int id, CancellationToken cancellation);
         Task<SignInResult> LogIn(LogInCustomerDto customerDto, CancellationToken cancellation);
         Task LogOut(CancellationToken cancellation);
-        Task<IdentityResult> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation);
+        Task<bool> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation);
     }
 }

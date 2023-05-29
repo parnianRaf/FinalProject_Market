@@ -83,7 +83,7 @@ namespace Repositories.UserRepository
             return new FullDetailCustomerDto();
         }
 
-        public async Task<IdentityResult> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation)
+        public async Task<bool> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation)
         {
             //var user = new IdentityUser<int>()
             //{
@@ -94,8 +94,12 @@ namespace Repositories.UserRepository
             User? user =await _userManager.FindByEmailAsync(customerDto.Email);
 
             user = _mapper.Map<User>(customerDto);
-
-            return await _userManager.UpdateAsync(user);
+            var res =await _userManager.UpdateAsync(user);
+            if(res.Succeeded)
+            {
+                return true;
+            }
+            return false;
 
 
         }

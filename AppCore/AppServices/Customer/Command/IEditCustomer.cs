@@ -6,7 +6,7 @@ namespace AppCore.AppServices.Admin.Command
 {
     public interface IEditCustomer
     {
-        Task<IdentityResult> Execute(EditCustomerDto customerDto, CancellationToken cancellation);
+        Task<bool> Execute(EditCustomerDto customerDto, CancellationToken cancellation);
     }
 
 

@@ -24,6 +24,9 @@
       <None Remove="Data Access\User\" />
       <None Remove="DtoModels\Category\" />
       <None Remove="AppServices\Admin\Command\" />
+      <None Remove="AppServices\Customer\" />
+      <None Remove="AppServices\Customer\Command\" />
+      <None Remove="AppServices\Customer\Query\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -40,5 +43,8 @@
       <Folder Include="DtoModels\Category\" />
       <Folder Include="AppServices\Admin\Command\" />
       <Folder Include="AppServices\Seller\" />
+      <Folder Include="AppServices\Customer\" />
+      <Folder Include="AppServices\Customer\Command\" />
+      <Folder Include="AppServices\Customer\Query\" />
     </ItemGroup>
 </Project>

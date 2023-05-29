@@ -20,7 +20,7 @@ namespace AppService.Admin.Commands
         #endregion
 
         #region Implementation
-        public async Task<IdentityResult> Execute(EditCustomerDto customerDto, CancellationToken cancellation)
+        public async Task<bool> Execute(EditCustomerDto customerDto, CancellationToken cancellation)
         {
             return await _customerRepository.UpdateCustomer(customerDto, cancellation);
         }
