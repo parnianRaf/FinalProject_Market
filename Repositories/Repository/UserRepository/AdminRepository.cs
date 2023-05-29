@@ -92,12 +92,20 @@ namespace Repositories.UserRepository
             //    PhoneNumber = customerDto.PhoneNumber,
             //    UserName = customerDto.UserName,
             //};
-            var user = _mapper.Map<User>(adminDto);
-            var editResult = await _userManager.UpdateAsync(user);
-            if (editResult.Succeeded)
+            User? user = await _userManager.FindByIdAsync(adminDto.Id.ToString());
+            if (user != null)
             {
-                return true;
+                user.FirstName = adminDto.FirstName;
+                user.LastName = adminDto.LastName;
+                user.Email = adminDto.Email;
+                user.PhoneNumber = adminDto.PhoneNumber;
+                var res = await _userManager.UpdateAsync(user);
+                if (res.Succeeded)
+                {
+                    return true;
+                }
             }
+        
             return false;
         }
 

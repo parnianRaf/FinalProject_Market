@@ -1,0 +1,82 @@
+﻿
+@using AppCore.DtoModels.Customer
+
+
+@{
+    Layout = "_Layout_3";
+}
+
+@model FullDetailCustomerViewModel
+
+<div class="container m-5">
+    <div class="row m-2" >
+        <div class="d-flex justify-content-start">
+            @if (!Model.IsDeleted)
+                {
+            <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@Model.Id">حذف کاربر</a>
+                }
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="card card-info justify-content-center ">
+            <div class="card-header">
+                <h3 class="card-title">مشخصات</h3>
+            </div>
+           
+            <form class="card-body" method="post"  >
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">آیدی</span>
+                    </div>
+                    <input type="number" class="form-control" asp-for="Id" >
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">نام</span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="FirstName" placeholder="نام ">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">نام خانوادگی</span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="LastName" placeholder="نام خانوادگی">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <input type="email" class="form-control" asp-for="Email" placeholder="ایمیل">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                    </div>
+                    <input type="text" class="form-control " asp-for="PhoneNumber" placeholder="شماره همراه">
+                </div>
+                <!-- /.row -->
+                <!-- /input-group -->
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button type="submit" class="btn btn-danger" asp-controller="Admin" asp-action="CustomerProfile" >ویرایش</button>
+                    </div>
+                    <!-- /btn-group -->
+
+                </div>
+                <!-- /input-group -->
+                <!-- /input-group -->
+            </form>
+
+
+
+           
+            <!-- /.card-body -->
+        </div>
+    </div>
+</div>
+
+

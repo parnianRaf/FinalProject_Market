@@ -74,7 +74,7 @@
                                                     <td>@customer.FullName</td>
                                                     <td>@customer.CreatedAt</td>
                                                     <td><span class="badge bg-danger">در حال بررسی</span></td>
-                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="CustomerProfile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
                                                     <td></td>
                                                 </tr>
 
@@ -91,7 +91,7 @@
                                                     <td>@customer.FullName</td>
                                                     <td>@customer.DeletedAt</td>
                                                     <td><span class="badge badge-danger">رد شده</span></td>
-                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="CustomerProfile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
                                                     <td>@customer.DeleteComment</td>
                                                 </tr>
 
@@ -107,7 +107,7 @@
                                                     <td>@customer.FullName</td>
                                                     <td>@customer.ActivatedAt</td>
                                                     <td><span class="badge badge-success">تایید شده</span></td>
-                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Profile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="CustomerProfile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
                                                     <td></td>
                                                 </tr>
 

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using AppCore.AppServices.Admin.Command;
 using AppCore.AppServices.Admin.Query;
+using AppCore.AppServices.Admin_.Command;
 using AppCore.DtoModels.Admin;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.Seller;
 using AppService.Admin;
+using AppService.Admin.Commands;
 using AutoMapper;
 using FinalProject_Market.Models;
 using FinalProject_Market.Models.ViewModels;
@@ -20,22 +22,25 @@ namespace FinalProject_Market.Controllers
     public class AdminController : Controller
     {
         #region field
-
         private readonly ISeedData _data;
         private readonly IMapper _mapper;
         private readonly ILogIn _logIn;
         private readonly IGetCustomers _customers;
         private readonly IGetSellers _sellers;
+        private readonly IGetSeller _seller;
         private readonly IGetCustomer _customer;
         private readonly IEditCustomer _editCustomer;
-
+        private readonly IEditSeller _editSeller;
+        private readonly IDeactiveUser _deactiveUser;
+      
         #endregion
 
         #region ctor
         public AdminController(ISeedData data
-            ,ILogIn logIn, IGetCustomer customer,
-             IMapper mapper, IGetCustomers customers
-            , IEditCustomer editCustomer, IGetSellers sellers)
+            ,ILogIn logIn, IGetCustomer customer, IDeactiveUser deactiveUser,
+             IMapper mapper, IGetCustomers customers, IEditSeller editSeller
+            , IEditCustomer editCustomer, IGetSellers sellers
+            , IGetSeller seller)
         {
             _data = data;
             _mapper = mapper;
@@ -44,6 +49,9 @@ namespace FinalProject_Market.Controllers
             _customer = customer;
             _editCustomer = editCustomer;
             _sellers = sellers;
+            _editSeller = editSeller;
+            _seller = seller;
+            _deactiveUser = deactiveUser;
         }
         #endregion
 
@@ -75,14 +83,40 @@ namespace FinalProject_Market.Controllers
 
         }
 
+       // inja duplicate darimmmmmmmmmmmmmm !!!!!!!!!!!!!!!!!
+
+        public async Task<IActionResult> CustomerProfile(int id,CancellationToken cancellation)
+        {
+            FullDetailCustomerViewModel viewModel= _mapper.Map<FullDetailCustomerViewModel>(await _customer.Execute(id, cancellation));
+            return View(viewModel);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Profile (FullDetailCustomerViewModel viewModel,CancellationToken cancellation)
+        public async Task<IActionResult> CustomerProfile (FullDetailCustomerViewModel viewModel,CancellationToken cancellation)
         {
             var customer = _mapper.Map<EditCustomerDto>(viewModel);
             var result = await _editCustomer.Execute(customer, cancellation);
             if (result)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("CustomerProfile", new {viewModel.Id});
+            }
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
+        {
+            FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _seller.Execute(id, cancellation));
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
+        {
+            var sellerDto = _mapper.Map<EditSellerDto>(viewModel);
+            var result = await _editSeller.Execute(sellerDto, cancellation);
+            if (result)
+            {
+                return RedirectToAction("CustomerProfile", new {viewModel.Id});
             }
             return View(viewModel);
         }
@@ -101,11 +135,17 @@ namespace FinalProject_Market.Controllers
             return PartialView(sellerViewModels);
         }
 
-        public async Task<IActionResult> Profile(int id,CancellationToken cancellation)
+        public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
         {
-            FullDetailCustomerViewModel viewModel= _mapper.Map<FullDetailCustomerViewModel>(await _customer.Execute(id, cancellation));
-            return View(viewModel);
+            var DeactiveResult= await _deactiveUser.Execute(id, cancellation);
+            if(DeactiveResult)
+            {
+                return RedirectToAction("CustomerProfile", new { id });
+            }
+            return RedirectToAction("DeActive",new { id});
         }
+  
+ 
 
         //public async Task<IActionResult> SeedData()
         //{

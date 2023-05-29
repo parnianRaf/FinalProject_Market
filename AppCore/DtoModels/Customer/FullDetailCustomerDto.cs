@@ -6,7 +6,7 @@ using AppCore.DtoModels.Product;
 namespace AppCore.DtoModels.Customer
 {
 	public class FullDetailCustomerDto
-	{
+    {
         public int Id { get; set; }
 
         public string FirstName { get; set; }

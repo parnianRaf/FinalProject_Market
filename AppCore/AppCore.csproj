@@ -43,8 +43,8 @@
       <Folder Include="DtoModels\Category\" />
       <Folder Include="AppServices\Admin\Command\" />
       <Folder Include="AppServices\Seller\" />
-      <Folder Include="AppServices\Customer\" />
-      <Folder Include="AppServices\Customer\Command\" />
-      <Folder Include="AppServices\Customer\Query\" />
+      <Folder Include="AppServices\Admin_\" />
+      <Folder Include="AppServices\Admin_\Command\" />
+      <Folder Include="AppServices\Admin_\Query\" />
     </ItemGroup>
 </Project>

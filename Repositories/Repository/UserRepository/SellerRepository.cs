@@ -94,9 +94,13 @@ namespace Repositories.UserRepository
             User? user = await _userManager.FindByIdAsync(sellerDto.Id.ToString());
             if (user != null)
             {
-                user = _mapper.Map<User>(sellerDto);
-                var editResult = await _userManager.UpdateAsync(user);
-                if (editResult.Succeeded)
+
+                user.FirstName = sellerDto.FirstName;
+                user.LastName = sellerDto.LastName;
+                user.Email = sellerDto.Email;
+                user.PhoneNumber = sellerDto.PhoneNumber;
+                var res = await _userManager.UpdateAsync(user);
+                if (res.Succeeded)
                 {
                     return true;
                 }
@@ -120,7 +124,7 @@ namespace Repositories.UserRepository
             return result;
 
         }
-        
+
         //public async Task<EditSellerDto> GetSeller(int id, CancellationToken cancellation)
         //{
         //    User? seller = await _userManager.FindByIdAsync(id.ToString());
@@ -131,6 +135,16 @@ namespace Repositories.UserRepository
         //    }
         //    return new EditSellerDto();
         //}
+        public async Task<FullDetailSellerDto> GetSellerProfile(int id, CancellationToken cancellation)
+        {
+            User? seller = await _userManager.FindByIdAsync(id.ToString());
+            if (seller != null)
+            {
+                return _mapper.Map<FullDetailSellerDto>(seller);
+
+            }
+            return new FullDetailSellerDto();
+        }
 
         public async Task<List<DetailSellerDto>> GetAllSellers(CancellationToken cancellationToken)
         {

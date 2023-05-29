@@ -18,19 +18,11 @@ namespace AppCore.DtoModels.Customer
 
         public string PhoneNumber { get; set; }
 
-        public string UserName { get; set; }
-
         public string NationalityCode { get; set; }
 
         public DateTime CreatedAt { get; set; }
 
-        public int CreatedBy { get; set; }
-
         public bool IsDeleted { get; set; }
-
-        public string? DeleteComment { get; set; }
-
-        public DateTime? DeletedAt { get; set; }
 
         public bool IsActive { get; set; }
 

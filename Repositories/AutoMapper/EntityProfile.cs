@@ -77,8 +77,9 @@ namespace Repositories.AutoMapper
             CreateMap<Pavilion, PavilionDtoModel>().ReverseMap();
             #endregion
 
-            #region Customer Address
+            #region  Address
             CreateMap<CustomerAddress, DetailedCustomerAdddressDto>().ReverseMap();
+            CreateMap<SellerAddress, DetailedSellerAddressDto>().ReverseMap();
             #endregion
 
             #region Customer
@@ -98,6 +99,8 @@ namespace Repositories.AutoMapper
               //opt.MapFrom(src => src.UserId))
                 .ForMember(dst => dst.ModifiedAt, opt =>
                 opt.MapFrom(src => DateTime.Now))
+                .ForMember(dst=>dst.SecurityStamp,opt=>
+                opt.Ignore())
                 .ReverseMap();
 
             CreateMap<User, DetailCustomerDto>()
@@ -141,10 +144,9 @@ namespace Repositories.AutoMapper
             .ForMember(dst => dst.FullName, opt =>
             opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
 
-            CreateMap<User, FullDetailCustomerDto>()
-            .ForMember(dst => dst.CustomerAddressDtos, opt =>
-            opt.MapFrom(src => src.CustomerAddresses));
-
+            CreateMap<User, FullDetailSellerDto>()
+            .ForMember(dst => dst.SellerAddress, opt =>
+            opt.MapFrom(src => src.SellerAddress));
             #endregion
         }
 

@@ -2,25 +2,25 @@
   <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/UserRepository/CustomerRepository.cs" relfile="Repositories/Repository/UserRepository/CustomerRepository.cs" line="98" column="1" />
       <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Controllers/AdminController.cs" relfile="FinalProject_Market/Controllers/AdminController.cs" line="82" column="1" />
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/UserRepository/CustomerRepository.cs" relfile="Repositories/Repository/UserRepository/CustomerRepository.cs" line="97" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Controllers/AdminController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Views/Admin/Profile.cshtml">
     <Files>
       <File FileName="FinalProject_Market/Views/Admin/_Layout_3.cshtml" Line="93" Column="34" IsPinned="True" />
-      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="87" Column="36" IsPinned="True" />
-      <File FileName="FinalProject_Market/Views/Admin/Profile.cshtml" Line="73" Column="23" IsPinned="True" />
-      <File FileName="Repositories/AutoMapper/EntityProfile.cs" Line="151" Column="6" IsPinned="True" />
+      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="80" Column="10" IsPinned="True" />
+      <File FileName="Repositories/Repository/UserRepository/CustomerRepository.cs" Line="96" Column="38" IsPinned="True" />
+      <File FileName="Repositories/Repository/UserRepository/SellerRepository.cs" Line="137" Column="72" IsPinned="True" />
+      <File FileName="FinalProject_Market/Program.cs" Line="83" Column="1" />
+      <File FileName="Repositories/Repository/UserRepository/AdminRepository.cs" Line="177" Column="155" />
+      <File FileName="Repositories/AutoMapper/EntityProfile.cs" Line="102" Column="30" />
+      <File FileName="FinalProject_Market/Views/Admin/Profile.cshtml" Line="1" Column="1" />
       <File FileName="FinalProject_Market/Views/Admin/LogIn.cshtml" Line="1" Column="1" />
       <File FileName="FinalProject_Market/Views/Admin/GetSellerList.cshtml" Line="1" Column="1" />
-      <File FileName="Repositories/Repository/UserRepository/CustomerRepository.cs" Line="89" Column="16" />
-      <File FileName="Repositories/Repository/UserRepository/SellerRepository.cs" Line="137" Column="72" />
-      <File FileName="AppCore/DtoModels/Customer/EditCustomerDto.cs" Line="41" Column="47" />
-      <File FileName="AppCore/Data Access/User/ICustomerRepository.cs" Line="4" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,7 +29,17 @@
             <Node name="01-Domain" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
+                  <Node name="AppServices" expanded="True">
+                    <Node name="Admin" expanded="True">
+                      <Node name="Command" expanded="True" />
+                    </Node>
+                    <Node name="Customer" expanded="True">
+                      <Node name="Command" expanded="True" />
+                      <Node name="Query" expanded="True" />
+                    </Node>
+                  </Node>
                   <Node name="Data Access" expanded="True">
+                    <Node name="Product" expanded="True" />
                     <Node name="User" expanded="True" />
                   </Node>
                   <Node name="DtoModels" expanded="True">
@@ -61,11 +71,14 @@
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
                 <Node name="AutoMapper" expanded="True" />
-                <Node name="Controllers" expanded="True">
-                  <Node name="AdminController.cs" selected="True" />
+                <Node name="Controllers" expanded="True" />
+                <Node name="Models" expanded="True">
+                  <Node name="ViewModels" expanded="True" />
                 </Node>
                 <Node name="Views" expanded="True">
-                  <Node name="Admin" expanded="True" />
+                  <Node name="Admin" expanded="True">
+                    <Node name="Profile.cshtml" selected="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>

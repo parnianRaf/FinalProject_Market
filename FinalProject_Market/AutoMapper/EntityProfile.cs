@@ -24,7 +24,8 @@ namespace Repositories.AutoMapper
             CreateMap<FullDetailCustomerViewModel, EditCustomerDto > ();
 
             CreateMap<DetailSellerDto, GetSellersViewModel>();
-
+            CreateMap<FullDetailSellerDto, FullDetailSellerViewModel>();
+            CreateMap<FullDetailSellerViewModel, EditSellerDto>();
 
 
 
