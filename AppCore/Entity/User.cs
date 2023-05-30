@@ -27,7 +27,7 @@ public class User: IdentityUser<int>
 
     public string? NationalityCode { get; set; }
 
-    public bool? HasMedal { get; set; }
+    public bool HasMedal { get; set; }
 
     public bool? IsMainAdmin { get; set; }
 

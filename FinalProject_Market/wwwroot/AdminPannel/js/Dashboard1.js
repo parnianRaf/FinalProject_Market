@@ -8,6 +8,10 @@
         $("#mainPage").load("/Admin/GetOrdersList");
 
     });
+    $("#Orders").click(function () {
+        $("#mainPage").load("/Admin/GetOrdersList");
+
+    });
     $("#Dashboard1").click(function () {
         $("#mainPage").load("/Admin/GetCustomerList");
 

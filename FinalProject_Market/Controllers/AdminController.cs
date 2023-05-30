@@ -163,12 +163,11 @@ namespace FinalProject_Market.Controllers
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
         {
-            List<DetailedAuctionDto> auctionDtos = new();
             List<DetailedDirctOrderDto> dirctOrderDtos = new();
             dirctOrderDtos = await _paidOrders.Execute(cancellation);
-            auctionDtos = await _auctions.Execute(cancellation);
+            List<DetailedAuctionDto> auctionDtos = await _auctions.Execute(cancellation);
             ViewBag.directOrderDtos = dirctOrderDtos;
-            return PartialView("GetOrdersList", auctionDtos);
+            return View(auctionDtos);
         }
 
         public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)

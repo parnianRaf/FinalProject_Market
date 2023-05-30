@@ -16,6 +16,7 @@ namespace Repositories.Repository.ProductRepository
         Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation);
         Task<List<DetailedOfferDto>> GetOffersInSpecificSellerAuction(int sellerId, int auctionId, CancellationToken cancellation);
         Task<bool> RejectComment(int auctionId, CancellationToken cancellation);
+        Task<decimal> CommisionPaidBySellerAuctions(int sellerId, CancellationToken cancellation);
         Task<bool> RemoveAuction(int id, CancellationToken cancellation);
     }
 }

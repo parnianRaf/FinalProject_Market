@@ -40,7 +40,8 @@ builder.Services.AddScoped<IGetAllSellerProducts, GetAllSellerProducts>();
 builder.Services.AddScoped<IGetSellerPavilions, GetSellerPavilions>();
 builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();
 builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
-
+builder.Services.AddScoped<IGetCommissionPaidBySeller, GetCommissionPaidBySeller>();
+builder.Services.AddScoped<IGetCommissionPaidBySellerAuction, GetCommissionPaidBySellerAuction>();
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
 builder.Services.AddScoped<ISeedData, SeedData>();

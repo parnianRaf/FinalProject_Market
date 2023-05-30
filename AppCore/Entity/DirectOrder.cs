@@ -17,6 +17,8 @@ public class DirectOrder
 
     public bool IsPaid { get; set; }
 
+    public DateTime? PaidAt { get; set; }
+
     public decimal TotalPrice { get; set; }
 
     public int UserId { get; set; }

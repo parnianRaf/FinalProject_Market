@@ -26,7 +26,7 @@ public class Auction
 
     public int? AcceptedCustomerId { get; set; }
 
-    public decimal? FinalPrice { get; set; }
+    public decimal FinalPrice { get; set; }
 
     public int SellerId { get; set; }
 
@@ -41,6 +41,8 @@ public class Auction
     public string? FinalCommentByCostumer { get; set; }
 
     public bool IsFinished { get; set; }
+
+    public DateTime? FinishedAt { get; set; }
 
     public DateTime CreateAt { get; set; }
 

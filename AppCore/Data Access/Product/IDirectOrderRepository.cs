@@ -11,6 +11,7 @@ namespace Repositories.Repository.ProductRepository
         Task<EditDirectOrderDto> EditGetOrer(int id, CancellationToken cancellation);
         Task<List<DetailedDirctOrderDto>> GetAllPaidOrders(CancellationToken cancellation);
         Task<bool> RejectComment(int orderId, CancellationToken cancellation);
+        Task<decimal> CommisionPaidBySellerDirectOredr(int sellerId, CancellationToken cancellation);
         Task<bool> RemoveAuction(int id, CancellationToken cancellation);
     }
 }

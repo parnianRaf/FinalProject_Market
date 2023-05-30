@@ -8,6 +8,7 @@ using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ExtensionMethods;
+using Microsoft.AspNetCore.Identity;
 
 namespace Repositories.Repository.ProductRepository
 {
@@ -16,14 +17,16 @@ namespace Repositories.Repository.ProductRepository
         #region field
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
         #endregion
 
         #region ctor
         public DirectOrderRepository(MarketContext context
-            , IMapper mapper)
+            , IMapper mapper, UserManager<User> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
         }
         #endregion
 
@@ -167,7 +170,21 @@ namespace Repositories.Repository.ProductRepository
             return dirctOrderDtos;
         }
 
+        public async Task<decimal> CommisionPaidBySellerDirectOredr(int sellerId,CancellationToken cancellation)
+        {
+            User? seller =await _userManager.FindByIdAsync(sellerId.ToString());
+            if (seller!=null)
+            {
+                if(seller.HasMedal)
+                {
+                    return await _context.DirectOrders.Where(o => o.PaidAt < seller.MedalAchievedAt).Select(o => o.TotalPrice).SumAsync(cancellation);
+                }
+                return await _context.DirectOrders.Select(o => o.TotalPrice).SumAsync(cancellation);
 
+            }
+            return 0;
+
+        }
 
         #endregion
 
