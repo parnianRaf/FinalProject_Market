@@ -16,6 +16,8 @@ namespace AppCore.DtoModels.Product
         public string? PavilionName { get; set; }
 
         public string? filePathSource { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
 

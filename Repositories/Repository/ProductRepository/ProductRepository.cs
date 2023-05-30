@@ -136,6 +136,16 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
+        public async Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation)
+        {
+            Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (product != null)
+            {
+                return _mapper.Map<DetailedProductDto>(product);
+            }
+            return new DetailedProductDto();
+        }
+
         public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId) 
         {
             List<DetailedProductDto> productDtos =await  _context.Products.Where(p => p.UserId == SellerId).AsNoTracking().Select(o => new DetailedProductDto()

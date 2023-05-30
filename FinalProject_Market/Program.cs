@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Repositories.Repository.ProductRepository;
 using Repositories.UserRepository;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -36,6 +37,7 @@ builder.Services.AddScoped<IEditCustomer, EditCustomer>();
 builder.Services.AddScoped<IEditSeller, EditSeller>();
 builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
 builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
+builder.Services.AddScoped<AppService.Admin.Queries.IGetProduct, GetProduct>();
 builder.Services.AddScoped<IGetAllSellerProducts, GetAllSellerProducts>();
 builder.Services.AddScoped<IGetSellerPavilions, GetSellerPavilions>();
 builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();

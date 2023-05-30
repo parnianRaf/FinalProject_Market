@@ -44,6 +44,8 @@ namespace FinalProject_Market.Controllers
         private readonly IGetSellerPavilions _sellerPavilions;
         private readonly IGetAllAuctions _auctions;
         private readonly IGetAllPaidOrders _paidOrders;
+        private readonly AppService.Admin.Queries.IGetProduct _product;
+        
         #endregion
 
         #region ctor
@@ -53,7 +55,8 @@ namespace FinalProject_Market.Controllers
             , IEditCustomer editCustomer, IGetSellers sellers
             , IGetSeller seller, IGetAllSellerProducts sellerProducts
             , IGetSellerPavilions sellerPavilions, IGetAllAuctions auctions
-            , IGetAllPaidOrders paidOrders)
+            , IGetAllPaidOrders paidOrders
+            , AppService.Admin.Queries.IGetProduct product)
         {
             _data = data;
             _mapper = mapper;
@@ -71,6 +74,7 @@ namespace FinalProject_Market.Controllers
             _sellerPavilions = sellerPavilions;
             _auctions = auctions;
             _paidOrders = paidOrders;
+            _product = product;
         }
         #endregion
 
@@ -120,6 +124,11 @@ namespace FinalProject_Market.Controllers
                 return RedirectToAction("CustomerProfile", new {viewModel.Id});
             }
             return View(viewModel);
+        }
+        
+        public async Task<IActionResult> ProductProfile(int id, CancellationToken cancellation)
+        {
+            return View(await _product.Execute(id, cancellation));
         }
 
         public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
