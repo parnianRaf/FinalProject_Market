@@ -5,7 +5,7 @@ namespace AppCore.AppServices.Seller.Command
 {
 	public interface IEditProduct
 	{
-		Task Execute(EditProductDto entity,CancellationToken cancellation);
+		Task<bool> Execute(EditProductDto entity,CancellationToken cancellation);
 	}
 }
 

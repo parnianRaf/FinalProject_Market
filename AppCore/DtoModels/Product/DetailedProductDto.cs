@@ -11,13 +11,19 @@ namespace AppCore.DtoModels.Product
 
         public string? SellerFullName { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
         public string? CategoryName { get; set; }
 
         public string? PavilionName { get; set; }
 
         public string? filePathSource { get; set; }
 
+        public bool IsActive { get; set; }
+
         public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedAt { get; set; }
     }
 }
 

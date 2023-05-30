@@ -4,12 +4,11 @@ using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
 using Microsoft.AspNetCore.Identity;
 
-namespace AppCore.AppServices.Admin.Command
+namespace AppCore.AppServices.Admin_.Command
 {
-    public interface IEditSeller
+    public interface IEditProduct
     {
-        Task<bool> Execute(EditProductDto productDto, CancellationToken cancellation);
-
+        Task<bool> Execute(DetailedProductDto productDto, CancellationToken cancellation);
     }
 
 

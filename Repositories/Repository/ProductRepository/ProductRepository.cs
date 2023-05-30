@@ -60,18 +60,22 @@ namespace Repositories.Repository.ProductRepository
             return new EditProductDto();
         }
 
-        public async Task<bool> EditProduct(EditProductDto productDto, CancellationToken cancellation)
+        public async Task<bool> EditProduct(DetailedProductDto productDto, CancellationToken cancellation)
         {
             bool result = false;
             Product? product = await _context.Products.Where(p => p.Id == productDto.Id).FirstOrDefaultAsync(cancellation);
 
             if (product != null)
             {
+               
                 //inja ham check shavad mapper dorost kar nmikone????????
-                product = _mapper.Map<Product>(productDto);
-                _context.Products.Update(product);
+                product.ProductName = productDto.ProductName;
+                product.CategoryId = _context.Categories.FirstOrDefault(c=>c.Title==productDto.CategoryName).Id;
+                product.Category = _context.Categories.FirstOrDefault(c => c.Title == productDto.CategoryName);
+                product.Price = productDto.Price;
                 product.ModifiedAt = DateTime.Now;
                 //product.ModifiedBy
+                _context.Products.Update(product);
                 await _context.SaveChangesAsync();
                 return !result;
             }
@@ -117,10 +121,12 @@ namespace Repositories.Repository.ProductRepository
             {
                 try
                 {
+                    product.IsActive = false;
                     product.IsDeleted = true;
                     product.DeletedAt = DateTime.Now;
                     //product.DeletedBy
                     var res = _context.Products.Update(product);
+                    await _context.SaveChangesAsync();
                     return true;
                 }
                 catch (Exception ex)
@@ -141,7 +147,19 @@ namespace Repositories.Repository.ProductRepository
             Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
             if (product != null)
             {
-                return _mapper.Map<DetailedProductDto>(product);
+                var x= new DetailedProductDto()
+                {
+                    Id = product.Id,
+                    ProductName = product.ProductName,
+                    Price = product.Price,
+                    //SellerFullName = product.User.FullNameToString(),
+                    SellerFullName = _context.Users.FirstOrDefault(u => u.Id == product.UserId).FullNameToString(),
+                    //CategoryName = product.Category.Title,
+                    CategoryName=_context.Categories.FirstOrDefault(c=>c.Id==product.CategoryId).Title,
+                    //PavilionName = product.User.Pavilions.FirstOrDefault(p => p.Id == product.PavilionId).Title,
+                    filePathSource = product.filePathSource
+                };
+                return x;
             }
             return new DetailedProductDto();
         }

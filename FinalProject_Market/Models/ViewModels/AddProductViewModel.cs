@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject_Market.Models.ViewModels
 {
-	public class AddProductViewModel
-	{
-        [Display(Name ="نام محصول")]
+    public class AddProductViewModel
+    {
+        [Display(Name = "نام محصول")]
         public string ProductName { get; set; }
 
         public decimal? Price { get; set; }

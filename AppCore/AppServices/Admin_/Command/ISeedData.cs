@@ -1,4 +1,4 @@
-﻿namespace AppService.Admin
+﻿namespace AppCore.AppServices.Admin_.Command
 {
     public interface ISeedData
     {

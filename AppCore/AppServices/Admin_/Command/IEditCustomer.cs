@@ -2,7 +2,7 @@
 using AppCore.DtoModels.Product;
 using Microsoft.AspNetCore.Identity;
 
-namespace AppCore.AppServices.Admin.Command
+namespace AppCore.AppServices.Admin_.Command
 {
     public interface IEditCustomer
     {

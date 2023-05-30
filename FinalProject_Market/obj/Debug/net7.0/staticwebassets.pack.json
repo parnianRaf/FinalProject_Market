@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/FinalProject_Market.bundle.scp.css"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/adminlte.min.css",
       "PackagePath": "staticwebassets/AdminPannel/css/adminlte.min.css"
     },
@@ -7979,6 +7983,14 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/undraw_remotely_2j6y.svg",
       "PackagePath": "staticwebassets/images/undraw_remotely_2j6y.svg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/چراغ خواب.jpeg",
+      "PackagePath": "staticwebassets/images/چراغ خواب.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/چراغ مهتابی.jpeg",
+      "PackagePath": "staticwebassets/images/چراغ مهتابی.jpeg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/bootstrap.min.js",

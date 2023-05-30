@@ -44,6 +44,9 @@ namespace FinalProject_Market.Controllers
         private readonly IGetSellerPavilions _sellerPavilions;
         private readonly IGetAllAuctions _auctions;
         private readonly IGetAllPaidOrders _paidOrders;
+        private readonly IDeactiveProduct _deactiveProduct;
+        private readonly IEditProduct _editProduct;
+        private readonly IActiveProduct _activeProduct;
         private readonly AppService.Admin.Queries.IGetProduct _product;
         
         #endregion
@@ -55,8 +58,9 @@ namespace FinalProject_Market.Controllers
             , IEditCustomer editCustomer, IGetSellers sellers
             , IGetSeller seller, IGetAllSellerProducts sellerProducts
             , IGetSellerPavilions sellerPavilions, IGetAllAuctions auctions
-            , IGetAllPaidOrders paidOrders
-            , AppService.Admin.Queries.IGetProduct product)
+            , IGetAllPaidOrders paidOrders, IEditProduct editProduct
+            , AppService.Admin.Queries.IGetProduct product,
+             IDeactiveProduct deactiveProduct, IActiveProduct activeProduct)
         {
             _data = data;
             _mapper = mapper;
@@ -75,6 +79,9 @@ namespace FinalProject_Market.Controllers
             _auctions = auctions;
             _paidOrders = paidOrders;
             _product = product;
+            _deactiveProduct = deactiveProduct;
+            _editProduct = editProduct;
+            _activeProduct = activeProduct;
         }
         #endregion
 
@@ -125,10 +132,27 @@ namespace FinalProject_Market.Controllers
             }
             return View(viewModel);
         }
+
+        public async Task<IActionResult> ActiveProduct(int id,CancellationToken cancellation)
+        {
+            await _activeProduct.Execute(id, cancellation);
+            return RedirectToAction("ProductProfile", new { id });
+        }
         
         public async Task<IActionResult> ProductProfile(int id, CancellationToken cancellation)
         {
-            return View(await _product.Execute(id, cancellation));
+            DetailedProductDto detailedProduct = await _product.Execute(id, cancellation);
+            return View(detailedProduct);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductProfile(DetailedProductDto productDto, CancellationToken cancellation)
+        {
+            if(await _editProduct.Execute(productDto,cancellation))
+            {
+                return RedirectToAction("ProductProfile", new { productDto.Id });
+            }
+            return View(productDto);
         }
 
         public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
@@ -151,7 +175,7 @@ namespace FinalProject_Market.Controllers
             var result = await _editSeller.Execute(sellerDto, cancellation);
             if (result)
             {
-                return RedirectToAction("CustomerProfile", new {viewModel.Id});
+                return RedirectToAction("SellerProfile", new {viewModel.Id});
             }
             return View(viewModel);
         }
@@ -172,10 +196,9 @@ namespace FinalProject_Market.Controllers
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
         {
-            List<DetailedDirctOrderDto> dirctOrderDtos = new();
-            dirctOrderDtos = await _paidOrders.Execute(cancellation);
+            List<DetailedDirctOrderDto> dirctOrderDtos = await _paidOrders.Execute(cancellation);
             List<DetailedAuctionDto> auctionDtos = await _auctions.Execute(cancellation);
-            ViewBag.directOrderDtos = dirctOrderDtos;
+            ViewBag.directOrderDtos = dirctOrderDtos; 
             return View(auctionDtos);
         }
 
@@ -186,10 +209,20 @@ namespace FinalProject_Market.Controllers
             {
                 return RedirectToAction("CustomerProfile", new { id });
             }
-            return RedirectToAction("DeActive",new { id});
+            return RedirectToAction("DeleteUser", new { id});
         }
-  
- 
+
+        public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellation)
+        {
+            var DeactiveResult = await _deactiveProduct.Execute(id, cancellation);
+            if (DeactiveResult)
+            {
+                return RedirectToAction("ProductProfile", new { id });
+            }
+            return RedirectToAction("DeleteProduct", new { id });
+        }
+
+
 
         //public async Task<IActionResult> SeedData()
         //{

@@ -5,8 +5,8 @@ using AppCore.DtoModels.DirectOrder;
 
 namespace FinalProject_Market.Models.ViewModels
 {
-	public class GetCustomersViewModel
-	{
+    public class GetCustomersViewModel
+    {
         public int Id { get; set; }
 
         public string FullName { get; set; }

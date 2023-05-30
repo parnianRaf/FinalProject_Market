@@ -1,7 +1,7 @@
 ﻿using System;
 namespace AppCore.DtoModels.Customer
 {
-	public class DetailedCustomerAddressViewModel
+    public class DetailedCustomerAddressViewModel
     {
         public int Id { get; set; }
 

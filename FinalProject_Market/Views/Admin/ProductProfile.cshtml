@@ -11,10 +11,15 @@
 <div class="container m-5">
     <div class="row m-2" >
         <div class="d-flex justify-content-start">
-            @if (!Model.IsDeleted)
-                {
-            <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@Model.Id">حذف کاربر</a>
-                }
+            @if (@Model.IsDeleted != true)
+            {
+                <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteProduct" asp-route-id="@Model.Id">حذف کالا</a>
+            }
+            @if (@Model.IsActive != true && @Model.IsDeleted != true)
+            {
+                <a class="btn btn-danger" asp-controller="Admin" asp-action="ActiveProduct" asp-route-id="@Model.Id">تایید کالا</a>
+
+            }
         </div>
 
     </div>
@@ -48,7 +53,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                     </div>
-                    <input type="email" class="form-control" asp-for="Price" placeholder="قیمت">
+                    <input  class="form-control" asp-for="Price" placeholder="قیمت">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -62,7 +67,7 @@
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <button type="submit" class="btn btn-danger" asp-controller="Admin" asp-action="EditProfile" >ویرایش</button>
+                        <button type="submit" class="btn btn-danger" asp-controller="Admin" asp-action="ProductProfile" >ویرایش</button>
                     </div>
                     <!-- /btn-group -->
 

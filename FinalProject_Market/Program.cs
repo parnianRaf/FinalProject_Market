@@ -44,6 +44,10 @@ builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();
 builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
 builder.Services.AddScoped<IGetCommissionPaidBySeller, GetCommissionPaidBySeller>();
 builder.Services.AddScoped<IGetCommissionPaidBySellerAuction, GetCommissionPaidBySellerAuction>();
+builder.Services.AddScoped<IDeactiveProduct, DeactiveProduct>();
+builder.Services.AddScoped<AppCore.AppServices.Admin_.Command.IEditProduct, EditProduct>();
+builder.Services.AddScoped<IActiveProduct, ActiveProduct>();
+
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
 builder.Services.AddScoped<ISeedData, SeedData>();
@@ -91,6 +95,10 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+//app.MapControllerRoute(
+//    name: "Admin",
+//    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

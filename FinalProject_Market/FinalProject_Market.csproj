@@ -45,8 +45,10 @@
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
     <Folder Include="wwwroot\AdminPannel\js\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />
+    <Content Remove="wwwroot\Images\" />
   </ItemGroup>
 </Project>

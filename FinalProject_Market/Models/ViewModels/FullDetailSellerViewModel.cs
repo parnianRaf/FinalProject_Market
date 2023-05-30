@@ -5,7 +5,7 @@ using AppCore.DtoModels.Product;
 
 namespace AppCore.DtoModels.Customer
 {
-	public class FullDetailSellerViewModel
+    public class FullDetailSellerViewModel
     {
         public int Id { get; set; }
 

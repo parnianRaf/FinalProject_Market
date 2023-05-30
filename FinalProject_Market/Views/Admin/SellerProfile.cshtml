@@ -130,7 +130,7 @@
                                             {
                                                 <tr>
                                                     <td>@product.Id</td>
-                                                    <td>@product.FullName</td>
+                                                    <td>@product.ProductName</td>
                                                     <td>@product.CreatedAt</td>
                                                     <td><span class="badge bg-danger">در حال بررسی</span></td>
                                                     <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
@@ -147,11 +147,11 @@
                                             {
                                                 <tr>
                                                     <td>@product.Id</td>
-                                                    <td>@product.FullName</td>
+                                                    <td>@product.ProductName</td>
                                                     <td>@product.DeletedAt</td>
                                                     <td><span class="badge badge-danger">رد شده</span></td>
                                                     <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
-                                                    <td>@product.DeleteComment</td>
+                                                   <td></td>
                                                 </tr>
 
                                             }
@@ -163,8 +163,8 @@
                                             {
                                                 <tr>
                                                     <td>@product.Id</td>
-                                                    <td>@product.FullName</td>
-                                                    <td>@product.ActivatedAt</td>
+                                                    <td>@product.ProductName</td>
+                                                    <td></td>
                                                     <td><span class="badge badge-success">تایید شده</span></td>
                                                     <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
                                                     <td></td>
