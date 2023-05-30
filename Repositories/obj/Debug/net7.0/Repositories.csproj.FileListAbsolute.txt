@@ -32,3 +32,5 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/obj/Debug/net7.0/refint/Repositories.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/obj/Debug/net7.0/Repositories.pdb
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/obj/Debug/net7.0/ref/Repositories.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/bin/Debug/net7.0/ExtensionMethods.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/bin/Debug/net7.0/ExtensionMethods.pdb

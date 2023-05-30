@@ -60,3 +60,5 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/obj/Debug/net7.0/refint/AppService.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/obj/Debug/net7.0/AppService.pdb
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/obj/Debug/net7.0/ref/AppService.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/bin/Debug/net7.0/ExtensionMethods.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/bin/Debug/net7.0/ExtensionMethods.pdb

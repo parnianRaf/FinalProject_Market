@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class PavilionRepository 
+    public class PavilionRepository :IPavilionRepository
     {
         #region field
         private readonly MarketContext _context;
@@ -37,6 +37,7 @@ namespace Repositories.Repository.ProductRepository
             _context.Pavilions.Add(pavilion);
             await _context.SaveChangesAsync(cancellation);
         }
+
         public async Task<bool> AcceptPavilion(int pavilionId, CancellationToken cancellation)
         {
             bool result = false;
@@ -68,7 +69,6 @@ namespace Repositories.Repository.ProductRepository
             }
             return result;
         }
-
 
         public async Task<PavilionDtoModel> EditGetPavilion(int id, CancellationToken cancellation)
         {
@@ -121,14 +121,14 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        //public async Task<List<Pavilion>> GetSellerPavilions(int selerId, CancellationToken cancellation)
-        //{
-        //    return await _context.Pavilions.Where(p => p.SellerId == selerId).ToListAsync(cancellation);
-        //}
+        public async Task<List<PavilionDtoModel>> GetSellerPavilions(int sellerId, CancellationToken cancellation)
+        {
+            return  _mapper.Map<List<PavilionDtoModel>>(await _context.Pavilions.Where(p => p.UserId == sellerId).AsNoTracking().ToListAsync(cancellation));
+        }
 
         public async Task<List<Pavilion>> GetPavilions(CancellationToken cancellation)
         {
-            return await _context.Pavilions.ToListAsync(cancellation);
+            return await _context.Pavilions.AsNoTracking().ToListAsync(cancellation);
         }
         #endregion
     }

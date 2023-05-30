@@ -16,3 +16,5 @@
 8-confighaye program dakhel ye kelas dg beravanad
 
 9-Framework daghighan bara chie???????????ehsas mikonm vojodesh osol solid naghz mikone
+
+10-yad gerftan generic method va estefade az an

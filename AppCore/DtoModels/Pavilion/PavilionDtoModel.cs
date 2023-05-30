@@ -7,7 +7,15 @@ namespace AppCore.DtoModels
 
         public string? Title { get; set; }
 
-        public int SellerId { get; set; }
+        public string SellerName { get; set; }
+
+        public bool IsAccepted { get; set; }
+
+        public DateTime AcceptedAt { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedAt { get; set; }
     }
 }
 

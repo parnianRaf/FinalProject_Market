@@ -79,4 +79,217 @@
     </div>
 </div>
 
+<div class="container m-5">
+
+
+
+
+
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">جدول مشتریان</h3>
+
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>شماره</th>
+                                            <th>نام کاربر</th>
+                                            <th>تاریخ</th>
+                                            <th>وضعیت</th>
+                                            <th>مشاهده کامل پروفایل</th>
+                                            <th>دلیل رد شدن</th>
+                                        </tr>
+                                        @foreach (var product in @ViewBag.productDtos)
+                                        {
+                                            @if (product.IsActive != true && product.IsDeleted != true)
+
+                                            {
+                                                <tr>
+                                                    <td>@product.Id</td>
+                                                    <td>@product.FullName</td>
+                                                    <td>@product.CreatedAt</td>
+                                                    <td><span class="badge bg-danger">در حال بررسی</span></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            }
+                                        }
+
+                                        @foreach (var product in @ViewBag.productDtos)
+                                        {
+                                            @if (product.IsDeleted == true)
+
+                                            {
+                                                <tr>
+                                                    <td>@product.Id</td>
+                                                    <td>@product.FullName</td>
+                                                    <td>@product.DeletedAt</td>
+                                                    <td><span class="badge badge-danger">رد شده</span></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
+                                                    <td>@product.DeleteComment</td>
+                                                </tr>
+
+                                            }
+                                        }
+                                        @foreach (var product in @ViewBag.productDtos)
+                                        {
+                                            @if (product.IsActive == true)
+
+                                            {
+                                                <tr>
+                                                    <td>@product.Id</td>
+                                                    <td>@product.FullName</td>
+                                                    <td>@product.ActivatedAt</td>
+                                                    <td><span class="badge badge-success">تایید شده</span></td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+    </div>
+
+
+<div class="wrapper">
+    <!-- Navbar -->
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">جدول مشتریان</h3>
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>شماره</th>
+                                        <th>نام کاربر</th>
+                                        <th>تاریخ</th>
+                                        <th>وضعیت</th>
+                                        <th>مشاهده کامل پروفایل</th>
+                                        <th>دلیل رد شدن</th>
+                                    </tr>
+                                    @foreach (var pavilion in @ViewBag.pavilionDtos)
+                                    {
+                                        @if (pavilion.IsActive != true && pavilion.IsDeleted != true)
+
+                                        {
+                                            <tr>
+                                                <td>@pavilion.Id</td>
+                                                <td>@pavilion.FullName</td>
+                                                <td>@pavilion.CreatedAt</td>
+                                                <td><span class="badge bg-danger">در حال بررسی</span></td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                                <td></td>
+                                            </tr>
+
+                                        }
+                                    }
+
+                                    @foreach (var pavilion in @ViewBag.pavilionDtos)
+                                    {
+                                        @if (pavilion.IsDeleted == true)
+
+                                        {
+                                            <tr>
+                                                <td>@pavilion.Id</td>
+                                                <td>@pavilion.FullName</td>
+                                                <td>@pavilion.DeletedAt</td>
+                                                <td><span class="badge badge-danger">رد شده</span></td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                                <td>@pavilion.DeleteComment</td>
+                                            </tr>
+
+                                        }
+                                    }
+                                    @foreach (var pavilion in @ViewBag.pavilionDtos)
+                                    {
+                                        @if (pavilion.IsActive == true)
+
+                                        {
+                                            <tr>
+                                                <td>@pavilion.Id</td>
+                                                <td>@pavilion.FullName</td>
+                                                <td>@pavilion.ActivatedAt</td>
+                                                <td><span class="badge badge-success">تایید شده</span></td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                                <td></td>
+                                            </tr>
+
+                                        }
+                                    }
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+</div>
+
 

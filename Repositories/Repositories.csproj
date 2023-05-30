@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AppSqlDataBase\AppSqlDataBase.csproj" />
     <ProjectReference Include="..\AppCore\AppCore.csproj" />
+    <ProjectReference Include="..\ExtensionMethods\ExtensionMethods.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="AutoMapper\" />

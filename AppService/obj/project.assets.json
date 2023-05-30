@@ -1540,6 +1540,19 @@
           "bin/placeholder/AppSqlDataBase.dll": {}
         }
       },
+      "ExtensionMethods/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AppCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ExtensionMethods.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExtensionMethods.dll": {}
+        }
+      },
       "Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1547,7 +1560,8 @@
           "AppCore": "1.0.0",
           "AppSqlDataBase": "1.0.0",
           "AutoMapper": "12.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "ExtensionMethods": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Repositories.dll": {}
@@ -4131,6 +4145,11 @@
       "type": "project",
       "path": "../AppSqlDataBase/AppSqlDataBase.csproj",
       "msbuildProject": "../AppSqlDataBase/AppSqlDataBase.csproj"
+    },
+    "ExtensionMethods/1.0.0": {
+      "type": "project",
+      "path": "../ExtensionMethods/ExtensionMethods.csproj",
+      "msbuildProject": "../ExtensionMethods/ExtensionMethods.csproj"
     },
     "Repositories/1.0.0": {
       "type": "project",

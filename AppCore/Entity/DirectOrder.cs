@@ -21,7 +21,7 @@ public class DirectOrder
 
     public int UserId { get; set; }
 
-    public int CustomerId { get; set; }
+    public int SellerId { get; set; }
 
     public string? CommentByCostumer { get; set; }
 

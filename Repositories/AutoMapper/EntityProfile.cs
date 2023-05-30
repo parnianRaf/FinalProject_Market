@@ -11,6 +11,7 @@ using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using ExtensionMethods;
 
 namespace Repositories.AutoMapper
 {
@@ -21,10 +22,7 @@ namespace Repositories.AutoMapper
             #region Product
             CreateMap<AddProductDto, Product>();
             CreateMap<Product,EditProductDto > ();
-            CreateMap<Product, DetailedProductDto>()
-                .ReverseMap();
-
-            CreateMap<Pavilion, PavilionDtoModel>();
+   
             #endregion
 
             #region Auction
@@ -40,11 +38,7 @@ namespace Repositories.AutoMapper
                 .ForMember(dst => dst.OffersDto, opt =>
                 opt.MapFrom(src => src.Offers));
 
-            CreateMap<Auction, DetailedAuctionDto>()
-                 .ForMember(dst => dst.ProductDtos, opt =>
-                opt.MapFrom(src => src.Products))
-                .ForMember(dst => dst.OffersDto, opt =>
-                opt.MapFrom(src => src.Offers)); 
+
             #endregion
 
             #region Offer
@@ -61,12 +55,7 @@ namespace Repositories.AutoMapper
             CreateMap<DirectOrder, EditDirectOrderDto>()
                 .ForMember(dst => dst.ProductDtos, opt =>
                 opt.MapFrom(src => src.Products));
-            CreateMap<DirectOrder, DetailedPaidDirectOrderDto>()
-                   .ForMember(dst => dst.ProductDtos, opt =>
-                opt.MapFrom(src => src.Products));
-            CreateMap<DirectOrder, DetailedDirctOrderDto>()
-                .ForMember(dst => dst.ProductDtos, opt =>
-             opt.MapFrom(src => src.Products));
+
             #endregion
 
             #region Category
@@ -74,7 +63,10 @@ namespace Repositories.AutoMapper
             #endregion
 
             #region Pavilion
-            CreateMap<Pavilion, PavilionDtoModel>().ReverseMap();
+            CreateMap<Pavilion, PavilionDtoModel>()
+                .ForMember(dst=>dst.SellerName,opt=>
+                opt.MapFrom(src=>src.User.FullNameToString()))
+                .ReverseMap();
             #endregion
 
             #region  Address

@@ -979,12 +979,21 @@
           "AppSqlDataBase.dll": {}
         }
       },
+      "ExtensionMethods/1.0.0": {
+        "dependencies": {
+          "AppCore": "1.0.0"
+        },
+        "runtime": {
+          "ExtensionMethods.dll": {}
+        }
+      },
       "Repositories/1.0.0": {
         "dependencies": {
           "AppCore": "1.0.0",
           "AppSqlDataBase": "1.0.0",
           "AutoMapper": "12.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "ExtensionMethods": "1.0.0"
         },
         "runtime": {
           "Repositories.dll": {}
@@ -1627,6 +1636,11 @@
       "sha512": ""
     },
     "AppSqlDataBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExtensionMethods/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

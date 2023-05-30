@@ -69,4 +69,6 @@ public class User: IdentityUser<int>
 
     public virtual List<Pavilion>? Pavilions { get; set; }
     #endregion
+
+
 }

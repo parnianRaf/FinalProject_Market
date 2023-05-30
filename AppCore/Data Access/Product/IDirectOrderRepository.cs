@@ -9,8 +9,7 @@ namespace Repositories.Repository.ProductRepository
         Task AddDirectOrder(AddDirectDto oredrDto, CancellationToken cancellation);
         Task<bool> EditAuction(EditDirectOrderDto orderDto, CancellationToken cancellation);
         Task<EditDirectOrderDto> EditGetOrer(int id, CancellationToken cancellation);
-        Task<List<DetailedPaidDirectOrderDto>> GetAllPaidOrders(CancellationToken cancellation, int customerId);
-        Task<List<DetailedDirctOrderDto>> GetpaidOrder(int customerId, CancellationToken cancellation);
+        Task<List<DetailedDirctOrderDto>> GetAllPaidOrders(CancellationToken cancellation);
         Task<bool> RejectComment(int orderId, CancellationToken cancellation);
         Task<bool> RemoveAuction(int id, CancellationToken cancellation);
     }

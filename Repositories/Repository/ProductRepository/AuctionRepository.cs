@@ -8,10 +8,11 @@ using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using ExtensionMethods;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class AuctionRepository 
+    public class AuctionRepository : IAuctionRepository
     {
         #region field
         private readonly MarketContext _context;
@@ -129,7 +130,6 @@ namespace Repositories.Repository.ProductRepository
             Auction? auction = await _context.Auctions.Where(o => o.Id == auctionId && o.AcceptedCustomerId == customerId).FirstOrDefaultAsync(cancellation);
             if (auction != null)
             {
-                auction.CommentByCostumer = comment;
                 _context.Auctions.Update(auction);
                 await _context.SaveChangesAsync();
                 return true;
@@ -168,10 +168,39 @@ namespace Repositories.Repository.ProductRepository
             }
             return result;
         }
-
-        public Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation, int SellerId)
+        //tamame auctionhaye tamam shode
+        public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            List<DetailedAuctionDto> auctionDtos =await _context.Auctions.Where(a=>a.IsFinished).Select(a => new DetailedAuctionDto()
+            {
+                Id = a.Id,
+                StartTime = a.StartTime,
+                EndTime = a.EndTime,
+                AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id).User.FullNameToString(),
+                FinalPrice = a.FinalPrice,
+                // har auction tanha be yek seller taalogh darad
+                SellerName = a.Products.FirstOrDefault().User.FullNameToString(),
+                FinalCommentByCostumer = a.FinalCommentByCostumer,
+                IsCommentAcceptedByAdmin = a.IsCommentAcceptedByAdmin,
+                CommentAcceptedAt = a.CommentAcceptedAt,
+                IsCommentDeleted = a.IsCommentDeleted,
+                CommentDeletedAt = a.CommentDeletedAt,
+                IsFinished = a.IsFinished,
+                ProductDtos = a.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+
+
+            }).ToListAsync(cancellation);
+            return auctionDtos;
         }
 
         public Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)

@@ -7,6 +7,7 @@ using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using ExtensionMethods;
 
 namespace Repositories.Repository.ProductRepository
 {
@@ -93,7 +94,7 @@ namespace Repositories.Repository.ProductRepository
         public async Task<bool> AddCommentByCustomer(int orderId, int customerId, string comment, CancellationToken cancellation)
         {
             bool result = false;
-            DirectOrder? order = await _context.DirectOrders.Where(o => o.Id == orderId && o.CustomerId == customerId).FirstOrDefaultAsync(cancellation);
+            DirectOrder? order = await _context.DirectOrders.Where(o => o.Id == orderId && o.UserId == customerId).FirstOrDefaultAsync(cancellation);
             if (order != null)
             {
                 order.CommentByCostumer = comment;
@@ -137,18 +138,33 @@ namespace Repositories.Repository.ProductRepository
             return result;
         }
 
-        //customerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedPaidDirectOrderDto>> GetAllPaidOrders(CancellationToken cancellation, int customerId)
-        {
-            List<DirectOrder> orders = await _context.DirectOrders.Where(p => p.CustomerId == customerId && p.IsPaid == true).ToListAsync(cancellation);
-            return _mapper.Map<List<DetailedPaidDirectOrderDto>>(orders);
-        }
 
-        //tanha yek sabad kharid pardakht nashode mitonim dashte bashim
-        public async Task<List<DetailedDirctOrderDto>> GetpaidOrder(int customerId, CancellationToken cancellation)
+
+        public async Task<List<DetailedDirctOrderDto>> GetAllPaidOrders(CancellationToken cancellation)
         {
-            List<DirectOrder> orders = await _context.DirectOrders.Where(p => p.CustomerId == customerId && p.IsPaid == false).ToListAsync();
-            return _mapper.Map<List<DetailedDirctOrderDto>>(orders);
+            List<DetailedDirctOrderDto> dirctOrderDtos = await _context.DirectOrders.Where(d => d.IsPaid).Select(d => new DetailedDirctOrderDto()
+            {
+                Id = d.Id,
+                IsPaid = d.IsPaid,
+                TotalPrice = d.TotalPrice,
+                SellerName = d.Products.FirstOrDefault().User.FullNameToString(),
+                CustomerName = d.User.FullNameToString(),
+                CommentByCostumer = d.CommentByCostumer,
+                IsCommentAcceptedByAdmin = d.IsCommentAcceptedByAdmin,
+                IsCommentDeleted = d.IsCommentDeleted,
+                ProductDtos = d.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+            }).ToListAsync(cancellation);
+            return dirctOrderDtos;
         }
 
 

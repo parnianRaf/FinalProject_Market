@@ -5,11 +5,17 @@ using System.Threading.Tasks;
 using AppCore.AppServices.Admin.Command;
 using AppCore.AppServices.Admin.Query;
 using AppCore.AppServices.Admin_.Command;
+using AppCore.AppServices.Admin_.Query;
+using AppCore.DtoModels;
 using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.DirectOrder;
+using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
 using AppService.Admin;
 using AppService.Admin.Commands;
+using AppService.Admin.Queries;
 using AutoMapper;
 using FinalProject_Market.Models;
 using FinalProject_Market.Models.ViewModels;
@@ -32,7 +38,12 @@ namespace FinalProject_Market.Controllers
         private readonly IEditCustomer _editCustomer;
         private readonly IEditSeller _editSeller;
         private readonly IDeactiveUser _deactiveUser;
-      
+
+
+        private readonly IGetAllSellerProducts _sellerProducts;
+        private readonly IGetSellerPavilions _sellerPavilions;
+        private readonly IGetAllAuctions _auctions;
+        private readonly IGetAllPaidOrders _paidOrders;
         #endregion
 
         #region ctor
@@ -40,7 +51,9 @@ namespace FinalProject_Market.Controllers
             ,ILogIn logIn, IGetCustomer customer, IDeactiveUser deactiveUser,
              IMapper mapper, IGetCustomers customers, IEditSeller editSeller
             , IEditCustomer editCustomer, IGetSellers sellers
-            , IGetSeller seller)
+            , IGetSeller seller, IGetAllSellerProducts sellerProducts
+            , IGetSellerPavilions sellerPavilions, IGetAllAuctions auctions
+            , IGetAllPaidOrders paidOrders)
         {
             _data = data;
             _mapper = mapper;
@@ -52,6 +65,12 @@ namespace FinalProject_Market.Controllers
             _editSeller = editSeller;
             _seller = seller;
             _deactiveUser = deactiveUser;
+           
+
+            _sellerProducts = sellerProducts;
+            _sellerPavilions = sellerPavilions;
+            _auctions = auctions;
+            _paidOrders = paidOrders;
         }
         #endregion
 
@@ -105,7 +124,14 @@ namespace FinalProject_Market.Controllers
 
         public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
         {
+            List<DetailedProductDto> productDtos = new();
+            List<PavilionDtoModel> pavilionDtos = new();
             FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _seller.Execute(id, cancellation));
+            productDtos = await _sellerProducts.Execute(id, cancellation);
+            pavilionDtos = await _sellerPavilions.Execute(id, cancellation);
+
+            ViewBag.productDtos = productDtos;
+            ViewBag.pavilionDtos = pavilionDtos;
             return View(viewModel);
         }
 
@@ -120,7 +146,7 @@ namespace FinalProject_Market.Controllers
             }
             return View(viewModel);
         }
-
+        
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
         {
             List<DetailCustomerDto> customerDtos =await  _customers.Execute(cancellation);
@@ -133,6 +159,16 @@ namespace FinalProject_Market.Controllers
             List<DetailSellerDto> sellerDtos = await _sellers.Execute(cancellation);
             List<GetSellersViewModel> sellerViewModels = _mapper.Map<List<GetSellersViewModel>>(sellerDtos);
             return PartialView(sellerViewModels);
+        }
+
+        public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
+        {
+            List<DetailedAuctionDto> auctionDtos = new();
+            List<DetailedDirctOrderDto> dirctOrderDtos = new();
+            dirctOrderDtos = await _paidOrders.Execute(cancellation);
+            auctionDtos = await _auctions.Execute(cancellation);
+            ViewBag.directOrderDtos = dirctOrderDtos;
+            return PartialView("GetOrdersList", auctionDtos);
         }
 
         public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)

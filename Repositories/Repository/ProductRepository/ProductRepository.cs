@@ -6,10 +6,11 @@ using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using ExtensionMethods;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class ProductRepository 
+    public class ProductRepository :IProductRepository
     {
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
@@ -108,7 +109,6 @@ namespace Repositories.Repository.ProductRepository
             return result;
         }
 
-
         public async Task<bool> RemoveProduct(int id, CancellationToken cancellation)
         {
             Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
@@ -135,20 +135,26 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        //public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId)
-        //{
-        //    List<Product> products = await _context.Products.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
-        //    return _mapper.Map<List<DetailedProductDto>>(products);
-        //}
+        public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId) 
+        {
+            List<DetailedProductDto> productDtos =await  _context.Products.Where(p => p.UserId == SellerId).AsNoTracking().Select(o => new DetailedProductDto()
+            {
+                 Id=o.Id,
+                 ProductName=o.ProductName,
+                 Price=o.Price,
+                 SellerFullName=o.User.FullNameToString(),
+                 CategoryName=o.Category.Title,
+                 PavilionName=o.User.Pavilions.FirstOrDefault(p=>p.Id==o.PavilionId).Title,
+                 filePathSource=o.filePathSource
+            }).ToListAsync(cancellation);
+            return productDtos;
+        }
 
         public async Task<List<DetailedProductDto>> GetAllProductsInSpecificPavilion(CancellationToken cancellation, int pavilionId)
         {
-            List<Product> products = await _context.Products.Where(p => p.PavilionId == pavilionId).ToListAsync(cancellation);
+            List<Product> products = await _context.Products.Where(p => p.PavilionId == pavilionId).AsNoTracking().ToListAsync(cancellation);
             return _mapper.Map<List<DetailedProductDto>>(products);
         }
-
-
         #endregion
 
 

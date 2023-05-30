@@ -1,26 +1,12 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
-  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Controllers/AdminController.cs" relfile="FinalProject_Market/Controllers/AdminController.cs" line="82" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/UserRepository/CustomerRepository.cs" relfile="Repositories/Repository/UserRepository/CustomerRepository.cs" line="97" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Views/Admin/Profile.cshtml">
+﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Views/Admin/GetAuctions.cshtml">
     <Files>
-      <File FileName="FinalProject_Market/Views/Admin/_Layout_3.cshtml" Line="93" Column="34" IsPinned="True" />
-      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="80" Column="10" IsPinned="True" />
-      <File FileName="Repositories/Repository/UserRepository/CustomerRepository.cs" Line="96" Column="38" IsPinned="True" />
-      <File FileName="Repositories/Repository/UserRepository/SellerRepository.cs" Line="137" Column="72" IsPinned="True" />
-      <File FileName="FinalProject_Market/Program.cs" Line="83" Column="1" />
-      <File FileName="Repositories/Repository/UserRepository/AdminRepository.cs" Line="177" Column="155" />
-      <File FileName="Repositories/AutoMapper/EntityProfile.cs" Line="102" Column="30" />
-      <File FileName="FinalProject_Market/Views/Admin/Profile.cshtml" Line="1" Column="1" />
-      <File FileName="FinalProject_Market/Views/Admin/LogIn.cshtml" Line="1" Column="1" />
-      <File FileName="FinalProject_Market/Views/Admin/GetSellerList.cshtml" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Views/Admin/GetAuctions.cshtml" Line="146" Column="62" />
+      <File FileName="Repositories/AutoMapper/EntityProfile.cs" Line="58" Column="1" />
+      <File FileName="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" Line="143" Column="53" />
+      <File FileName="Repositories/Repository/ProductRepository/AuctionRepository.cs" Line="202" Column="42" />
+      <File FileName="AppCore/DtoModels/DirectOrder/DetailedDirectOrderDto.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="170" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,32 +15,10 @@
             <Node name="01-Domain" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
-                  <Node name="AppServices" expanded="True">
-                    <Node name="Admin" expanded="True">
-                      <Node name="Command" expanded="True" />
-                    </Node>
-                    <Node name="Customer" expanded="True">
-                      <Node name="Command" expanded="True" />
-                      <Node name="Query" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="Data Access" expanded="True">
-                    <Node name="Product" expanded="True" />
-                    <Node name="User" expanded="True" />
-                  </Node>
                   <Node name="DtoModels" expanded="True">
-                    <Node name="Customer" expanded="True" />
-                    <Node name="Seller" expanded="True" />
+                    <Node name="DirectOrder" expanded="True" />
                   </Node>
                   <Node name="Entity" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="Admin" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True" />
-                  </Node>
                 </Node>
               </Node>
             </Node>
@@ -63,6 +27,7 @@
                 <Node name="Repositories" expanded="True">
                   <Node name="AutoMapper" expanded="True" />
                   <Node name="Repository" expanded="True">
+                    <Node name="ProductRepository" expanded="True" />
                     <Node name="UserRepository" expanded="True" />
                   </Node>
                 </Node>
@@ -70,14 +35,10 @@
             </Node>
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
-                <Node name="AutoMapper" expanded="True" />
                 <Node name="Controllers" expanded="True" />
-                <Node name="Models" expanded="True">
-                  <Node name="ViewModels" expanded="True" />
-                </Node>
                 <Node name="Views" expanded="True">
                   <Node name="Admin" expanded="True">
-                    <Node name="Profile.cshtml" selected="True" />
+                    <Node name="GetAuctions.cshtml" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -87,4 +48,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

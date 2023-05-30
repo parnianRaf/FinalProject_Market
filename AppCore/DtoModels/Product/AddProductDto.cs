@@ -15,6 +15,8 @@ namespace AppCore.DtoModels.Product
 
         public int? PavilionId { get; set; }
 
+        public string? filePathSource { get; set; }
+
     }
 }
 

@@ -10,7 +10,7 @@ namespace Repositories.Repository.ProductRepository
         Task<PavilionDtoModel> EditGetPavilion(int id, CancellationToken cancellation);
         Task<bool> EditPavilion(PavilionDtoModel pavilionDto, CancellationToken cancellation);
         Task<List<Pavilion>> GetPavilions(CancellationToken cancellation);
-        Task<List<Pavilion>> GetSellerPavilions(int selerId, CancellationToken cancellation);
+        Task<List<PavilionDtoModel>> GetSellerPavilions(int selerId, CancellationToken cancellation);
         Task<bool> RejectPavilion(int pavilionId, CancellationToken cancellation);
         Task<bool> RemovePavilion(int id, CancellationToken cancellation);
     }

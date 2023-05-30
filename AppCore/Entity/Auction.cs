@@ -30,11 +30,13 @@ public class Auction
 
     public int SellerId { get; set; }
 
-    public string? CommentByCostumer { get; set; }
-
     public bool IsCommentAcceptedByAdmin { get; set; }
 
+    public DateTime? CommentAcceptedAt { get; set; }
+
     public bool IsCommentDeleted { get; set; }
+
+    public DateTime? CommentDeletedAt { get; set; }
 
     public string? FinalCommentByCostumer { get; set; }
 

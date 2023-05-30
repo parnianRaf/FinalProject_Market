@@ -2,6 +2,7 @@
 using AppCore.AppServices.Admin.Command;
 using AppCore.AppServices.Admin.Query;
 using AppCore.AppServices.Admin_.Command;
+using AppCore.AppServices.Admin_.Query;
 using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
 using AppService.Admin;
@@ -22,6 +23,10 @@ builder.Services.AddDbContext<MarketContext>(options =>
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ISellerRepository, SellerRepository>();
+builder.Services.AddScoped<IPavilionRepository, PavilionRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
+builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
 builder.Services.AddScoped<ILogIn, LogIn>();
 builder.Services.AddScoped<IGetCustomers, GetCustomers>();
 builder.Services.AddScoped<IGetSeller, GetSeller>();
@@ -30,7 +35,12 @@ builder.Services.AddScoped<IGetCustomer, GetCustomer>();
 builder.Services.AddScoped<IEditCustomer, EditCustomer>();
 builder.Services.AddScoped<IEditSeller, EditSeller>();
 builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
-//builder.Services.AddScoped<IProductRepository, ProductRepository> ();
+builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
+builder.Services.AddScoped<IGetAllSellerProducts, GetAllSellerProducts>();
+builder.Services.AddScoped<IGetSellerPavilions, GetSellerPavilions>();
+builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();
+builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
+
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
 builder.Services.AddScoped<ISeedData, SeedData>();

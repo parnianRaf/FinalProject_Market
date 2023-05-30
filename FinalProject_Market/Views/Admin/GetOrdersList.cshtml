@@ -1,0 +1,209 @@
+﻿@using AppCore.DtoModels.Auction;
+
+@model List<DetailedAuctionDto>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>پنل مدیریت | جدول ساده</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminPannel/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <!-- bootstrap rtl -->
+    <link rel="stylesheet" href="~/AdminPannel/css/bootstrap-rtl.min.css">
+    <!-- template rtl version -->
+    <link rel="stylesheet" href="~/AdminPannel/css/custom-style.css">
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">جدول مشتریان</h3>
+
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>شماره</th>
+                                            <th>تاریخ شروع مزایده</th>
+                                            <th>تاریخ پایان مزایده</th>
+                                            <th>برنده مزایده</th>
+                                            <th>قیمت نهایی</th>
+                                            <th>فروشنده</th>
+                                            <th>مشاهده نظرات و کارمزد </th>
+                                            <th>محصولات</th>
+
+                                        </tr>
+                                        @foreach (var auction in Model)
+                                        {
+                                            @if (auction.IsFinished == true)
+
+                                            {
+                                                <tr>
+                                                    <td>@auction.Id</td>
+                                                    <td>@auction.StartTime</td>
+                                                    <td>@auction.EndTime</td>
+                                                    <td>@auction.AcceptedCustomerName</td>
+                                                    <td>@auction.FinalPrice</td>
+                                                    <td>@auction.SellerName</td>
+                                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="AuctionProfile" asp-route-id="@auction.Id">مشاهده جزییات</a></td>
+                                                    <td><table><tbody><tr>@foreach (var product in auction.ProductDtos)
+                                                        {
+                                                            <td>@product.ProductName</td>
+                                                        }
+                                                        </tr></tbody></table></td>
+                                                </tr>
+
+                                            }
+                                        }
+
+
+
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+    </div>
+<!--<div class="wrapper">-->
+    <!-- Navbar -->
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <!--<div class="content-wrapper">-->
+        <!-- Content Header (Page header) -->
+        <!-- Main content -->
+        <!--<section class="content">
+            <div class="container-fluid">-->
+                <!-- /.row -->
+                <!--<div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">جدول مشتریان</h3>
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <!-- /.card-header -->
+                            <!--<div class="card-body table-responsive p-0">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>شماره</th>
+                                        <th>قیمت نهایی</th>
+                                        <th>فروشنده</th>
+                                        <th>خریدار</th>
+                                        <th>مشاهده نظرات و کارمزد </th>
+                                        <th>محصولات</th>
+
+
+                                    </tr>
+                                    @foreach (var directOrder in @ViewBag.directOrderDtos)
+                                    {
+                                        @if (directOrder.IsPaid)
+
+                                        {
+                                            <tr>
+                                                <td>@directOrder.Id</td>
+                                                <td>@directOrder.TotalPrice</td>
+                                                <td>@directOrder.SellerName</td>
+                                                <td>@directOrder.CustomerName</td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="AuctionProfile" asp-route-id="@directOrder.Id">مشاهده جزییات</a></td>
+                                                <td>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                @foreach (var product in directOrder.ProductDtos)
+                                                                {
+                                                                    <td>@product.ProductName</td>
+                                                                }
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            </tr>
+
+                                        }
+                                    }
+
+
+
+                                </table>
+                            </div>-->
+                            <!-- /.card-body -->
+                        <!--</div>-->
+                        <!-- /.card -->
+                    <!--</div>
+                </div>--><!-- /.row -->
+            <!--</div>--><!-- /.container-fluid -->
+        <!--</section>-->
+        <!-- /.content -->
+    <!--</div>-->
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+<!--</div>-->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminPannel/js/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminPannel/js/bootstrap.bundle.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="~/AdminPannel/js/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/AdminPannel/js/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminPannel/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminPannel/js/demo.js"></script>
+</body>
+</html>

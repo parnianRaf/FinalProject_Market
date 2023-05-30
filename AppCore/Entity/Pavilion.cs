@@ -14,6 +14,8 @@ public class Pavilion
 
     public bool IsAccepted { get; set; }
 
+    public DateTime AcceptedAt { get; set; }
+
     public DateTime CreatedAt { get; set; }
 
     public int CreatedBy { get; set; }
