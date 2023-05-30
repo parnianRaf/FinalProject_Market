@@ -205,6 +205,41 @@ namespace Repositories.Repository.ProductRepository
             }).ToListAsync(cancellation);
             return auctionDtos;
         }
+        public async Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation)
+        {
+            Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
+            if (auction != null)
+            {
+                return new DetailedAuctionDto()
+                {
+                    Id = auction.Id,
+                    StartTime = auction.StartTime,
+                    EndTime = auction.EndTime,
+                    AcceptedCustomerName = auction.Offers.FirstOrDefault(o => o.AuctionId == auction.Id).User.FullNameToString(),
+                    FinalPrice = auction.FinalPrice,
+                    // har auction tanha be yek seller taalogh darad
+                    SellerName = auction.Products.FirstOrDefault().User.FullNameToString(),
+                    FinalCommentByCostumer = auction.FinalCommentByCostumer,
+                    IsCommentAcceptedByAdmin = auction.IsCommentAcceptedByAdmin,
+                    CommentAcceptedAt = auction.CommentAcceptedAt,
+                    IsCommentDeleted = auction.IsCommentDeleted,
+                    CommentDeletedAt = auction.CommentDeletedAt,
+                    IsFinished = auction.IsFinished,
+                    ProductDtos = auction.Products.Select(o => new DetailedProductDto()
+                    {
+                        Id = o.Id,
+                        ProductName = o.ProductName,
+                        Price = o.Price,
+                        SellerFullName = o.User.FullNameToString(),
+                        CategoryName = o.Category.Title,
+                        PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                        filePathSource = o.filePathSource
+                    }).ToList()
+                };
+            }
+            return new DetailedAuctionDto();
+        }
+
 
         public Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
         {

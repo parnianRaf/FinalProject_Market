@@ -5,52 +5,18 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Repositories/Repository/ProductRepository/ProductRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Views/Admin/GetOrdersList.cshtml">
     <Files>
-      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="134" Column="56" />
-      <File FileName="FinalProject_Market/Views/Admin/ProductProfile.cshtml" Line="22" Column="14" />
-      <File FileName="FinalProject_Market/Program.cs" Line="50" Column="52" />
-      <File FileName="Repositories/Repository/ProductRepository/ProductRepository.cs" Line="16" Column="42" />
-      <File FileName="AppCore/Data Access/Product/IProductRepository.cs" Line="12" Column="50" />
-      <File FileName="AppService/Admin/Commands/EditProduct.cs" Line="8" Column="37" />
-      <File FileName="AppCore/AppServices/Admin_/Command/IEditProduct.cs" Line="15" Column="1" />
+      <File FileName="FinalProject_Market/Views/Admin/GetOredrsList.cshtml" Line="105" Column="30" />
+      <File FileName="FinalProject_Market/Views/Admin/_Layout_3.cshtml" Line="138" Column="115" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalProject_Market_ParnianRafie" expanded="True">
             <Node name="01-Domain" expanded="True">
-              <Node name="Core" expanded="True">
-                <Node name="AppCore" expanded="True">
-                  <Node name="AppServices" expanded="True">
-                    <Node name="Admin" expanded="True">
-                      <Node name="Command" expanded="True" />
-                      <Node name="Query" expanded="True" />
-                    </Node>
-                    <Node name="Admin_" expanded="True">
-                      <Node name="Command" expanded="True" />
-                    </Node>
-                    <Node name="Seller" expanded="True">
-                      <Node name="Command" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="Data Access" expanded="True">
-                    <Node name="Product" expanded="True" />
-                  </Node>
-                  <Node name="DtoModels" expanded="True">
-                    <Node name="Product" expanded="True" />
-                  </Node>
-                  <Node name="Entity" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="Admin" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
+              <Node name="Core" expanded="True" />
+              <Node name="Service" expanded="True" />
             </Node>
             <Node name="02-Infrastructure" expanded="True">
               <Node name="01-SqlDataBase" expanded="True">
@@ -61,9 +27,7 @@
               <Node name="02-Repository" expanded="True">
                 <Node name="Repositories" expanded="True">
                   <Node name="Repository" expanded="True">
-                    <Node name="ProductRepository" expanded="True">
-                      <Node name="ProductRepository.cs" selected="True" />
-                    </Node>
+                    <Node name="ProductRepository" expanded="True" />
                     <Node name="UserRepository" expanded="True" />
                   </Node>
                 </Node>

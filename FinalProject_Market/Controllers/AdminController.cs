@@ -155,6 +155,22 @@ namespace FinalProject_Market.Controllers
             return View(productDto);
         }
 
+        public async Task<IActionResult> AuctionProfile(int id, CancellationToken cancellation)
+        {
+            DetailedProductDto detailedProduct = await _product.Execute(id, cancellation);
+            return View(detailedProduct);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AuctionProfile(DetailedProductDto productDto, CancellationToken cancellation)
+        {
+            if (await _editProduct.Execute(productDto, cancellation))
+            {
+                return RedirectToAction("ProductProfile", new { productDto.Id });
+            }
+            return View(productDto);
+        }
+
         public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
         {
             List<DetailedProductDto> productDtos = new();
