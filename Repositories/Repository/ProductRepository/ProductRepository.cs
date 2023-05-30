@@ -67,6 +67,7 @@ namespace Repositories.Repository.ProductRepository
 
             if (product != null)
             {
+                //inja ham check shavad mapper dorost kar nmikone????????
                 product = _mapper.Map<Product>(productDto);
                 _context.Products.Update(product);
                 product.ModifiedAt = DateTime.Now;
@@ -84,9 +85,9 @@ namespace Repositories.Repository.ProductRepository
             if (product != null)
             {
                 product.IsActive = true;
-                _context.Products.Update(product);
                 product.ModifiedAt = DateTime.Now;
                 //product.ModifiedBy
+                _context.Products.Update(product);
                 await _context.SaveChangesAsync();
                 return !result;
             }

@@ -9,6 +9,7 @@ using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ExtensionMethods;
+using Microsoft.AspNetCore.Identity;
 
 namespace Repositories.Repository.ProductRepository
 {
@@ -17,14 +18,16 @@ namespace Repositories.Repository.ProductRepository
         #region field
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
         #endregion
 
         #region ctor
         public AuctionRepository(MarketContext context
-            , IMapper mapper)
+            , IMapper mapper, UserManager<User> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
         }
         #endregion
 
@@ -206,6 +209,23 @@ namespace Repositories.Repository.ProductRepository
         public Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<decimal> CommisionPaidBySellerAuctions(int sellerId, CancellationToken cancellation)
+        {
+            User? seller = await _userManager.FindByIdAsync(sellerId.ToString());
+            if (seller != null)
+            {
+                if (seller.HasMedal)
+                {
+                    return await _context.Auctions.Where(o => o.FinishedAt < seller.MedalAchievedAt).Select(o => o.FinalPrice).SumAsync(cancellation);
+                }
+               
+                return await _context.Auctions.Select(o => o.FinalPrice).SumAsync(cancellation);
+
+            }
+            return 0;
+
         }
 
 
