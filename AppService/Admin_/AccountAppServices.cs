@@ -188,25 +188,64 @@ namespace AppService.Admin_.Command
         {
             bool result = false;
             User? user = await _userManager.FindByIdAsync(id.ToString());
-            if (user != null)
+            try
             {
-                user.IsActive = false;
-                user.IsDeleted = true;
-                user.DeletedAt = DateTime.Now;
-                bool resultBy=int.TryParse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User),out int id_);
-                if(resultBy)
+                if (user != null)
                 {
-                    user.DeletedBy = id;
+                    user.IsActive = false;
+                    user.IsDeleted = true;
+                    user.DeletedAt = DateTime.Now;
+                    bool resultBy = int.TryParse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User), out int id_);
+                    if (resultBy)
+                    {
+                        user.DeletedBy = id_;
+                    }
+                    var delteResult = await _userManager.UpdateAsync(user);
+                    if (delteResult.Succeeded)
+                    {
+                        return !result;
+                        Log.ForContext("UserName", user.UserName).Information("{0} is deleted by {1}", user.UserName, user.DeletedBy);
+
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+            Log.ForContext("UserName", "").Error("this user couldn't found or delete because: {0}",ex.Message);
+            }
+        
+
+            return result;
+
+        }
+
+        public async Task<bool> ActiveUser(int id, CancellationToken cancellation)
+        {
+            bool result = false;
+            User? user = await _userManager.FindByIdAsync(id.ToString());
+            //if (user != null)
+            //{
+            try
+            {
+                user.IsActive = true;
+                user.IsDeleted = false;
+                user.ActivatedAt = DateTime.Now;
+                bool resultBy = int.TryParse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User), out int id_);
                 var delteResult = await _userManager.UpdateAsync(user);
                 if (delteResult.Succeeded)
                 {
                     return !result;
 
                 }
+                Log.ForContext("UserName",user.UserName).Information("{0} is activated by {1}",user.UserName,id_);
+            }
+            catch (Exception ex)
+            {
+                Log.ForContext("UserName", "").Error("this id couldn't found or the active Result had failed :{0}",ex.Message);
+
             }
             return result;
-
         }
 
         public async Task<T> GetUser<T>(int id, CancellationToken cancellation)

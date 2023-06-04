@@ -9,6 +9,7 @@ namespace AppService.Admin_.Command
         Task<bool> AddToCustomer(User user, CancellationToken cancellation);
         Task<bool> AddToSeller(User user, CancellationToken cancellation);
         Task<bool> DeleteUser(int id, CancellationToken cancellationToken);
+        Task<bool> ActiveUser(int id, CancellationToken cancellation);
         Task<List<T>> GetAllCustomers<T>(CancellationToken cancellationToken);
         Task<List<T>> GetAllSellers<T>(CancellationToken cancellationToken);
         Task<T> GetUser<T>(int id, CancellationToken cancellation);

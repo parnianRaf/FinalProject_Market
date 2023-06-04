@@ -92,12 +92,10 @@ var columnOpt = new ColumnOptions()
 };
 columnOpt.Store.Remove(StandardColumn.MessageTemplate);
 
-var logConfig=Log.Logger = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration()
     .WriteTo.MSSqlServer(builder.Configuration.GetConnectionString("UserLog"),sinkOptions:sinkOpt,columnOptions:columnOpt)
     .CreateLogger();
 
-
-builder.Logging.AddSerilog(logConfig);
 
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {

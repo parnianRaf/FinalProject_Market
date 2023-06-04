@@ -164,6 +164,16 @@ namespace FinalProject_Market.Controllers
             return RedirectToAction("DeleteUser", new { id });
         }
 
+        public async Task<IActionResult> ActiveUser(int id, CancellationToken cancellation)
+        {
+            var ActiveResult = await _account.ActiveUser(id, cancellation);
+            if (ActiveResult)
+            {
+                return RedirectToAction("CustomerProfile", new { id });
+            }
+            return RedirectToAction("ActiveUser", new { id });
+        }
+
 
 
         //public async Task<IActionResult> SeedData()
