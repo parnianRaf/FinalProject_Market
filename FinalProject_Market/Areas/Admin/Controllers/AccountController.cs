@@ -123,7 +123,7 @@ namespace FinalProject_Market.Controllers
 
         //public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
         //{
-           
+
         //    FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _account.GetUser<EditUserDto>(id,cancellation);
         //    List<DetailedProductDto> productDtos await _sellerProducts.Execute(id, cancellation);
         //    List<PavilionDtoModel> pavilionDtos = await _sellerPavilions.Execute(id, cancellation);
@@ -154,15 +154,15 @@ namespace FinalProject_Market.Controllers
         //    return View(auctionDtos);
         //}
 
-        //public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
-        //{
-        //    var DeactiveResult= await _deactiveUser.Execute(id, cancellation);
-        //    if(DeactiveResult)
-        //    {
-        //        return RedirectToAction("CustomerProfile", new { id });
-        //    }
-        //    return RedirectToAction("DeleteUser", new { id});
-        //}
+        public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
+        {
+            var DeactiveResult = await _account.DeleteUser(id, cancellation);
+            if (DeactiveResult)
+            {
+                return RedirectToAction("CustomerProfile", new { id });
+            }
+            return RedirectToAction("DeleteUser", new { id });
+        }
 
 
 

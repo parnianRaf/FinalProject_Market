@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System.Runtime.Serialization;
 using Serilog;
+using Microsoft.AspNetCore.Http;
 
 namespace AppService.Admin_.Command
 {
@@ -17,19 +18,22 @@ namespace AppService.Admin_.Command
         private readonly RoleManager<IdentityRole<int>> _rolemanager;
         private readonly IMapper _mapper;
         private readonly MarketContext context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         #endregion
 
         #region ctor
         public AccountAppServices(UserManager<User> userManager
             , SignInManager<User> signInManager,
             RoleManager<IdentityRole<int>> rolemanager
-            , IMapper mapper, MarketContext context)
+            , IMapper mapper, MarketContext context,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _rolemanager = rolemanager;
             _mapper = mapper;
             this.context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
         #endregion
 
@@ -37,6 +41,11 @@ namespace AppService.Admin_.Command
         public async Task<string> Register(int id, AddUserDto userDto)
         {
             var user = _mapper.Map<User>(userDto);
+            bool resultBy = int.TryParse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User), out int id_);
+            if (resultBy)
+            {
+                user.CreatedBy = id_;
+            }
             var addResult = await _userManager.CreateAsync(user, userDto.Password);
             switch (id)
             {
@@ -184,7 +193,11 @@ namespace AppService.Admin_.Command
                 user.IsActive = false;
                 user.IsDeleted = true;
                 user.DeletedAt = DateTime.Now;
-                //user.DeletedBy=
+                bool resultBy=int.TryParse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User),out int id_);
+                if(resultBy)
+                {
+                    user.DeletedBy = id;
+                }
                 var delteResult = await _userManager.UpdateAsync(user);
                 if (delteResult.Succeeded)
                 {
@@ -216,6 +229,11 @@ namespace AppService.Admin_.Command
                 user.Email = userDto.Email;
                 user.PhoneNumber = userDto.PhoneNumber;
                 user.NationalityCode = userDto.NationalityCode;
+                bool resultBy = int.TryParse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User), out int id);
+                if (resultBy)
+                {
+                    user.ModifiedBy = id;
+                }
                 var res = await _userManager.UpdateAsync(user);
                 if (res.Succeeded)
                 {
