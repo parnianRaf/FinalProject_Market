@@ -90,11 +90,6 @@
 
 
 
-//        public async Task<IActionResult> ActiveProduct(int id,CancellationToken cancellation)
-//        {
-//            await _activeProduct.Execute(id, cancellation);
-//            return RedirectToAction("ProductProfile", new { id });
-//        }
         
 //        public async Task<IActionResult> ProductProfile(int id, CancellationToken cancellation)
 //        {
@@ -128,44 +123,9 @@
 //            return View(productDto);
 //        }
 
-//        public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
-//        {
-//            List<DetailedProductDto> productDtos = new();
-//            List<PavilionDtoModel> pavilionDtos = new();
-//            FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _seller.Execute(id, cancellation));
-//            productDtos = await _sellerProducts.Execute(id, cancellation);
-//            pavilionDtos = await _sellerPavilions.Execute(id, cancellation);
 
-//            ViewBag.productDtos = productDtos;
-//            ViewBag.pavilionDtos = pavilionDtos;
-//            return View(viewModel);
-//        }
-
-//        [HttpPost]
-//        public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
-//        {
-//            var sellerDto = _mapper.Map<EditSellerDto>(viewModel);
-//            var result = await _editSeller.Execute(sellerDto, cancellation);
-//            if (result)
-//            {
-//                return RedirectToAction("SellerProfile", new {viewModel.Id});
-//            }
-//            return View(viewModel);
-//        }
         
-//        public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
-//        {
-//            List<DetailCustomerDto> customerDtos =await  _customers.Execute(cancellation);
-//            List<GetCustomersViewModel> customersViewModels = _mapper.Map<List<GetCustomersViewModel>>(customerDtos);
-//            return PartialView(customersViewModels);
-//        }
 
-//        public async Task<IActionResult> GetSellerList(CancellationToken cancellation)
-//        {
-//            List<DetailSellerDto> sellerDtos = await _sellers.Execute(cancellation);
-//            List<GetSellersViewModel> sellerViewModels = _mapper.Map<List<GetSellersViewModel>>(sellerDtos);
-//            return PartialView(sellerViewModels);
-//        }
 
 //        public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
 //        {
@@ -175,39 +135,9 @@
 //            return View(auctionDtos);
 //        }
 
-//        public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
-//        {
-//            var DeactiveResult= await _deactiveUser.Execute(id, cancellation);
-//            if(DeactiveResult)
-//            {
-//                return RedirectToAction("CustomerProfile", new { id });
-//            }
-//            return RedirectToAction("DeleteUser", new { id});
-//        }
-
-//        public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellation)
-//        {
-//            var DeactiveResult = await _deactiveProduct.Execute(id, cancellation);
-//            if (DeactiveResult)
-//            {
-//                return RedirectToAction("ProductProfile", new { id });
-//            }
-//            return RedirectToAction("DeleteProduct", new { id });
-//        }
 
 
 
-//        //public async Task<IActionResult> SeedData()
-//        //{
-
-//        //    var test1 = await _data.Execute();
-//        //    if (!test1)
-//        //    {
-//        //        return RedirectToAction("Privacy", "Home");
-//        //    }
-//        //    return RedirectToAction("Index", "Home");
-
-//        //}
 //    }
 //}
 

@@ -48,23 +48,23 @@
         <div>
             @if (!Model.IsDeleted)
             {
-                <a class="btn btn-danger m-1" asp-controller="Account" asp-action="DeleteUser" asp-route-id="@Model.Id">حذف کاربر</a>
+                <a class="btn btn-danger m-1" asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@Model.Id">حذف کاربر</a>
             }
             @if (!Model.IsDeleted && Model.IsActive == false)
             {
-                <a class="btn btn-danger m-1" asp-controller="Account" asp-action="ActiveUser" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+                <a class="btn btn-danger m-1" asp-controller="Product" asp-action="ActiveProduct" asp-route-id="@Model.Id">برگرداندن کاربر</a>
             }
             @if (Model.IsDeleted)
             {
                 <div class="container">
                     <div class="row">
-                        <h4> این کاربر به دلیل زیر حذف شده است:</h4>
+                        <h4> این کاربر در تاریخ حذف شده است:</h4>
                     </div>
                     <div class="row">
                         <h5>@Model.DeletedAt</h5>
                     </div>
                     <div class="row">
-                        <a class="btn btn-danger" asp-controller="Account" asp-action="ActiveUser" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+                        <a class="btn btn-danger" asp-controller="Product" asp-action="ActiveProduct" asp-route-id="@Model.Id">برگرداندن کاربر</a>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">نام فروشنده</span>
                             </div>
-                            <input type="email" class="form-control" asp-for="SellerFullName" placeholder="ایمیل">
+                            <input type="text" class="form-control" asp-for="SellerFullName" placeholder="ایمیل">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -114,7 +114,7 @@
                         {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-danger" asp-controller="Account" asp-action="SellerProfile">ویرایش</button>
+                                    <button type="submit" class="btn btn-danger" asp-controller="Product" asp-action="ProductProfile">ویرایش</button>
 
                                 </div>
                                 <!-- /btn-group -->

@@ -55,6 +55,23 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             }
             return View(productDto);
         }
+
+        public async Task<IActionResult> DeleteProduct(int id, CancellationToken cancellation)
+        {
+            var DeactiveResult = await _productAppService.RemoveProduct(id, cancellation);
+            if (DeactiveResult)
+            {
+                return RedirectToAction("ProductProfile", new { id });
+            }
+            return RedirectToAction("DeleteProduct", new { id });
+        }
+
+
+        public async Task<IActionResult> ActiveProduct(int id, CancellationToken cancellation)
+        {
+            await _productAppService.AcceptProduct(id, cancellation);
+            return RedirectToAction("ProductProfile", new { id });
+        }
         #endregion
     }
 }

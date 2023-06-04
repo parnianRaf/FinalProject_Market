@@ -7,18 +7,24 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using ExtensionMethods;
+using Microsoft.AspNetCore.Identity;
 
 namespace Repositories.Repository.ProductRepository
 {
     public class ProductRepository :IProductRepository
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly UserManager<User> _userManager;
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
         public ProductRepository(MarketContext context
-            , IMapper mapper)
+            , IMapper mapper, IHttpContextAccessor httpContextAccessor
+            , UserManager<User> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
         }
 
 
@@ -67,8 +73,6 @@ namespace Repositories.Repository.ProductRepository
 
             if (product != null)
             {
-               
-                //inja ham check shavad mapper dorost kar nmikone????????
                 product.ProductName = productDto.ProductName;
                 product.CategoryId = _context.Categories.FirstOrDefault(c=>c.Title==productDto.CategoryName).Id;
                 product.Category = _context.Categories.FirstOrDefault(c => c.Title == productDto.CategoryName);
@@ -89,6 +93,7 @@ namespace Repositories.Repository.ProductRepository
             if (product != null)
             {
                 product.IsActive = true;
+                product.IsDeleted = false;
                 product.ModifiedAt = DateTime.Now;
                 //product.ModifiedBy
                 _context.Products.Update(product);
@@ -124,7 +129,7 @@ namespace Repositories.Repository.ProductRepository
                     product.IsActive = false;
                     product.IsDeleted = true;
                     product.DeletedAt = DateTime.Now;
-                    //product.DeletedBy
+                    product.DeletedBy= int.Parse(_userManager.GetUserId(_httpContextAccessor.HttpContext.User));
                     var res = _context.Products.Update(product);
                     await _context.SaveChangesAsync();
                     return true;
