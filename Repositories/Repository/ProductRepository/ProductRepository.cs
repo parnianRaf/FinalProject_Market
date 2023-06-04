@@ -144,23 +144,29 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation)
         {
-            Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (product != null)
+            DetailedProductDto? productDto = await _context.Products.Where(p => p.Id == id).AsNoTracking().Select(p => new DetailedProductDto()
             {
-                var x= new DetailedProductDto()
-                {
-                    Id = product.Id,
-                    ProductName = product.ProductName,
-                    Price = product.Price,
-                    //SellerFullName = product.User.FullNameToString(),
-                    SellerFullName = _context.Users.FirstOrDefault(u => u.Id == product.UserId).FullNameToString(),
-                    //CategoryName = product.Category.Title,
-                    CategoryName=_context.Categories.FirstOrDefault(c=>c.Id==product.CategoryId).Title,
-                    //PavilionName = product.User.Pavilions.FirstOrDefault(p => p.Id == product.PavilionId).Title,
-                    filePathSource = product.filePathSource
-                };
-                return x;
+                Id = p.Id,
+                ProductName = p.ProductName,
+                Price = p.Price,
+                SellerFullName = p.User.FullNameToString(),
+                ActivatedAt = p.AcceptedAt.IranianDate(),
+                CreatedAt = p.CreatedAt.IranianDate2(),
+                IsActive = p.IsActive,
+                IsDeleted = p.IsDeleted,
+                DeletedAt = p.DeletedAt.IranianDate(),
+
+                CategoryName = p.Category.Title,
+                //CategoryName =_context.Categories.FirstOrDefault(c=>c.Id==product.CategoryId).Title,
+
+                filePathSource = p.filePathSource
+
+            }).FirstOrDefaultAsync(cancellation);
+            if(productDto!=null)
+            {
+                return productDto;
             }
+       
             return new DetailedProductDto();
         }
 
