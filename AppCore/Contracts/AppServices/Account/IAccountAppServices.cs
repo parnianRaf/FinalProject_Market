@@ -17,5 +17,6 @@ namespace AppService.Admin_.Command
         Task LogOut(CancellationToken cancellation);
         Task<string> Register(int id, AddUserDto userDto);
         Task<bool> UpdateUser(EditUserDto userDto, CancellationToken cancellation);
+        Task<bool> SeedAdminData();
     }
 }

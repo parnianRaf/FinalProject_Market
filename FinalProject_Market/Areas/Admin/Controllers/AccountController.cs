@@ -101,33 +101,32 @@ namespace FinalProject_Market.Controllers
         }
 
 
-        //public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
-        //{
-        //    FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetAllCustomers<DetailedCustomerAdddressDto>(cancellation));
-        //    return View(viewModel);
-        //}
+        public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
+        {
+            FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetUser<FullDetailCustomerDto>(id,cancellation));
+            return View(viewModel);
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CustomerProfile (FullDetailCustomerViewModel viewModel,CancellationToken cancellation)
-        //{
-        //    var customer = _mapper.Map<EditCustomerDto>(viewModel);
-        //    var result = await _editCustomer.Execute(customer, cancellation);
-        //    if (result)
-        //    {
-        //        return RedirectToAction("CustomerProfile", new {viewModel.Id});
-        //    }
-        //    return View(viewModel);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> CustomerProfile(FullDetailCustomerViewModel viewModel, CancellationToken cancellation)
+        {
+            var customer = _mapper.Map<EditUserDto>(viewModel);
+            var result = await _account.UpdateUser(customer, cancellation);
+            if (result)
+            {
+                return RedirectToAction("CustomerProfile", new { viewModel.Id });
+            }
+            return View(viewModel);
+        }
 
 
 
         //public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
         //{
-        //    List<DetailedProductDto> productDtos = new();
-        //    List<PavilionDtoModel> pavilionDtos = new();
-        //    FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _seller.Execute(id, cancellation));
-        //    productDtos = await _sellerProducts.Execute(id, cancellation);
-        //    pavilionDtos = await _sellerPavilions.Execute(id, cancellation);
+           
+        //    FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _account.GetUser<EditUserDto>(id,cancellation);
+        //    List<DetailedProductDto> productDtos await _sellerProducts.Execute(id, cancellation);
+        //    List<PavilionDtoModel> pavilionDtos = await _sellerPavilions.Execute(id, cancellation);
 
         //    ViewBag.productDtos = productDtos;
         //    ViewBag.pavilionDtos = pavilionDtos;
@@ -167,17 +166,17 @@ namespace FinalProject_Market.Controllers
 
 
 
-        ////public async Task<IActionResult> SeedData()
-        ////{
+        //public async Task<IActionResult> SeedData()
+        //{
 
-        ////    var test1 = await _data.Execute();
-        ////    if (!test1)
-        ////    {
-        ////        return RedirectToAction("Privacy", "Home");
-        ////    }
-        ////    return RedirectToAction("Index", "Home");
+        //    var test1 = await _account.SeedAdminData();
+        //    if (!test1)
+        //    {
+        //        return RedirectToAction("Index", "Account");
+        //    }
+        //    return RedirectToAction("Index", "Account");
 
-        ////}
+        //}
     }
 }
 

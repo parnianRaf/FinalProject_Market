@@ -17,7 +17,7 @@ namespace Repositories.AutoMapper
 		public EntityProfile()
 		{
 
-
+            CreateMap<FullDetailCustomerViewModel, EditUserDto>();
             CreateMap<LogInViewModel, LogInUser>();
 
             CreateMap<DetailCustomerDto, GetCustomersViewModel>();

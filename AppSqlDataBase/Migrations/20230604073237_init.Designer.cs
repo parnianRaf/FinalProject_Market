@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppSqlDataBase.Migrations
 {
     [DbContext(typeof(MarketContext))]
-    [Migration("20230528214324_init")]
+    [Migration("20230604073237_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -33,8 +33,11 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int?>("AcceptedCustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CommentByCostumer")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("CommentAcceptedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CommentDeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
@@ -54,8 +57,11 @@ namespace AppSqlDataBase.Migrations
                     b.Property<string>("FinalCommentByCostumer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("FinalPrice")
+                    b.Property<decimal>("FinalPrice")
                         .HasColumnType("decimal(10, 2)");
+
+                    b.Property<DateTime?>("FinishedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsCommentAcceptedByAdmin")
                         .HasColumnType("bit");
@@ -189,9 +195,6 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
@@ -214,6 +217,12 @@ namespace AppSqlDataBase.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("PaidAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SellerId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
@@ -283,6 +292,9 @@ namespace AppSqlDataBase.Migrations
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("AcceptedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -472,11 +484,14 @@ namespace AppSqlDataBase.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FilePathSource")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool?>("HasMedal")
+                    b.Property<bool>("HasMedal")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsActive")

@@ -1,44 +1,42 @@
 ﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppService/Admin_/AccountAppServices.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppCore/Entity/User.cs">
     <Files>
-      <File FileName="AppService/Admin_/AccountAppServices.cs" Line="96" Column="1" />
-      <File FileName="FinalProject_Market/Areas/Admin/Views/Account/GetCustomerList.cshtml" Line="1" Column="1" />
-      <File FileName="FinalProject_Market/appsettings.json" Line="4" Column="13" />
-      <File FileName="FinalProject_Market/Program.cs" Line="111" Column="1" />
-      <File FileName="FinalProject_Market/Areas/Admin/Controllers/AccountController.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Areas/Admin/Views/Account/GetCustomerList.cshtml" />
+      <File FileName="AppCore/Entity/User.cs" Line="39" Column="1" />
+      <File FileName="ExtensionMethods/Extensions.cs" Line="22" Column="4" />
+      <File FileName="FinalProject_Market/Areas/Admin/Models/ViewModels/GetCustomersViewModel.cs" Line="22" Column="47" />
+      <File FileName="AppCore/DtoModels/Customer/DetailCustomerDto.cs" Line="25" Column="1" />
+      <File FileName="Repositories/AutoMapper/EntityProfile.cs" Line="118" Column="23" />
+      <File FileName="FinalProject_Market/Areas/Admin/Controllers/AccountController.cs" Line="168" Column="1" />
+      <File FileName="AppService/Admin_/AccountAppServices.cs" Line="241" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalProject_Market_ParnianRafie" expanded="True">
-            <Node name="01-Domain" expanded="True">
-              <Node name="Core" expanded="True">
-                <Node name="AppCore" expanded="True">
-                  <Node name="Contracts" expanded="True" />
-                  <Node name="DtoModels" expanded="True">
-                    <Node name="Customer" expanded="True" />
-                    <Node name="User" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="Admin_" expanded="True">
-                    <Node name="AccountAppServices.cs" selected="True" />
-                  </Node>
-                </Node>
+            <Node name="00-FrameWorks" expanded="True">
+              <Node name="ExtensionMethods" expanded="True" />
+            </Node>
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="01-SqlDataBase" expanded="True">
+                <Node name="AppSqlDataBase" expanded="True" />
               </Node>
             </Node>
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
+                <Node name="Dependencies" expanded="True" />
                 <Node name="Areas" expanded="True">
                   <Node name="Admin" expanded="True">
                     <Node name="Controllers" expanded="True" />
+                    <Node name="Models" expanded="True">
+                      <Node name="ViewModels" expanded="True" />
+                    </Node>
                     <Node name="Views" expanded="True">
                       <Node name="Account" expanded="True" />
                       <Node name="Shared" expanded="True" />
@@ -47,6 +45,7 @@
                 </Node>
                 <Node name="AutoMapper" expanded="True" />
                 <Node name="appsettings.json" expanded="True" />
+                <Node name="Program.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -54,6 +53,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>

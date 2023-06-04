@@ -103,8 +103,15 @@ namespace Repositories.AutoMapper
                 .ReverseMap();
 
             CreateMap<User, DetailCustomerDto>()
-                .ForMember(dst=>dst.FullName,opt=>
-                opt.MapFrom(src=>$"{src.FirstName} {src.LastName}"));
+                .ForMember(dst => dst.FullName, opt =>
+                opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+                .ForMember(dst => dst.CreatedAt, opt =>
+                opt.MapFrom(src => src.CreatedAt.IranianDate2()))
+                  .ForMember(dst => dst.ActivatedAt, opt =>
+                opt.MapFrom(src => src.ActivatedAt.IranianDate()))
+                    .ForMember(dst => dst.DeletedAt, opt =>
+                opt.MapFrom(src => src.DeletedAt.IranianDate())); 
+        
 
             CreateMap<User, FullDetailCustomerDto>()
                 .ForMember(dst => dst.CustomerAddressDtos,opt=>
@@ -137,11 +144,17 @@ namespace Repositories.AutoMapper
             CreateMap<EditSellerDto, User>()
                 //.ForMember(dst => dst.ModifiedBy, opt => opt.MapFrom(src => src.UserId))
                 .ForMember(dst => dst.ModifiedAt, opt => opt.MapFrom(src => DateTime.Now))
-                .ReverseMap(); 
-
+                .ReverseMap();
             CreateMap<User, DetailSellerDto>()
-            .ForMember(dst => dst.FullName, opt =>
-            opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+             .ForMember(dst => dst.FullName, opt =>
+             opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+             .ForMember(dst => dst.CreatedAt, opt =>
+             opt.MapFrom(src => src.CreatedAt.IranianDate2()))
+               .ForMember(dst => dst.ActivatedAt, opt =>
+             opt.MapFrom(src => src.ActivatedAt.IranianDate()))
+                 .ForMember(dst => dst.DeletedAt, opt =>
+             opt.MapFrom(src => src.DeletedAt.IranianDate()));
+       
 
             CreateMap<User, FullDetailSellerDto>()
             .ForMember(dst => dst.SellerAddress, opt =>

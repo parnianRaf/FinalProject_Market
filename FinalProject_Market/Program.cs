@@ -32,25 +32,14 @@ builder.Services.AddScoped<IPavilionRepository, PavilionRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
-builder.Services.AddScoped<ILogIn, LogIn>();
-builder.Services.AddScoped<IGetCustomers, GetCustomers>();
-builder.Services.AddScoped<IGetSeller, GetSeller>();
-builder.Services.AddScoped<IGetSellers, GetSellers>();
-builder.Services.AddScoped<IGetCustomer, GetCustomer>();
-builder.Services.AddScoped<IEditCustomer, EditCustomer>();
-builder.Services.AddScoped<IEditSeller, EditSeller>();
 builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
 builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
-builder.Services.AddScoped<AppService.Admin.Queries.IGetProduct, GetProduct>();
-builder.Services.AddScoped<IGetAllSellerProducts, GetAllSellerProducts>();
+
 builder.Services.AddScoped<IGetSellerPavilions, GetSellerPavilions>();
 builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();
 builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
 builder.Services.AddScoped<IGetCommissionPaidBySeller, GetCommissionPaidBySeller>();
 builder.Services.AddScoped<IGetCommissionPaidBySellerAuction, GetCommissionPaidBySellerAuction>();
-builder.Services.AddScoped<IDeactiveProduct, DeactiveProduct>();
-builder.Services.AddScoped<AppCore.AppServices.Admin_.Command.IEditProduct, EditProduct>();
-builder.Services.AddScoped<IActiveProduct, ActiveProduct>();
 builder.Services.AddScoped<IGetAuction, GetAuction>();
 
 
@@ -58,7 +47,6 @@ builder.Services.AddScoped<IGetAuction, GetAuction>();
 builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
-builder.Services.AddScoped<ISeedData, SeedData>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

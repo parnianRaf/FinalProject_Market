@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9BZG1pblBhbm5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/Account/AuctionProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9BdWN0aW9uUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/Account/CustomerProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9DdXN0b21lclByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/Account/GetCustomerList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9HZXRDdXN0b21lckxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,6 +48,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9Mb2dJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/Account/ProductProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9Qcm9kdWN0UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/Account/SellerProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvQWNjb3VudC9TZWxsZXJQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,22 +70,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin_3/AuctionProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW5fMy9BdWN0aW9uUHJvZmlsZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin_3/CustomerProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW5fMy9DdXN0b21lclByb2ZpbGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin_3/ProductProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW5fMy9Qcm9kdWN0UHJvZmlsZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Admin_3/SellerProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW5fMy9TZWxsZXJQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Views/Home/Privacy.cshtml]

@@ -1,4 +1,5 @@
-﻿using AppCore;
+﻿using System.ComponentModel.DataAnnotations;
+using AppCore;
 using AppCore.Enum;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

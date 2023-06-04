@@ -12,9 +12,28 @@
     <div class="row m-2" >
         <div class="d-flex justify-content-start">
             @if (!Model.IsDeleted)
-                {
-            <a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@Model.Id">حذف کاربر</a>
-                }
+            {
+                <a class="btn btn-danger m-1" asp-controller="Account" asp-action="DeleteUser" asp-route-id="@Model.Id">حذف کاربر</a>
+            }
+            @if (!Model.IsDeleted && Model.IsActive == false)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Account" asp-action="ActiveUser" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+            }
+            @if (Model.IsDeleted)
+            {
+                <div class="container">
+                    <div class="row">
+                        <h4> این کاربر به دلیل زیر حذف شده است:</h4>
+                    </div>
+                    <div class="row">
+                        <h5>@Model.DeleteComment</h5>
+                    </div>
+                    <div class="row">
+                        <a class="btn btn-danger" asp-controller="Account" asp-action="ActiveUser" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+                    </div>
+                </div>
+
+            }
         </div>
 
     </div>
@@ -24,12 +43,12 @@
                 <h3 class="card-title">مشخصات</h3>
             </div>
            
-            <form class="card-body" method="post"  >
+            <form class="card-body" method="post">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">آیدی</span>
                     </div>
-                    <input type="number" class="form-control" asp-for="Id" >
+                    <input type="number" class="form-control" asp-for="Id">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -59,14 +78,18 @@
                 <!-- /.row -->
                 <!-- /input-group -->
 
+                @if (Model.IsActive==true)
+                {
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button type="submit" class="btn btn-danger" asp-controller="Account" asp-action="CustomerProfile">ویرایش</button>
+                        </div>
+                        <!-- /btn-group -->
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button type="submit" class="btn btn-danger" asp-controller="Admin" asp-action="CustomerProfile" >ویرایش</button>
                     </div>
-                    <!-- /btn-group -->
+                 }
 
-                </div>
+
                 <!-- /input-group -->
                 <!-- /input-group -->
             </form>

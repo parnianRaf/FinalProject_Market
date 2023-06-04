@@ -184,7 +184,7 @@ namespace AppService.Admin_.Command
                 user.IsActive = false;
                 user.IsDeleted = true;
                 user.DeletedAt = DateTime.Now;
-                //user.DeleteBy
+                //user.DeletedBy=
                 var delteResult = await _userManager.UpdateAsync(user);
                 if (delteResult.Succeeded)
                 {
@@ -223,6 +223,81 @@ namespace AppService.Admin_.Command
                 }
             }
             return false;
+        }
+
+        public async Task<bool> SeedAdminData()
+        {
+
+            #region AdminSeed
+
+            //var adminRole = await _rolemanager.CreateAsync(new IdentityRole<int>("admin"));
+            //var x = await _userManager.CreateAsync(new User() { UserName = "test", Email = "test.test@yahoo.com" , CreatedAt=DateTime.UtcNow}, "P@rni@n78");
+
+            ////await _userManager.CreateAsync(new User("te"));
+            //var test = await _userManager.FindByNameAsync("test");
+            //if (test != null)
+            //{
+            //    await _userManager.AddToRoleAsync(test, "admin");
+            //    return true;
+            //}
+            //return false;
+            #endregion
+
+            #region SeedCustomers
+            //var addCustomerRole = await _rolemanager.CreateAsync(new IdentityRole<int>("customer"));
+            //var addCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "parnian", LastName = "Rafie", UserName = "pari", Email = "pari.pari@yahoo.com" }, "P@rni@n78");
+            //var deletedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "zarnian", LastName = "zafie", IsDeleted = true, DeletedAt = DateTime.UtcNow, DeleteComment = "ziad harf mizad", UserName = "zari", Email = "zari.pari@yahoo.com" }, "P@rni@n78");
+            //var acceptedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, IsActive = true, ActivatedAt = DateTime.UtcNow, FirstName = "xarnian", LastName = "xafie", UserName = "xari", Email = "xari.pari@yahoo.com" }, "P@rni@n78");
+            //if (addCustomerRole.Succeeded)
+            //{
+            //    var customer = await _userManager.FindByNameAsync("pari");
+            //    if (customer != null)
+            //    {
+            //        await _userManager.AddToRoleAsync(customer, "customer");
+            //    }
+            //    var customer2 = await _userManager.FindByNameAsync("zari");
+            //    if (customer2 != null)
+            //    {
+            //        await _userManager.AddToRoleAsync(customer2, "customer");
+            //    }
+            //    var customer3 = await _userManager.FindByNameAsync("xari");
+            //    if (customer3 != null)
+            //    {
+            //        await _userManager.AddToRoleAsync(customer3, "customer");
+            //    }
+            //    return true;
+
+            //}
+            //return false;
+            #endregion
+            #region SeedSeller
+            var addsellerRole = await _rolemanager.CreateAsync(new IdentityRole<int>("seller"));
+            var addSeller = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "par", LastName = "Ra", UserName = "paria", Email = "par.paria@yahoo.com" }, "P@rni@n78");
+            var deletedSeller = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "zar", LastName = "za", IsDeleted = true, DeletedAt = DateTime.UtcNow, DeleteComment = "ziad harf mizad", UserName = "zaria", Email = "zar.zaria@yahoo.com" }, "P@rni@n78");
+            var acceptedSeller = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, IsActive = true, ActivatedAt = DateTime.UtcNow, FirstName = "xar", LastName = "xa", UserName = "xaria", Email = "xar.xaria@yahoo.com" }, "P@rni@n78");
+            if (addsellerRole.Succeeded)
+            {
+                var seller = await _userManager.FindByNameAsync("paria");
+                if (seller != null)
+                {
+                    await _userManager.AddToRoleAsync(seller, "seller");
+                }
+                var seller2 = await _userManager.FindByNameAsync("zaria");
+                if (seller2 != null)
+                {
+                    await _userManager.AddToRoleAsync(seller2, "seller");
+                }
+                var seller3 = await _userManager.FindByNameAsync("xaria");
+                if (seller3 != null)
+                {
+                    await _userManager.AddToRoleAsync(seller3, "seller");
+                }
+                return true;
+
+            }
+            return false;
+            #endregion
+
         }
         #endregion
     }

@@ -22,7 +22,6 @@ namespace AppSqlDataBase.Configurations
                 .IsUnicode(false);
 
             entity.Ignore(e => e.ImageFile);
-               
 
             #endregion
 

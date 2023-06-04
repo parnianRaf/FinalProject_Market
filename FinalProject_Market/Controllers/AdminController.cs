@@ -28,12 +28,6 @@
 //    public class AdminController : Controller
 //    {
 //        #region field
-//        private readonly ISeedData _data;
-//        private readonly IMapper _mapper;
-//        private readonly ILogIn _logIn;
-//        private readonly IGetCustomers _customers;
-//        private readonly IGetSellers _sellers;
-//        private readonly IGetSeller _seller;
 //        private readonly IGetCustomer _customer;
 //        private readonly IEditCustomer _editCustomer;
 //        private readonly IEditSeller _editSeller;
