@@ -9,6 +9,7 @@ using AppCore.AppServices.Seller.Query;
 using AppService.Admin;
 using AppService.Admin.Commands;
 using AppService.Admin.Queries;
+using AppService.Admin_;
 using AppService.Admin_.Command;
 using AppService.Seller.Query;
 using AppSqlDataBase;
@@ -32,10 +33,7 @@ builder.Services.AddScoped<IPavilionRepository, PavilionRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
-builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
-builder.Services.AddScoped<IDeactiveUser, DeactiveUser>();
 
-builder.Services.AddScoped<IGetSellerPavilions, GetSellerPavilions>();
 builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();
 builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
 builder.Services.AddScoped<IGetCommissionPaidBySeller, GetCommissionPaidBySeller>();
@@ -45,6 +43,8 @@ builder.Services.AddScoped<IGetAuction, GetAuction>();
 
 
 builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
+builder.Services.AddScoped<IProductAppService, ProductAppService>();
+builder.Services.AddScoped<IPavilionAppService, PavilionAppService>();
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

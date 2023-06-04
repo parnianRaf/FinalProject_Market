@@ -17,11 +17,13 @@ using AppCore.DtoModels.User;
 using AppService.Admin;
 using AppService.Admin.Commands;
 using AppService.Admin.Queries;
+using AppService.Admin_;
 using AppService.Admin_.Command;
 using AutoMapper;
 using FinalProject_Market.Models;
 using FinalProject_Market.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Repositories.Repository.ProductRepository;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -33,14 +35,21 @@ namespace FinalProject_Market.Controllers
         #region field
         private readonly IAccountAppServices _account;
         private readonly IMapper _mapper;
+        private readonly IProductAppService _productAppService;
+        private readonly IPavilionAppService _pavilionAppService;
+
+        
         #endregion
 
         #region ctor
         public AccountController(IAccountAppServices account,
-            IMapper mapper)
+            IMapper mapper, IProductAppService productAppService,
+            IPavilionAppService pavilionAppService)
         {
             _account = account;
             _mapper = mapper;
+            _productAppService = productAppService;
+            _pavilionAppService = pavilionAppService;
         }
         #endregion
 
@@ -100,7 +109,6 @@ namespace FinalProject_Market.Controllers
             return View(sellerViewModels);
         }
 
-
         public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
         {
             FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetUser<FullDetailCustomerDto>(id,cancellation));
@@ -120,30 +128,29 @@ namespace FinalProject_Market.Controllers
         }
 
 
+        public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
+        {
 
-        //public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
-        //{
+            FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _account.GetUser<FullDetailSellerDto>(id, cancellation));
+            List<DetailedProductDto> productDtos= await _productAppService.GetAllProducts(id, cancellation);
+            List<PavilionDtoModel> pavilionDtos = await _pavilionAppService.GetSellerPavilions(id, cancellation);
 
-        //    FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _account.GetUser<EditUserDto>(id,cancellation);
-        //    List<DetailedProductDto> productDtos await _sellerProducts.Execute(id, cancellation);
-        //    List<PavilionDtoModel> pavilionDtos = await _sellerPavilions.Execute(id, cancellation);
+            ViewBag.productDtos = productDtos;
+            ViewBag.pavilionDtos = pavilionDtos;
+            return View(viewModel);
+        }
 
-        //    ViewBag.productDtos = productDtos;
-        //    ViewBag.pavilionDtos = pavilionDtos;
-        //    return View(viewModel);
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
-        //{
-        //    var sellerDto = _mapper.Map<EditSellerDto>(viewModel);
-        //    var result = await _editSeller.Execute(sellerDto, cancellation);
-        //    if (result)
-        //    {
-        //        return RedirectToAction("SellerProfile", new {viewModel.Id});
-        //    }
-        //    return View(viewModel);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
+        {
+            var sellerDto = _mapper.Map<EditUserDto>(viewModel);
+            var result = await _account.UpdateUser(sellerDto, cancellation);
+            if (result)
+            {
+                return RedirectToAction("SellerProfile", new { viewModel.Id });
+            }
+            return View(viewModel);
+        }
 
 
         //public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)

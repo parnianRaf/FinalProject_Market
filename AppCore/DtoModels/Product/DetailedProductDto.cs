@@ -11,7 +11,9 @@ namespace AppCore.DtoModels.Product
 
         public string? SellerFullName { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public string? ActivatedAt { get; set; }
+
+        public string CreatedAt { get; set; }
 
         public string? CategoryName { get; set; }
 
@@ -23,7 +25,7 @@ namespace AppCore.DtoModels.Product
 
         public bool IsDeleted { get; set; }
 
-        public DateTime? DeletedAt { get; set; }
+        public string? DeletedAt { get; set; }
     }
 }
 

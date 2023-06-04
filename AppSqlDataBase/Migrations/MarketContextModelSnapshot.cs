@@ -336,6 +336,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("AcceptedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int?>("AuctionId")
                         .HasColumnType("int");
 

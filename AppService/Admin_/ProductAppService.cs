@@ -4,8 +4,8 @@ using Repositories.Repository.ProductRepository;
 
 namespace AppService.Admin_
 {
-	public class ProductAppService
-	{
+    public class ProductAppService : IProductAppService
+    {
         #region field
         private readonly IProductRepository _productRepository;
         #endregion

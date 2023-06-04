@@ -360,10 +360,7 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/ref/FinalProject_Market.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/ExtensionMethods.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/ExtensionMethods.pdb
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout_2.cshtml.rz.scp.css
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.Google.dll
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Account/_Layout_3.cshtml.rz.scp.css
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Antiforgery.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Authentication.Abstractions.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Authentication.Cookies.dll
@@ -701,3 +698,7 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout_2.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Account/_Layout_3.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout_3.cshtml.rz.scp.css

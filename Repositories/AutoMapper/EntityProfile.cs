@@ -23,7 +23,13 @@ namespace Repositories.AutoMapper
             #region Product
             CreateMap<AddProductDto, Product>();
             CreateMap<Product,EditProductDto > ();
-   
+            CreateMap<Product,DetailedProductDto>()
+                .ForMember(dst => dst.CreatedAt, opt =>
+                opt.MapFrom(src => src.CreatedAt.IranianDate2()))
+                .ForMember(dst => dst.ActivatedAt, opt =>
+                    opt.MapFrom(src => src.AcceptedAt.IranianDate()))
+                .ForMember(dst => dst.DeletedAt, opt =>
+                opt.MapFrom(src => src.DeletedAt.IranianDate()));
             #endregion
 
             #region Auction

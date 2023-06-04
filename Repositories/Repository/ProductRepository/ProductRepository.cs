@@ -172,10 +172,16 @@ namespace Repositories.Repository.ProductRepository
                  ProductName=o.ProductName,
                  Price=o.Price,
                  SellerFullName=o.User.FullNameToString(),
+                 ActivatedAt=o.AcceptedAt.IranianDate(),
+                 CreatedAt=o.CreatedAt.IranianDate2(),
                  CategoryName=o.Category.Title,
                  PavilionName=o.User.Pavilions.FirstOrDefault(p=>p.Id==o.PavilionId).Title,
+                 IsActive=o.IsActive,
+                 IsDeleted=o.IsDeleted,
+                  DeletedAt=o.DeletedAt.IranianDate(),
                  filePathSource=o.filePathSource
             }).ToListAsync(cancellation);
+            var result = productDtos;
             return productDtos;
         }
 

@@ -7977,6 +7977,38 @@
       "PackagePath": "staticwebassets/fonts/molla0ab20ab2.woff2"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/1_1.jpeg",
+      "PackagePath": "staticwebassets/images/1_1.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/1_2.jpeg",
+      "PackagePath": "staticwebassets/images/1_2.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/1_3.jpeg",
+      "PackagePath": "staticwebassets/images/1_3.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/2_1.jpeg",
+      "PackagePath": "staticwebassets/images/2_1.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/2_2.jpeg",
+      "PackagePath": "staticwebassets/images/2_2.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/3_1.jpeg",
+      "PackagePath": "staticwebassets/images/3_1.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/3_2.jpeg",
+      "PackagePath": "staticwebassets/images/3_2.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/3_3.jpeg",
+      "PackagePath": "staticwebassets/images/3_3.jpeg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/Admin/Amin.png",
       "PackagePath": "staticwebassets/images/Admin/Amin.png"
     },
@@ -7987,14 +8019,6 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/undraw_remotely_2j6y.svg",
       "PackagePath": "staticwebassets/images/undraw_remotely_2j6y.svg"
-    },
-    {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/چراغ خواب.jpeg",
-      "PackagePath": "staticwebassets/images/چراغ خواب.jpeg"
-    },
-    {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/چراغ مهتابی.jpeg",
-      "PackagePath": "staticwebassets/images/چراغ مهتابی.jpeg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/bootstrap.min.js",

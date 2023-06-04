@@ -87,44 +87,8 @@
 //            return View();
 //        }
 
- 
-
-//        [HttpPost]
-//        public async Task<IActionResult> LogIn(LogInViewModel viewModel,CancellationToken cancellation)
-//        {
-//            LogInAdminDto adminDto = _mapper.Map<LogInAdminDto>(viewModel);
 
 
-//                var logInResult =await _logIn.Execute(adminDto, cancellation);
-//                if(logInResult.Succeeded)
-//                {
-//                    return PartialView("AdminPannel");
-//                }
-//                ModelState.AddModelError(string.Empty, "یوزر یا پسورد اشتباه بوده...");
-            
-//            return PartialView(viewModel);
-
-//        }
-
-//       // inja duplicate darimmmmmmmmmmmmmm !!!!!!!!!!!!!!!!!
-
-//        public async Task<IActionResult> CustomerProfile(int id,CancellationToken cancellation)
-//        {
-//            FullDetailCustomerViewModel viewModel= _mapper.Map<FullDetailCustomerViewModel>(await _customer.Execute(id, cancellation));
-//            return View(viewModel);
-//        }
-
-//        [HttpPost]
-//        public async Task<IActionResult> CustomerProfile (FullDetailCustomerViewModel viewModel,CancellationToken cancellation)
-//        {
-//            var customer = _mapper.Map<EditCustomerDto>(viewModel);
-//            var result = await _editCustomer.Execute(customer, cancellation);
-//            if (result)
-//            {
-//                return RedirectToAction("CustomerProfile", new {viewModel.Id});
-//            }
-//            return View(viewModel);
-//        }
 
 //        public async Task<IActionResult> ActiveProduct(int id,CancellationToken cancellation)
 //        {
