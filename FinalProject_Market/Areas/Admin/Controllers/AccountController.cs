@@ -49,7 +49,7 @@ namespace FinalProject_Market.Controllers
         {
             return View();
         }
-
+        
         public IActionResult LogIn(int id)
         {
             switch (id)
@@ -79,7 +79,6 @@ namespace FinalProject_Market.Controllers
          
                     break;
                 case 3:
-                    ViewBag.user= this.User.Identity.Name;
                     return PartialView("AdminPannel");
             }
             ModelState.AddModelError(string.Empty, "یوزر یا پسورد اشتباه بوده...");
