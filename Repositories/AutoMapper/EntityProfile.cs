@@ -12,6 +12,7 @@ using AppCore.DtoModels.Seller;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using ExtensionMethods;
+using AppCore.DtoModels.User;
 
 namespace Repositories.AutoMapper
 {
@@ -72,6 +73,12 @@ namespace Repositories.AutoMapper
             #region  Address
             CreateMap<CustomerAddress, DetailedCustomerAdddressDto>().ReverseMap();
             CreateMap<SellerAddress, DetailedSellerAddressDto>().ReverseMap();
+            #endregion
+
+            #region User
+            CreateMap<AddUserDto, User>();
+            CreateMap<User, EditUserDto>().ReverseMap();
+            CreateMap<User, FullDetailUserDto>();
             #endregion
 
             #region Customer

@@ -12,39 +12,29 @@
     </ItemGroup>
     <ItemGroup>
       <None Remove="DtoModels\" />
-      <None Remove="AppServices\" />
-      <None Remove="Data Access\" />
-      <None Remove="AppServices\Seller\" />
-      <None Remove="AppServices\Seller\Command\" />
-      <None Remove="AppServices\Seller\Query\" />
       <None Remove="DtoModels\Product\" />
-      <None Remove="Data Access\Product\" />
       <None Remove="DtoModels\Customer\" />
       <None Remove="DtoModels\Pavilion\" />
-      <None Remove="Data Access\User\" />
       <None Remove="DtoModels\Category\" />
-      <None Remove="AppServices\Admin\Command\" />
       <None Remove="AppServices\Customer\" />
       <None Remove="AppServices\Customer\Command\" />
       <None Remove="AppServices\Customer\Query\" />
+      <None Remove="DtoModels\User\" />
+      <None Remove="Contracts\" />
+      <None Remove="Contracts\AppServices\" />
+      <None Remove="Contracts\Data Access\" />
+      <None Remove="Contracts\AppServices\Admin\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
-      <Folder Include="AppServices\" />
-      <Folder Include="Data Access\" />
-      <Folder Include="AppServices\Seller\" />
-      <Folder Include="AppServices\Seller\Command\" />
-      <Folder Include="AppServices\Seller\Query\" />
       <Folder Include="DtoModels\Product\" />
-      <Folder Include="Data Access\Product\" />
       <Folder Include="DtoModels\Customer\" />
       <Folder Include="DtoModels\Pavilion\" />
-      <Folder Include="Data Access\User\" />
       <Folder Include="DtoModels\Category\" />
-      <Folder Include="AppServices\Admin\Command\" />
-      <Folder Include="AppServices\Seller\" />
-      <Folder Include="AppServices\Admin_\" />
-      <Folder Include="AppServices\Admin_\Command\" />
-      <Folder Include="AppServices\Admin_\Query\" />
+      <Folder Include="DtoModels\User\" />
+      <Folder Include="Contracts\" />
+      <Folder Include="Contracts\AppServices\" />
+      <Folder Include="Contracts\Data Access\" />
+      <Folder Include="Contracts\AppServices\Admin\" />
     </ItemGroup>
 </Project>

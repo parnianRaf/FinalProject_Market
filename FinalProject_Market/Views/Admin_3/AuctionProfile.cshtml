@@ -1,0 +1,70 @@
+﻿
+@using AppCore.DtoModels.Auction;
+
+
+@{
+    Layout = "_Layout_3";
+}
+
+@model DetailedAuctionDto
+
+<div class="container m-5">
+    <div class="row m-2">
+        <div class="d-flex justify-content-start">
+            @if (@Model.IsCommentAcceptedByAdmin != true)
+            {
+                <a class="btn btn-success" asp-controller="Admin" asp-action="ActiveComment" asp-route-id="@Model.Id">تایید نظر</a>
+                <a class="btn btn-danger" asp-controller="Admin" asp-action="DeactiveComment" asp-route-id="@Model.Id">رد نظر</a>
+
+            }
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="card card-info justify-content-center ">
+            <div class="card-header">
+                <h3 class="card-title">مشخصات</h3>
+            </div>
+
+            <form class="card-body" method="post">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">آیدی</span>
+                    </div>
+                    <input type="number" class="form-control" asp-for="Id">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">نام</span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="FinalCommentByCostumer" placeholder="نام ">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">نام خانوادگی</span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="SellerName" placeholder="نام دسته">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <input class="form-control" asp-for="AcceptedCustomerName" placeholder="قیمت">
+                </div>
+                <!-- /.row -->
+                <!-- /input-group -->
+                <!-- /input-group -->
+                <!-- /input-group -->
+            </form>
+
+
+
+
+            <!-- /.card-body -->
+        </div>
+    </div>
+</div>
+
+

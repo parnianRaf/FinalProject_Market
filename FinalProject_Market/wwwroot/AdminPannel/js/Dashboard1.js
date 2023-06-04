@@ -1,19 +1,25 @@
 ﻿$(document).ready(function () {
     debugger;
+    $("#Dashboard1").click(function () {
+        $("#mainPage").load("/Account/GetCustomerList");
+
+    });
     $("#Dashboard2").click(function () {
-        $("#mainPage").load("/Admin/GetSellerList");
+        $("#mainPage").load("/Account/GetSellerList");
 
     });
     $("#Dashboard3").click(function () {
-        $("#mainPage").load("/Admin/GetOrdersList");
+        $("#mainPage").load("/Admin/Account/GetSellerList");
 
     });
     $("#Orders").click(function () {
-        $("#mainPage").load("/Admin/GetOrdersList");
+        $("#mainPage").load("/Admin/Account/GetSellerList");
 
     });
-    $("#Dashboard1").click(function () {
-        $("#mainPage").load("/Admin/GetCustomerList");
+    $("#GoogleIcon").click(function () {
+        var clientId = "";
+        var redirectUrl = "";
+        window.location.href=
 
     });
 

@@ -1,5 +1,6 @@
-﻿using AppCore;
-using AppCore.AppServices.Admin.Command;
+﻿using System.Collections.ObjectModel;
+using System.Data;
+using AppCore;
 using AppCore.AppServices.Admin.Query;
 using AppCore.AppServices.Admin_.Command;
 using AppCore.AppServices.Admin_.Query;
@@ -8,13 +9,16 @@ using AppCore.AppServices.Seller.Query;
 using AppService.Admin;
 using AppService.Admin.Commands;
 using AppService.Admin.Queries;
+using AppService.Admin_.Command;
 using AppService.Seller.Query;
 using AppSqlDataBase;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Repository.ProductRepository;
 using Repositories.UserRepository;
-
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
+using IGetAuction = AppService.Admin.Queries.IGetAuction;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +51,11 @@ builder.Services.AddScoped<IGetCommissionPaidBySellerAuction, GetCommissionPaidB
 builder.Services.AddScoped<IDeactiveProduct, DeactiveProduct>();
 builder.Services.AddScoped<AppCore.AppServices.Admin_.Command.IEditProduct, EditProduct>();
 builder.Services.AddScoped<IActiveProduct, ActiveProduct>();
+builder.Services.AddScoped<IGetAuction, GetAuction>();
 
+
+
+builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
 //builder.Services.AddScoped<IAddProduct, AddPtoduct>();
 //builder.Services.AddScoped<IGetCategories, GetCategories>();
 builder.Services.AddScoped<ISeedData, SeedData>();
@@ -71,7 +79,45 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(option =>
     .AddEntityFrameworkStores<MarketContext>();
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+
+
+
+
+var sinkOpt = new MSSqlServerSinkOptions()
+{
+     AutoCreateSqlDatabase=true,
+      AutoCreateSqlTable=true,
+       TableName="UserLog",
+        SchemaName="dbo",
+         BatchPeriod=TimeSpan.FromSeconds(10)
+};
+var columnOpt = new ColumnOptions()
+{
+     AdditionalColumns=new Collection<SqlColumn>()
+     {
+           new SqlColumn()
+           {
+                AllowNull=false, ColumnName="UserName", DataType=SqlDbType.NVarChar
+           }
+     }
+
+};
+columnOpt.Store.Remove(StandardColumn.MessageTemplate);
+
+var logConfig=Log.Logger = new LoggerConfiguration()
+    .WriteTo.MSSqlServer(builder.Configuration.GetConnectionString("UserLog"),sinkOptions:sinkOpt,columnOptions:columnOpt)
+    .CreateLogger();
+
+
+builder.Logging.AddSerilog(logConfig);
+
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = "298370143561-0e7qaacf2a5hd6an4vsmbk311oncvp9r.apps.googleusercontent.com";
+    googleOptions.ClientSecret = "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";
+});
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
@@ -92,17 +138,27 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
 app.UseAuthentication();
 
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "Admin",
-//    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoint =>
+{
+    app.MapAreaControllerRoute(
+    name: "Admin",
+    areaName: "Admin",
+    pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}");
 
-app.MapControllerRoute(
+    app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
+
+
+
+
 app.MapRazorPages();
 
 app.Run();

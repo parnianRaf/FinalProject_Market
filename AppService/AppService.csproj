@@ -17,6 +17,8 @@
       <None Remove="Admin\" />
       <None Remove="Admin\Queries\" />
       <None Remove="Admin\Commands\" />
+      <None Remove="Admin_\" />
+      <None Remove="Admin_\Command\AccountAppServicesAccount" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Seller\" />
@@ -25,5 +27,10 @@
       <Folder Include="Admin\" />
       <Folder Include="Admin\Queries\" />
       <Folder Include="Admin\Commands\" />
+      <Folder Include="Admin_\" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="2.12.0" />
+      <PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
     </ItemGroup>
 </Project>

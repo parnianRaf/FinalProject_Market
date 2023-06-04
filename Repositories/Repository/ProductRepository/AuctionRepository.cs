@@ -19,6 +19,7 @@ namespace Repositories.Repository.ProductRepository
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
+
         #endregion
 
         #region ctor

@@ -105,7 +105,7 @@ namespace Repositories.UserRepository
                     return true;
                 }
             }
-        
+
             return false;
         }
 
@@ -140,45 +140,45 @@ namespace Repositories.UserRepository
 
             #region AdminSeed
 
-            //var adminRole = await _rolemanager.CreateAsync(new IdentityRole<int>("admin"));
-            //var x = await _userManager.CreateAsync(new User() { UserName = "test", Email = "test.test@yahoo.com" }, "P@rni@n78");
+            var adminRole = await _rolemanager.CreateAsync(new IdentityRole<int>("admin"));
+            var x = await _userManager.CreateAsync(new User() { UserName = "test", Email = "test.test@yahoo.com" }, "P@rni@n78");
 
-            ////await _userManager.CreateAsync(new User("te"));
-            //var test = await _userManager.FindByNameAsync("test");
-            //if (test != null)
-            //{
-            //    await _userManager.AddToRoleAsync(test, "admin");
-            //    return true;
-            //}
-            //return false;
+            //await _userManager.CreateAsync(new User("te"));
+            var test = await _userManager.FindByNameAsync("test");
+            if (test != null)
+            {
+                await _userManager.AddToRoleAsync(test, "admin");
+                return true;
+            }
+            return false;
             #endregion
 
             #region SeedCustomers
-            //var addCustomerRole = await _rolemanager.CreateAsync(new IdentityRole<int>("customer"));
-            //var addCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "parnian", LastName = "Rafie", UserName = "pari", Email = "pari.pari@yahoo.com" }, "P@rni@n78");
-            //var deletedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "zarnian", LastName = "zafie", IsDeleted = true, DeletedAt = DateTime.UtcNow, DeleteComment = "ziad harf mizad", UserName = "zari", Email = "zari.pari@yahoo.com" }, "P@rni@n78");
-            //var acceptedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, IsActive = true, ActivatedAt = DateTime.UtcNow, FirstName = "xarnian", LastName = "xafie", UserName = "xari", Email = "xari.pari@yahoo.com" }, "P@rni@n78");
-            //if (addCustomerRole.Succeeded)
-            //{
-            //    var customer = await _userManager.FindByNameAsync("pari");
-            //    if (customer != null)
-            //    {
-            //        await _userManager.AddToRoleAsync(customer, "customer");
-            //    }
-            //    var customer2 = await _userManager.FindByNameAsync("zari");
-            //    if (customer2 != null)
-            //    {
-            //        await _userManager.AddToRoleAsync(customer2, "customer");
-            //    }
-            //    var customer3 = await _userManager.FindByNameAsync("xari");
-            //    if (customer3 != null)
-            //    {
-            //        await _userManager.AddToRoleAsync(customer3, "customer");
-            //    }
-            //    return true;
+            var addCustomerRole = await _rolemanager.CreateAsync(new IdentityRole<int>("customer"));
+            var addCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "parnian", LastName = "Rafie", UserName = "pari", Email = "pari.pari@yahoo.com" }, "P@rni@n78");
+            var deletedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, FirstName = "zarnian", LastName = "zafie", IsDeleted = true, DeletedAt = DateTime.UtcNow, DeleteComment = "ziad harf mizad", UserName = "zari", Email = "zari.pari@yahoo.com" }, "P@rni@n78");
+            var acceptedCustomer = await _userManager.CreateAsync(new User() { CreatedAt = DateTime.UtcNow, IsActive = true, ActivatedAt = DateTime.UtcNow, FirstName = "xarnian", LastName = "xafie", UserName = "xari", Email = "xari.pari@yahoo.com" }, "P@rni@n78");
+            if (addCustomerRole.Succeeded)
+            {
+                var customer = await _userManager.FindByNameAsync("pari");
+                if (customer != null)
+                {
+                    await _userManager.AddToRoleAsync(customer, "customer");
+                }
+                var customer2 = await _userManager.FindByNameAsync("zari");
+                if (customer2 != null)
+                {
+                    await _userManager.AddToRoleAsync(customer2, "customer");
+                }
+                var customer3 = await _userManager.FindByNameAsync("xari");
+                if (customer3 != null)
+                {
+                    await _userManager.AddToRoleAsync(customer3, "customer");
+                }
+                return true;
 
-            //}
-            //return false;
+            }
+            return false;
             #endregion
             #region SeedSeller
             var addsellerRole = await _rolemanager.CreateAsync(new IdentityRole<int>("seller"));
@@ -213,5 +213,5 @@ namespace Repositories.UserRepository
 
 
     }
-}
+    }
 

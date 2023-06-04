@@ -21,6 +21,9 @@ namespace AppSqlDataBase.Configurations
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
+            entity.Ignore(e => e.ImageFile);
+               
+
             #endregion
 
             #region Relational Property

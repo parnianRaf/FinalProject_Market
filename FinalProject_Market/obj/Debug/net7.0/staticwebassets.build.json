@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lZrluiGp+6DBL8+mf4MFO0aWB+ovMG2Qu8fXIzC+9Eo=",
+  "Hash": "k77MwC4I3Axkxr5fPWeqlXygTFuNXY+j4sAz2dhYKF4=",
   "Source": "FinalProject_Market",
   "BasePath": "_content/FinalProject_Market",
   "Mode": "Default",
@@ -34950,6 +34950,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/fonts/molla0ab20ab2.woff2"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/Admin/Amin.png",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "images/Admin/Amin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Admin/Amin.png"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/bg_1.jpg",

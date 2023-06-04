@@ -91,8 +91,8 @@ namespace Repositories.UserRepository
             //    PhoneNumber = customerDto.PhoneNumber,
             //    UserName = customerDto.UserName,
             //};
-            User? user =await _userManager.FindByIdAsync(customerDto.Id.ToString());
-            if(user!=null)
+            User? user = await _userManager.FindByIdAsync(customerDto.Id.ToString());
+            if (user != null)
             {
                 user.FirstName = customerDto.FirstName;
                 user.LastName = customerDto.LastName;
@@ -104,10 +104,10 @@ namespace Repositories.UserRepository
                     return true;
                 }
             }
-         
+
             //user = _mapper.Map<User>(customerDto);
-           
-           
+
+
             return false;
 
 
@@ -123,7 +123,7 @@ namespace Repositories.UserRepository
                 customer.DeletedAt = DateTime.Now;
                 var delteResult = await _userManager.UpdateAsync(customer);
                 //custoomer.DeleteBy
-                if(delteResult.Succeeded)
+                if (delteResult.Succeeded)
                 {
                     return !result;
 
@@ -132,7 +132,7 @@ namespace Repositories.UserRepository
             return result;
 
         }
-  
+
 
         public async Task<List<DetailCustomerDto>> GetAllCustomers(CancellationToken cancellationToken)
         {

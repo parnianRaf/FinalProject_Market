@@ -125,16 +125,16 @@ namespace Repositories.UserRepository
 
         }
 
-        //public async Task<EditSellerDto> GetSeller(int id, CancellationToken cancellation)
-        //{
-        //    User? seller = await _userManager.FindByIdAsync(id.ToString());
-        //    if (seller != null)
-        //    {
-        //        return _mapper.Map<EditSellerDto>(seller);
+        public async Task<EditSellerDto> GetSeller(int id, CancellationToken cancellation)
+        {
+            User? seller = await _userManager.FindByIdAsync(id.ToString());
+            if (seller != null)
+            {
+                return _mapper.Map<EditSellerDto>(seller);
 
-        //    }
-        //    return new EditSellerDto();
-        //}
+            }
+            return new EditSellerDto();
+        }
         public async Task<FullDetailSellerDto> GetSellerProfile(int id, CancellationToken cancellation)
         {
             User? seller = await _userManager.FindByIdAsync(id.ToString());

@@ -1,5 +1,6 @@
 ﻿using AppCore;
 using AppCore.Enum;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 namespace AppCore;
@@ -52,6 +53,10 @@ public class User: IdentityUser<int>
     public DateTime? DeletedAt { get; set; }
 
     public int? DeletedBy { get; set; }
+
+    public string? FilePathSource { get; set; }
+
+    public IFormFile? ImageFile { get; set; }
     #endregion
 
     #region Navigation Property
