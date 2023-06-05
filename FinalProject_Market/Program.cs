@@ -34,11 +34,9 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
 
-builder.Services.AddScoped<IGetAllAuctions, GetAllAuctions>();
 builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
 builder.Services.AddScoped<IGetCommissionPaidBySeller, GetCommissionPaidBySeller>();
 builder.Services.AddScoped<IGetCommissionPaidBySellerAuction, GetCommissionPaidBySellerAuction>();
-builder.Services.AddScoped<IGetAuction, GetAuction>();
 
 
 

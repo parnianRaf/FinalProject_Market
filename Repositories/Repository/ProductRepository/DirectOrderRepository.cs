@@ -43,7 +43,7 @@ namespace Repositories.Repository.ProductRepository
         }
 
         //baraye buissiness =>inke sefareshesho taghir bede baraye list productha aval befahmim az hamin foroshande mitone bekhare ya foroshande dg
-        public async Task<EditDirectOrderDto> EditGetOrer(int id, CancellationToken cancellation)
+        public async Task<EditDirectOrderDto> GetOrer(int id, CancellationToken cancellation)
         {
             DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
             if (order != null)
@@ -140,8 +140,6 @@ namespace Repositories.Repository.ProductRepository
             }
             return result;
         }
-
-
 
         public async Task<List<DetailedDirctOrderDto>> GetAllPaidOrders(CancellationToken cancellation)
         {
