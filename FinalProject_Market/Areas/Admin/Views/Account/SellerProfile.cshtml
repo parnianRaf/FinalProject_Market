@@ -220,15 +220,15 @@
                         </tr>
                         @foreach (var pavilion in @ViewBag.pavilionDtos)
                         {
-                            @if (pavilion.IsActive != true && pavilion.IsDeleted != true)
+                            @if (pavilion.IsAccepted != true && pavilion.IsDeleted != true)
 
                             {
                                 <tr>
                                     <td>@pavilion.Id</td>
-                                    <td>@pavilion.FullName</td>
+                                    <td>@pavilion.Title</td>
                                     <td>@pavilion.CreatedAt</td>
                                     <td><span class="badge bg-danger">در حال بررسی</span></td>
-                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                    <td><a type="button" class="btn btn-primary" asp-controller="Pavilion" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
                                         
                                 </tr>
 
@@ -242,10 +242,10 @@
                             {
                                 <tr>
                                     <td>@pavilion.Id</td>
-                                    <td>@pavilion.FullName</td>
+                                    <td>@pavilion.Title</td>
                                     <td>@pavilion.DeletedAt</td>
                                     <td><span class="badge badge-danger">رد شده</span></td>
-                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                    <td><a type="button" class="btn btn-primary" asp-controller="Pavilion" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
                                               
                                 </tr>
 
@@ -253,15 +253,15 @@
                         }
                         @foreach (var pavilion in @ViewBag.pavilionDtos)
                         {
-                            @if (pavilion.IsActive == true)
+                            @if (pavilion.IsAccepted == true)
 
                             {
                                 <tr>
                                     <td>@pavilion.Id</td>
-                                    <td>@pavilion.FullName</td>
-                                    <td>@pavilion.ActivatedAt</td>
+                                    <td>@pavilion.Title</td>
+                                    <td>@pavilion.AcceptedAt</td>
                                     <td><span class="badge badge-success">تایید شده</span></td>
-                                    <td><a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                    <td><a type="button" class="btn btn-primary" asp-controller="Pavilion" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
                                            
                                 </tr>
 

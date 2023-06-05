@@ -1,7 +1,12 @@
-﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Areas/Admin/Views/Product/ProductProfile.cshtml">
+    <Files>
+      <File FileName="FinalProject_Market/Areas/Admin/Views/Product/ProductProfile.cshtml" Line="94" Column="14" />
+      <File FileName="AppCore/DtoModels/Product/DetailedProductDto.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Program.cs" Line="150" Column="1" />
+      <File FileName="FinalProject_Market/Controllers/AdminController.cs" Line="92" Column="1" />
+      <File FileName="Repositories/Repository/ProductRepository/ProductRepository.cs" Line="82" Column="51" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -13,33 +18,22 @@
               <Node name="Core" expanded="True">
                 <Node name="AppCore" expanded="True">
                   <Node name="DtoModels" expanded="True">
-                    <Node name="Customer" expanded="True" />
+                    <Node name="Product" expanded="True" />
                     <Node name="Seller" expanded="True" />
                   </Node>
+                  <Node name="Entity" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Service" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="Admin" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True" />
-                  </Node>
-                  <Node name="Admin_" expanded="True" />
-                  <Node name="Seller" expanded="True">
-                    <Node name="Command" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
+              <Node name="Service" expanded="True" />
             </Node>
             <Node name="02-Infrastructure" expanded="True">
-              <Node name="01-SqlDataBase" expanded="True">
-                <Node name="AppSqlDataBase" expanded="True">
-                  <Node name="Contexts" expanded="True" />
-                </Node>
-              </Node>
+              <Node name="01-SqlDataBase" expanded="True" />
               <Node name="02-Repository" expanded="True">
                 <Node name="Repositories" expanded="True">
                   <Node name="AutoMapper" expanded="True" />
+                  <Node name="Repository" expanded="True">
+                    <Node name="ProductRepository" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>
@@ -53,17 +47,19 @@
                       <Node name="ViewModels" expanded="True" />
                     </Node>
                     <Node name="Views" expanded="True">
-                      <Node name="Account" expanded="True">
-                        <Node name="CustomerProfile.cshtml" selected="True" />
-                      </Node>
+                      <Node name="Account" expanded="True" />
+                      <Node name="Product" expanded="True" />
                       <Node name="Shared" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
-                <Node name="AutoMapper" expanded="True" />
                 <Node name="Controllers" expanded="True" />
-                <Node name="Views" expanded="True" />
+                <Node name="Models" expanded="True" />
+                <Node name="Views" expanded="True">
+                  <Node name="Home" expanded="True" />
+                </Node>
                 <Node name="wwwroot" expanded="True">
+                  <Node name="Images" expanded="True" />
                   <Node name="images" expanded="True" />
                 </Node>
                 <Node name="appsettings.json" expanded="True" />
@@ -74,8 +70,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,0 +1,93 @@
+﻿
+@using AppCore.DtoModels;
+
+
+@{
+    Layout = "_Layout_3";
+}
+
+@model PavilionDtoModel
+
+<div class="container m-5">
+    <div class="d-flex justify-content-start">
+     
+        <div>
+            @if (!Model.IsDeleted)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Pavilion" asp-action="DeletePavilion" asp-route-id="@Model.Id">حذف کاربر</a>
+            }
+            @if (!Model.IsDeleted && Model.IsAccepted == false)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Pavilion" asp-action="ActivePavilion" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+            }
+            @if (Model.IsDeleted)
+            {
+                <div class="container">
+                    <div class="row">
+                        <h4> این کاربر در تاریخ حذف شده است:</h4>
+                    </div>
+                    <div class="row">
+                        <h5>@Model.DeletedAt</h5>
+                    </div>
+                    <div class="row">
+                        <a class="btn btn-danger" asp-controller="Pavilion" asp-action="ActivePavilion" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+                    </div>
+                </div>
+
+            }
+            <div class="row">
+                <div class="card card-info justify-content-center ">
+                    <div class="card-header">
+                        <h3 class="card-title">مشخصات</h3>
+                    </div>
+
+                    <form class="card-body" method="post">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">آیدی</span>
+                            </div>
+                            <input type="number" class="form-control" asp-for="Id">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">نام</span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="Title" placeholder="نام ">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">نام فروشنده</span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="SellerName" >
+                        </div>
+            
+
+                        <!-- /.row -->
+                        <!-- /input-group -->
+                        @if (Model.IsAccepted == true)
+                        {
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-danger" asp-controller="Pavilion" asp-action="PavilionProfile">ویرایش</button>
+
+                                </div>
+                                <!-- /btn-group -->
+
+                            </div>
+                        }
+
+                    </form>
+
+
+
+
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

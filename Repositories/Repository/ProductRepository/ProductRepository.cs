@@ -96,6 +96,7 @@ namespace Repositories.Repository.ProductRepository
                 product.IsDeleted = false;
                 product.ModifiedAt = DateTime.Now;
                 //product.ModifiedBy
+                product.AcceptedAt = DateTime.UtcNow;
                 _context.Products.Update(product);
                 await _context.SaveChangesAsync();
                 return !result;

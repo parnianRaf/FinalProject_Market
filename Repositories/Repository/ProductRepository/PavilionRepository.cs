@@ -5,6 +5,7 @@ using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;
+using ExtensionMethods;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
@@ -70,12 +71,25 @@ namespace Repositories.Repository.ProductRepository
             return result;
         }
 
-        public async Task<PavilionDtoModel> EditGetPavilion(int id, CancellationToken cancellation)
+        public async Task<PavilionDtoModel> GetPavilion(int id, CancellationToken cancellation)
         {
-            Pavilion? pavilion = await _context.Pavilions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (pavilion != null)
+            PavilionDtoModel? pavilionDto = await _context.Pavilions.Where(p => p.Id == id).Select(p => new PavilionDtoModel()
             {
-                return _mapper.Map<PavilionDtoModel>(pavilion);
+                 Id=p.Id,
+                  AcceptedAt=p.AcceptedAt.IranianDate(),
+                   CreatedAt=p.CreatedAt.IranianDate2(),
+                    DeletedAt=p.DeletedAt.IranianDate(),
+                     IsAccepted=p.IsAccepted,
+                      IsDeleted=p.IsDeleted,
+                       SellerName=p.User.FullNameToString(),
+                        Title=p.Title
+
+
+            }).FirstOrDefaultAsync(cancellation);
+            var result = pavilionDto;
+            if (pavilionDto != null)
+            {
+                return pavilionDto;
             }
             return new PavilionDtoModel();
         }
@@ -86,8 +100,9 @@ namespace Repositories.Repository.ProductRepository
             Pavilion? pavilion = await _context.Pavilions.Where(p => p.Id == pavilionDto.Id).FirstOrDefaultAsync(cancellation);
             if (pavilion != null)
             {
-                _context.Pavilions.Update(pavilion);
+                pavilion.Title = pavilionDto.Title;
                 pavilion.ModifiedAt = DateTime.Now;
+                _context.Pavilions.Update(pavilion);
                 //pavilion.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -103,9 +118,11 @@ namespace Repositories.Repository.ProductRepository
                 try
                 {
                     pavilion.IsDeleted = true;
+                    pavilion.IsAccepted = false;
                     pavilion.DeletedAt = DateTime.Now;
                     //pavilion.DeletedBy
                     var res = _context.Pavilions.Update(pavilion);
+                    await _context.SaveChangesAsync(cancellation);
                     return true;
                 }
                 catch (Exception ex)

@@ -7,7 +7,7 @@ namespace Repositories.Repository.ProductRepository
     {
         Task<bool> AcceptPavilion(int pavilionId, CancellationToken cancellation);
         Task AddPavilion(PavilionDtoModel pavilionDto, CancellationToken cancellation);
-        Task<PavilionDtoModel> EditGetPavilion(int id, CancellationToken cancellation);
+        Task<PavilionDtoModel> GetPavilion(int id, CancellationToken cancellation);
         Task<bool> EditPavilion(PavilionDtoModel pavilionDto, CancellationToken cancellation);
         Task<List<Pavilion>> GetPavilions(CancellationToken cancellation);
         Task<List<PavilionDtoModel>> GetSellerPavilions(int selerId, CancellationToken cancellation);

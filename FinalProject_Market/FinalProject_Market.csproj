@@ -18,6 +18,7 @@
     <None Remove="Areas\Admin\Views\Product\" />
     <None Remove="Models\" />
     <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Views\Pavilion\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -66,6 +67,7 @@
     <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Pavilion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />

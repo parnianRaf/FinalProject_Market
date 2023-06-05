@@ -9,13 +9,15 @@ namespace AppCore.DtoModels
 
         public string SellerName { get; set; }
 
+        public string CreatedAt { get; set; }
+
         public bool IsAccepted { get; set; }
 
-        public DateTime AcceptedAt { get; set; }
+        public string AcceptedAt { get; set; }
 
         public bool IsDeleted { get; set; }
 
-        public DateTime? DeletedAt { get; set; }
+        public string? DeletedAt { get; set; }
     }
 }
 

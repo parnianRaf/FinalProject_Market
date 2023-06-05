@@ -34,6 +34,16 @@ namespace AppService.Admin_
             return await _pavilionRepository.EditPavilion(pavilionDto, cancellation);
 
         }
+
+        public async Task<PavilionDtoModel> GetPavilion(int id,CancellationToken cancellation)
+        {
+            return await _pavilionRepository.GetPavilion(id, cancellation);
+        }
+
+        public async Task<bool> ActiveProduct(int id,CancellationToken cancellation)
+        {
+            return await _pavilionRepository.AcceptPavilion(id, cancellation);
+        }
         #endregion
     }
 }
