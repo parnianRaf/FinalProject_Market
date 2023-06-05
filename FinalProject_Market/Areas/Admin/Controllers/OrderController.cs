@@ -17,15 +17,15 @@ namespace FinalProject_Market.Areas.Admin.Controllers
     {
         #region field
         private readonly IAuctionAppService _auctionAppService;
-        private readonly IDirectOrderRepository _directOrderReposiyory;
+        private readonly IDirectOrderAppService _directOrderAppService;
         #endregion
 
         #region ctor
         public OrderController(IAuctionAppService auctionAppService,
-            IDirectOrderRepository directOrderReposiyory)
+            IDirectOrderAppService directOrderAppService)
         {
             _auctionAppService = auctionAppService;
-            _directOrderReposiyory = directOrderReposiyory;
+            _directOrderAppService = directOrderAppService;
         }
         #endregion
 
@@ -38,7 +38,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
         {
-            List<DetailedDirctOrderDto> dirctOrderDtos =await  _directOrderReposiyory.GetAllPaidOrders(cancellation);
+            List<DetailedDirctOrderDto> dirctOrderDtos =await  _directOrderAppService.GetAllDirectOrder(cancellation);
             List<DetailedAuctionDto> auctionDtos = await _auctionAppService.GetAllAuctions(cancellation);
             ViewBag.directOrderDtos = dirctOrderDtos;
             return View(auctionDtos);

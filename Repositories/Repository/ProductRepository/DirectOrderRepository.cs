@@ -165,6 +165,7 @@ namespace Repositories.Repository.ProductRepository
                 }).ToList()
 
             }).ToListAsync(cancellation);
+            var result = dirctOrderDtos;
             return dirctOrderDtos;
         }
 

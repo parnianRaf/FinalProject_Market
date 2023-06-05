@@ -1,14 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
 using AppCore;
-using AppCore.AppServices.Admin.Query;
-using AppCore.AppServices.Admin_.Command;
-using AppCore.AppServices.Admin_.Query;
 using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
-using AppService.Admin;
-using AppService.Admin.Commands;
-using AppService.Admin.Queries;
 using AppService.Admin_;
 using AppService.Admin_.Command;
 using AppService.Seller.Query;
@@ -19,7 +13,6 @@ using Repositories.Repository.ProductRepository;
 using Repositories.UserRepository;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
-using IGetAuction = AppService.Admin.Queries.IGetAuction;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,17 +27,13 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
 
-builder.Services.AddScoped<IGetAllPaidOrders, GetAllPaidOrders>();
-builder.Services.AddScoped<IGetCommissionPaidBySeller, GetCommissionPaidBySeller>();
-builder.Services.AddScoped<IGetCommissionPaidBySellerAuction, GetCommissionPaidBySellerAuction>();
-
 
 
 builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
 builder.Services.AddScoped<IProductAppService, ProductAppService>();
 builder.Services.AddScoped<IPavilionAppService, PavilionAppService>();
-//builder.Services.AddScoped<IAddProduct, AddPtoduct>();
-//builder.Services.AddScoped<IGetCategories, GetCategories>();
+builder.Services.AddScoped<IAuctionAppService, AuctionAppService>();
+builder.Services.AddScoped<IDirectOrderAppService, DirectOrderAppService>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

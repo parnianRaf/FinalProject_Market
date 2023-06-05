@@ -5,8 +5,8 @@ using Repositories.Repository.ProductRepository;
 
 namespace AppService.Admin_
 {
-	public class DirectOrderAppService
-	{
+    public class DirectOrderAppService : IDirectOrderAppService
+    {
         #region field
         private readonly IDirectOrderRepository _directOrderRepository;
         #endregion

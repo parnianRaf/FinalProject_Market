@@ -180,7 +180,7 @@ namespace Repositories.Repository.ProductRepository
                 Id = a.Id,
                 StartTime = a.StartTime,
                 EndTime = a.EndTime,
-                AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id).User.FullNameToString(),
+                AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id && o.IsAccepted).User.FullNameToString(),
                 FinalPrice = a.FinalPrice,
                 // har auction tanha be yek seller taalogh darad
                 SellerName = a.Products.FirstOrDefault().User.FullNameToString(),
