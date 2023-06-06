@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/4_2.jpeg",
+      "PackagePath": "staticwebassets/4_2.jpeg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/adminlte.min.css",
       "PackagePath": "staticwebassets/AdminPannel/css/adminlte.min.css"
     },
@@ -8011,10 +8015,6 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/4_1.jpeg",
       "PackagePath": "staticwebassets/images/4_1.jpeg"
-    },
-    {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/4_2.jpeg",
-      "PackagePath": "staticwebassets/images/4_2.jpeg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/5_1.jpeg",

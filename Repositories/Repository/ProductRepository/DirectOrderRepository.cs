@@ -116,9 +116,8 @@ namespace Repositories.Repository.ProductRepository
             if (order != null)
             {
                 order.IsCommentAcceptedByAdmin = true;
-                _context.DirectOrders.Update(order);
                 order.ModifiedAt = DateTime.Now;
-                //product.ModifiedBy
+                _context.DirectOrders.Update(order);
                 await _context.SaveChangesAsync();
                 return !result;
             }
@@ -132,8 +131,9 @@ namespace Repositories.Repository.ProductRepository
             if (order != null)
             {
                 order.IsCommentAcceptedByAdmin = false;
-                _context.DirectOrders.Update(order);
                 order.ModifiedAt = DateTime.Now;
+                order.IsCommentDeleted = true;
+                _context.DirectOrders.Update(order);
                 //product.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -153,6 +153,7 @@ namespace Repositories.Repository.ProductRepository
                 CommentByCostumer = d.CommentByCostumer,
                 IsCommentAcceptedByAdmin = d.IsCommentAcceptedByAdmin,
                 IsCommentDeleted = d.IsCommentDeleted,
+                ComissionPaidByOrder=((d.Products.FirstOrDefault().User.HasMedal) &&(d.Products.FirstOrDefault().User.MedalAchievedAt<d.PaidAt)) ? "0" : Convert.ToString(d.TotalPrice*7/10),
                 ProductDtos = d.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,

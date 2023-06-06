@@ -89,6 +89,12 @@ namespace FinalProject_Market.Controllers
 
         }
 
+        public async Task<IActionResult> SignOut(CancellationToken cancellation)
+        {
+            await _account.LogOut(cancellation);
+            return RedirectToAction("Index");
+        }
+
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
         {
             List<DetailCustomerDto> customerDtos = await _account.GetAllCustomers<DetailCustomerDto>(cancellation);

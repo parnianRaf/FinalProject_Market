@@ -43,26 +43,46 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             ViewBag.directOrderDtos = dirctOrderDtos;
             return View(auctionDtos);
         }
-        //public async Task<IActionResult> AuctionProfile(int id, CancellationToken cancellation)
-        //{
-        //    var detailedProduct = await _getAuction.Execute(id, cancellation);
-        //    return View(detailedProduct);
-        //}
 
-        //[HttpPost]
-        //public async Task<IActionResult> AuctionProfile(DetailedProductDto productDto, CancellationToken cancellation)
-        //{
-        //    if (await _editProduct.Execute(productDto, cancellation))
-        //    {
-        //        return RedirectToAction("ProductProfile", new { productDto.Id });
-        //    }
-        //    return View(productDto);
-        //}
+        public async Task<IActionResult> OrderAcceptComment(int id,CancellationToken cancellation)
+        {
+            var result = await _directOrderAppService.AcceptComment(id, cancellation);
+            if (result)
+            {
+                return RedirectToAction("GetOrdersList");
+            }
+            return RedirectToAction("Index");
+        }
 
-        //public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
-        //{
+        public async Task<IActionResult> AuctionAcceptComment(int id, CancellationToken cancellation)
+        {
+            var result = await _auctionAppService.AcceptComment(id, cancellation);
+            if (result)
+            {
+                return RedirectToAction("GetOrdersList");
+            }
+            return RedirectToAction("Index");
+        }
 
-        //}
+        public async Task<IActionResult> OrderRejectComment(int id, CancellationToken cancellation)
+        {
+            var result = await _directOrderAppService.RejectComment(id, cancellation);
+            if (result)
+            {
+                return RedirectToAction("GetOrdersList");
+            }
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> AuctionRejectComment(int id, CancellationToken cancellation)
+        {
+            var result = await _auctionAppService.RejectComment(id, cancellation);
+            if (result)
+            {
+                return RedirectToAction("GetOrdersList");
+            }
+            return RedirectToAction("Index");
+        }
         #endregion
 
     }

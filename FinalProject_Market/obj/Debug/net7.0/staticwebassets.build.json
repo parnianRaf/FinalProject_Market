@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OnyAFw5bkpYiVM0jgXEPOPpZXfo3a6Wc0CkqssZAnG8=",
+  "Hash": "j6doXuNKjrhP9glmc9Z9YdJXSJSTpPtVKitEWjMaMRw=",
   "Source": "FinalProject_Market",
   "BasePath": "_content/FinalProject_Market",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/4_2.jpeg",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "4_2.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/4_2.jpeg"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/adminlte.min.css",
@@ -35103,23 +35120,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/4_1.jpeg"
-    },
-    {
-      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/4_2.jpeg",
-      "SourceId": "FinalProject_Market",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
-      "BasePath": "_content/FinalProject_Market",
-      "RelativePath": "images/4_2.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/images/4_2.jpeg"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/5_1.jpeg",

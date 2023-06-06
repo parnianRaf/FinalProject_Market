@@ -29,7 +29,15 @@ namespace AppService.Admin_
             return await _directOrderRepository.GetOrer(id, cancellation);
         }
 
+        public async Task<bool> AcceptComment(int orderId,CancellationToken cancellation)
+        {
+            return await _directOrderRepository.AcceptComment(orderId, cancellation);
+        }
 
+        public async Task<bool> RejectComment(int orderId,CancellationToken cancellation)
+        {
+            return await _directOrderRepository.RejectComment(orderId, cancellation);
+        }
         #endregion
     }
 }

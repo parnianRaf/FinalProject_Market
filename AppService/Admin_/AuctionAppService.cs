@@ -28,7 +28,15 @@ namespace AppService.Admin_
             return await _auctionRepository.GetAuction(id, cancellation);
         }
 
+        public async Task<bool> AcceptComment(int auctionId, CancellationToken cancellation)
+        {
+            return await _auctionRepository.AcceptComment(auctionId, cancellation);
+        }
 
+        public async Task<bool> RejectComment(int auctionId, CancellationToken cancellation)
+        {
+            return await _auctionRepository.RejectComment(auctionId, cancellation);
+        }
         #endregion
 
     }

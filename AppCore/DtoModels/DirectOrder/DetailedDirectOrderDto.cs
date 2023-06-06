@@ -21,6 +21,8 @@ namespace AppCore.DtoModels.DirectOrder
 
         public bool IsCommentDeleted { get; set; }
 
+        public string ComissionPaidByOrder { get; set; }
+
         public virtual List<DetailedProductDto> ProductDtos { get; set; }
 
     }

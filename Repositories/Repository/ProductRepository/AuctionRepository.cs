@@ -141,6 +141,7 @@ namespace Repositories.Repository.ProductRepository
             return result;
 
         }
+
         public async Task<bool> AcceptComment(int auctionId, CancellationToken cancellation)
         {
             bool result = false;
@@ -148,9 +149,8 @@ namespace Repositories.Repository.ProductRepository
             if (auction != null)
             {
                 auction.IsCommentAcceptedByAdmin = true;
-                _context.Auctions.Update(auction);
                 auction.ModeifiedAt = DateTime.Now;
-                //product.ModifiedBy
+                _context.Auctions.Update(auction);
                 await _context.SaveChangesAsync();
                 return !result;
             }
@@ -164,8 +164,9 @@ namespace Repositories.Repository.ProductRepository
             if (auction != null)
             {
                 auction.IsCommentAcceptedByAdmin = false;
-                _context.Auctions.Update(auction);
+                auction.IsCommentDeleted = true;
                 auction.ModeifiedAt = DateTime.Now;
+                _context.Auctions.Update(auction);
                 //product.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -189,6 +190,7 @@ namespace Repositories.Repository.ProductRepository
                 CommentAcceptedAt = a.CommentAcceptedAt,
                 IsCommentDeleted = a.IsCommentDeleted,
                 CommentDeletedAt = a.CommentDeletedAt,
+                ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
                 IsFinished = a.IsFinished,
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {

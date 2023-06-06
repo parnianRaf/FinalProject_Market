@@ -20,6 +20,8 @@ namespace AppCore.DtoModels.Auction
 
         public bool IsCommentAcceptedByAdmin { get; set; }
 
+        public string ComissionPaidByauction { get; set; }
+
         public DateTime? CommentAcceptedAt { get; set; }
 
         public bool IsCommentDeleted { get; set; }
