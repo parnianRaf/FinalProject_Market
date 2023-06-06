@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="~/AdminPannel/css/datepicker3.css">
     <link rel="stylesheet" href="~/AdminPannel/css/daterangepicker-bs3.css">
     <link rel="stylesheet" href="~/AdminPannel/css/bootstrap3-wysihtml5.min.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/log-out.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-   
+
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -56,12 +57,17 @@
             <div class="sidebar" style="direction: ltr">
                 <div style="direction: rtl">
                     <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src="~/images/Admin/@(this.User.Identity.Name+".png")" class="img-circle elevation-2" alt="User Image">
+                    <div class="d-flex justify-content-around">
+                        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                            <div class="image">
+                                <img src="~/images/Admin/@(this.User.Identity.Name+".png")" class="img-circle elevation-2" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a class="d-block">@this.User.Identity.Name</a>
+                            </div>
                         </div>
-                        <div class="info">
-                            <a class="d-block">@this.User.Identity.Name</a>
+                        <div>
+                            <a asp-controller="Account" asp-action=""><i class="gg-log-out me-1"></i><p>خروج</p></a>
                         </div>
                     </div>
 
@@ -69,7 +75,7 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
-                                 with font-awesome or any other icon font library -->
+                 with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
                                 <a href="#" class="nav-link active">
                                     <i class="nav-icon fa fa-dashboard"></i>
@@ -92,7 +98,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a  asp-controller="Order" asp-action="GetOrdersList" id="Dashboard3" class="nav-link active">
+                                        <a asp-controller="Order" asp-action="GetOrdersList" id="Dashboard3" class="nav-link active">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>مدیریت سفارش ها</p>
                                         </a>

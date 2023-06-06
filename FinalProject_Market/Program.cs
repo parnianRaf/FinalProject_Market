@@ -28,12 +28,12 @@ builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
 
 
-
 builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
 builder.Services.AddScoped<IProductAppService, ProductAppService>();
 builder.Services.AddScoped<IPavilionAppService, PavilionAppService>();
 builder.Services.AddScoped<IAuctionAppService, AuctionAppService>();
 builder.Services.AddScoped<IDirectOrderAppService, DirectOrderAppService>();
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

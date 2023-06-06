@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.DirectOrder;
 using AppService.Admin_;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Repository.ProductRepository;
 
@@ -13,6 +14,7 @@ using Repositories.Repository.ProductRepository;
 namespace FinalProject_Market.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles ="admin")]
     public class OrderController : Controller
     {
         #region field

@@ -14,9 +14,6 @@
       <None Remove="Seller\" />
       <None Remove="Seller\Command\" />
       <None Remove="Seller\Query\" />
-      <None Remove="Admin\" />
-      <None Remove="Admin\Queries\" />
-      <None Remove="Admin\Commands\" />
       <None Remove="Admin_\" />
       <None Remove="Admin_\Command\AccountAppServicesAccount" />
     </ItemGroup>
@@ -24,9 +21,6 @@
       <Folder Include="Seller\" />
       <Folder Include="Seller\Command\" />
       <Folder Include="Seller\Query\" />
-      <Folder Include="Admin\" />
-      <Folder Include="Admin\Queries\" />
-      <Folder Include="Admin\Commands\" />
       <Folder Include="Admin_\" />
     </ItemGroup>
     <ItemGroup>

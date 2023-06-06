@@ -16,6 +16,7 @@ using AppService.Admin_.Command;
 using AutoMapper;
 using FinalProject_Market.Models;
 using FinalProject_Market.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Repository.ProductRepository;
 
@@ -94,21 +95,21 @@ namespace FinalProject_Market.Controllers
             await _account.LogOut(cancellation);
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
         {
             List<DetailCustomerDto> customerDtos = await _account.GetAllCustomers<DetailCustomerDto>(cancellation);
             List<GetCustomersViewModel> customersViewModels = _mapper.Map<List<GetCustomersViewModel>>(customerDtos);
             return View(customersViewModels);
         }
-
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> GetSellerList(CancellationToken cancellation)
         {
             List<DetailSellerDto> sellerDtos = await _account.GetAllSellers<DetailSellerDto>(cancellation);
             List<GetSellersViewModel> sellerViewModels = _mapper.Map<List<GetSellersViewModel>>(sellerDtos);
             return View(sellerViewModels);
         }
-
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
         {
             FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetUser<FullDetailCustomerDto>(id,cancellation));
@@ -116,6 +117,7 @@ namespace FinalProject_Market.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> CustomerProfile(FullDetailCustomerViewModel viewModel, CancellationToken cancellation)
         {
             var customer = _mapper.Map<EditUserDto>(viewModel);
@@ -127,7 +129,7 @@ namespace FinalProject_Market.Controllers
             return View(viewModel);
         }
 
-
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
         {
 
@@ -139,7 +141,7 @@ namespace FinalProject_Market.Controllers
             ViewBag.pavilionDtos = pavilionDtos;
             return View(viewModel);
         }
-
+        [Authorize(Roles ="admin")]
         [HttpPost]
         public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
         {
@@ -160,7 +162,7 @@ namespace FinalProject_Market.Controllers
         //    ViewBag.directOrderDtos = dirctOrderDtos; 
         //    return View(auctionDtos);
         //}
-
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
         {
             var DeactiveResult = await _account.DeleteUser(id, cancellation);
@@ -170,7 +172,7 @@ namespace FinalProject_Market.Controllers
             }
             return RedirectToAction("DeleteUser", new { id });
         }
-
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> ActiveUser(int id, CancellationToken cancellation)
         {
             var ActiveResult = await _account.ActiveUser(id, cancellation);

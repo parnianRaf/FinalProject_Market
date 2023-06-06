@@ -6,6 +6,7 @@ using AppCore.DtoModels.Product;
 using AppService.Admin_;
 using AppService.Admin_.Command;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FinalProject_Market.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles ="admin")]
     public class ProductController : Controller
     {
         #region field
@@ -36,10 +38,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
 
         #region Implementation
         // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
+
         public async Task<IActionResult> ProductProfile(int id, CancellationToken cancellation)
         {
             DetailedProductDto detailedProduct = await _productAppService.GetProduct(id,cancellation);
