@@ -30,6 +30,8 @@ public  class Category
     public int? DeleteBy { get; set; }
 
     public DateTime? DeleteAt { get; set; }
+
+    public string? ImageFile { get; set; }
     #endregion
 
     #region Navigation Property

@@ -90,6 +90,7 @@ namespace Repositories.AutoMapper
             #region User
             CreateMap<AddUserDto, User>();
             CreateMap<User, EditUserDto>().ReverseMap();
+            CreateMap<User, DetailCustomerDto>().ReverseMap();
             CreateMap<User, FullDetailUserDto>();
             #endregion
 

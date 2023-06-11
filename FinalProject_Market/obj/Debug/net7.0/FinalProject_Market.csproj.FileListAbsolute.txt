@@ -702,3 +702,8 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout_2.cshtml.rz.scp.css
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Account/_Layout_3.cshtml.rz.scp.css
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Admin/Views/Shared/_Layout_3.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/Service.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/Service.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/Shared/_Layout_3.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/SellerManagement/_Layout.cshtml.rz.scp.css

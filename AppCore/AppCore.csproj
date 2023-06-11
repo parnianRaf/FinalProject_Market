@@ -24,6 +24,8 @@
       <None Remove="Contracts\AppServices\" />
       <None Remove="Contracts\Data Access\" />
       <None Remove="Contracts\AppServices\Admin\" />
+      <None Remove="Contracts\Services\" />
+      <None Remove="Contracts\AppServices\Account\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -36,5 +38,7 @@
       <Folder Include="Contracts\AppServices\" />
       <Folder Include="Contracts\Data Access\" />
       <Folder Include="Contracts\AppServices\Admin\" />
+      <Folder Include="Contracts\Services\" />
+      <Folder Include="Contracts\AppServices\Account\" />
     </ItemGroup>
 </Project>

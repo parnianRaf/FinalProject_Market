@@ -112,6 +112,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int?>("DeleteBy")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageFile")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -290,7 +293,7 @@ namespace AppSqlDataBase.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("AcceptedAt")
+                    b.Property<DateTime?>("AcceptedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedAt")
@@ -304,6 +307,9 @@ namespace AppSqlDataBase.Migrations
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageFile")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAccepted")
                         .HasColumnType("bit");

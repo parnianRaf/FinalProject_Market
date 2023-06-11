@@ -121,6 +121,250 @@
       "PackagePath": "staticwebassets/AdminPannel/js/morris.min.js"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/animate.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/animate.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/animsition.min.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/animsition.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/daterangepicker.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/daterangepicker.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/font-awesome.min.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/font-awesome.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/hamburgers.min.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/hamburgers.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/main.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/main.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/material-design-iconic-font.min.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/material-design-iconic-font.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/select2.min.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/select2.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/css/util.css",
+      "PackagePath": "staticwebassets/SellerLogIn/css/util.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/images/favicon.ico",
+      "PackagePath": "staticwebassets/SellerLogIn/images/favicon.ico"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/animsition.min.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/animsition.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/countdowntime.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/countdowntime.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/daterangepicker.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/daterangepicker.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/jquery-3.2.1.min.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/jquery-3.2.1.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/main.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/main.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/moment.min.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/moment.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/popper.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/popper.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/select2.min.js",
+      "PackagePath": "staticwebassets/SellerLogIn/js/select2.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/AdminLTE.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/AdminLTE.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/_all-skins.min.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/_all-skins.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/bootstrap-theme.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/bootstrap-theme.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/bootstrap3-wysihtml5.min.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/bootstrap3-wysihtml5.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/daterangepicker.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/daterangepicker.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/font-awesome.min.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/font-awesome.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/ionicons.min.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/ionicons.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/jquery-jvectormap.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/jquery-jvectormap.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/morris.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/morris.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/persian-datepicker-0.4.5.min.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/persian-datepicker-0.4.5.min.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/css/rtl.css",
+      "PackagePath": "staticwebassets/SellerPannel/css/rtl.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/FontAwesome.otf",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/FontAwesome.otf"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/Vazir-Bold-FD-WOL.eot",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/Vazir-Bold-FD-WOL.eot"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/Vazir-Bold-FD-WOL.ttf",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/Vazir-Bold-FD-WOL.ttf"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/Vazir-Bold-FD-WOL.woff",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/Vazir-Bold-FD-WOL.woff"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/Vazir-FD-WOL.eot",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/Vazir-FD-WOL.eot"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/Vazir-FD-WOL.ttf",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/Vazir-FD-WOL.ttf"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/Vazir-FD-WOL.woff",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/Vazir-FD-WOL.woff"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/fontawesome-webfont.eot"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/fontawesome-webfont.svg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/fontawesome-webfont.woff"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/fonts/fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets/SellerPannel/fonts/fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/adminlte.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/adminlte.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/bootstrap-datepicker.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/bootstrap-datepicker.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/bootstrap3-wysihtml5.all.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/bootstrap3-wysihtml5.all.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/dashboard.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/dashboard.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/daterangepicker.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/daterangepicker.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/demo.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/demo.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/fastclick.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/fastclick.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery-jvectormap-1.2.2.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery-jvectormap-1.2.2.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery-jvectormap-world-mill-en.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery-jvectormap-world-mill-en.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery-ui.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery-ui.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery.knob.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery.knob.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery.slimscroll.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery.slimscroll.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/jquery.sparkline.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/jquery.sparkline.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/moment.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/moment.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/morris.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/morris.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerPannel/js/raphael.min.js",
+      "PackagePath": "staticwebassets/SellerPannel/js/raphael.min.js"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/assets/css/bootstrap-rtl.min.css",
       "PackagePath": "staticwebassets/assets/css/bootstrap-rtl.min.css"
     },
@@ -8017,6 +8261,10 @@
       "PackagePath": "staticwebassets/images/4_1.jpeg"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/4_2.jpeg",
+      "PackagePath": "staticwebassets/images/4_2.jpeg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/5_1.jpeg",
       "PackagePath": "staticwebassets/images/5_1.jpeg"
     },
@@ -8029,16 +8277,80 @@
       "PackagePath": "staticwebassets/images/6_2.jpeg"
     },
     {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/Admin/Amin.png",
-      "PackagePath": "staticwebassets/images/Admin/Amin.png"
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/7_1.jpeg",
+      "PackagePath": "staticwebassets/images/7_1.jpeg"
     },
     {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/bg_1.jpg",
-      "PackagePath": "staticwebassets/images/bg_1.jpg"
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/7_2.jpeg",
+      "PackagePath": "staticwebassets/images/7_2.jpeg"
     },
     {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/undraw_remotely_2j6y.svg",
-      "PackagePath": "staticwebassets/images/undraw_remotely_2j6y.svg"
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/7_3.jpeg",
+      "PackagePath": "staticwebassets/images/7_3.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/amin.png",
+      "PackagePath": "staticwebassets/images/amin.png"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/zaria.jpg",
+      "PackagePath": "staticwebassets/images/zaria.jpg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/جلو مبلی مدل گلدانی.jpeg",
+      "PackagePath": "staticwebassets/images/جلو مبلی مدل گلدانی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/شلف دیواری چوبی.jpeg",
+      "PackagePath": "staticwebassets/images/شلف دیواری چوبی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/شلف طبقه لوله آبی.jpeg",
+      "PackagePath": "staticwebassets/images/شلف طبقه لوله آبی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/شلف چوبی.jpeg",
+      "PackagePath": "staticwebassets/images/شلف چوبی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/شلف گوشه بامبو.jpeg",
+      "PackagePath": "staticwebassets/images/شلف گوشه بامبو.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/صندلی مدل ایزی.jpeg",
+      "PackagePath": "staticwebassets/images/صندلی مدل ایزی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/صندلی چوبی.jpeg",
+      "PackagePath": "staticwebassets/images/صندلی چوبی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/مبل ال مارتینی.jpeg",
+      "PackagePath": "staticwebassets/images/مبل ال مارتینی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/مبل ال چیکو.jpeg",
+      "PackagePath": "staticwebassets/images/مبل ال چیکو.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/مبل چستر اورانوس.jpeg",
+      "PackagePath": "staticwebassets/images/مبل چستر اورانوس.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز تحریر.jpeg",
+      "PackagePath": "staticwebassets/images/میز تحریر.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز ناهارخوری.jpeg",
+      "PackagePath": "staticwebassets/images/میز ناهارخوری.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه مدل ماوی.jpeg",
+      "PackagePath": "staticwebassets/images/کتابخانه مدل ماوی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه مدل گرند.jpeg",
+      "PackagePath": "staticwebassets/images/کتابخانه مدل گرند.jpeg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/bootstrap.min.js",

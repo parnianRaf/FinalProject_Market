@@ -3,6 +3,7 @@ using System.Data;
 using AppCore;
 using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
+using AppCore.Contracts.AppServices.Account;
 using AppService.Admin_;
 using AppService.Admin_.Command;
 using AppService.Seller.Query;
@@ -13,6 +14,7 @@ using Repositories.Repository.ProductRepository;
 using Repositories.UserRepository;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
+using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +28,11 @@ builder.Services.AddScoped<IPavilionRepository, PavilionRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
+
+builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IMapServices, MapServices>();
+
+
 
 
 builder.Services.AddScoped<IAccountAppServices, AccountAppServices>();
@@ -122,6 +129,11 @@ app.UseEndpoints(endpoint =>
     name: "Admin",
     areaName: "Admin",
     pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}");
+
+    app.MapAreaControllerRoute(
+   name: "Seller",
+   areaName: "Seller",
+   pattern: "{area:exists}/{controller=SellerManagement}/{action=Index}/{id?}");
 
     app.MapControllerRoute(
     name: "default",

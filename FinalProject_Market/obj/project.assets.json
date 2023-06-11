@@ -2323,6 +2323,20 @@
         "runtime": {
           "bin/placeholder/Repositories.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AppCore": "1.0.0",
+          "Repositories": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
@@ -5869,6 +5883,11 @@
       "type": "project",
       "path": "../Repositories/Repositories.csproj",
       "msbuildProject": "../Repositories/Repositories.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5887,7 +5906,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Serilog >= 2.12.0",
       "Serilog.Extensions.Logging >= 7.0.0",
-      "Serilog.Sinks.MSSqlServer >= 6.3.0"
+      "Serilog.Sinks.MSSqlServer >= 6.3.0",
+      "Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5928,6 +5948,9 @@
             },
             "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/ExtensionMethods.csproj": {
               "projectPath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/ExtensionMethods.csproj"
+            },
+            "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/Service.csproj": {
+              "projectPath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/Service.csproj"
             }
           }
         }

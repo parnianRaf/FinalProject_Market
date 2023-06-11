@@ -50,6 +50,7 @@
           "Serilog": "2.12.0",
           "Serilog.Extensions.Logging": "7.0.0",
           "Serilog.Sinks.MSSqlServer": "6.3.0",
+          "Service": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "7.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "7.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies.Reference": "7.0.0.0",
@@ -1831,6 +1832,18 @@
         },
         "compile": {
           "Repositories.dll": {}
+        }
+      },
+      "Service/1.0.0": {
+        "dependencies": {
+          "AppCore": "1.0.0",
+          "Repositories": "1.0.0"
+        },
+        "runtime": {
+          "Service.dll": {}
+        },
+        "compile": {
+          "Service.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/7.0.0.0": {
@@ -4499,6 +4512,11 @@
       "sha512": ""
     },
     "Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

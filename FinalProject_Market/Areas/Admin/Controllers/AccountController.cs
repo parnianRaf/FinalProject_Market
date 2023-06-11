@@ -25,6 +25,7 @@ using Repositories.Repository.ProductRepository;
 namespace FinalProject_Market.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "admin")]
     public class AccountController : Controller
     {
         #region field
@@ -49,12 +50,14 @@ namespace FinalProject_Market.Controllers
         #endregion
 
         // GET: /<controller>/
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
-        
-        public IActionResult LogIn(int id)
+
+        [AllowAnonymous]
+        public IActionResult Register(int id)
         {
             switch (id)
             {
@@ -66,50 +69,109 @@ namespace FinalProject_Market.Controllers
                     return PartialView("LogIn");
             }
             return RedirectToAction("Index");
-            
         }
 
         [HttpPost]
-        public async Task<IActionResult> LogIn(int id,LogInViewModel viewModel, CancellationToken cancellation)
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(int id, AddUserDto userDto)
         {
-            LogInUser userDto = _mapper.Map<LogInUser>(viewModel);
-            var result=await _account.LogIn(id, userDto, cancellation);
-            switch (result)
+            if(ModelState.IsValid)
             {
-                case 1:
-     
-                    break;
-                case 2:
-         
-                    break;
-                case 3:
-                    return PartialView("AdminPannel");
+                switch (id)
+                {
+                    case 1:
+                        var customerResult = await _account.Register("customer", userDto);
+                        if (!customerResult.Any())
+                        {
+                           return RedirectToAction("Index");
+                        }
+                        customerResult.ToList().ForEach(c => ModelState.AddModelError(string.Empty, c.Description));
+                        break;
+   
+                    case 2:
+                        var sellerResult = await _account.Register("seller", userDto);
+                        if(!sellerResult.Any())
+                        {
+                            return RedirectToAction("Index");
+                        }
+                        sellerResult.ToList().ForEach(s => ModelState.AddModelError(string.Empty, s.Description));
+                        break;
+                }
             }
-            ModelState.AddModelError(string.Empty, "یوزر یا پسورد اشتباه بوده...");
-            return PartialView(viewModel);
+            return View(userDto);
 
         }
 
+        [AllowAnonymous]
+        public IActionResult LogIn(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return PartialView();
+                case 2:
+                    return PartialView("SellerLogIn");
+                case 3:
+                    return PartialView("LogIn");
+            }
+            return RedirectToAction("Index");
+            
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> LogIn(int id,LogInViewModel viewModel,bool IsRememberMe, CancellationToken cancellation)
+        {
+            if(ModelState.IsValid)
+            {
+                LogInUser userDto = _mapper.Map<LogInUser>(viewModel);
+                ModelState.AddModelError(string.Empty, "یوزر و یا پسورد اشتباه بوده.");
+                switch (id)
+                {
+                    case 1:
+                        if(await _account.LogIn("customer",userDto,IsRememberMe))
+                        {
+                            return View();
+                        }
+                        break;
+                    case 2:
+                        if (await _account.LogIn("seller", userDto, IsRememberMe))
+                        {
+                            return RedirectToAction("st","SellerManagement", new {area="Seller"});
+                        }
+                        return PartialView("SellerLogIn",viewModel);
+
+                    case 3:
+                        if (await _account.LogIn("admin", userDto, IsRememberMe))
+                        {
+                            return PartialView("AdminPannel");
+                        }
+                        break;
+                }
+            }
+            return PartialView(viewModel);
+        }
+        
         public async Task<IActionResult> SignOut(CancellationToken cancellation)
         {
             await _account.LogOut(cancellation);
             return RedirectToAction("Index");
         }
-        [Authorize(Roles ="admin")]
+       
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
         {
-            List<DetailCustomerDto> customerDtos = await _account.GetAllCustomers<DetailCustomerDto>(cancellation);
-            List<GetCustomersViewModel> customersViewModels = _mapper.Map<List<GetCustomersViewModel>>(customerDtos);
-            return View(customersViewModels);
+            return View(_mapper.Map<List<GetCustomersViewModel>>( await _account.GetAllUserRoleBased<DetailCustomerDto>("customer")));
+
         }
-        [Authorize(Roles ="admin")]
+    
         public async Task<IActionResult> GetSellerList(CancellationToken cancellation)
         {
-            List<DetailSellerDto> sellerDtos = await _account.GetAllSellers<DetailSellerDto>(cancellation);
-            List<GetSellersViewModel> sellerViewModels = _mapper.Map<List<GetSellersViewModel>>(sellerDtos);
-            return View(sellerViewModels);
+            return View(_mapper.Map<List<GetSellersViewModel>>( await _account.GetAllUserRoleBased<DetailSellerDto>("seller")));
         }
-        [Authorize(Roles ="admin")]
+
+
+
+
         public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
         {
             FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetUser<FullDetailCustomerDto>(id,cancellation));
@@ -117,22 +179,15 @@ namespace FinalProject_Market.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
         public async Task<IActionResult> CustomerProfile(FullDetailCustomerViewModel viewModel, CancellationToken cancellation)
         {
             var customer = _mapper.Map<EditUserDto>(viewModel);
             var result = await _account.UpdateUser(customer, cancellation);
-            if (result)
-            {
-                return RedirectToAction("CustomerProfile", new { viewModel.Id });
-            }
             return View(viewModel);
         }
 
-        [Authorize(Roles = "admin")]
         public async Task<IActionResult> SellerProfile(int id, CancellationToken cancellation)
         {
-
             FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _account.GetUser<FullDetailSellerDto>(id, cancellation));
             List<DetailedProductDto> productDtos= await _productAppService.GetAllProducts(id, cancellation);
             List<PavilionDtoModel> pavilionDtos = await _pavilionAppService.GetSellerPavilions(id, cancellation);
@@ -141,7 +196,7 @@ namespace FinalProject_Market.Controllers
             ViewBag.pavilionDtos = pavilionDtos;
             return View(viewModel);
         }
-        [Authorize(Roles ="admin")]
+   
         [HttpPost]
         public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
         {
@@ -162,25 +217,17 @@ namespace FinalProject_Market.Controllers
         //    ViewBag.directOrderDtos = dirctOrderDtos; 
         //    return View(auctionDtos);
         //}
-        [Authorize(Roles ="admin")]
+  
         public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
         {
-            var DeactiveResult = await _account.DeleteUser(id, cancellation);
-            if (DeactiveResult)
-            {
-                return RedirectToAction("CustomerProfile", new { id });
-            }
-            return RedirectToAction("DeleteUser", new { id });
+            var deleteResult=await _account.DeleteUser(id,cancellation);
+            return RedirectToAction("CustomerProfile", new { id });
         }
-        [Authorize(Roles ="admin")]
+
         public async Task<IActionResult> ActiveUser(int id, CancellationToken cancellation)
         {
             var ActiveResult = await _account.ActiveUser(id, cancellation);
-            if (ActiveResult)
-            {
-                return RedirectToAction("CustomerProfile", new { id });
-            }
-            return RedirectToAction("ActiveUser", new { id });
+            return RedirectToAction("CustomerProfile", new { id });
         }
 
 

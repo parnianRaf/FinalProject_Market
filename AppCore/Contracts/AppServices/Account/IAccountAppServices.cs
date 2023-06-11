@@ -1,23 +1,19 @@
-﻿using AppCore;
-using AppCore.DtoModels.User;
+﻿using AppCore.DtoModels.User;
+using Microsoft.AspNetCore.Identity;
 
 namespace AppService.Admin_.Command
 {
     public interface IAccountAppServices
     {
-        Task<bool> AddToAdmin(User user, CancellationToken cancellation);
-        Task<bool> AddToCustomer(User user, CancellationToken cancellation);
-        Task<bool> AddToSeller(User user, CancellationToken cancellation);
-        Task<bool> DeleteUser(int id, CancellationToken cancellationToken);
         Task<bool> ActiveUser(int id, CancellationToken cancellation);
-        Task<List<T>> GetAllCustomers<T>(CancellationToken cancellationToken);
-        Task<List<T>> GetAllSellers<T>(CancellationToken cancellationToken);
+        Task<List<IdentityError>> DeleteUser(int id, CancellationToken cancellationToken);
+        Task<List<T>> GetAllUserRoleBased<T>(string role);
         Task<T> GetUser<T>(int id, CancellationToken cancellation);
         Task<T> GetUserProfile<T>(int id, CancellationToken cancellation);
-        Task<int> LogIn(int id, LogInUser user, CancellationToken cancellation);
+        Task<bool> LogIn(string role, LogInUser userDto, bool IsRememberMe);
         Task LogOut(CancellationToken cancellation);
-        Task<string> Register(int id, AddUserDto userDto);
-        Task<bool> UpdateUser(EditUserDto userDto, CancellationToken cancellation);
+        Task<IEnumerable<IdentityError>> Register(string role, AddUserDto userDto);
         Task<bool> SeedAdminData();
+        Task<bool> UpdateUser(EditUserDto userDto, CancellationToken cancellation);
     }
 }

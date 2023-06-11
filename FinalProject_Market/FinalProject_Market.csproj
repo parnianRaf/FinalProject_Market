@@ -20,6 +20,12 @@
     <None Remove="Areas\Admin\Views\Shared\" />
     <None Remove="Areas\Admin\Views\Pavilion\" />
     <None Remove="Areas\Admin\Views\Order\" />
+    <None Remove="Areas\Seller\" />
+    <None Remove="Areas\Seller\Controllers\" />
+    <None Remove="Areas\Seller\Models\" />
+    <None Remove="Areas\Seller\Views\" />
+    <None Remove="Areas\Seller\Views\SellerManagement\" />
+    <None Remove="Areas\Seller\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -55,25 +61,48 @@
     <ProjectReference Include="..\ExtensionMethods\ExtensionMethods.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\AdminPannel\js\" />
-    <Folder Include="wwwroot\Images\" />
     <Folder Include="Areas\Admin\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\images\Admin\" />
     <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\Pavilion\" />
     <Folder Include="Areas\Admin\Views\Order\" />
+    <Folder Include="Areas\Seller\" />
+    <Folder Include="Areas\Seller\Controllers\" />
+    <Folder Include="Areas\Seller\Models\" />
+    <Folder Include="Areas\Seller\Views\" />
+    <Folder Include="wwwroot\SellerLogIn\" />
+    <Folder Include="wwwroot\SellerLogIn\css\" />
+    <Folder Include="wwwroot\SellerLogIn\js\" />
+    <Folder Include="wwwroot\SellerLogIn\images\" />
+    <Folder Include="Areas\Seller\Views\SellerManagement\" />
+    <Folder Include="Areas\Seller\Views\Shared\" />
+    <Folder Include="wwwroot\SellerPannel\" />
+    <Folder Include="wwwroot\SellerPannel\css\" />
+    <Folder Include="wwwroot\SellerPannel\js\" />
+    <Folder Include="wwwroot\SellerPannel\image\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />
-    <Content Remove="wwwroot\Images\" />
-    <Content Remove="wwwroot\images\Admin\" />
+    <Content Remove="wwwroot\SellerLogIn\" />
+    <Content Remove="wwwroot\SellerLogIn\css\" />
+    <Content Remove="wwwroot\SellerLogIn\js\" />
+    <Content Remove="wwwroot\SellerLogIn\images\" />
+    <Content Remove="wwwroot\SellerPannel\" />
+    <Content Remove="wwwroot\SellerPannel\css\" />
+    <Content Remove="wwwroot\SellerPannel\js\" />
+    <Content Remove="wwwroot\SellerPannel\image\" />
+    <Content Remove="wwwroot\images\" />
   </ItemGroup>
 </Project>

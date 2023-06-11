@@ -1,0 +1,117 @@
+﻿
+
+@model LogInViewModel
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>Login V2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/SellerLogIn/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form method="post" class="login100-form validate-form" style="direction:rtl">
+                    <span class="login100-form-title p-b-26">
+                        خوش آمدید
+                    </span>
+                <div class="row">
+                    <div  asp-validation-summary="All" style="color:blueviolet"></div>
+                </div>
+                    <span class="login100-form-title p-b-48">
+                        <i class='fab fa-accusoft' style='font-size:36px'></i>
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                        <input class="input100" type="text" asp-for="UserName">
+                        <span class="focus-input100" data-placeholder="یوزرنیم"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <span class="btn-show-pass">
+
+                        </span>
+                        <input class="input100" type="password" asp-for="Password">
+                        <span class="focus-input100" data-placeholder="پسورد"></span>
+                    </div>
+                 
+                        <label class="control control--checkbox mb-0">
+                            <label class="caption" asp-for="IsRememberMe"></label>
+                            <input type="checkbox" asp-for="IsRememberMe" checked="checked" />
+                            <div class="control__indicator"></div>
+                        </label>
+                 
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn" asp-controller="Account" asp-action="LogIn" asp-route-id="2">
+                                ورود
+                            </button>
+                        </div>
+                    </div>
+                        <span class="mr-auto "><a href="#" class="forgot-pass " style="text-decoration: none;">فراموشی رمز عبور</a></span>
+
+                    <div class="text-center p-t-115">
+                        <span class="txt1">
+                            حساب کاربری ندارید؟
+                        </span>
+
+                        <a class="txt2" href="#">
+                            ثبت نام
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/popper.js"></script>
+    <script src="~/SellerLogIn/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/moment.min.js"></script>
+    <script src="~/SellerLogIn/js/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/SellerLogIn/js/main.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>
