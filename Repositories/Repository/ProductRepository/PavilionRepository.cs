@@ -73,7 +73,7 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<PavilionDtoModel> GetPavilion(int id, CancellationToken cancellation)
         {
-            PavilionDtoModel? pavilionDto = await _context.Pavilions.Where(p => p.Id == id).Select(p => new PavilionDtoModel()
+            PavilionDtoModel pavilionDto = await _context.Pavilions.Where(p => p.Id == id).Select(p => new PavilionDtoModel()
             {
                  Id=p.Id,
                   AcceptedAt=p.AcceptedAt.IranianDate(),
@@ -82,16 +82,29 @@ namespace Repositories.Repository.ProductRepository
                      IsAccepted=p.IsAccepted,
                       IsDeleted=p.IsDeleted,
                        SellerName=p.User.FullNameToString(),
-                        Title=p.Title
+                        Title=p.Title,
+                         ProductDtos=p.User.Products.Where(pr=>pr.Id==p.Id).Select(p=>new DetailedProductDto()
+                         {
+                             Id = p.Id,
+                             ProductName = p.ProductName,
+                             Price = p.Price,
+                             SellerFullName = p.User.FullNameToString(),
+                             ActivatedAt = p.AcceptedAt.IranianDate(),
+                             CreatedAt = p.CreatedAt.IranianDate2(),
+                             IsActive = p.IsActive,
+                             IsDeleted = p.IsDeleted,
+                             DeletedAt = p.DeletedAt.IranianDate(),
+
+                             CategoryName = p.Category.Title,
+                             //CategoryName =_context.Categories.FirstOrDefault(c=>c.Id==product.CategoryId).Title,
+
+                             filePathSource = p.filePathSource
+
+                         }).ToList()
 
 
-            }).FirstOrDefaultAsync(cancellation);
-            var result = pavilionDto;
-            if (pavilionDto != null)
-            {
-                return pavilionDto;
-            }
-            return new PavilionDtoModel();
+            }).FirstOrDefaultAsync(cancellation) ?? new PavilionDtoModel();
+            return pavilionDto;
         }
 
         public async Task<bool> EditPavilion(PavilionDtoModel pavilionDto, CancellationToken cancellation)

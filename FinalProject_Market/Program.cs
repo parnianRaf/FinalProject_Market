@@ -30,6 +30,7 @@ builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
 
 builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IPavilionService, PavilionService>();
 builder.Services.AddScoped<IMapServices, MapServices>();
 
 
@@ -91,11 +92,11 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 
-builder.Services.AddAuthentication().AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = "298370143561-0e7qaacf2a5hd6an4vsmbk311oncvp9r.apps.googleusercontent.com";
-    googleOptions.ClientSecret = "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";
-});
+//builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+//{
+//    googleOptions.ClientId = "298370143561-0e7qaacf2a5hd6an4vsmbk311oncvp9r.apps.googleusercontent.com";
+//    googleOptions.ClientSecret = "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";
+//});
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
@@ -114,10 +115,10 @@ else
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
-
 
 app.UseAuthentication();
 

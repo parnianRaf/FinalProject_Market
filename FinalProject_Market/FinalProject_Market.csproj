@@ -26,6 +26,7 @@
     <None Remove="Areas\Seller\Views\" />
     <None Remove="Areas\Seller\Views\SellerManagement\" />
     <None Remove="Areas\Seller\Views\Shared\" />
+    <None Remove="Areas\Seller\Views\PavilionManagement\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -92,6 +93,7 @@
     <Folder Include="wwwroot\SellerPannel\js\" />
     <Folder Include="wwwroot\SellerPannel\image\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="Areas\Seller\Views\PavilionManagement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />

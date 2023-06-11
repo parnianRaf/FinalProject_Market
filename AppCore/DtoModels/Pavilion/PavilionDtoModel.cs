@@ -18,6 +18,8 @@ namespace AppCore.DtoModels
         public bool IsDeleted { get; set; }
 
         public string? DeletedAt { get; set; }
+
+        public string ImageFile { get; set; }
     }
 }
 

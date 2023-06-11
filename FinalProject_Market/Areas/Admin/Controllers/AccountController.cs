@@ -137,7 +137,7 @@ namespace FinalProject_Market.Controllers
                     case 2:
                         if (await _account.LogIn("seller", userDto, IsRememberMe))
                         {
-                            return RedirectToAction("st","SellerManagement", new {area="Seller"});
+                            return RedirectToAction("MainPage", "SellerManagement", new {area="Seller"});
                         }
                         return PartialView("SellerLogIn",viewModel);
 
@@ -169,9 +169,6 @@ namespace FinalProject_Market.Controllers
             return View(_mapper.Map<List<GetSellersViewModel>>( await _account.GetAllUserRoleBased<DetailSellerDto>("seller")));
         }
 
-
-
-
         public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
         {
             FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetUser<FullDetailCustomerDto>(id,cancellation));
@@ -190,7 +187,7 @@ namespace FinalProject_Market.Controllers
         {
             FullDetailSellerViewModel viewModel = _mapper.Map<FullDetailSellerViewModel>(await _account.GetUser<FullDetailSellerDto>(id, cancellation));
             List<DetailedProductDto> productDtos= await _productAppService.GetAllProducts(id, cancellation);
-            List<PavilionDtoModel> pavilionDtos = await _pavilionAppService.GetSellerPavilions(id, cancellation);
+            List<PavilionDtoModel> pavilionDtos = await _pavilionAppService.GetSellerPavilions(cancellation);
 
             ViewBag.productDtos = productDtos;
             ViewBag.pavilionDtos = pavilionDtos;

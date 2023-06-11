@@ -8293,12 +8293,24 @@
       "PackagePath": "staticwebassets/images/amin.png"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/shani.jpg",
+      "PackagePath": "staticwebassets/images/shani.jpg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/zaria.jpg",
       "PackagePath": "staticwebassets/images/zaria.jpg"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/با سلام.png",
+      "PackagePath": "staticwebassets/images/با سلام.png"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/جلو مبلی مدل گلدانی.jpeg",
       "PackagePath": "staticwebassets/images/جلو مبلی مدل گلدانی.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/سوفا مبل.png",
+      "PackagePath": "staticwebassets/images/سوفا مبل.png"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/شلف دیواری چوبی.jpeg",
@@ -8337,6 +8349,18 @@
       "PackagePath": "staticwebassets/images/مبل چستر اورانوس.jpeg"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز تحریر تاشو.jpeg",
+      "PackagePath": "staticwebassets/images/میز تحریر تاشو.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز تحریر شایا.jpeg",
+      "PackagePath": "staticwebassets/images/میز تحریر شایا.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز تحریر مدل لارا.jpeg",
+      "PackagePath": "staticwebassets/images/میز تحریر مدل لارا.jpeg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز تحریر.jpeg",
       "PackagePath": "staticwebassets/images/میز تحریر.jpeg"
     },
@@ -8345,12 +8369,28 @@
       "PackagePath": "staticwebassets/images/میز ناهارخوری.jpeg"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/میز پایه فلزی اداری.jpeg",
+      "PackagePath": "staticwebassets/images/میز پایه فلزی اداری.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه زنبوری دانه ای.jpeg",
+      "PackagePath": "staticwebassets/images/کتابخانه زنبوری دانه ای.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه مدل رویسان.jpeg",
+      "PackagePath": "staticwebassets/images/کتابخانه مدل رویسان.jpeg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه مدل ماوی.jpeg",
       "PackagePath": "staticwebassets/images/کتابخانه مدل ماوی.jpeg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه مدل گرند.jpeg",
       "PackagePath": "staticwebassets/images/کتابخانه مدل گرند.jpeg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/گالری قربانی.png",
+      "PackagePath": "staticwebassets/images/گالری قربانی.png"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/bootstrap.min.js",

@@ -35,7 +35,6 @@ namespace AppService.Admin_.Command
         #endregion
 
         #region Implementation
-
         public async Task<IEnumerable<IdentityError>> Register(string role, AddUserDto userDto)
         {
             User user = _mapService.MapUser<AddUserDto>(userDto);

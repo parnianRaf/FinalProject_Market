@@ -30,7 +30,11 @@ public class AccountServices : IAccountServices
     }
     #endregion
 
-
+    public int GetCurrentUser()
+    {
+        string id = _userManager.GetUserId(_httpContextAccessor.HttpContext.User) ?? "0";
+        return int.Parse(id);
+    }
 
     public async Task<IEnumerable<IdentityError>> CreateUser(User user, string password)
     {

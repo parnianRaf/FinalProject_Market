@@ -19,5 +19,6 @@ namespace Service
         Task<List<IdentityError>> DeleteUser(User user);
         Task<bool> UpdateUser(User user, EditUserDto userDto);
         Task<bool> ActiveUser(User user);
+        int GetCurrentUser();
     }
 }
