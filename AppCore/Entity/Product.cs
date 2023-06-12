@@ -25,7 +25,7 @@ public class Product
 
     public string? filePathSource { get; set; }
 
-    public IFormFile? ImageFile { get; set; }
+    public List<IFormFile>? ImageFiles { get; set; }
 
     public bool IsActive { get; set; }
 

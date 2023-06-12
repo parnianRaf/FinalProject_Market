@@ -13,7 +13,7 @@
                 <img class="card-img-top" src="/Images/Categories/@(Model[2*i].ImageFile)" alt="@Model[2 * i].Title" style="width:200px">
                 <div class="card-body">
 
-                    <a class="btn btn-primary" asp-route-id="@Model[2*i].Id" asp-controller="ProductManagement" asp-action="AddProduct">
+                    <a class="btn btn-primary" asp-route-id="@(Model[2*i].Id)" asp-controller="ProductManagement" asp-action="AddProduct">
                         <h5 class="card-title text-dark">@Model[2 * i].Title</h5>
                     </a>
                 </div>
@@ -22,7 +22,7 @@
                 <img class="card-img-top" src="/Images/Categories/@(Model[2*i+1].ImageFile)" alt="@Model[2 * i+1].Title" style="width:200px">
                 <div class="card-body">
 
-                    <a class="btn btn-primary" asp-route-id="@Model[2*i+1].Id" asp-controller="ProductManagement" asp-action="AddProduct">
+                    <a class="btn btn-primary" asp-route-id="@(Model[2*i+1].Id)" asp-controller="ProductManagement" asp-action="AddProduct">
                         <h5 class="card-title text-dark">@Model[2 * i+1].Title</h5>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                 <img class="card-img-top" src="/Images/Categories/@(Model[Model.Count()-i].ImageFile)" alt="@Model[Model.Count()-i].Title" style="width:200px">
                 <div class="card-body">
 
-                    <a class="btn btn-primary" asp-route-id="@Model[Model.Count()-i].Id" asp-controller="ProductManagement" asp-action="AddProduct">
+                    <a class="btn btn-primary" asp-route-id="@(Model[Model.Count()-i].Id)" asp-controller="ProductManagement" asp-action="AddProduct">
                         <h5 class="card-title text-dark">@Model[Model.Count() - i].Title</h5>
                     </a>
                 </div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using AppCore;
+using AppCore.DtoModels.Category;
 using Repositories.Repository.ProductRepository;
 
 namespace Service
@@ -21,6 +22,11 @@ namespace Service
         public async Task<List<Category>> GetAllCategories(CancellationToken cancellation)
         {
             return await _categoryRepository.GetCategories(cancellation);
+        }
+
+        public async Task<CategoryDtoModel> GetCategory(int id, CancellationToken cancellation)
+        {
+            return await _categoryRepository.GetCategory(id, cancellation);
         }
         #endregion
     }

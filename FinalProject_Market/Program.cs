@@ -4,6 +4,7 @@ using AppCore;
 using AppCore.AppServices.Seller.Command;
 using AppCore.AppServices.Seller.Query;
 using AppCore.Contracts.AppServices.Account;
+using AppCore.Contracts.Services;
 using AppService.Admin_;
 using AppService.Admin_.Command;
 using AppService.Seller.Query;
@@ -35,6 +36,9 @@ builder.Services.AddScoped<IAccountServices, AccountServices>();
 builder.Services.AddScoped<IPavilionService, PavilionService>();
 builder.Services.AddScoped<IMapServices, MapServices>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICookieService, CookieService>();
+builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IIdGeneratorService, IdGeneratorService>();
 
 
 

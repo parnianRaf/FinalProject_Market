@@ -1,5 +1,6 @@
 ﻿using System;
 using AppCore.DtoModels.Category;
+using AppCore.DtoModels.Product;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -36,6 +37,16 @@ namespace AppCore.Contracts.AppServices.Account
         public List<CategoryDtoModel> MapCategory(List<Category> categories)
         {
             return _mapper.Map<List<CategoryDtoModel>>(categories);
+        }
+
+        public Category MapCategory(CategoryDtoModel categories)
+        {
+            return _mapper.Map<Category>(categories);
+        }
+
+        public Product MapProduct(AddProductDto productDto)
+        {
+            return _mapper.Map<Product>(productDto);
         }
     }
 }

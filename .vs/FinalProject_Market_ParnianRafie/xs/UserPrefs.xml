@@ -1,75 +1,60 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/ProductRepository/DirectOrderRepository.cs" relfile="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" line="130" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Areas/Admin/Models/ViewModels/AddProductViewModel.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Program.cs">
     <Files>
       <File FileName="FinalProject_Market/Areas/Seller/Views/PavilionManagement/PavilionProfile.cshtml" Line="16" Column="1" IsPinned="True" />
-      <File FileName="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" Line="53" Column="13" IsPinned="True" />
-      <File FileName="FinalProject_Market/Areas/Seller/Views/ProductManagement/AddProduct.cshtml" Line="3" Column="1" IsPinned="True" />
-      <File FileName="Repositories/Repository/ProductRepository/ProductRepository.cs" />
-      <File FileName="AppService/Admin_/ProductAppService.cs" />
+      <File FileName="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" Line="62" Column="1" IsPinned="True" />
+      <File FileName="FinalProject_Market/Areas/Seller/Views/ProductManagement/AddProduct.cshtml" Line="19" Column="62" IsPinned="True" />
+      <File FileName="AppService/Admin_/ProductAppService.cs" Line="65" Column="1" />
+      <File FileName="AppCore/Entity/Product.cs" />
+      <File FileName="Service/CategoryService.cs" />
       <File FileName="AppCore/DtoModels/Product/AddProductDto.cs" />
-      <File FileName="FinalProject_Market/Areas/Admin/Models/ViewModels/AddProductViewModel.cs" Line="13" Column="1" />
+      <File FileName="Repositories/Repository/ProductRepository/CategoryRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/AuctionRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/CustomerAdressesRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/OfferRepository.cs" />
+      <File FileName="Repositories/Repository/ProductRepository/PavilionRepository.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Market/Program.cs" Line="35" Column="65" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FinalProject_Market_ParnianRafie" expanded="True">
+          <Node name="FinalProject_Market_ParnianRafie" expanded="True" selected="True">
             <Node name="01-Domain" expanded="True">
               <Node name="AppService" expanded="True">
                 <Node name="AppService" expanded="True">
                   <Node name="Admin_" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Core" expanded="True">
-                <Node name="AppCore" expanded="True">
-                  <Node name="DtoModels" expanded="True">
-                    <Node name="Product" expanded="True" />
-                  </Node>
-                  <Node name="Entity" expanded="True" />
-                </Node>
-              </Node>
               <Node name="Service" expanded="True">
                 <Node name="Service" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="01-SqlDataBase" expanded="True" />
+              <Node name="02-Repository" expanded="True">
+                <Node name="Repositories" expanded="True">
+                  <Node name="Repository" expanded="True">
+                    <Node name="ProductRepository" expanded="True" />
+                    <Node name="UserRepository" expanded="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
                 <Node name="Areas" expanded="True">
-                  <Node name="Admin" expanded="True">
-                    <Node name="Models" expanded="True">
-                      <Node name="ViewModels" expanded="True">
-                        <Node name="AddProductViewModel.cs" selected="True" />
-                      </Node>
-                    </Node>
-                    <Node name="Views" expanded="True">
-                      <Node name="Account" expanded="True" />
-                      <Node name="Product" expanded="True" />
-                    </Node>
-                  </Node>
                   <Node name="Seller" expanded="True">
                     <Node name="Controllers" expanded="True" />
-                    <Node name="Models" expanded="True" />
                     <Node name="Views" expanded="True">
                       <Node name="PavilionManagement" expanded="True" />
                       <Node name="ProductManagement" expanded="True" />
-                      <Node name="Shared" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
-                <Node name="Models" expanded="True" />
-                <Node name="wwwroot" expanded="True">
-                  <Node name="images" expanded="True">
-                    <Node name="Categories" expanded="True" />
-                  </Node>
-                </Node>
+                <Node name="wwwroot" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -77,4 +62,14 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/ProductRepository/DirectOrderRepository.cs" relfile="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" line="130" column="1" />
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" line="60" column="1" />
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/Admin_/ProductAppService.cs" relfile="AppService/Admin_/ProductAppService.cs" line="58" column="1" />
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/ProductRepository/ProductRepository.cs" relfile="Repositories/Repository/ProductRepository/ProductRepository.cs" line="34" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

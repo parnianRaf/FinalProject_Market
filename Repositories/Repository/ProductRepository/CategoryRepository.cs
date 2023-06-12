@@ -38,14 +38,9 @@ namespace Repositories.Repository.ProductRepository
             await _context.SaveChangesAsync(cancellation);
         }
 
-        public async Task<CategoryDtoModel> EditGetCategory(int id, CancellationToken cancellation)
+        public async Task<CategoryDtoModel> GetCategory(int id, CancellationToken cancellation)
         {
-            Category? category = await _context.Categories.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (category != null)
-            {
-                return _mapper.Map<CategoryDtoModel>(category);
-            }
-            return new CategoryDtoModel();
+            return _mapper.Map<CategoryDtoModel>( await _context.Categories.AsNoTracking().Where(p => p.Id == id).FirstOrDefaultAsync(cancellation)) ?? new CategoryDtoModel();
         }
 
         public async Task<bool> EditCategory(CategoryDtoModel categoryDto, CancellationToken cancellation)
@@ -91,7 +86,7 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<List<Category>> GetCategories(CancellationToken cancellation)
         {
-            return await _context.Categories.ToListAsync(cancellation);
+            return await _context.Categories.AsNoTracking().ToListAsync(cancellation);
         }
         #endregion
 

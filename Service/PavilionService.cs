@@ -25,7 +25,7 @@ namespace Service
 
         public async Task<PavilionDtoModel> GetPavilion(int id, CancellationToken cancellation)
         {
-            return await _pavilionRepository.GetPavilion(id, cancellation);
+            return await _pavilionRepository.GetPavilion(id, cancellation) ?? new PavilionDtoModel();
         }
         #endregion
 

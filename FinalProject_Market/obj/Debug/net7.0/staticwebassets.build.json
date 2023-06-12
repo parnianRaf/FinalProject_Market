@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WqNx5ubTZ85wjIAxpaeuDojOKt8zA+JJIIdEJ8FrQfs=",
+  "Hash": "SzIsheUYzVdq9eWtLqgxD2qVKM4g70UH+bNLrVxn4Fo=",
   "Source": "FinalProject_Market",
   "BasePath": "_content/FinalProject_Market",
   "Mode": "Default",
@@ -35409,6 +35409,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/با سلام.png"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/جاروبرقی_0جاروبرقی..webp",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "images/جاروبرقی_0جاروبرقی..webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/جاروبرقی_0جاروبرقی..webp"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/جاروبرقی_1جاروبرقی.webp",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "images/جاروبرقی_1جاروبرقی.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/جاروبرقی_1جاروبرقی.webp"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/جلو مبلی مدل گلدانی.jpeg",

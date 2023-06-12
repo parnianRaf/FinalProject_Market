@@ -33,8 +33,8 @@ namespace FinalProject_Market.Areas.Seller.Controllers
 
         public async Task<IActionResult> MainPage(CancellationToken cancellation)
         {
-            List<PavilionDtoModel> productDtos = await _pavilionService.GetSellerPavilions(cancellation);
-            return View(productDtos);
+            List<PavilionDtoModel> pavilionDtos = await _pavilionService.GetSellerPavilions(cancellation);
+            return View(pavilionDtos);
         }
         #endregion
 

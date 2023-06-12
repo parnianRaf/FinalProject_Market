@@ -29,31 +29,22 @@ namespace Repositories.Repository.ProductRepository
 
 
         #region Product
-        public async Task AddProduct(AddProductDto productDto, CancellationToken cancellation)
+        public async Task AddProduct(int id, int sellerId, int categoryId, int? pavilionId, string dataBaseFileName, Category category, Product product, CancellationToken cancellation)
         {
-            Product product = _mapper.Map<Product>(productDto);
+            product.Id = id;
+            product.UserId = sellerId;
+            product.User = await _userManager.FindByIdAsync(sellerId.ToString()) ?? new User();
+            product.CategoryId = categoryId;
+            product.Category = category;
+            product.PavilionId = pavilionId;
+            product.filePathSource = dataBaseFileName;
+            product.CreatedBy = sellerId;
             product.CreatedAt = DateTime.Now;
-            //product.CreatedBy= .
-
-
-
-            //Add Image
-            if (product.ImageFile.Length > 0)
-            {
-                string UploadDir = "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/Images";
-                string fileName = product.ProductName + Path.GetExtension(product.ImageFile.FileName);
-                string filePath = Path.Combine(UploadDir, fileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    await product.ImageFile.CopyToAsync(fileStream);
-                    product.filePathSource = filePath;
-                }
-            }
-
+            category.Products.Add(product);
             _context.Products.Add(product);
+            _context.Categories.Update(category);
             await _context.SaveChangesAsync(cancellation);
 
-            //amaliat ra dar service
         }
 
         public async Task<EditProductDto> EditGetProduct(int id, CancellationToken cancellation)
@@ -201,6 +192,27 @@ namespace Repositories.Repository.ProductRepository
         {
             List<Product> products = await _context.Products.Where(p => p.PavilionId == pavilionId).AsNoTracking().ToListAsync(cancellation);
             return _mapper.Map<List<DetailedProductDto>>(products);
+        }
+
+        public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation)
+        {
+            List<DetailedProductDto> productDtos = await _context.Products.AsNoTracking().Select(o => new DetailedProductDto()
+            {
+                Id = o.Id,
+                ProductName = o.ProductName,
+                Price = o.Price,
+                SellerFullName = o.User.FullNameToString(),
+                ActivatedAt = o.AcceptedAt.IranianDate(),
+                CreatedAt = o.CreatedAt.IranianDate2(),
+                CategoryName = o.Category.Title,
+                PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                IsActive = o.IsActive,
+                IsDeleted = o.IsDeleted,
+                DeletedAt = o.DeletedAt.IranianDate(),
+                filePathSource = o.filePathSource
+            }).ToListAsync(cancellation);
+            var result = productDtos;
+            return productDtos;
         }
         #endregion
 

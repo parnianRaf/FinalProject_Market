@@ -7,7 +7,7 @@ namespace Repositories.Repository.ProductRepository
     {
         Task AddCategory(CategoryDtoModel categoryDto, CancellationToken cancellation);
         Task<bool> EditCategory(CategoryDtoModel categoryDto, CancellationToken cancellation);
-        Task<CategoryDtoModel> EditGetCategory(int id, CancellationToken cancellation);
+        Task<CategoryDtoModel> GetCategory(int id, CancellationToken cancellation);
         Task<List<Category>> GetCategories(CancellationToken cancellation);
         Task<bool> RemoveCategory(int id, CancellationToken cancellation);
     }

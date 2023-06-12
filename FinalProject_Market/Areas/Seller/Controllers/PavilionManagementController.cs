@@ -49,6 +49,9 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             return View(detailedPavilion);
         }
 
+
+
+
         [HttpPost]
         public async Task<IActionResult> PavilionProfile(PavilionDtoModel productDto, CancellationToken cancellation)
         {

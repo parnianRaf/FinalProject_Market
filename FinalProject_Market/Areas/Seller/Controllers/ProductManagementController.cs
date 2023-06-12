@@ -48,15 +48,20 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             return View("CategoryProduct" , categoryDtoModels);
         }
 
-        public async Task<IActionResult> AddProduct(int id)
+        public async Task<IActionResult> AddProduct(int id,CancellationToken cancellation)
         {
-            
+            await _productAppService.GetCategory(id, cancellation);
             return View("AddProduct");
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(AddProductDto productDto)
+        public async Task<IActionResult> AddProduct(AddProductDto productDto,CancellationToken cancellation)
         {
+            if(ModelState.IsValid)
+            {
+                await _productAppService.AddProduct(productDto, cancellation);
+                return RedirectToAction("MainPage", "SellerManagement");
+            }
             return View();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using AppCore;
 using AppCore.Contracts.AppServices.Account;
+using AppCore.Contracts.Services;
 using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Product;
 using Repositories.Repository.ProductRepository;
@@ -14,15 +15,25 @@ namespace AppService.Admin_
         private readonly IProductRepository _productRepository;
         private readonly ICategoryService _categoryService;
         private readonly IMapServices _mapServices;
+        private readonly ICookieService _setCookieService;
+        private readonly IIdGeneratorService _idGeneratorService;
+        private readonly IAccountServices _accountService;
+        private readonly IImageService _imageService;
         #endregion
 
         #region ctor
         public ProductAppService(IProductRepository productRepository,
-            ICategoryService categoryService, IMapServices mapServices)
+            ICategoryService categoryService, IMapServices mapServices,
+            ICookieService setCookieService, IIdGeneratorService idGeneratorService,
+            IAccountServices accountService, IImageService imageService)
         {
             _productRepository = productRepository;
             _categoryService = categoryService;
             _mapServices = mapServices;
+            _setCookieService = setCookieService;
+            _idGeneratorService = idGeneratorService;
+            _accountService = accountService;
+            _imageService = imageService;
         }
         #endregion
 
@@ -34,11 +45,26 @@ namespace AppService.Admin_
             return _mapServices.MapCategory(categories);
         }
 
+        public async Task<CategoryDtoModel> GetCategory(int id,CancellationToken cancellation)
+        {
+            CategoryDtoModel categoryDto= await _categoryService.GetCategory(id, cancellation);
+            _setCookieService.SetCookies(id, "CategoryId");
+            return categoryDto;
+        }
 
-        //public async Task<bool> AddProduct()
-        //{
 
-        //}
+        public async Task AddProduct(AddProductDto productDto,CancellationToken cancellation)
+        {
+            int id = _idGeneratorService.Execute<DetailedProductDto>(await GetAllProducts(cancellation));
+            int sellerId = _accountService.GetCurrentUser();
+            int categoryId = Convert.ToInt16(_setCookieService.ReadCookies("CategoryId"));
+            Category category =_mapServices.MapCategory(await _categoryService.GetCategory(categoryId,cancellation));
+            int  pavilionId= Convert.ToInt16(_setCookieService.ReadCookies("PavilionId"));
+            Product product = _mapServices.MapProduct(productDto);
+            string filePath= _imageService.GetFilePath(productDto.ProductName,productDto.fileImages);
+            await _productRepository.AddProduct(id,sellerId, categoryId, pavilionId,filePath,category,product, cancellation);
+
+        }
 
 
 
@@ -56,6 +82,11 @@ namespace AppService.Admin_
         public async Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation)
         {
             return await _productRepository.GetProduct(id, cancellation);
+        }
+
+        public async Task<List<DetailedProductDto>> GetAllProducts( CancellationToken cancellation)
+        {
+            return await _productRepository.GetAllProducts(cancellation);
         }
 
         public async Task<List<DetailedProductDto>> GetAllProducts(int sellerId, CancellationToken cancellation)

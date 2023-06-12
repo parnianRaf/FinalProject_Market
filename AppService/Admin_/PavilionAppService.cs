@@ -12,17 +12,20 @@ namespace AppService.Admin_
         private readonly IAccountServices _accountServices;
         private readonly IPavilionService _pavilionService;
         private readonly IPavilionRepository _pavilionRepository;
+        private readonly ICookieService _setCookieService;
         #endregion
 
         #region ctor
         public PavilionAppService(IPavilionRepository pavilionRepository
             , IPavilionService pavilionService,
-            IAccountServices accountServices)
+            IAccountServices accountServices,
+            ICookieService setCookies)
         {
 
             _accountServices = accountServices;
             _pavilionService = pavilionService;
             _pavilionRepository = pavilionRepository;
+            _setCookieService = setCookies;
         }
         #endregion
 
@@ -35,7 +38,9 @@ namespace AppService.Admin_
 
         public async Task<PavilionDtoModel> GetPavilion(int id,CancellationToken cancellation)
         {
-            return await _pavilionService.GetPavilion(id, cancellation);
+            PavilionDtoModel pavilionDto= await _pavilionService.GetPavilion(id, cancellation);
+            _setCookieService.SetCookies(pavilionDto.Id, "PavilionId");
+            return pavilionDto;
         }
 
 

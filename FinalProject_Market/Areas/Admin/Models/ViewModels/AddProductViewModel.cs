@@ -11,7 +11,7 @@ namespace FinalProject_Market.Models.ViewModels
 
         public decimal? Price { get; set; }
 
-        public IFormFile? fileImage { get; set; }
+        public List<IFormFile>? fileImages { get; set; }
     }
 }
 
