@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject_Market.Areas.Seller.Controllers
 {
-    [Area("Seller")]
+    [Area("seller")]
     [Authorize(Roles ="seller")]
     public class SellerManagementController : Controller
     {

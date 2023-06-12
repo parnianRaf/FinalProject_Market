@@ -1,4 +1,6 @@
 ﻿using System;
+using AppCore.DtoModels.Product;
+
 namespace AppCore.DtoModels
 {
 	public class PavilionDtoModel
@@ -20,6 +22,8 @@ namespace AppCore.DtoModels
         public string? DeletedAt { get; set; }
 
         public string ImageFile { get; set; }
+
+        public List<DetailedProductDto> ProductDtos { get; set; }
     }
 }
 

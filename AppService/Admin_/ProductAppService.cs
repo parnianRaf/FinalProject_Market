@@ -1,6 +1,10 @@
 ﻿using System;
+using AppCore;
+using AppCore.Contracts.AppServices.Account;
+using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Product;
 using Repositories.Repository.ProductRepository;
+using Service;
 
 namespace AppService.Admin_
 {
@@ -8,16 +12,47 @@ namespace AppService.Admin_
     {
         #region field
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryService _categoryService;
+        private readonly IMapServices _mapServices;
         #endregion
 
         #region ctor
-        public ProductAppService(IProductRepository productRepository)
+        public ProductAppService(IProductRepository productRepository,
+            ICategoryService categoryService, IMapServices mapServices)
         {
             _productRepository = productRepository;
+            _categoryService = categoryService;
+            _mapServices = mapServices;
         }
         #endregion
 
         #region Implementation
+
+        public async Task<List<CategoryDtoModel>> GetCategories(CancellationToken cancellation)
+        {
+            List<Category> categories = await _categoryService.GetAllCategories(cancellation);
+            return _mapServices.MapCategory(categories);
+        }
+
+
+        //public async Task<bool> AddProduct()
+        //{
+
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public async Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation)
         {
             return await _productRepository.GetProduct(id, cancellation);

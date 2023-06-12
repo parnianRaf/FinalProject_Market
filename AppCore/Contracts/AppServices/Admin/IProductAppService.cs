@@ -1,4 +1,5 @@
-﻿using AppCore.DtoModels.Product;
+﻿using AppCore.DtoModels.Category;
+using AppCore.DtoModels.Product;
 
 namespace AppService.Admin_
 {
@@ -9,5 +10,6 @@ namespace AppService.Admin_
         Task<List<DetailedProductDto>> GetAllProducts(int sellerId, CancellationToken cancellation);
         Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation);
         Task<bool> RemoveProduct(int id, CancellationToken cancellation);
+        Task<List<CategoryDtoModel>> GetCategories(CancellationToken cancellation);
     }
 }

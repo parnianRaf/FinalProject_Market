@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject_Market.Areas.Admin.Controllers
 {
-    [Area("Seller")]
+    [Area("seller")]
     [Authorize(Roles ="seller")]
     public class PavilionManagementController : Controller
     {

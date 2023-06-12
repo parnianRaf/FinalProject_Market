@@ -1,4 +1,5 @@
 ﻿using System;
+using AppCore.DtoModels.Category;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +31,11 @@ namespace AppCore.Contracts.AppServices.Account
         public List<T> MapUser<T>(List<User> users)
         {
             return _mapper.Map<List<T>>(users);
+        }
+
+        public List<CategoryDtoModel> MapCategory(List<Category> categories)
+        {
+            return _mapper.Map<List<CategoryDtoModel>>(categories);
         }
     }
 }

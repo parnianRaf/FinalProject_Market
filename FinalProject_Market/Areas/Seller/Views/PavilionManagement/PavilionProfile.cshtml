@@ -1,13 +1,76 @@
-﻿@using AppCore.DtoModels;
+﻿
+@using AppCore.DtoModels;
+
+
 @model PavilionDtoModel
 
+@{
+    Layout = "_Layout.cshtml";
+}
 
-<form method="get" action="/search/" id="searchFormInput" class="search-form" accept-charset="utf-8">
-    <input id="search-query-input" class="search-text search-text-ir" placeholder="نام کالا را وارد کنید" type="text" name="query" autocomplete="off" tabindex="1" value="" style="font-size: 16px;">
-    <div class="search-btn search-btn-ir">
-        <div class="svg_style ">
-            <svg fill="white" height="33" viewBox="0 0 24 24" width="33" xmlns="http://www.w3.org/2000/svg" title="search">
-            </svg>
+<h1>@Model.Title</h1>
+
+
+
+<h4>محصولات فروشگاه : </h4>
+
+<a class="btn btn-primary" asp-action="SelectCategory" asp-controller="ProductManagement">
+    <h4>اضافه کردن محصول جدید</h4>
+</a>
+
+
+@for (int i = 0; 3 * (i + 1) <= (int)(Model.ProductDtos.Count() / 3) * 3; i++)
+{
+    <div class="container">
+        <div class="d-inline-flex">
+            <div class="card  m-3" style="width:min-content">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i].filePathSource)" alt="@Model.ProductDtos[3 * i].ProductName" style="width:200px">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">@Model.ProductDtos[3 * i].ProductName</h5>
+                    <p class="card-text">@Model.ProductDtos[3 * i].Price $ </p>
+                    @*<a class="btn btn-primary" asp-route-id="@Model.ProductDtos[3*i].Id" asp-controller="Guest" asp-action="Detail">Detail</a>*@
+                </div>
+            </div>
+
+            <div class="card  m-3" style="width:min-content">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i + 1].filePathSource)" alt="@Model.ProductDtos[3 * i + 1].ProductName" style="width:200px">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">@Model.ProductDtos[3 * i].ProductName</h5>
+                    <p class="card-text">@Model.ProductDtos[3 * i + 1].Price $ </p>
+                    @*<a class="btn btn-primary" asp-route-id="@Model.ProductDtos[3*i].Id" asp-controller="Guest" asp-action="Detail">Detail</a>*@
+                </div>
+            </div>
+
+            <div class="card  m-3" style="width:min-content">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i + 2].filePathSource)" alt="@Model.ProductDtos[3 * i + 2].ProductName" style="width:200px">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">@Model.ProductDtos[3 * i + 2].ProductName</h5>
+                    <p class="card-text">@Model.ProductDtos[3 * i + 2].Price $ </p>
+                    @*<a class="btn btn-primary" asp-route-id="@Model.ProductDtos[3*i].Id" asp-controller="Guest" asp-action="Detail">Detail</a>*@
+                </div>
+            </div>
         </div>
     </div>
-</form>
+
+}
+
+<div class="container">
+    <div class="d-inline-flex" ">
+        @for (int i = 1; i <= Model.ProductDtos.Count() % 3; i++)
+        {
+            <div class="card  m-3" style="width:min-content">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[Model.ProductDtos.Count()-i].filePathSource)" alt="@Model.ProductDtos[Model.ProductDtos.Count()-i].ProductName" style="width:200px">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">@Model.ProductDtos[Model.ProductDtos.Count() - i].ProductName</h5>
+                    <p class="card-text">@Model.ProductDtos[Model.ProductDtos.Count() - i].Price $ </p>
+                    @*<a class="btn btn-primary" asp-route-id="@Model.ProductDtos[3*i].Id" asp-controller="Guest" asp-action="Detail">Detail</a>*@
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>
+
+
+

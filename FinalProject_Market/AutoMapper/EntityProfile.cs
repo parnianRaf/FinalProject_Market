@@ -2,6 +2,7 @@
 using AppCore;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
@@ -34,6 +35,9 @@ namespace Repositories.AutoMapper
             CreateMap<DetailSellerDto, GetSellersViewModel>();
             CreateMap<FullDetailSellerDto, FullDetailSellerViewModel>();
             CreateMap<FullDetailSellerViewModel, EditSellerDto>();
+
+
+            CreateMap<CategoryDtoModel, CategoryViewModel>().ReverseMap();
 
 
 

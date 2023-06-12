@@ -28,10 +28,13 @@ builder.Services.AddScoped<IPavilionRepository, PavilionRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
 
 builder.Services.AddScoped<IAccountServices, AccountServices>();
 builder.Services.AddScoped<IPavilionService, PavilionService>();
 builder.Services.AddScoped<IMapServices, MapServices>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 

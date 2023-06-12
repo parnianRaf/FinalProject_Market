@@ -707,3 +707,7 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/Shared/_Layout_3.cshtml.rz.scp.css
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/SellerManagement/_Layout.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/obj/Debug/net7.0/scopedcss/Areas/Seller/Views/PavilionManagement/_Layout.cshtml.rz.scp.css
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
