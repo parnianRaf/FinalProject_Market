@@ -7,7 +7,7 @@ namespace Repositories.Repository.ProductRepository
     public interface IAuctionRepository
     {
         Task<bool> AcceptComment(int auctionId, CancellationToken cancellation);
-        Task AddAuction(int id, int sellerId, Auction auction, CancellationToken cancellation);
+        Task AddAuction(int id, int sellerId, List<Product> products, Auction auction, CancellationToken cancellation);
         Task<bool> AddCommentByCustomer(int auctionId, int customerId, string comment, CancellationToken cancellation);
         Task<bool> EditAuction(EditAuctionDto auctionDto, CancellationToken cancellation);
         Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation);

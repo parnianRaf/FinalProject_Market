@@ -33,13 +33,14 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
         #region Implementation
-        public async Task AddAuction(int id, int sellerId,Auction auction, CancellationToken cancellation)
+        public async Task AddAuction(int id, int sellerId,List<Product> products,Auction auction, CancellationToken cancellation)
         {
             auction.Id = id;
             auction.SellerId = sellerId;
             auction.CreateAt = DateTime.Now;
             auction.CreateBy = sellerId;
-            auction.Products.ForEach(p => { p.Auction = auction; p.AuctionId = id; });
+            auction.Products = products;
+            products.ForEach(p => { p.Auction = auction; p.AuctionId = id; });
             _context.Auctions.Add(auction);
             auction.Products.ForEach((p => _context.Products.Update(p)));
             await _context.SaveChangesAsync(cancellation);

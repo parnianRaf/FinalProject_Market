@@ -6,6 +6,7 @@ using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AppService.Admin_;
+using AutoMapper;
 using FinalProject_Market.Cache;
 using FinalProject_Market.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -24,6 +25,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         private readonly IAuctionAppService _auctionAppService;
         private readonly IDirectOrderAppService _directOrderAppService;
         private readonly IProductAppService _productAppService;
+        private readonly IMapper _mapper;
         private readonly Medal _medal;
         #endregion
 
@@ -31,12 +33,14 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         public OrderManagemnetController(IAuctionAppService auctionAppService,
             IDirectOrderAppService directOrderAppService,
             Medal medal,
-            IProductAppService productAppService)
+            IProductAppService productAppService,
+            IMapper mapper)
         {
             _auctionAppService = auctionAppService;
             _directOrderAppService = directOrderAppService;
             _medal = medal;
             _productAppService = productAppService;
+            _mapper = mapper;
         }
         #endregion
 
@@ -55,14 +59,14 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddAuction(AddAuctionViewModel addAuction)
+        public async Task<IActionResult> AddAuction(AddAuctionViewModel auctionViewModel, CancellationToken cancellation)
         {
-            if(ModelState.IsValid)
-            {
-                
-            
-            }
-            return View();
+  
+            AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
+            await _auctionAppService.AddAuction(auctionDto, cancellation);
+            return RedirectToAction("MainPage", "AccountController");
+           
+            return View(auctionViewModel);
         }
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)

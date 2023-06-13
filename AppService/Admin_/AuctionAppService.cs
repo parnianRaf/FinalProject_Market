@@ -17,16 +17,18 @@ namespace AppService.Admin_
         private readonly IAuctionRepository _auctionRepository;
         private readonly IIdGeneratorService _idGeneratorService;
         private readonly IAccountServices _accountService;
+        private readonly IProductRepository _productRepository;
         #endregion
 
         #region ctor
-        public AuctionAppService(IAuctionRepository auctionRepository, IIdGeneratorService idGeneratorService, IAccountServices accountService, IMapper mapper = null)
+        public AuctionAppService(IAuctionRepository auctionRepository, IIdGeneratorService idGeneratorService, IAccountServices accountService, IMapper mapper = null, IProductRepository productRepository = null)
         {
             _auctionRepository = auctionRepository;
             _idGeneratorService = idGeneratorService;
             //_auctionService = auctionService;
             _accountService = accountService;
             _mapper = mapper;
+            _productRepository = productRepository;
         }
         #endregion
 
@@ -36,8 +38,8 @@ namespace AppService.Admin_
             int id = _idGeneratorService.Execute<DetailedAuctionDto>(await _auctionRepository.GetAllPaidOrUnPaidAuctions(cancellation));
             int sellerId = _accountService.GetCurrentUser();
             Auction auction=_mapper.Map<Auction>(auctionDto);
-            //List<Product> products = _auctionService.GetProducts(auctionDto.ProductDtoIds);
-            await _auctionRepository.AddAuction(id,sellerId,auction,cancellation);
+            List<Product> products =await _productRepository.GetAllProducts(auctionDto.ProductDtoIds,cancellation,sellerId);
+            await _auctionRepository.AddAuction(id,sellerId,products,auction,cancellation);
         }
 
         public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation)
