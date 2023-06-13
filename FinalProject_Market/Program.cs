@@ -41,6 +41,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IDirectOrderRepository, DirectOrderRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IOfferRepository, OfferRepository>();
 
 
 builder.Services.AddScoped<IAccountServices, AccountServices>();
@@ -51,6 +52,8 @@ builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IIdGeneratorService, IdGeneratorService>();
 builder.Services.AddScoped<ISellerStatusService, SellerStatusService>();
+
+
 //builder.Services.AddScoped<IAuctionService, AuctionService>();
 //builder.Services.AddScoped<IProductService, ProductService>();
 

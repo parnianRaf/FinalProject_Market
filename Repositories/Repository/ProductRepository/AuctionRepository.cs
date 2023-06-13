@@ -247,7 +247,12 @@ namespace Repositories.Repository.ProductRepository
             return auctionDtos;
         }
 
-        public async Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation)
+        public async Task<Auction> GetAuction(int id, CancellationToken cancellation)
+        {
+            return await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation) ?? new Auction();
+        }
+
+        public async Task<DetailedAuctionDto> GetDetailedAuction(int id, CancellationToken cancellation)
         {
             Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
             if (auction != null)
@@ -303,6 +308,8 @@ namespace Repositories.Repository.ProductRepository
             return 0;
 
         }
+
+
 
 
         #endregion

@@ -6,27 +6,21 @@
     <BreakpointStore>
       <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/ProductRepository/DirectOrderRepository.cs" relfile="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" line="130" column="1" />
       <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" line="60" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/SellerManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/SellerManagementController.cs" line="63" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppCore/Entity/User.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Program.cs">
     <Files>
-      <File FileName="AppService/Admin_/AccountAppServices.cs" Line="124" Column="54" />
-      <File FileName="FinalProject_Market/Areas/Seller/Controllers/SellerManagementController.cs" Line="73" Column="1" />
-      <File FileName="FinalProject_Market/Areas/Seller/Views/SellerManagement/GetProfile.cshtml" Line="111" Column="11" />
-      <File FileName="AppCore/Entity/User.cs" Line="12" Column="1" />
+      <File FileName="FinalProject_Market/Program.cs" Line="181" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalProject_Market_ParnianRafie" expanded="True">
-            <Node name="00-FrameWorks" expanded="True">
-              <Node name="ExtensionMethods" expanded="True" />
-            </Node>
             <Node name="01-Domain" expanded="True">
               <Node name="AppService" expanded="True">
                 <Node name="AppService" expanded="True">
                   <Node name="Admin_" expanded="True" />
+                  <Node name="Seller" expanded="True" />
                 </Node>
               </Node>
               <Node name="Core" expanded="True">
@@ -34,13 +28,15 @@
                   <Node name="Contracts" expanded="True">
                     <Node name="AppServices" expanded="True">
                       <Node name="Account" expanded="True" />
+                      <Node name="Admin" expanded="True" />
+                    </Node>
+                    <Node name="Data Access" expanded="True">
+                      <Node name="Product" expanded="True" />
                     </Node>
                   </Node>
                   <Node name="DtoModels" expanded="True">
-                    <Node name="Seller" expanded="True" />
-                  </Node>
-                  <Node name="Entity" expanded="True">
-                    <Node name="User.cs" selected="True" />
+                    <Node name="Auction" expanded="True" />
+                    <Node name="Product" expanded="True" />
                   </Node>
                 </Node>
               </Node>
@@ -48,11 +44,20 @@
                 <Node name="Service" expanded="True" />
               </Node>
             </Node>
+            <Node name="02-Infrastructure" expanded="True">
+              <Node name="02-Repository" expanded="True">
+                <Node name="Repositories" expanded="True">
+                  <Node name="AutoMapper" expanded="True" />
+                  <Node name="Repository" expanded="True">
+                    <Node name="ProductRepository" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
             <Node name="03-Endpoint" expanded="True">
               <Node name="FinalProject_Market" expanded="True">
                 <Node name="Areas" expanded="True">
                   <Node name="Admin" expanded="True">
-                    <Node name="Controllers" expanded="True" />
                     <Node name="Models" expanded="True">
                       <Node name="ViewModels" expanded="True" />
                     </Node>
@@ -63,20 +68,14 @@
                   <Node name="Seller" expanded="True">
                     <Node name="Controllers" expanded="True" />
                     <Node name="Views" expanded="True">
-                      <Node name="SellerManagement" expanded="True" />
-                      <Node name="Shared" expanded="True" />
+                      <Node name="OrderManagemnet" expanded="True" />
+                      <Node name="ProductManagement" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
-                <Node name="Cache" expanded="True" />
-                <Node name="Configuration" expanded="True" />
-                <Node name="Controllers" expanded="True" />
-                <Node name="wwwroot" expanded="True">
-                  <Node name="SellerPannel" expanded="True">
-                    <Node name="css" expanded="True" />
-                  </Node>
-                </Node>
+                <Node name="AutoMapper" expanded="True" />
                 <Node name="appsettings.json" expanded="True" />
+                <Node name="Program.cs" selected="True" />
               </Node>
             </Node>
           </Node>

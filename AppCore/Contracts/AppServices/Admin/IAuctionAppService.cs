@@ -10,6 +10,7 @@ namespace AppService.Admin_
         Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation);
         Task<bool> AcceptComment(int auctionId, CancellationToken cancellation);
         Task<bool> RejectComment(int auctionId, CancellationToken cancellation);
+        Task AuctionOperation(int auctionId, CancellationToken cancellation,Double medalDiscount);
 
     }
 }

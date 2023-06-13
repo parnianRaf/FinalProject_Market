@@ -117,11 +117,14 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        //public async Task<IActionResult> AddOrder()
-        //{
-        //    var x = _medal.MedalDiscount;
-        //    var y = _medal.MedalPrice;
-        //}
+        public async Task<IActionResult> AuctionOperation(int auctionId,CancellationToken cancellation)
+        {
+            var x = _medal.MedalDiscount;
+            var y = _medal.MedalPrice;
+            await _auctionAppService.AuctionOperation(auctionId, cancellation, y);
+            
+            return View();
+        }
         #endregion
 
     }

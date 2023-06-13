@@ -23,8 +23,9 @@
 {
     <div class="container">
         <div class="d-inline-flex">
+       
             <div class="card  m-3" style="width:min-content">
-                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i].filePathSource)" alt="@Model.ProductDtos[3 * i].ProductName" style="width:200px">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i].filePathSource.Split(",")[0])" alt="@Model.ProductDtos[3 * i].ProductName" style="width:200px">
                 <div class="card-body">
                     <h5 class="card-title text-dark">@Model.ProductDtos[3 * i].ProductName</h5>
                     <p class="card-text">@Model.ProductDtos[3 * i].Price $ </p>
@@ -33,7 +34,7 @@
             </div>
 
             <div class="card  m-3" style="width:min-content">
-                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i + 1].filePathSource)" alt="@Model.ProductDtos[3 * i + 1].ProductName" style="width:200px">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i + 1].filePathSource.Split(",")[0])" alt="@Model.ProductDtos[3 * i + 1].ProductName" style="width:200px">
                 <div class="card-body">
                     <h5 class="card-title text-dark">@Model.ProductDtos[3 * i].ProductName</h5>
                     <p class="card-text">@Model.ProductDtos[3 * i + 1].Price $ </p>
@@ -42,7 +43,7 @@
             </div>
 
             <div class="card  m-3" style="width:min-content">
-                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i + 2].filePathSource)" alt="@Model.ProductDtos[3 * i + 2].ProductName" style="width:200px">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[3 * i + 2].filePathSource.Split(",")[0])" alt="@Model.ProductDtos[3 * i + 2].ProductName" style="width:200px">
                 <div class="card-body">
                     <h5 class="card-title text-dark">@Model.ProductDtos[3 * i + 2].ProductName</h5>
                     <p class="card-text">@Model.ProductDtos[3 * i + 2].Price $ </p>
@@ -59,7 +60,7 @@
         @for (int i = 1; i <= Model.ProductDtos.Count() % 3; i++)
         {
             <div class="card  m-3" style="width:min-content">
-                <img class="card-img-top" src="/Images/@(Model.ProductDtos[Model.ProductDtos.Count()-i].filePathSource)" alt="@Model.ProductDtos[Model.ProductDtos.Count()-i].ProductName" style="width:200px">
+                <img class="card-img-top" src="/Images/@(Model.ProductDtos[Model.ProductDtos.Count() - i].filePathSource.Split(",")[0])" alt="@Model.ProductDtos[Model.ProductDtos.Count()-i].ProductName" style="width:200px">
                 <div class="card-body">
                     <h5 class="card-title text-dark">@Model.ProductDtos[Model.ProductDtos.Count() - i].ProductName</h5>
                     <p class="card-text">@Model.ProductDtos[Model.ProductDtos.Count() - i].Price $ </p>

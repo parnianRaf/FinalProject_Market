@@ -8,10 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repository.ProductRepository
 {
-    public class OfferRepository 
+    public class OfferRepository : IOfferRepository
     {
         #region field
         private readonly MarketContext _context;
+
         private readonly IMapper _mapper;
         #endregion
 
@@ -48,6 +49,13 @@ namespace Repositories.Repository.ProductRepository
             }
             return new EditOfferDto();
         }
+
+        public async Task<List<Offer>> GetAuctionOffers(int auctionId, CancellationToken cancellation)
+        {
+            return await _context.Offers.Where(o => o.AuctionId == auctionId).ToListAsync(cancellation);
+        }
+
+
 
         //public async Task<bool> EditOffer(EditOfferDto offerDto, CancellationToken cancellation)
         //{

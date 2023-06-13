@@ -151,11 +151,13 @@ namespace FinalProject_Market.Controllers
             }
             return PartialView(viewModel);
         }
-        
-        public async Task<IActionResult> SignOut(CancellationToken cancellation)
+        [AllowAnonymous]
+        public async Task<IActionResult> SignOut(int id,CancellationToken cancellation)
         {
             await _account.LogOut(cancellation);
             return RedirectToAction("Index");
+
+
         }
        
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
