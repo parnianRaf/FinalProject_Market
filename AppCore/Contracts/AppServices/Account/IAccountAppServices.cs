@@ -1,4 +1,5 @@
-﻿using AppCore.DtoModels.User;
+﻿using AppCore.DtoModels.Seller;
+using AppCore.DtoModels.User;
 using Microsoft.AspNetCore.Identity;
 
 namespace AppService.Admin_.Command
@@ -10,6 +11,7 @@ namespace AppService.Admin_.Command
         Task<List<T>> GetAllUserRoleBased<T>(string role);
         Task<T> GetUser<T>(int id, CancellationToken cancellation);
         Task<T> GetUserProfile<T>(int id, CancellationToken cancellation);
+        Task<Tuple<SellerOverViewDto, T>> GetCurrentUserProfile<T>(CancellationToken cancellation);
         Task<bool> LogIn(string role, LogInUser userDto, bool IsRememberMe);
         Task LogOut(CancellationToken cancellation);
         Task<IEnumerable<IdentityError>> Register(string role, AddUserDto userDto);

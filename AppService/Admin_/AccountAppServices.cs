@@ -11,6 +11,7 @@ using Service;
 using AppCore.Contracts.AppServices.Account;
 using AppCore.DtoModels.Customer;
 using Microsoft.Extensions.Options;
+using AppCore.DtoModels.Seller;
 
 namespace AppService.Admin_.Command
 {
@@ -18,6 +19,7 @@ namespace AppService.Admin_.Command
     {
         #region field
         private readonly IAccountServices _accountService;
+        private readonly ISellerStatusService _sellerStatus;
         private readonly IMapServices _mapService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<User> _userManager;
@@ -26,12 +28,13 @@ namespace AppService.Admin_.Command
         #region ctor
         public AccountAppServices(IAccountServices accountService,
             IMapServices mapService, UserManager<User> userManager,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor, ISellerStatusService sellerStatus)
         {
             _httpContextAccessor = httpContextAccessor;
             _accountService = accountService;
             _mapService = mapService;
             _userManager = userManager;
+            _sellerStatus = sellerStatus;
         }
         #endregion
 
@@ -116,6 +119,15 @@ namespace AppService.Admin_.Command
             User user = await _accountService.GetUser(id);
             var userDto = _mapService.MapUser<T>(user);
             return userDto;
+        }
+
+        public async Task<Tuple<SellerOverViewDto, T>> GetCurrentUserProfile<T>(CancellationToken cancellation)
+        {
+            int userId = _accountService.GetCurrentUser();
+            User user = await _accountService.GetUser(userId);
+            var userDto = _mapService.MapUser<T>(user);
+            SellerOverViewDto sellerOverView = await _sellerStatus.SellerOverView(user);
+            return new Tuple<SellerOverViewDto, T>(sellerOverView,userDto);
         }
 
         public async Task<List<IdentityError>> DeleteUser(int id, CancellationToken cancellationToken)
@@ -218,6 +230,8 @@ namespace AppService.Admin_.Command
             //    #endregion
 
         }
+
+        
         #endregion
     }
 }

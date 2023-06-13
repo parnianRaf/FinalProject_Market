@@ -27,7 +27,6 @@
     <None Remove="Areas\Seller\Views\SellerManagement\" />
     <None Remove="Areas\Seller\Views\Shared\" />
     <None Remove="Areas\Seller\Views\PavilionManagement\" />
-    <None Remove="Cache\" />
     <None Remove="Configuration\" />
   </ItemGroup>
   <ItemGroup>
@@ -98,7 +97,6 @@
     <Folder Include="wwwroot\images\" />
     <Folder Include="Areas\Seller\Views\PavilionManagement\" />
     <Folder Include="wwwroot\images\Categories\" />
-    <Folder Include="Cache\" />
     <Folder Include="Configuration\" />
   </ItemGroup>
   <ItemGroup>

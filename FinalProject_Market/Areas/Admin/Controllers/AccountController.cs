@@ -197,11 +197,15 @@ namespace FinalProject_Market.Controllers
         [HttpPost]
         public async Task<IActionResult> SellerProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
         {
-            var sellerDto = _mapper.Map<EditUserDto>(viewModel);
-            var result = await _account.UpdateUser(sellerDto, cancellation);
-            if (result)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("SellerProfile", new { viewModel.Id });
+                var sellerDto = _mapper.Map<EditUserDto>(viewModel);
+                var result = await _account.UpdateUser(sellerDto, cancellation);
+                if (result)
+                {
+                    return RedirectToAction("SellerProfile", new { viewModel.Id });
+                }
+
             }
             return View(viewModel);
         }

@@ -50,6 +50,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IIdGeneratorService, IdGeneratorService>();
+builder.Services.AddScoped<ISellerStatusService, SellerStatusService>();
 
 
 
