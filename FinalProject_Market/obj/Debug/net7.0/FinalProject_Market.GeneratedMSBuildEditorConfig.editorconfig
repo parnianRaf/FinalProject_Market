@@ -80,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Views/OrderManagemnet/AddAuction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU2VsbGVyL1ZpZXdzL09yZGVyTWFuYWdlbW5ldC9BZGRBdWN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Views/PavilionManagement/PavilionProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU2VsbGVyL1ZpZXdzL1BhdmlsaW9uTWFuYWdlbWVudC9QYXZpbGlvblByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

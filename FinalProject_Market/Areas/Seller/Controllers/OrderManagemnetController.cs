@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.DirectOrder;
+using AppCore.DtoModels.Product;
 using AppService.Admin_;
 using FinalProject_Market.Cache;
+using FinalProject_Market.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Repository.ProductRepository;
@@ -21,17 +23,20 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         #region field
         private readonly IAuctionAppService _auctionAppService;
         private readonly IDirectOrderAppService _directOrderAppService;
+        private readonly IProductAppService _productAppService;
         private readonly Medal _medal;
         #endregion
 
         #region ctor
         public OrderManagemnetController(IAuctionAppService auctionAppService,
             IDirectOrderAppService directOrderAppService,
-            Medal medal)
+            Medal medal,
+            IProductAppService productAppService)
         {
             _auctionAppService = auctionAppService;
             _directOrderAppService = directOrderAppService;
             _medal = medal;
+            _productAppService = productAppService;
         }
         #endregion
 
@@ -39,6 +44,24 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            return View();
+        }
+
+
+        public async Task<IActionResult> AddAuction(CancellationToken cancellation)
+        {
+            ViewBag.Products =await _productAppService.GetAllSellerProducts(cancellation);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddAuction(AddAuctionViewModel addAuction)
+        {
+            if(ModelState.IsValid)
+            {
+                
+            
+            }
             return View();
         }
 
@@ -90,11 +113,11 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> AddOrder()
-        {
-            var x = _medal.MedalDiscount;
-            var y = _medal.MedalPrice;
-        }
+        //public async Task<IActionResult> AddOrder()
+        //{
+        //    var x = _medal.MedalDiscount;
+        //    var y = _medal.MedalPrice;
+        //}
         #endregion
 
     }

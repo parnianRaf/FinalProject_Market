@@ -2,6 +2,7 @@
 using AppCore;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Admin;
+using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.Product;
@@ -39,7 +40,7 @@ namespace Repositories.AutoMapper
 
             CreateMap<CategoryDtoModel, CategoryViewModel>().ReverseMap();
 
-
+            CreateMap<AddAuctionViewModel, AddAuctionDto>().ReverseMap();
 
             //CreateMap<FullDetailCustomerDto, FullDetailCustomerViewModel>();
             //CreateMap<DetailedCustomerAdddressDto, DetailedCustomerAddressViewModel>();

@@ -1,4 +1,5 @@
 ﻿using System;
+using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Product;
 using AutoMapper;
@@ -48,6 +49,12 @@ namespace AppCore.Contracts.AppServices.Account
         {
             return _mapper.Map<Product>(productDto);
         }
+
+        public Auction MapAuction(AddAuctionDto auctionDto)
+        {
+            return _mapper.Map<Auction>(auctionDto);
+        }
+
     }
 }
 

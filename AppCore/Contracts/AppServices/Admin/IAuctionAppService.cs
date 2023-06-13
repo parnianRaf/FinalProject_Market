@@ -5,7 +5,7 @@ namespace AppService.Admin_
 {
     public interface IAuctionAppService
     {
-        Task AddAuction(DetailedAuctionDto auctionDto, CancellationToken cancellation);
+        Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation);
         Task<bool> AcceptComment(int auctionId, CancellationToken cancellation);

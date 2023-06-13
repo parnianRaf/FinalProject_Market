@@ -13,13 +13,15 @@ namespace AppService.Admin_
     {
         #region field
         private readonly IProductRepository _productRepository;
+        //private readonly IAuctionService _auctionService;
         private readonly ICategoryService _categoryService;
         private readonly IMapServices _mapServices;
         private readonly ICookieService _setCookieService;
         private readonly IIdGeneratorService _idGeneratorService;
         private readonly IAccountServices _accountService;
         private readonly IImageService _imageService;
- 
+        //private readonly IProductService _productService;
+
         #endregion
 
         #region ctor
@@ -35,6 +37,8 @@ namespace AppService.Admin_
             _idGeneratorService = idGeneratorService;
             _accountService = accountService;
             _imageService = imageService;
+            //_auctionService = auctionService;
+            //_productService = productService;
         }
         #endregion
 
@@ -53,7 +57,6 @@ namespace AppService.Admin_
             return categoryDto;
         }
 
-
         public async Task AddProduct(AddProductDto productDto,CancellationToken cancellation)
         {
             int id = _idGeneratorService.Execute<DetailedProductDto>(await GetAllProducts(cancellation));
@@ -64,9 +67,41 @@ namespace AppService.Admin_
             Product product = _mapServices.MapProduct(productDto);
             string filePath= _imageService.GetFilePath(productDto.ProductName,productDto.fileImages);
             await _productRepository.AddProduct(id,sellerId, categoryId, pavilionId,filePath,category,product, cancellation);
-
         }
 
+        public async Task<List<DetailedProductDto>> GetAllSellerProducts( CancellationToken cancellation)
+        {
+            int sellerId = _accountService.GetCurrentUser();
+            return await _productRepository.GetAllProducts(cancellation, sellerId);
+        }
+
+
+
+
+
+
+        //public async Task<List<string>> GetAllProductNames( CancellationToken cancellation)
+        //{
+        //    int sellerId = _accountService.GetCurrentUser();
+        //    List<DetailedProductDto> productDtos =await _productRepository.GetAllProducts(cancellation, sellerId);
+        //    return _productService.GetProductNames(productDtos);
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+        public async Task<List<DetailedProductDto>> GetAllProducts(int sellerId, CancellationToken cancellation)
+        {
+            return await _productRepository.GetAllProducts(cancellation, sellerId);
+        }
 
 
 
@@ -90,10 +125,6 @@ namespace AppService.Admin_
             return await _productRepository.GetAllProducts(cancellation);
         }
 
-        public async Task<List<DetailedProductDto>> GetAllProducts(int sellerId, CancellationToken cancellation)
-        {
-            return await _productRepository.GetAllProducts(cancellation, sellerId);
-        }
 
         public async Task<bool> EditProduct(DetailedProductDto productDto, CancellationToken cancellation)
         {

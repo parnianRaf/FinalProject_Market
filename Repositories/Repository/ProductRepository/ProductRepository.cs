@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using ExtensionMethods;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
 
 namespace Repositories.Repository.ProductRepository
 {
@@ -184,8 +185,14 @@ namespace Repositories.Repository.ProductRepository
                   DeletedAt=o.DeletedAt.IranianDate(),
                  filePathSource=o.filePathSource
             }).ToListAsync(cancellation);
-            var result = productDtos;
             return productDtos;
+        }
+
+        public async Task<List<Product>> GetAllProducts(List<int> Ids, CancellationToken cancellation, int SellerId)
+        {
+            List<Product> products = new();
+            Ids.ForEach(n => products.Add(_context.Products.Where(p => p.UserId == SellerId && p.Id == n).AsNoTracking().FirstOrDefault()));
+            return products;
         }
 
         public async Task<List<DetailedProductDto>> GetAllProductsInSpecificPavilion(CancellationToken cancellation, int pavilionId)
@@ -214,6 +221,7 @@ namespace Repositories.Repository.ProductRepository
             var result = productDtos;
             return productDtos;
         }
+
         #endregion
 
 

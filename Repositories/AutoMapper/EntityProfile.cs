@@ -34,10 +34,13 @@ namespace Repositories.AutoMapper
 
             #region Auction
             CreateMap<AddAuctionDto, Auction>()
-                .ForMember(dst => dst.Products, opt =>
-                opt.MapFrom(src => src.ProductDtos))
-                .ForMember(dst => dst.Offers, opt =>
-                opt.MapFrom(src => src.OffersDto));
+                .ForMember(dst=>dst.Products,opt=>
+                opt.MapFrom(src=>src.Products));
+
+            CreateMap<Auction,AddAuctionDto > ()
+            .ForMember(dst => dst.Products, opt =>
+            opt.MapFrom(src => src.Products));
+
 
             CreateMap<Auction, EditAuctionDto>()
                  .ForMember(dst => dst.ProductDtos, opt =>
