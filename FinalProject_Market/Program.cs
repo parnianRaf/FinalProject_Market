@@ -9,6 +9,7 @@ using AppService.Admin_;
 using AppService.Admin_.Command;
 using AppService.Seller.Query;
 using AppSqlDataBase;
+using FinalProject_Market.Cache;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Repository.ProductRepository;
@@ -18,6 +19,16 @@ using Serilog.Sinks.MSSqlServer;
 using Service;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.Development.json",false,true)
+    .AddJsonFile("appsettings.json");
+
+
+
+var configs=builder.Configuration.GetSection("Medal").Get<Medal>();
+builder.Services.AddSingleton<Medal>(configs);
+
+
 
 // Add services to the container.
 builder.Services.AddDbContext<MarketContext>(options =>
@@ -97,6 +108,13 @@ columnOpt.Store.Remove(StandardColumn.MessageTemplate);
 Log.Logger = new LoggerConfiguration()
     .WriteTo.MSSqlServer(builder.Configuration.GetConnectionString("UserLog"),sinkOptions:sinkOpt,columnOptions:columnOpt)
     .CreateLogger();
+
+
+
+
+
+
+
 
 
 //builder.Services.AddAuthentication().AddGoogle(googleOptions =>

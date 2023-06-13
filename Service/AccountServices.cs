@@ -2,7 +2,8 @@
 using AppCore.DtoModels.User;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity; 
+using Microsoft.AspNetCore.Identity;
+
 
 namespace Service;
 public class AccountServices : IAccountServices
@@ -27,6 +28,7 @@ public class AccountServices : IAccountServices
         _rolemanager = rolemanager;
         _mapper = mapper;
         _httpContextAccessor = httpContextAccessor;
+
     }
     #endregion
 
@@ -35,7 +37,19 @@ public class AccountServices : IAccountServices
         string id = _userManager.GetUserId(_httpContextAccessor.HttpContext.User) ?? "0";
         return int.Parse(id);
     }
+    public bool HasMedal(User user)
+    {
+        return user.HasMedal;
+    }
 
+    //public bool HasMedalCondition(User user)
+    //{
+    //    medal.
+    //}
+    public void GetMedal(User user)
+    {
+
+    }
     public async Task<IEnumerable<IdentityError>> CreateUser(User user, string password)
     {
         IdentityResult createResult=await _userManager.CreateAsync(user, password);

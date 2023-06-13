@@ -19,6 +19,7 @@ namespace AppService.Admin_
         private readonly IIdGeneratorService _idGeneratorService;
         private readonly IAccountServices _accountService;
         private readonly IImageService _imageService;
+ 
         #endregion
 
         #region ctor

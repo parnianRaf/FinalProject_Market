@@ -29,6 +29,11 @@ namespace Service
 					{
 						dataBaseFileName += fileName+",";
 					}
+					else
+					{
+						dataBaseFileName += fileName;
+
+                    }
                 }
 			}
 			return dataBaseFileName;

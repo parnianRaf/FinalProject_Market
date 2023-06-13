@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Product;
 using AppService.Admin_;
+using FinalProject_Market.Cache;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,13 +19,15 @@ namespace FinalProject_Market.Areas.Seller.Controllers
     {
         #region field
         private readonly IPavilionAppService _pavilionService;
+        private readonly Medal _medal;
         #endregion
 
 
         #region ctor
-        public SellerManagementController(IPavilionAppService pavilionService)
+        public SellerManagementController(IPavilionAppService pavilionService, Medal medal)
         {
             _pavilionService = pavilionService;
+            _medal = medal;
         }
         #endregion
 
@@ -33,6 +36,7 @@ namespace FinalProject_Market.Areas.Seller.Controllers
 
         public async Task<IActionResult> MainPage(CancellationToken cancellation)
         {
+            
             List<PavilionDtoModel> pavilionDtos = await _pavilionService.GetSellerPavilions(cancellation);
             return View(pavilionDtos);
         }

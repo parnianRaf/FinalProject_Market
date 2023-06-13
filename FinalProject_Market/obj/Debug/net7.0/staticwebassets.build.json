@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SzIsheUYzVdq9eWtLqgxD2qVKM4g70UH+bNLrVxn4Fo=",
+  "Hash": "8psrKq7jYCu/IvZ+BUNNRV2KzS6GDDa0ePFsc3Ja4eU=",
   "Source": "FinalProject_Market",
   "BasePath": "_content/FinalProject_Market",
   "Mode": "Default",
@@ -35579,6 +35579,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/صندلی مدل ایزی.jpeg"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه درختی_0کتابخانه درختی.jpeg",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "images/کتابخانه درختی_0کتابخانه درختی.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/کتابخانه درختی_0کتابخانه درختی.jpeg"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه درختی_1کتابخانه درختی۲.jpeg",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "images/کتابخانه درختی_1کتابخانه درختی۲.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/کتابخانه درختی_1کتابخانه درختی۲.jpeg"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/کتابخانه زنبوری دانه ای.jpeg",
