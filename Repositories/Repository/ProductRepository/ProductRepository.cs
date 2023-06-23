@@ -45,17 +45,11 @@ namespace Repositories.Repository.ProductRepository
             _context.Products.Add(product);
             _context.Categories.Update(category);
             await _context.SaveChangesAsync(cancellation);
-
         }
 
         public async Task<EditProductDto> EditGetProduct(int id, CancellationToken cancellation)
         {
-            Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (product != null)
-            {
-                return _mapper.Map<EditProductDto>(product);
-            }
-            return new EditProductDto();
+            return _mapper.Map < EditProductDto >  (await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation)) ?? new EditProductDto();
         }
 
         public async Task<bool> EditProduct(DetailedProductDto productDto, CancellationToken cancellation)
@@ -153,7 +147,9 @@ namespace Repositories.Repository.ProductRepository
                 IsActive = p.IsActive,
                 IsDeleted = p.IsDeleted,
                 DeletedAt = p.DeletedAt.IranianDate(),
-
+                PavilionId= p.User.Pavilions.Where(po => po.Id == p.PavilionId).FirstOrDefault().Id,
+                PavilionName =p.User.Pavilions.Where(po=>po.Id==p.PavilionId).FirstOrDefault().Title,
+                PavilionImageSource=p.User.Pavilions.Where(po => po.Id == p.PavilionId).FirstOrDefault().ImageFile,
                 CategoryName = p.Category.Title,
                 //CategoryName =_context.Categories.FirstOrDefault(c=>c.Id==product.CategoryId).Title,
 
@@ -168,6 +164,10 @@ namespace Repositories.Repository.ProductRepository
             return new DetailedProductDto();
         }
 
+        public async Task<Product> GetEntityProduct(int id, CancellationToken cancellation)
+        {
+            return await _context.Products.Where(p => p.Id == id).AsNoTracking().FirstOrDefaultAsync(cancellation) ?? new Product();
+        }
         public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId) 
         {
             List<DetailedProductDto> productDtos =await  _context.Products.Where(p => p.UserId == SellerId).AsNoTracking().Select(o => new DetailedProductDto()
@@ -222,6 +222,10 @@ namespace Repositories.Repository.ProductRepository
             return productDtos;
         }
 
+        public async Task<List<DetailedProductDto>> GetCategoryProducts(int categoryId,CancellationToken cancellation)
+        {
+            return _mapper.Map<List<DetailedProductDto>>(await _context.Products.Where(p => p.CategoryId == categoryId).AsNoTracking().ToListAsync(cancellation));
+        }
         #endregion
 
 

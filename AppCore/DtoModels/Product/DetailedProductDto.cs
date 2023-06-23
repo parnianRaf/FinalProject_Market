@@ -17,7 +17,11 @@ namespace AppCore.DtoModels.Product
 
         public string? CategoryName { get; set; }
 
+        public int? PavilionId { get; set; }
+
         public string? PavilionName { get; set; }
+
+        public string? PavilionImageSource { get; set; }
 
         public string? filePathSource { get; set; }
 

@@ -14,6 +14,7 @@ using AppCore.DtoModels.User;
 using AppService.Admin_;
 using AppService.Admin_.Command;
 using AutoMapper;
+using FinalProject_Market.Areas.Admin.Models.ViewModels;
 using FinalProject_Market.Models;
 using FinalProject_Market.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -51,8 +52,9 @@ namespace FinalProject_Market.Controllers
 
         // GET: /<controller>/
         [AllowAnonymous]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(CancellationToken cancellation)
         {
+            ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
             return View();
         }
 
@@ -108,7 +110,7 @@ namespace FinalProject_Market.Controllers
             switch (id)
             {
                 case 1:
-                    return PartialView();
+                    return PartialView("CustomerLogIn");
                 case 2:
                     return PartialView("SellerLogIn");
                 case 3:
@@ -131,7 +133,7 @@ namespace FinalProject_Market.Controllers
                     case 1:
                         if(await _account.LogIn("customer",userDto,IsRememberMe))
                         {
-                            return View();
+                            return RedirectToAction("Index");
                         }
                         break;
                     case 2:
@@ -152,12 +154,10 @@ namespace FinalProject_Market.Controllers
             return PartialView(viewModel);
         }
         [AllowAnonymous]
-        public async Task<IActionResult> SignOut(int id,CancellationToken cancellation)
+        public async Task<IActionResult> SignOut(CancellationToken cancellation)
         {
             await _account.LogOut(cancellation);
             return RedirectToAction("Index");
-
-
         }
        
         public async Task<IActionResult> GetCustomerList(CancellationToken cancellation)
@@ -171,6 +171,7 @@ namespace FinalProject_Market.Controllers
             return View(_mapper.Map<List<GetSellersViewModel>>( await _account.GetAllUserRoleBased<DetailSellerDto>("seller")));
         }
 
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> CustomerProfile(int id, CancellationToken cancellation)
         {
             FullDetailCustomerViewModel viewModel = _mapper.Map<FullDetailCustomerViewModel>(await _account.GetUser<FullDetailCustomerDto>(id,cancellation));
@@ -178,6 +179,7 @@ namespace FinalProject_Market.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles ="Customer")]
         public async Task<IActionResult> CustomerProfile(FullDetailCustomerViewModel viewModel, CancellationToken cancellation)
         {
             var customer = _mapper.Map<EditUserDto>(viewModel);

@@ -9,6 +9,7 @@ using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using AutoMapper;
+using FinalProject_Market.Areas.Admin.Models.ViewModels;
 using FinalProject_Market.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
@@ -18,6 +19,7 @@ namespace Repositories.AutoMapper
 	{
 		public EntityProfile()
 		{
+            CreateMap<CategoryDtoModel, BaseModel>();
 
             CreateMap<FullDetailCustomerViewModel, EditUserDto>()
                 .ReverseMap();
@@ -32,6 +34,7 @@ namespace Repositories.AutoMapper
             CreateMap<DetailedCustomerAdddressDto, DetailedCustomerAddressViewModel>();
             CreateMap<FullDetailCustomerDto, FullDetailCustomerViewModel>();
             CreateMap<FullDetailCustomerViewModel, EditCustomerDto > ();
+            CreateMap<FullDetailCustomerDto, EditUserDto>();
 
             CreateMap<DetailSellerDto, GetSellersViewModel>();
             CreateMap<FullDetailSellerDto, FullDetailSellerViewModel>();

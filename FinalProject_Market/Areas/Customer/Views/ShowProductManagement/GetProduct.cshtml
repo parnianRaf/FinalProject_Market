@@ -1,0 +1,88 @@
+﻿@using AppCore.DtoModels.Product;
+
+
+
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<div class="m-3 p-2 border " style="background-color:azure">
+
+    <div class="page-wrapper">
+        <div class="page-content">
+            <div class="container" style="direction:rtl">
+       
+                <div class="jsx-b2349dd13b8a662b  m-4 " style="width:360px;display:flex" >
+                  
+                    <div class=" title">
+                        <a class="btn text-white d-flex justify-content-around "  asp-controller="ShowPavilionManagement" asp-action="GetPavilion" asp-route-id="@ViewBag.Products.PavilionId">
+                            <div class=" logo m-1 rounded" style="width:64px">
+                                <img src="~/images/@ViewBag.Products.PavilionImageSource" style="width:64px;height:auto;" alt="@ViewBag.Products.PavilionName" class="jsx-b2349dd13b8a662b">
+                            </div>
+                            <h1 > فروشگاه:  @ViewBag.Products.PavilionName</h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-details-top">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery product-gallery-vertical">
+                                <div class="row">
+                                    <figure class="product-main-image">
+                                        <img id="product-zoom" src="~/images/@ViewBag.Products.filePathSource.Split(",")[0]"
+                                             data-zoom-image="~/images/@ViewBag.Products.filePathSource.Split(",")[0]"
+                                             alt="تصویر محصول">
+                                    </figure><!-- End .product-main-image -->
+                                    <div id="product-zoom-gallery" class="product-image-gallery">
+                                        @foreach (var item in ViewBag.Products.filePathSource.Split(","))
+                                        {
+                                       
+                                                <img class="product-gallery-item active" src="~/images/@item"
+                                                     alt="توضیحات تصویر">
+                                      
+                                        }
+
+                                    </div><!-- End .product-image-gallery -->
+                                </div><!-- End .row -->
+                            </div><!-- End .product-gallery -->
+                        </div><!-- End .col-md-6 -->
+
+                        <div class="col-md-6">
+                            <div class="product-details">
+                                <h1 class="product-title">@ViewBag.Products.ProductName</h1>
+                                <!-- End .product-title -->
+
+                                <div class="product-price">
+
+                                    @ViewBag.Products.Price تومان
+                                </div>
+
+                                <div class="product-details-action">
+                                    @if (ViewBag.Products.IsActive == true)
+                                    {
+                                        <a  asp-controller="CustomerManagement" asp-action="AddToCart" asp-route-id="@ViewBag.Products.Id" class="btn-product btn-cart"><span>افزودن به سبد</span></a>
+
+                                    }
+                                    @if (ViewBag.Products.IsActive == false)
+                                    {
+                                        <a class="btn">این محصول موجود نیست، موجود شد خبرم کن.</a>
+                                    }
+
+
+
+                                </div><!-- End .product-details-action -->
+
+
+
+                            </div>
+
+                        </div><!-- End .product-details-action -->
+
+                    </div><!-- End .product-details -->
+                </div><!-- End .col-md-6 -->
+            </div><!-- End .row -->
+        </div><!-- End .product-details-top -->
+
+
+    </div><!-- End .container -->
+</div><!-- End .page-content -->

@@ -33,6 +33,8 @@ builder.Services.AddSingleton<Medal>(configs);
 // Add services to the container.
 builder.Services.AddDbContext<MarketContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ISellerRepository, SellerRepository>();
@@ -52,6 +54,7 @@ builder.Services.AddScoped<ICookieService, CookieService>();
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IIdGeneratorService, IdGeneratorService>();
 builder.Services.AddScoped<ISellerStatusService, SellerStatusService>();
+builder.Services.AddScoped<IDirectOrderService,DirectOrderService>();
 
 
 //builder.Services.AddScoped<IAuctionService, AuctionService>();
@@ -166,6 +169,11 @@ app.UseEndpoints(endpoint =>
    name: "Seller",
    areaName: "Seller",
    pattern: "{area:exists}/{controller=SellerManagement}/{action=Index}/{id?}");
+
+    app.MapAreaControllerRoute(
+name: "Customer",
+areaName: "Customer",
+pattern: "{area:exists}/{controller=ShowProductManagement}/{action=Index}/{id?}");
 
     app.MapControllerRoute(
     name: "default",

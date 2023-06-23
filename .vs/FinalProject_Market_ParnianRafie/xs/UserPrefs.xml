@@ -1,17 +1,6 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
-  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Repositories/Repository/ProductRepository/DirectOrderRepository.cs" relfile="Repositories/Repository/ProductRepository/DirectOrderRepository.cs" line="130" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" line="60" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Program.cs">
-    <Files>
-      <File FileName="FinalProject_Market/Program.cs" Line="181" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -19,8 +8,9 @@
             <Node name="01-Domain" expanded="True">
               <Node name="AppService" expanded="True">
                 <Node name="AppService" expanded="True">
-                  <Node name="Admin_" expanded="True" />
-                  <Node name="Seller" expanded="True" />
+                  <Node name="Admin_" expanded="True">
+                    <Node name="DirectOrderAppService.cs" selected="True" />
+                  </Node>
                 </Node>
               </Node>
               <Node name="Core" expanded="True">
@@ -34,10 +24,7 @@
                       <Node name="Product" expanded="True" />
                     </Node>
                   </Node>
-                  <Node name="DtoModels" expanded="True">
-                    <Node name="Auction" expanded="True" />
-                    <Node name="Product" expanded="True" />
-                  </Node>
+                  <Node name="Entity" expanded="True" />
                 </Node>
               </Node>
               <Node name="Service" expanded="True">
@@ -47,35 +34,10 @@
             <Node name="02-Infrastructure" expanded="True">
               <Node name="02-Repository" expanded="True">
                 <Node name="Repositories" expanded="True">
-                  <Node name="AutoMapper" expanded="True" />
                   <Node name="Repository" expanded="True">
                     <Node name="ProductRepository" expanded="True" />
                   </Node>
                 </Node>
-              </Node>
-            </Node>
-            <Node name="03-Endpoint" expanded="True">
-              <Node name="FinalProject_Market" expanded="True">
-                <Node name="Areas" expanded="True">
-                  <Node name="Admin" expanded="True">
-                    <Node name="Models" expanded="True">
-                      <Node name="ViewModels" expanded="True" />
-                    </Node>
-                    <Node name="Views" expanded="True">
-                      <Node name="Account" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="Seller" expanded="True">
-                    <Node name="Controllers" expanded="True" />
-                    <Node name="Views" expanded="True">
-                      <Node name="OrderManagemnet" expanded="True" />
-                      <Node name="ProductManagement" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-                <Node name="AutoMapper" expanded="True" />
-                <Node name="appsettings.json" expanded="True" />
-                <Node name="Program.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -84,4 +46,11 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" line="60" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

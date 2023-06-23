@@ -8,5 +8,6 @@ namespace AppService.Admin_
         Task<EditDirectOrderDto> GetDirectOrder(int id, CancellationToken cancellation);
         Task<bool> AcceptComment(int orderId, CancellationToken cancellation);
         Task<bool> RejectComment(int orderId, CancellationToken cancellation);
+        Task<bool> AddToCart(int productId, CancellationToken cancellation);
     }
 }

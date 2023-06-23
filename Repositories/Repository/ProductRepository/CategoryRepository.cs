@@ -40,7 +40,26 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<CategoryDtoModel> GetCategory(int id, CancellationToken cancellation)
         {
-            return _mapper.Map<CategoryDtoModel>( await _context.Categories.AsNoTracking().Where(p => p.Id == id).FirstOrDefaultAsync(cancellation)) ?? new CategoryDtoModel();
+            var x=  await _context.Categories.Where(c => c.Id == id).Select(c => new CategoryDtoModel()
+            {
+                Id = c.Id,
+                 ImageFile=c.ImageFile,
+                  Title=c.Title,
+                   productDtos=c.Products.Select(p=>new DetailedProductDto()
+                   {
+                        Id=p.Id,
+                        filePathSource=p.filePathSource,
+                        ProductName=p.ProductName,
+                        Price=p.Price,
+                        PavilionName=p.User.Pavilions.FirstOrDefault(pl=>pl.Id==p.PavilionId).Title,
+                        PavilionId= p.User.Pavilions.FirstOrDefault(pl => pl.Id == p.PavilionId).Id
+
+                   }).ToList()
+                   
+          
+
+            }).FirstOrDefaultAsync(cancellation) ?? new CategoryDtoModel();
+            return x;
         }
 
         public async Task<bool> EditCategory(CategoryDtoModel categoryDto, CancellationToken cancellation)

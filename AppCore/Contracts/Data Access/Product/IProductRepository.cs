@@ -17,5 +17,7 @@ namespace Repositories.Repository.ProductRepository
         Task<List<DetailedProductDto>> GetAllProductsInSpecificPavilion(CancellationToken cancellation, int pavilionId);
         Task<bool> RejectProduct(int id, CancellationToken cancellation);
         Task<bool> RemoveProduct(int id, CancellationToken cancellation);
+        Task<List<DetailedProductDto>> GetCategoryProducts(int categoryId, CancellationToken cancellation);
+        Task<Product> GetEntityProduct(int id, CancellationToken cancellation);
     }
 }

@@ -37,6 +37,7 @@ public class AccountServices : IAccountServices
         string id = _userManager.GetUserId(_httpContextAccessor.HttpContext.User) ?? "0";
         return int.Parse(id);
     }
+
     public bool HasMedal(User user)
     {
         return user.HasMedal;
@@ -50,6 +51,7 @@ public class AccountServices : IAccountServices
     {
 
     }
+
     public async Task<IEnumerable<IdentityError>> CreateUser(User user, string password)
     {
         IdentityResult createResult=await _userManager.CreateAsync(user, password);

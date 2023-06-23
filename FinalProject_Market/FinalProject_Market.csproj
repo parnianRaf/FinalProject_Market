@@ -27,7 +27,14 @@
     <None Remove="Areas\Seller\Views\SellerManagement\" />
     <None Remove="Areas\Seller\Views\Shared\" />
     <None Remove="Areas\Seller\Views\PavilionManagement\" />
-    <None Remove="Configuration\" />
+    <None Remove="Areas\Customer\" />
+    <None Remove="Areas\Customer\Controllers\" />
+    <None Remove="Areas\Customer\Models\" />
+    <None Remove="Areas\Customer\Views\" />
+    <None Remove="Areas\Customer\Views\ShowProductManagement\" />
+    <None Remove="Areas\Customer\Models\ViewModels\" />
+    <None Remove="Areas\Customer\Views\ShowPavilionManagement\" />
+    <None Remove="Areas\Customer\Views\CustomerManagement\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -97,7 +104,14 @@
     <Folder Include="wwwroot\images\" />
     <Folder Include="Areas\Seller\Views\PavilionManagement\" />
     <Folder Include="wwwroot\images\Categories\" />
-    <Folder Include="Configuration\" />
+    <Folder Include="Areas\Customer\" />
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Models\" />
+    <Folder Include="Areas\Customer\Views\" />
+    <Folder Include="Areas\Customer\Views\ShowProductManagement\" />
+    <Folder Include="Areas\Customer\Models\ViewModels\" />
+    <Folder Include="Areas\Customer\Views\ShowPavilionManagement\" />
+    <Folder Include="Areas\Customer\Views\CustomerManagement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />

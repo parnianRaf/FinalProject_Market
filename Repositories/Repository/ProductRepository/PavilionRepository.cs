@@ -83,6 +83,7 @@ namespace Repositories.Repository.ProductRepository
                       IsDeleted=p.IsDeleted,
                        SellerName=p.User.FullNameToString(),
                         Title=p.Title,
+                        ImageFile=p.ImageFile,
                          ProductDtos=p.User.Products.Where(pr=>pr.PavilionId==p.Id).Select(p=>new DetailedProductDto()
                          {
                              Id = p.Id,

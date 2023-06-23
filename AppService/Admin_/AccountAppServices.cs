@@ -86,7 +86,10 @@ namespace AppService.Admin_.Command
         //    return false;
 
         //}
-
+        public int GetUserId()
+        {
+            return _accountService.GetCurrentUser();
+        }
         public async Task<bool> LogIn(string role, LogInUser userDto, bool IsRememberMe)
         {
             bool signInResult = false;
@@ -114,9 +117,9 @@ namespace AppService.Admin_.Command
 
         }
 
-        public async Task<T> GetUserProfile<T>(int id, CancellationToken cancellation)
+        public async Task<T> GetUserProfile<T>( CancellationToken cancellation)
         {
-            User user = await _accountService.GetUser(id);
+            User user =await _userManager.FindByIdAsync( _accountService.GetCurrentUser().ToString()) ?? new User();
             var userDto = _mapService.MapUser<T>(user);
             return userDto;
         }
@@ -146,6 +149,12 @@ namespace AppService.Admin_.Command
         public async Task<T> GetUser<T>(int id, CancellationToken cancellation)
         {
             User user = await _accountService.GetUser(id);
+            return _mapService.MapUser<T>(user);
+        }
+
+        public async Task<T> GetUser<T>( CancellationToken cancellation)
+        {
+            User user = await _accountService.GetUser(_accountService.GetCurrentUser());
             return _mapService.MapUser<T>(user);
         }
 

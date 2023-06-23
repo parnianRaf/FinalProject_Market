@@ -75,6 +75,10 @@ namespace AppService.Admin_
             return await _productRepository.GetAllProducts(cancellation, sellerId);
         }
 
+        public async Task<List<DetailedProductDto>> GetCategoryProducts(int categoryId,CancellationToken cancellation)
+        {
+            return await _productRepository.GetCategoryProducts(categoryId, cancellation);
+        }
 
 
 
@@ -113,7 +117,10 @@ namespace AppService.Admin_
 
 
 
-
+        public async Task<Product> GetEntityProduct(int id, CancellationToken cancellation)
+        {
+            return await  _productRepository.GetEntityProduct(id, cancellation);
+        }
 
         public async Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation)
         {
