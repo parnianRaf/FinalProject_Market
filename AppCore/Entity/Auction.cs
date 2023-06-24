@@ -57,6 +57,8 @@ public class Auction
     public int? DeleteBy { get; set; }
 
     public DateTime? DeleteAt { get; set; }
+
+    public bool? IsActive { get; set; }
     #endregion
 
     #region Navigation Property

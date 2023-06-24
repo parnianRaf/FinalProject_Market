@@ -28,14 +28,23 @@ namespace Repositories.Repository.ProductRepository
         #region Implementation
 
         //dar buissines barname gofte shavad ke harmoghe offer sabt shod moghayese sorat girad.
-        public async Task AddOffer(AddOfferDto offerDto, CancellationToken cancellation)
+        public async Task AddOffer(int offerId,User customer,DetailedOfferDto offerDto, CancellationToken cancellation)
         {
             Offer offer = _mapper.Map<Offer>(offerDto);
-            offer.CreatedAt = DateTime.Now;
-            //offer.CreatedBy= .
-            _context.Offers.Add(offer);
+            Auction auction = _mapper.Map<Auction>(offerDto.Auction);
+            offer.UserId = customer.Id;
+            offer.User = customer;
+            auction.Offers.Add(offer);
+            customer.Offers.Add(offer);
+            _context.Add(offer);
+            _context.Update(auction);
+            _context.Update(customer);
             await _context.SaveChangesAsync(cancellation);
+        }
 
+        public async Task<Offer> GetAcceptedOffer(CancellationToken cancellation)
+        {
+            return await _context.Offers.Where(o => o.IsAccepted).FirstOrDefaultAsync(cancellation)?? new Offer();
         }
 
         //moghe buissiness hatman baiad havasemon bashe ke datetime now o start auction moghayese shavad
@@ -55,7 +64,10 @@ namespace Repositories.Repository.ProductRepository
             return await _context.Offers.Where(o => o.AuctionId == auctionId).ToListAsync(cancellation);
         }
 
-
+        public async Task<List<T>> GetAllOffers<T>(CancellationToken cancellation)
+        {
+            return  _mapper.Map<List<T>>(await _context.Offers.ToListAsync(cancellation));
+        }
 
         //public async Task<bool> EditOffer(EditOfferDto offerDto, CancellationToken cancellation)
         //{
@@ -95,7 +107,6 @@ namespace Repositories.Repository.ProductRepository
         //    }
         //    return false;
 
-        //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
         //public async Task<List<DetailedOfferDto>> GetAllOffers(CancellationToken cancellation, int customerId)
         //{
         //    List<Offer> offers = await _context.Offers.Where(p => p.CustomerId == customerId).ToListAsync(cancellation);

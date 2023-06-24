@@ -35,6 +35,7 @@
     <None Remove="Areas\Customer\Models\ViewModels\" />
     <None Remove="Areas\Customer\Views\ShowPavilionManagement\" />
     <None Remove="Areas\Customer\Views\CustomerManagement\" />
+    <None Remove="BackGroundServices\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -112,6 +113,7 @@
     <Folder Include="Areas\Customer\Models\ViewModels\" />
     <Folder Include="Areas\Customer\Views\ShowPavilionManagement\" />
     <Folder Include="Areas\Customer\Views\CustomerManagement\" />
+    <Folder Include="BackGroundServices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />

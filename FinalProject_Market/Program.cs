@@ -9,6 +9,7 @@ using AppService.Admin_;
 using AppService.Admin_.Command;
 using AppService.Seller.Query;
 using AppSqlDataBase;
+using FinalProject_Market.BackGroundServices;
 using FinalProject_Market.Cache;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,7 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.Development.json",false,true)
     .AddJsonFile("appsettings.json");
 
-
+builder.Services.AddHostedService<AuctionBackGroundService>();
 
 var configs=builder.Configuration.GetSection("Medal").Get<Medal>();
 builder.Services.AddSingleton<Medal>(configs);
@@ -55,7 +56,7 @@ builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IIdGeneratorService, IdGeneratorService>();
 builder.Services.AddScoped<ISellerStatusService, SellerStatusService>();
 builder.Services.AddScoped<IDirectOrderService,DirectOrderService>();
-
+builder.Services.AddScoped<IOfferService, OfferService>();
 
 //builder.Services.AddScoped<IAuctionService, AuctionService>();
 //builder.Services.AddScoped<IProductService, ProductService>();

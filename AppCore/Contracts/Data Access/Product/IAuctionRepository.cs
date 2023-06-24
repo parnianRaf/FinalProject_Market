@@ -9,8 +9,11 @@ namespace Repositories.Repository.ProductRepository
         Task<bool> AcceptComment(int auctionId, CancellationToken cancellation);
         Task AddAuction(int id, int sellerId, List<Product> products, Auction auction, CancellationToken cancellation);
         Task<bool> AddCommentByCustomer(int auctionId, int customerId, string comment, CancellationToken cancellation);
+        Task UpdateAuction(Auction auction, CancellationToken cancellation);
         Task<bool> EditAuction(EditAuctionDto auctionDto, CancellationToken cancellation);
         Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation);
+        Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
+        Task<List<DetailedAuctionDto>> GetAllAvailableAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllPaidOrUnPaidAuctions(CancellationToken cancellation);
         Task<Auction> GetAuction(int id, CancellationToken cancellation);

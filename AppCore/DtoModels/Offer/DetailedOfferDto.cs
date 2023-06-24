@@ -1,4 +1,6 @@
 ﻿using System;
+using AppCore.DtoModels.Auction;
+
 namespace AppCore.DtoModels.Offer
 {
 	public class DetailedOfferDto
@@ -14,6 +16,8 @@ namespace AppCore.DtoModels.Offer
         public DateTime SubmitAt { get; set; }
 
         public bool IsAccepted { get; set; }
+
+        public virtual DetailedAuctionDto Auction { get; set; }
 
     }
 }

@@ -6,133 +6,77 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0799f51-9af6-4b58-b8ed-0634b4b54f43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FinalProject_Market/wwwroot/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject_Market_ParnianRafie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject_Market_ParnianRafie/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/UserPrefs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/AppCore-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/AppCore-Debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/AppService-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/AppService-Debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/AppSqlDataBase-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/AppSqlDataBase-Debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/Data Access/User/IAdminRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/Data Access/User/IAdminRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/Data Access/User/ICustomerRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/Data Access/User/ISellerRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/Entity/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/Entity/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/bin/Debug/net7.0/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/bin/Debug/net7.0/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/bin/Debug/net7.0/AppCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/bin/Debug/net7.0/AppCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/AppCore.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/AppCore.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/AppCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/ref/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/ref/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/refint/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/Debug/net7.0/refint/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppCore/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/FinalProject_Market-Debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FinalProject_Market_ParnianRafie/xs/project-cache/FinalProject_Market-Debug.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppCore/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/AppCore/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/AppService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/AppService.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppService.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppSqlDataBase.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/AppSqlDataBase.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/bin/Debug/net7.0/Repositories.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppService/obj/AppService.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/AppService.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/AppService.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/ref/AppService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/ref/AppService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/refint/AppService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/Debug/net7.0/refint/AppService.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppService/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppService/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/AppService/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/Configurations/WalletEntityConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/Configurations/WalletEntityConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/Migrations/20230527210214_init.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/Migrations/20230527210214_init.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/Migrations/MarketContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppSqlDataBase.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/bin/Debug/net7.0/AppSqlDataBase.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/AppSqlDataBase.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/AppSqlDataBase.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/AppSqlDataBase.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/ref/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/ref/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/refint/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/Debug/net7.0/refint/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppSqlDataBase/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/AppSqlDataBase/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/Models/ViewModels/LogInViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/Models/ViewModels/LogInViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtensionMethods/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ExtensionMethods/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/Cache/Product.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/FinalProject_Market.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/FinalProject_Market.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/Views/Admin/LogIn.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/Views/Admin/LogIn.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppService.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppService.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppSqlDataBase.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/AppSqlDataBase.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/FinalProject_Market.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/FinalProject_Market.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/FinalProject_Market.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/FinalProject_Market.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/FinalProject_Market.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/FinalProject_Market.staticwebassets.runtime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Repositories.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/Service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/bin/Debug/net7.0/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/FinalProject_Market.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/ref/FinalProject_Market.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/ref/FinalProject_Market.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/refint/FinalProject_Market.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/refint/FinalProject_Market.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets.pack.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets.pack.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets/msbuild.FinalProject_Market.Microsoft.AspNetCore.StaticWebAssets.props" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/Debug/net7.0/staticwebassets/msbuild.FinalProject_Market.Microsoft.AspNetCore.StaticWebAssets.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/FinalProject_Market.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/FinalProject_Market.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FinalProject_Market/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FinalProject_Market_ParnianRafie.sln" beforeDir="false" afterPath="$PROJECT_DIR$/FinalProject_Market_ParnianRafie.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Repository/UserRepository/AdminRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repository/UserRepository/AdminRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Repository/UserRepository/ToDo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repository/UserRepository/ToDo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppCore.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppCore.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppSqlDataBase.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppSqlDataBase.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppSqlDataBase.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/AppSqlDataBase.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/bin/Debug/net7.0/Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/ref/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/ref/Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/refint/Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Debug/net7.0/refint/Repositories.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/obj/Repositories.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/Repositories.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/AccountServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/AccountServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/bin/Debug/net7.0/Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Service/bin/Debug/net7.0/Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/bin/Debug/net7.0/Service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Service/bin/Debug/net7.0/Service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/obj/Debug/net7.0/Service.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Service/obj/Debug/net7.0/Service.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/obj/Debug/net7.0/Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Service/obj/Debug/net7.0/Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/obj/Debug/net7.0/Service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Service/obj/Debug/net7.0/Service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/obj/Debug/net7.0/ref/Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Service/obj/Debug/net7.0/ref/Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/obj/Debug/net7.0/refint/Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Service/obj/Debug/net7.0/refint/Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/obj/Service.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Service/obj/Service.csproj.nuget.g.props" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="2QOpqLr0XJb1A8y8E34OZ59yV1T" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/parnianrafei/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
-      "/Users/parnianrafei/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
-      "/Users/parnianrafei/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/parnianrafei/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/parnianrafei/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/parnianrafei/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.FinalProject_Market: http">
     <configuration name="FinalProject_Market: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/FinalProject_Market/FinalProject_Market.csproj" />
@@ -174,6 +118,11 @@
       <option name="presentableId" value="Default" />
       <updated>1685234674636</updated>
       <workItem from="1685234676075" duration="95000" />
+      <workItem from="1686594796494" duration="149000" />
+      <workItem from="1686597157482" duration="70000" />
+      <workItem from="1686597464244" duration="65000" />
+      <workItem from="1686598163053" duration="128000" />
+      <workItem from="1686598573819" duration="100000" />
     </task>
     <servers />
   </component>
@@ -182,24 +131,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/FinalProject_Market/Controllers/AdminController.cs</url>
-          <line>39</line>
-          <properties documentPath="$PROJECT_DIR$/FinalProject_Market/Controllers/AdminController.cs" initialLine="39" containingFunctionPresentation="Method 'SeedData'">
-            <startOffsets>
-              <option value="866" />
-            </startOffsets>
-            <endOffsets>
-              <option value="900" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

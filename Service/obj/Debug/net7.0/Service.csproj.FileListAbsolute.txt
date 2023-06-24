@@ -1,8 +1,3 @@
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.csproj.AssemblyReference.cache
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.GeneratedMSBuildEditorConfig.editorconfig
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.AssemblyInfoInputs.cache
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.AssemblyInfo.cs
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.csproj.CoreCompileInputs.cache
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/bin/Debug/net7.0/Service.deps.json
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/bin/Debug/net7.0/Service.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/bin/Debug/net7.0/Service.pdb
@@ -14,6 +9,11 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/bin/Debug/net7.0/Repositories.pdb
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/bin/Debug/net7.0/AppSqlDataBase.pdb
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/bin/Debug/net7.0/ExtensionMethods.pdb
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.csproj.AssemblyReference.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.GeneratedMSBuildEditorConfig.editorconfig
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.AssemblyInfoInputs.cache
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.AssemblyInfo.cs
+/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.csproj.CoreCompileInputs.cache
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.csproj.CopyComplete
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/Service.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/obj/Debug/net7.0/refint/Service.dll
