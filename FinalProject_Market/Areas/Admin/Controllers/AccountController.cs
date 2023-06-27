@@ -34,19 +34,20 @@ namespace FinalProject_Market.Controllers
         private readonly IMapper _mapper;
         private readonly IProductAppService _productAppService;
         private readonly IPavilionAppService _pavilionAppService;
+        private readonly IDirectOrderAppService _directOrder;
 
-        
         #endregion
 
         #region ctor
         public AccountController(IAccountAppServices account,
             IMapper mapper, IProductAppService productAppService,
-            IPavilionAppService pavilionAppService)
+            IPavilionAppService pavilionAppService, IDirectOrderAppService directOrder)
         {
             _account = account;
             _mapper = mapper;
             _productAppService = productAppService;
             _pavilionAppService = pavilionAppService;
+            _directOrder = directOrder;
         }
         #endregion
 
@@ -54,7 +55,9 @@ namespace FinalProject_Market.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index(CancellationToken cancellation)
         {
+            ViewBag.Products = await _productAppService.GetFirstPageProducts(cancellation);
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart =await _directOrder.GetCurrentDirectOrder(cancellation);
             return View();
         }
 

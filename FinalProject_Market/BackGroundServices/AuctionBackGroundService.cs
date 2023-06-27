@@ -8,7 +8,7 @@ namespace FinalProject_Market.BackGroundServices
     {
         private readonly IServiceProvider _serviceProvider;
 
-        public AuctionBackGroundService( IServiceProvider serviceProvider)
+        public AuctionBackGroundService(IServiceProvider serviceProvider)
         {
 
             _serviceProvider = serviceProvider;
@@ -18,16 +18,30 @@ namespace FinalProject_Market.BackGroundServices
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                using(IServiceScope service = _serviceProvider.CreateScope())
+                using (IServiceScope service = _serviceProvider.CreateScope())
                 {
-                    var _auction= service.ServiceProvider.GetRequiredService<IAuctionAppService>();
-                    List<Auction> auctions = await _auction.GetAllEntityAuction(stoppingToken);
-                    auctions.ForEach(a =>
+                    var _auction = service.ServiceProvider.GetRequiredService<IAuctionAppService>();
+                 
+                    try
                     {
-                        a.IsActive = (a.StartTime < DateTime.Now && DateTime.Now < a.EndTime);
-                        _auction.UpdateAuction(a, stoppingToken);
-                    });
+                        List<Auction> auctions = await _auction.GetAllEntityAuction();
+                        auctions.ForEach(a =>
+                        {
+                            a.IsActive = (a.StartTime < DateTime.Now && DateTime.Now < a.EndTime);
+                            _auction.UpdateAuction(a, stoppingToken);
+                        });
+
+                    }
+                    catch (Exception ex)
+                    {
+                        var x = ex.Message;
+                       
+                    }
+ 
+   
                 }
+
+                await Task.Delay(TimeSpan.FromMinutes(30));
 
             }
         }

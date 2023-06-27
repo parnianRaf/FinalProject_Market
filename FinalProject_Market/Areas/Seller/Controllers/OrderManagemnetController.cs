@@ -7,7 +7,6 @@ using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AppService.Admin_;
 using AutoMapper;
-using FinalProject_Market.Cache;
 using FinalProject_Market.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,19 +25,17 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         private readonly IDirectOrderAppService _directOrderAppService;
         private readonly IProductAppService _productAppService;
         private readonly IMapper _mapper;
-        private readonly Medal _medal;
+        //private readonly Medal _medal;
         #endregion
 
         #region ctor
         public OrderManagemnetController(IAuctionAppService auctionAppService,
             IDirectOrderAppService directOrderAppService,
-            Medal medal,
             IProductAppService productAppService,
             IMapper mapper)
         {
             _auctionAppService = auctionAppService;
             _directOrderAppService = directOrderAppService;
-            _medal = medal;
             _productAppService = productAppService;
             _mapper = mapper;
         }
@@ -119,9 +116,9 @@ namespace FinalProject_Market.Areas.Admin.Controllers
 
         public async Task<IActionResult> AuctionOperation(int auctionId,CancellationToken cancellation)
         {
-            var x = _medal.MedalDiscount;
-            var y = _medal.MedalPrice;
-            await _auctionAppService.AuctionOperation(auctionId, cancellation, y);
+            //var x = _medal.MedalDiscount;
+            //var y = _medal.MedalPrice;
+            //await _auctionAppService.AuctionOperation(auctionId, cancellation);
             
             return View();
         }

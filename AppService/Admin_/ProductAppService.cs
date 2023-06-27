@@ -80,7 +80,11 @@ namespace AppService.Admin_
             return await _productRepository.GetCategoryProducts(categoryId, cancellation);
         }
 
-
+        public async Task<List<DetailedProductDto>> GetFirstPageProducts(CancellationToken cancellation)
+        {
+            List<DetailedProductDto> productDtos = await _productRepository.GetAllProducts(cancellation);
+            return productDtos.Skip(29).Take(6).ToList();
+        }
 
 
 

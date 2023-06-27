@@ -183,9 +183,9 @@ namespace Repositories.Repository.ProductRepository
             return result;
         }
 
-        public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)
+        public async Task<List<Auction>> GetAllEntityAuction()
         {
-            return await _context.Auctions.ToListAsync(cancellation);
+            return await _context.Auctions.ToListAsync();
         }
         //tamame auctionhaye tamam shode
         public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation)

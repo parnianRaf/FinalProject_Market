@@ -3,6 +3,7 @@ using AppCore.DtoModels.DirectOrder;
 using System.Reflection.Emit;
 using Repositories.Repository.ProductRepository;
 using AppCore;
+using System.Collections.Generic;
 
 namespace Service
 {
@@ -15,30 +16,25 @@ namespace Service
             _directOrderRepository = directOrderRepository;
         }
 
-        public async Task AddOrder(int orderId,User customer,Product product,CancellationToken cancellation)
+        public async Task<DirectOrder> AddOrder(int orderId,User customer,Product product,CancellationToken cancellation)
         {
-            await _directOrderRepository.AddDirectOrder(orderId, customer, product, cancellation);
+           return await _directOrderRepository.AddDirectOrder(orderId, customer, product, cancellation);
         }
 
-        public async Task AddProductToOrderList(Product product, DirectOrder order, CancellationToken cancellation)
+        public async Task AddProductToOrderList(User user,Product product, DirectOrder order, CancellationToken cancellation)
         {
             decimal totalPrice = (decimal)(order.TotalPrice +product.Price);
-            await _directOrderRepository.AddProductToOrderList(product, order, totalPrice, cancellation);
+            await _directOrderRepository.AddProductToOrderList(user,product, order, totalPrice, cancellation);
         }
 
-        public bool IsExistCurrentUnPaidOrder(User user)
-        {
-            var x = user.DirectOrders.Where(d => !d.IsPaid).Any();
-            return x;
-        }
+        //public async Task<bool> IsExistCurrentUnPaidOrder(int  userId,CancellationToken cancellation)
+        //{
+
+        //}
 
         public bool IsAllowed(Product product, DirectOrder order)
         {
-            if(product.IsActive)
-            {
-                 return (product.UserId == order.SellerId);
-            }
-            return false;
+            return product.UserId == order.SellerId;
         }
 
         public async Task<List<DetailedDirctOrderDto>> GetAllDirectOrder(CancellationToken cancellation)
@@ -46,9 +42,15 @@ namespace Service
             return await _directOrderRepository.GetAllPaidOrders(cancellation);
         }
 
-        public DirectOrder GetUnPaidDirectOrder(User customer)
+        public async Task<DirectOrder> GetUnPaidDirectOrder(int customerId,CancellationToken cancellation)
         {
-            return customer.DirectOrders.Where(o => !o.IsPaid).FirstOrDefault() ?? new DirectOrder();
+            DirectOrder order= await _directOrderRepository.GetCurrentCustomerDirectOrders(customerId, cancellation);
+            return order;
+        }
+
+        public async Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation)
+        {
+            return await _directOrderRepository.GetCart(orderId, cancellation);
         }
 
         public async Task<DirectOrder> GetEntityDirectOrder(int id, CancellationToken cancellation)
@@ -61,6 +63,11 @@ namespace Service
             return await _directOrderRepository.GetOrer<EditDirectOrderDto>(id, cancellation);
         }
 
+        public async Task SubmitOrder(DirectOrder order,CancellationToken cancellation)
+        {
+            await _directOrderRepository.UpdateSubmitOrder(order,cancellation);
+        }
+
         public async Task<bool> AcceptComment(int orderId, CancellationToken cancellation)
         {
             return await _directOrderRepository.AcceptComment(orderId, cancellation);
@@ -70,6 +77,7 @@ namespace Service
         {
             return await _directOrderRepository.RejectComment(orderId, cancellation);
         }
+
     }
 }
 

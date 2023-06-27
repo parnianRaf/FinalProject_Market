@@ -1,0 +1,150 @@
+﻿@using AppCore.DtoModels.DirectOrder;
+
+
+@model DirectOrderCartDto
+
+
+
+
+<section class="invoice2">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="invoice-popup">
+                    <div>
+                        <div class="row invoice-header">
+                            <div class="col-6">
+                                <div class="header-invoice-right">
+                                    <div class="brand-logo">
+                                        <a href="../index-1.html">
+                                            <img src="~/assets/images/logo.png" class="img-fluid" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="invoice-to">
+                                        <ul>
+                                            <li>
+                                                <h4>فاکتور برای:</h4>
+                                            </li>
+                                            <li>
+                                                <h3>@Model.CustomerFullName</h3>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="header-invoice-left">
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                <i class="icon-map-marker"></i>
+                                            </span>
+                                            @Model.SellerName
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="header-contain">
+                                    <div class="invoice-text">
+                                        فاکتور
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row invoice-breadcrumb">
+                            <div class="col-12">
+                                <div class="invoice-contain">
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                <h6>تاریخ فاکتور : </h6>
+                                                <h5>@Model.FactorDate</h5>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <h6>
+                                                    تاریخ انقضا : </h4>
+                                                    <h5>@Model.FactorExpireDate</h5>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div>
+                                                <h6>مبلغ نهایی : </h6>
+                                                <h5>@Model.TotalPrice تومان</h5>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive-md">
+                            <table class="invoice-table ">
+                                <thead>
+                                    <tr>
+                                        <th>شماره</th>
+                                        <th>جزئیات آیتم</th>
+                                        <th>تعداد</th>
+                                        <th>قیمت</th>
+                                        <th>مجموع</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.ProductDtos)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>
+                                                <h3>
+                                                    @item.ProductName
+                                                </h3>
+
+                                            </td>
+                                            <td>1</td>
+                                            <td>@item.Price تومان</td>
+                                            <td>@item.Price تومان</td>
+                                        </tr>
+
+                                    }
+
+
+                                </tbody>
+                            </table>
+                            <div class="invoice-total">
+                                <div class="row">
+                                    <div class="col-md-4 offset-8">
+                                        <div class="total-right">
+                                            <ul>
+                                                <li>
+                                                    جمع فاکتور
+                                                    <span>@Model.TotalPrice تومان</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row print-bar justify-content-end">
+                                <div class="col-md-6">
+                                    <div class="printbar-right">
+                                        <button id="printinvoice" class="btn btn-solid btn-md ">
+                                            چاپ فاکتور
+                                        </button>
+                                        <button asp-controller="CustomerManagement" asp-area="" class="btn btn-solid btn-md ">
+                                            چاپ فاکتور
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

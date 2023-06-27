@@ -86,10 +86,12 @@ namespace AppService.Admin_.Command
         //    return false;
 
         //}
+
         public int GetUserId()
         {
             return _accountService.GetCurrentUser();
         }
+
         public async Task<bool> LogIn(string role, LogInUser userDto, bool IsRememberMe)
         {
             bool signInResult = false;
@@ -162,6 +164,12 @@ namespace AppService.Admin_.Command
         {
             User user = await _accountService.GetUser(userDto.Id);
             return await _accountService.UpdateUser(user, userDto);
+        }
+
+        public async Task UpdateUser(User user, CancellationToken cancellation)
+        {
+            await _userManager.UpdateAsync(user);
+
         }
 
         public async Task<bool> SeedAdminData()

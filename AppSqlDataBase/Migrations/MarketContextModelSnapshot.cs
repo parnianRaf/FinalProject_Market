@@ -60,6 +60,9 @@ namespace AppSqlDataBase.Migrations
                     b.Property<DateTime?>("FinishedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsCommentAcceptedByAdmin")
                         .HasColumnType("bit");
 

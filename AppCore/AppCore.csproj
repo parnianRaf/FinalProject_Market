@@ -26,7 +26,7 @@
       <None Remove="Contracts\AppServices\Admin\" />
       <None Remove="Contracts\Services\" />
       <None Remove="Contracts\AppServices\Account\" />
-      <None Remove="Configuration\" />
+      <None Remove="DtoModels\Comment\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -41,6 +41,6 @@
       <Folder Include="Contracts\AppServices\Admin\" />
       <Folder Include="Contracts\Services\" />
       <Folder Include="Contracts\AppServices\Account\" />
-      <Folder Include="Configuration\" />
+      <Folder Include="DtoModels\Comment\" />
     </ItemGroup>
 </Project>

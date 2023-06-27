@@ -12,6 +12,7 @@ namespace AppService.Admin_
         //Task<List<string>> GetAllProductNames(CancellationToken cancellation);
         Task<bool> EditProduct(DetailedProductDto productDto, CancellationToken cancellation);
         Task<List<DetailedProductDto>> GetAllProducts(int sellerId, CancellationToken cancellation);
+        Task<List<DetailedProductDto>> GetFirstPageProducts(CancellationToken cancellation);
         Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation);
         Task<Product> GetEntityProduct(int id, CancellationToken cancellation);
         Task<bool> RemoveProduct(int id, CancellationToken cancellation);

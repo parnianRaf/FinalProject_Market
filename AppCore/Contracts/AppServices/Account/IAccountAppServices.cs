@@ -1,4 +1,5 @@
-﻿using AppCore.DtoModels.Seller;
+﻿using AppCore;
+using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using Microsoft.AspNetCore.Identity;
 
@@ -17,6 +18,7 @@ namespace AppService.Admin_.Command
         Task<IEnumerable<IdentityError>> Register(string role, AddUserDto userDto);
         Task<bool> SeedAdminData();
         Task<bool> UpdateUser(EditUserDto userDto, CancellationToken cancellation);
+        Task UpdateUser(User user, CancellationToken cancellation);
         Task<T> GetUser<T>(CancellationToken cancellation);
         int GetUserId();
     }

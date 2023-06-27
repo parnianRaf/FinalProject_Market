@@ -145,66 +145,57 @@
                                aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <div class="icon">
                                     <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count">2</span>
+                                    <span class="cart-count">@ViewBag.Cart.ProductDtos.Count</span>
                                 </div>
                                 <p>سبد خرید</p>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">کتونی ورزشی مخصوص دویدن رنگ بژ</a>
-                                            </h4>
+                                    @foreach (var item in ViewBag.Cart.ProductDtos)
+                                    {
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a>@item.ProductName</a>
+                                                </h4>
 
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1 x </span>
-                                                84,000 تومان
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1 x </span>
+                                                    @item.Price تومان
+                                                </span>
+                                            </div><!-- End .product-cart-details -->
 
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="assets/images/products/cart/product-1.jpg" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="حذف محصول"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
+                                            <figure class="product-image-container">
+                                                <a class="product-image">
+                                                    <img src="~/images/@item.filePathSource.Split(',')[0]" alt="product">
+                                                </a>
+                                            </figure>
+                                            <a class="btn-remove" title="حذف محصول"><i class="icon-close"></i></a>
+                                        </div><!-- End .product -->
 
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">لباس زنانه آبی</a>
-                                            </h4>
+                                    }
 
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1 x </span>
-                                                76,000 تومان
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
 
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="assets/images/products/cart/product-2.jpg" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="حذف محصول"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
                                 </div><!-- End .cart-product -->
 
                                 <div class="dropdown-cart-total">
                                     <span>مجموع</span>
 
-                                    <span class="cart-total-price">160,000 تومان</span>
+                                    <span class="cart-total-price">@ViewBag.Cart.TotalPrice تومان</span>
                                 </div><!-- End .dropdown-cart-total -->
+                                @if ((ViewBag.Cart.ProductDtos.Count>0))
+                                {
+                                    <div class="dropdown-cart-action">
+                                        <a asp-area="customer" asp-controller="CustomerManagement" asp-action="GetCart" asp-route-id="@ViewBag.Cart.Id" class="btn btn-primary">مشاهده سبد خرید</a>
+                                        <a class="btn btn-outline-primary-2">
+                                            <span>پرداخت</span><i class="icon-long-arrow-left"></i>
+                                        </a>
+                                    </div><!-- End .dropdown-cart-total -->
 
-                                <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">مشاهده سبد خرید</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2">
-                                        <span>پرداخت</span><i class="icon-long-arrow-left"></i>
-                                    </a>
-                                </div><!-- End .dropdown-cart-total -->
+                                }
+
+
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
 

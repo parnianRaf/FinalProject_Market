@@ -10,7 +10,6 @@ using AppCore.DtoModels.User;
 using AppService.Admin_;
 using AppService.Admin_.Command;
 using AutoMapper;
-using FinalProject_Market.Cache;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,15 +25,13 @@ namespace FinalProject_Market.Areas.Seller.Controllers
         private readonly IPavilionAppService _pavilionService;
         private readonly IAccountAppServices _accountAppService;
         private readonly IMapper _mapper;
-        private readonly Medal _medal;
         #endregion
 
 
         #region ctor
-        public SellerManagementController(IPavilionAppService pavilionService, Medal medal, IAccountAppServices accountAppService, IMapper mapper)
+        public SellerManagementController(IPavilionAppService pavilionService,IAccountAppServices accountAppService, IMapper mapper)
         {
             _pavilionService = pavilionService;
-            _medal = medal;
             _accountAppService = accountAppService;
             _mapper = mapper;
         }

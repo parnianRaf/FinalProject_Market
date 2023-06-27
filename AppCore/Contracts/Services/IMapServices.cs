@@ -1,4 +1,5 @@
 ﻿using AppCore.DtoModels.Category;
+using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 
 namespace AppCore.Contracts.AppServices.Account
@@ -11,5 +12,6 @@ namespace AppCore.Contracts.AppServices.Account
         List<CategoryDtoModel> MapCategory(List<Category> categories);
         Product MapProduct(AddProductDto productDto);
         Category MapCategory(CategoryDtoModel categories);
+        EditDirectOrderDto MapOrder(DirectOrder order);
     }
 }

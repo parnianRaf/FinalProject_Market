@@ -168,6 +168,7 @@ namespace Repositories.Repository.ProductRepository
         {
             return await _context.Products.Where(p => p.Id == id).AsNoTracking().FirstOrDefaultAsync(cancellation) ?? new Product();
         }
+
         public async Task<List<DetailedProductDto>> GetAllProducts(CancellationToken cancellation, int SellerId) 
         {
             List<DetailedProductDto> productDtos =await  _context.Products.Where(p => p.UserId == SellerId).AsNoTracking().Select(o => new DetailedProductDto()

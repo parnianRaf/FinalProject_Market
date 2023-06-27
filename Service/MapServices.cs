@@ -1,6 +1,7 @@
 ﻿using System;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Category;
+using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -53,6 +54,11 @@ namespace AppCore.Contracts.AppServices.Account
         public Auction MapAuction(AddAuctionDto auctionDto)
         {
             return _mapper.Map<Auction>(auctionDto);
+        }
+
+        public EditDirectOrderDto MapOrder(DirectOrder order)
+        {
+            return _mapper.Map<EditDirectOrderDto>(order);
         }
 
     }

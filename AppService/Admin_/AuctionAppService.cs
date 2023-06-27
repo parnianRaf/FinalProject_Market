@@ -96,9 +96,9 @@ namespace AppService.Admin_
             return await _auctionRepository.GetAllAvailableAuctions(cancellation);
         }
 
-        public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)
+        public async Task<List<Auction>> GetAllEntityAuction()
         {
-            return await _auctionRepository.GetAllEntityAuction(cancellation);
+            return await _auctionRepository.GetAllEntityAuction();
         }
 
         public async Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation)

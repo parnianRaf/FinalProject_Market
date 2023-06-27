@@ -1,5 +1,6 @@
 ﻿using System;
 using AppCore;
+using AppCore.Contracts.AppServices.Account;
 using AppCore.Contracts.Services;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.DirectOrder;
@@ -16,17 +17,18 @@ namespace AppService.Admin_
         private readonly IProductAppService _productAppService;
         private readonly IIdGeneratorService _idGenerator;
         private readonly IAccountAppServices _account;
-
+        private readonly IMapServices _mapper;
         #endregion
 
         #region ctor
         public DirectOrderAppService(IDirectOrderService directOrderService,
-            IIdGeneratorService idGenerator, IProductAppService productAppService, IAccountAppServices account)
+            IIdGeneratorService idGenerator, IProductAppService productAppService, IAccountAppServices account, IMapServices mapper)
         {
             _directOrderService = directOrderService;
             _idGenerator = idGenerator;
             _productAppService = productAppService;
             _account = account;
+            _mapper = mapper;
         }
         #endregion
 
@@ -35,28 +37,29 @@ namespace AppService.Admin_
         {
             User user = await _account.GetUser<User>(cancellation) ?? new User();
             Product product = await _productAppService.GetEntityProduct(productId, cancellation) ?? new Product();
-            if (!_directOrderService.IsExistCurrentUnPaidOrder(user))
+            DirectOrder? order = await _directOrderService.GetUnPaidDirectOrder(user.Id, cancellation);
+            if (order.UserId is 0)
             {
                 if (product.IsActive)
                 {
                     await AddOrder(product, cancellation);
+                    await _account.UpdateUser(user, cancellation);
                     return true;
                 }
             }
-            DirectOrder directOrder = _directOrderService.GetUnPaidDirectOrder(user);
-            if (_directOrderService.IsAllowed(product, directOrder))
+            if (_directOrderService.IsAllowed(product, order))
             {
-                await _directOrderService.AddProductToOrderList(product, directOrder, cancellation);
+                await _directOrderService.AddProductToOrderList(user,product, order, cancellation);
                 return true;
             }
             return false;
         }
 
-        public async Task AddOrder(Product product,CancellationToken cancellation)
+        public async Task<DirectOrder> AddOrder(Product product,CancellationToken cancellation)
         {
             int orderId = _idGenerator.Execute<DetailedDirctOrderDto>(await GetAllDirectOrder(cancellation));
             User customer = await _account.GetUser<User>(cancellation);
-            await _directOrderService.AddOrder(orderId, customer, product, cancellation);
+            return await _directOrderService.AddOrder(orderId, customer, product, cancellation);
         }
 
         public async Task<List<DetailedDirctOrderDto>> GetAllDirectOrder(CancellationToken cancellation)
@@ -64,9 +67,28 @@ namespace AppService.Admin_
             return await _directOrderService.GetAllDirectOrder(cancellation);
         }
 
+        public async Task<EditDirectOrderDto> GetCurrentDirectOrder(CancellationToken cancellation)
+        {
+            User user = await _account.GetUser<User>(cancellation) ?? new User();
+            EditDirectOrderDto directOrderDto= _mapper.MapOrder(await _directOrderService.GetUnPaidDirectOrder(user.Id,cancellation));
+            return directOrderDto;
+        }
+
+        public async Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation)
+        {
+            return await _directOrderService.GetDirectOrderCart(orderId, cancellation);
+        }
+
         public async Task<EditDirectOrderDto> GetDirectOrder(int id, CancellationToken cancellation)
         {
             return await _directOrderService.GetDirectOrder(id, cancellation);
+        }
+
+        public async Task<DirectOrderCartDto> SubmitOrder(int id,CancellationToken cancellation)
+        {
+            DirectOrder order = await _directOrderService.GetEntityDirectOrder(id,cancellation);
+            await _directOrderService.SubmitOrder(order, cancellation);
+            return await _directOrderService.GetDirectOrderCart(id, cancellation);
         }
 
         public async Task<bool> AcceptComment(int orderId,CancellationToken cancellation)

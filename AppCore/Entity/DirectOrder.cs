@@ -9,6 +9,7 @@ public class DirectOrder
     public DirectOrder()
     {
         Products = new List<Product>();
+        User = new User();
     }
     #endregion
 

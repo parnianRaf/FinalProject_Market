@@ -8,7 +8,7 @@ namespace AppService.Admin_
     {
         Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation);
         Task UpdateAuction(Auction auction, CancellationToken cancellation);
-        Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
+        Task<List<Auction>> GetAllEntityAuction();
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation);
         Task<bool> AcceptComment(int auctionId, CancellationToken cancellation);

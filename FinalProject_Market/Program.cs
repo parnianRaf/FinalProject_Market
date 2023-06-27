@@ -24,9 +24,9 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.Development.json",false,true)
     .AddJsonFile("appsettings.json");
 
-builder.Services.AddHostedService<AuctionBackGroundService>();
+//builder.Services.AddHostedService<AuctionBackGroundService>();
 
-var configs=builder.Configuration.GetSection("Medal").Get<Medal>();
+var configs = builder.Configuration.GetSection("Medal").Get<Medal>();
 builder.Services.AddSingleton<Medal>(configs);
 
 
