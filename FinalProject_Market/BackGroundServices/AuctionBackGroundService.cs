@@ -24,8 +24,9 @@ namespace FinalProject_Market.BackGroundServices
                  
                     try
                     {
-                        List<Auction> auctions = await _auction.GetAllEntityAuction();
-                        auctions.ForEach(a =>
+                        List<Auction> auctions = await _auction.GetAllEntityAuction(stoppingToken);
+                        List<Auction> auctions1 = auctions.Where(a => a.IsActive is null).ToList();
+                        auctions1.ForEach(a =>
                         {
                             a.IsActive = (a.StartTime < DateTime.Now && DateTime.Now < a.EndTime);
                             _auction.UpdateAuction(a, stoppingToken);
@@ -41,7 +42,7 @@ namespace FinalProject_Market.BackGroundServices
    
                 }
 
-                await Task.Delay(TimeSpan.FromMinutes(30));
+                await Task.Delay(TimeSpan.FromMinutes(1));
 
             }
         }

@@ -65,7 +65,15 @@ namespace Service
 
         public async Task SubmitOrder(DirectOrder order,CancellationToken cancellation)
         {
+            order.IsPaid = true;
+            order.PaidAt = DateTime.UtcNow;
             await _directOrderRepository.UpdateSubmitOrder(order,cancellation);
+        }
+
+        public async Task SubmitComment(DirectOrder order,string comment,CancellationToken cancellation)
+        {
+            order.CommentByCostumer = comment;
+            await _directOrderRepository.UpdateSubmitOrder(order, cancellation);
         }
 
         public async Task<bool> AcceptComment(int orderId, CancellationToken cancellation)

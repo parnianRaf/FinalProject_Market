@@ -3,6 +3,7 @@ using AppCore;
 using AppCore.Contracts.AppServices.Account;
 using AppCore.Contracts.Services;
 using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.Comment;
 using AppCore.DtoModels.DirectOrder;
 using AppService.Admin_.Command;
 using Repositories.Repository.ProductRepository;
@@ -89,6 +90,12 @@ namespace AppService.Admin_
             DirectOrder order = await _directOrderService.GetEntityDirectOrder(id,cancellation);
             await _directOrderService.SubmitOrder(order, cancellation);
             return await _directOrderService.GetDirectOrderCart(id, cancellation);
+        }
+
+        public async Task AddComment(AddCommentDto commentDto,CancellationToken cancellation)
+        {
+            DirectOrder order = await _directOrderService.GetEntityDirectOrder(commentDto.OrderId, cancellation);
+            await _directOrderService.SubmitComment(order, commentDto.CommentByCostumer, cancellation);
         }
 
         public async Task<bool> AcceptComment(int orderId,CancellationToken cancellation)

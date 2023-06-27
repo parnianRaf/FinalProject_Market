@@ -15,6 +15,7 @@ namespace Service
         Task<DirectOrder> GetEntityDirectOrder(int id, CancellationToken cancellation);
         Task<DirectOrder> GetUnPaidDirectOrder(int customerId, CancellationToken cancellation);
         Task SubmitOrder(DirectOrder order, CancellationToken cancellation);
+        Task SubmitComment(DirectOrder order, string comment, CancellationToken cancellation);
         bool IsAllowed(Product product, DirectOrder order);
         Task AddProductToOrderList(User user, Product product, DirectOrder order, CancellationToken cancellation);
     }

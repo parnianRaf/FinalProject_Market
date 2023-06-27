@@ -39,10 +39,10 @@ namespace Repositories.Repository.ProductRepository
             auction.SellerId = sellerId;
             auction.CreateAt = DateTime.Now;
             auction.CreateBy = sellerId;
+            products.ForEach(p => { p.Auction = auction; p.AuctionId = id; p.IsActive = false; });
             auction.Products = products;
-            products.ForEach(p => { p.Auction = auction; p.AuctionId = id; });
             _context.Auctions.Add(auction);
-            auction.Products.ForEach((p => _context.Products.Update(p)));
+            auction.Products.ForEach(p => _context.Products.Update(p));
             await _context.SaveChangesAsync(cancellation);
         }
 
@@ -230,10 +230,10 @@ namespace Repositories.Repository.ProductRepository
                 Id = a.Id,
                 StartTime = a.StartTime,
                 EndTime = a.EndTime,
-                AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id && o.IsAccepted).User.FullNameToString(),
                 FinalPrice = a.FinalPrice,
                 // har auction tanha be yek seller taalogh darad
                 SellerName = a.Products.FirstOrDefault().User.FullNameToString(),
+                //SellerName =_context.Products.Where(p=>p.AuctionId==a.Id).FirstOrDefault().User.FullNameToString(),
                 FinalCommentByCostumer = a.FinalCommentByCostumer,
                 IsCommentAcceptedByAdmin = a.IsCommentAcceptedByAdmin,
                 CommentAcceptedAt = a.CommentAcceptedAt,
@@ -258,9 +258,14 @@ namespace Repositories.Repository.ProductRepository
             return auctionDtos;
         }
 
+        public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)
+        {
+            return await _context.Auctions.ToListAsync(cancellation);
+        }
+
         public async Task<List<DetailedAuctionDto>> GetAllPaidOrUnPaidAuctions(CancellationToken cancellation)
         {
-            List<DetailedAuctionDto> auctionDtos = await _context.Auctions.Select(a => new DetailedAuctionDto()
+            List<DetailedAuctionDto> auctionDtos = await _context.Auctions.Include(a=>a.Products).ThenInclude(p=>p.User).Select(a => new DetailedAuctionDto()
             {
                 Id = a.Id,
                 StartTime = a.StartTime,

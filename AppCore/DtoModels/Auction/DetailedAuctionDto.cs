@@ -34,6 +34,7 @@ namespace AppCore.DtoModels.Auction
 
         public virtual List<DetailedProductDto> ProductDtos { get; set; }
 
+
     }
 }
 

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore.DtoModels.Comment;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.DirectOrder;
+using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.User;
 using AppService.Admin_;
 using AppService.Admin_.Command;
@@ -25,14 +27,16 @@ namespace FinalProject_Market.Areas.Customer.Controllers
         private readonly IProductAppService _productAppService;
         private readonly IAccountAppServices _userAppService;
         private readonly IDirectOrderAppService _directOrder;
+        private readonly IAuctionAppService _auction;
 
         public CustomerManagementController(IMapper mapper, IProductAppService productAppService,
-            IAccountAppServices userAppService, IDirectOrderAppService directOrder)
+            IAccountAppServices userAppService, IDirectOrderAppService directOrder, IAuctionAppService auction)
         {
             _mapper = mapper;
             _productAppService = productAppService;
             _userAppService = userAppService;
             _directOrder = directOrder;
+            _auction = auction;
         }
 
 
@@ -77,20 +81,31 @@ namespace FinalProject_Market.Areas.Customer.Controllers
             return View("Factor", await _directOrder.SubmitOrder(id, cancellation));
         }
 
-        public async Task<IActionResult> AddComment(CancellationToken cancellation)
+        public async Task<IActionResult> AddComment(int id,CancellationToken cancellation)
         {
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
-            return View();
+            return View(new AddCommentViewModel() {OrderId=id});
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddComment(AddCommentViewModel commentViewModel)
+        public async Task<IActionResult> AddComment(AddCommentViewModel commentViewModel,CancellationToken cancellation)
         {
-
-
-
-
+            await _directOrder.AddComment(_mapper.Map<AddCommentDto>(commentViewModel), cancellation);
             return RedirectToAction("Index", "Account", new {area="Admin"});
+        }
+
+        public async Task<IActionResult> AddOffer(int id,CancellationToken cancellation)
+        {
+            ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            return View( new AddOfferViewModel() { AuctionId=id});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddOffer(AddOfferViewModel viewModel, CancellationToken cancellation)
+        {
+            DetailedOfferDto offerDto = _mapper.Map<DetailedOfferDto>(viewModel);
+            await _auction.AddOffer(offerDto, cancellation);
+            return RedirectToAction("Index", "Account", new { area = "Admin" });
         }
 
         

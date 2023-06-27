@@ -12,7 +12,7 @@ namespace Repositories.Repository.ProductRepository
         Task UpdateAuction(Auction auction, CancellationToken cancellation);
         Task<bool> EditAuction(EditAuctionDto auctionDto, CancellationToken cancellation);
         Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation);
-        Task<List<Auction>> GetAllEntityAuction( );
+        Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAvailableAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllPaidOrUnPaidAuctions(CancellationToken cancellation);

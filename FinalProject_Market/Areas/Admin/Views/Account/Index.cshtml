@@ -609,37 +609,59 @@ if (ViewBag.Massage != null)
 
 <div class="bg-light deal-container pt-5 pb-3 mb-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="deal">
-                    <div class="deal-content text-right">
-                        <h4>تعداد محدود</h4>
-                        <h2>پیشنهاد روزانه</h2>
+        @foreach (var item in ViewBag.Auctions)
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="deal">
+                        <div class="deal-content text-right">
 
-                        <h3 class="product-title"><a href="product.html">صندلی راحتی</a></h3>
-                        <!-- End .product-title -->
+                            <h2>پیشنهاد روزانه-مزایده</h2>
+                            @foreach (var product in item.ProductDtos)
+                            {
+                                <h3 class="product-title"><a>@product.ProductName</a></h3>
+                                <div class="product-price">
+                                    @if (item.FinalPrice is not null)
+                                    {
 
-                        <div class="product-price">
-                            <span class="new-price">149,000 تومان</span>
-                            <span class="old-price">240,000</span>
-                        </div><!-- End .product-price -->
+                                        <span class="new-price">@item.FinalPrice تومان</span>
+                                    }
+                                    <span class="old-price"> @product.Price </span>
+                                </div><!-- End .product-price -->
+                                <div class="deal-image">
+                                    <a href="product.html">
+                                        <img src="~/images/@product.filePathSource.Split(',')[0]" class="product-image" alt="image">
+                                        @for (int id=1;id< product.filePathSource.Split(',').Length;id++)
+                                        {
+                                            <img src="~/images/@product.filePathSource.Split(',')[id]" class="product-image-hover" alt="image">
+                                        }
 
-                        <div class="deal-countdown" data-until="+10h"></div><!-- End .deal-countdown -->
 
-                        <a href="product.html" class="btn btn-primary">
-                            <span>خرید</span><i class="icon-long-arrow-left"></i>
-                        </a>
-                    </div><!-- End .deal-content -->
-                    <div class="deal-image">
-                        <a href="product.html">
-                            <img src="assets/images/demos/demo-2/deal/product-1.jpg" alt="image">
-                        </a>
-                    </div><!-- End .deal-image -->
-                </div><!-- End .deal -->
-            </div><!-- End .col-lg-9 -->
 
-          
-        </div><!-- End .row -->
+                                    </a>
+                                </div><!-- End .deal-image -->
+
+                            }
+
+                            <!-- End .product-title -->
+
+
+
+                            <div class="deal-countdown" data-until="@((item.StartTime - item.EndTime).Hours.ToString())h"></div><!-- End .deal-countdown -->
+
+                            <a asp-area="Customer" asp-controller="CustomerManagement" asp-action="AddOffer" asp-route-id="@item.Id" class="btn btn-primary">
+                                <span>ثبت پیشنهاد</span><i class="icon-long-arrow-left"></i>
+                            </a>
+                        </div><!-- End .deal-content -->
+               
+                    </div><!-- End .deal -->
+                </div><!-- End .col-lg-9 -->
+
+
+            </div><!-- End .row -->
+
+        }
+
     </div><!-- End .container -->
 </div><!-- End .bg-light -->
 

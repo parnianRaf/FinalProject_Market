@@ -48,7 +48,6 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             return View();
         }
 
-
         public async Task<IActionResult> AddAuction(CancellationToken cancellation)
         {
             ViewBag.Products =await _productAppService.GetAllSellerProducts(cancellation);
@@ -58,12 +57,9 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAuction(AddAuctionViewModel auctionViewModel, CancellationToken cancellation)
         {
-  
             AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
             await _auctionAppService.AddAuction(auctionDto, cancellation);
-            return RedirectToAction("MainPage", "AccountController");
-           
-            return View(auctionViewModel);
+            return RedirectToAction("Index", "AccountController");
         }
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)

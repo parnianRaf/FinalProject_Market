@@ -1,4 +1,5 @@
 ﻿using AppCore;
+using AppCore.DtoModels.Comment;
 using AppCore.DtoModels.DirectOrder;
 
 namespace AppService.Admin_
@@ -10,6 +11,7 @@ namespace AppService.Admin_
         Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation);
         Task<EditDirectOrderDto> GetDirectOrder(int id, CancellationToken cancellation);
         Task<DirectOrderCartDto> SubmitOrder(int id, CancellationToken cancellation);
+        Task AddComment(AddCommentDto commentDto, CancellationToken cancellation);
         Task<bool> AcceptComment(int orderId, CancellationToken cancellation);
         Task<bool> RejectComment(int orderId, CancellationToken cancellation);
         Task<bool> AddToCart(int productId, CancellationToken cancellation);

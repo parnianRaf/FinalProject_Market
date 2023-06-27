@@ -11,11 +11,16 @@
         <input type="datetime-local" asp-for="EndTime">
     </div>
     <div class="input-group mb-3">
-       <select asp-for="ProductDtoIds" multiple class="form-select" aria-label="Default select example">
-    @foreach (var item in ViewBag.Products)
+        <select asp-for="ProductDtoIds" multiple class="form-select" aria-label="Default select example">
+            @foreach (var item in ViewBag.Products)
             {
 
-            <option value="@item.Id">@item.ProductName</option>
+
+                @if (item.IsActive)
+                {
+                    <option value="@item.Id">@item.ProductName</option>
+
+                }
             }
 
         </select>

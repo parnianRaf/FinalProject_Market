@@ -77,8 +77,7 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task UpdateSubmitOrder(DirectOrder order,CancellationToken cancellation)
         {
-            order.IsPaid = true;
-            order.PaidAt = DateTime.UtcNow;
+            order.ModifiedAt = DateTime.Now;
             _context.Update(order);
             await _context.SaveChangesAsync(cancellation);
         }

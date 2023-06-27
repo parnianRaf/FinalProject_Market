@@ -43,9 +43,9 @@ namespace AppService.Admin_
         #endregion
 
         #region Implementation
-        public async Task AddOffer(int auctionId,DetailedOfferDto offerDto,CancellationToken cancellation)
+        public async Task AddOffer(DetailedOfferDto offerDto,CancellationToken cancellation)
         {
-            offerDto.Auction = await _auctionRepository.GetDetailedAuction(auctionId, cancellation);
+            offerDto.Auction = await _auctionRepository.GetDetailedAuction(offerDto.AuctionId, cancellation);
             offerDto.IsAccepted = await _offerService.IsOfferAccepted(offerDto, cancellation);
             int offerId = _idGeneratorService.Execute<Offer>(await _offerService.GetAllOffers<Offer>(cancellation));
             User customer =await _account.GetUser<User>(cancellation);
@@ -56,7 +56,7 @@ namespace AppService.Admin_
 
         public async Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation)
         {
-            int id = _idGeneratorService.Execute<DetailedAuctionDto>(await _auctionRepository.GetAllPaidOrUnPaidAuctions(cancellation));
+            int id = _idGeneratorService.Execute<Auction>(await _auctionRepository.GetAllEntityAuction(cancellation));
             int sellerId = _accountService.GetCurrentUser();
             Auction auction=_mapper.Map<Auction>(auctionDto);
             List<Product> products =await _productRepository.GetAllProducts(auctionDto.ProductDtoIds,cancellation,sellerId);
@@ -96,9 +96,9 @@ namespace AppService.Admin_
             return await _auctionRepository.GetAllAvailableAuctions(cancellation);
         }
 
-        public async Task<List<Auction>> GetAllEntityAuction()
+        public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)
         {
-            return await _auctionRepository.GetAllEntityAuction();
+            return await _auctionRepository.GetAllEntityAuction(cancellation);
         }
 
         public async Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation)

@@ -35,19 +35,21 @@ namespace FinalProject_Market.Controllers
         private readonly IProductAppService _productAppService;
         private readonly IPavilionAppService _pavilionAppService;
         private readonly IDirectOrderAppService _directOrder;
+        private readonly IAuctionAppService _auction;
 
         #endregion
 
         #region ctor
         public AccountController(IAccountAppServices account,
             IMapper mapper, IProductAppService productAppService,
-            IPavilionAppService pavilionAppService, IDirectOrderAppService directOrder)
+            IPavilionAppService pavilionAppService, IDirectOrderAppService directOrder, IAuctionAppService auction)
         {
             _account = account;
             _mapper = mapper;
             _productAppService = productAppService;
             _pavilionAppService = pavilionAppService;
             _directOrder = directOrder;
+            _auction = auction;
         }
         #endregion
 
@@ -58,6 +60,7 @@ namespace FinalProject_Market.Controllers
             ViewBag.Products = await _productAppService.GetFirstPageProducts(cancellation);
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
             ViewBag.Cart =await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.Auctions = await _auction.GetAllAvailableDetailedAuction(cancellation);
             return View();
         }
 

@@ -133,9 +133,9 @@
                                         <button id="printinvoice" class="btn btn-solid btn-md ">
                                             چاپ فاکتور
                                         </button>
-                                        <button asp-controller="CustomerManagement" asp-area="" class="btn btn-solid btn-md ">
-                                            چاپ فاکتور
-                                        </button>
+                                        <a asp-controller="CustomerManagement" asp-action="AddComment" asp-route-id="@Model.Id" class="btn btn-solid btn-md">
+                                            ثبت نظر
+                                        </a>
                                     </div>
                                 </div>
                             </div>

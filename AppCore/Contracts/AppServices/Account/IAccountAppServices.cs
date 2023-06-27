@@ -1,4 +1,5 @@
 ﻿using AppCore;
+using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using Microsoft.AspNetCore.Identity;
