@@ -21,16 +21,15 @@ namespace AppService.Admin_.Command
         private readonly IAccountServices _accountService;
         private readonly ISellerStatusService _sellerStatus;
         private readonly IMapServices _mapService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<User> _userManager;
         #endregion
 
         #region ctor
         public AccountAppServices(IAccountServices accountService,
             IMapServices mapService, UserManager<User> userManager,
-            IHttpContextAccessor httpContextAccessor, ISellerStatusService sellerStatus)
+ISellerStatusService sellerStatus)
         {
-            _httpContextAccessor = httpContextAccessor;
+
             _accountService = accountService;
             _mapService = mapService;
             _userManager = userManager;

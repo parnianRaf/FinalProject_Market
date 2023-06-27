@@ -28,15 +28,15 @@ namespace Repositories.Repository.ProductRepository
         #region Implementation
 
         //dar buissines barname gofte shavad ke harmoghe offer sabt shod moghayese sorat girad.
-        public async Task AddOffer(int offerId,User customer,DetailedOfferDto offerDto, CancellationToken cancellation)
+        public async Task AddOffer(int offerId,User customer,Auction auction,Offer offerDto, CancellationToken cancellation)
         {
-            Offer offer = _mapper.Map<Offer>(offerDto);
-            Auction auction = _mapper.Map<Auction>(offerDto.Auction);
-            offer.UserId = customer.Id;
-            offer.User = customer;
-            auction.Offers.Add(offer);
-            customer.Offers.Add(offer);
-            _context.Add(offer);
+            offerDto.UserId = customer.Id;
+            offerDto.User = customer;
+            offerDto.AuctionId = auction.Id;
+            offerDto.Auction = auction;
+            auction.Offers.Add(offerDto);
+            customer.Offers.Add(offerDto);
+            _context.Add(offerDto);
             _context.Update(auction);
             _context.Update(customer);
             await _context.SaveChangesAsync(cancellation);

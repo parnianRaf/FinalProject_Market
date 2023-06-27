@@ -33,7 +33,7 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
         #region Implementation
-        public async Task AddAuction(int id, int sellerId,List<Product> products,Auction auction, CancellationToken cancellation)
+        public async Task<bool> AddAuction(int id, int sellerId,List<Product> products,Auction auction, CancellationToken cancellation)
         {
             auction.Id = id;
             auction.SellerId = sellerId;
@@ -41,9 +41,10 @@ namespace Repositories.Repository.ProductRepository
             auction.CreateBy = sellerId;
             products.ForEach(p => { p.Auction = auction; p.AuctionId = id; p.IsActive = false; });
             auction.Products = products;
-            _context.Auctions.Add(auction);
             auction.Products.ForEach(p => _context.Products.Update(p));
+            await _context.Auctions.AddAsync(auction);
             await _context.SaveChangesAsync(cancellation);
+            return true;
         }
 
         //moghe buissiness hatman baiad havasemon bashe ke datetime now o start auction moghayese shavad
@@ -305,37 +306,33 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<DetailedAuctionDto> GetDetailedAuction(int id, CancellationToken cancellation)
         {
-            Auction? auction = await _context.Auctions.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (auction != null)
+            return await _context.Auctions.Where(p => p.Id == id).Select(auction => new DetailedAuctionDto()
             {
-                return new DetailedAuctionDto()
+                Id = auction.Id,
+                StartTime = auction.StartTime,
+                EndTime = auction.EndTime,
+                //AcceptedCustomerName = auction.Offers.FirstOrDefault(o => o.AuctionId == auction.Id).User.FullNameToString(),
+                FinalPrice = auction.FinalPrice,
+                // har auction tanha be yek seller taalogh darad
+                SellerName = auction.Products.FirstOrDefault().User.FullNameToString(),
+                FinalCommentByCostumer = auction.FinalCommentByCostumer,
+                IsCommentAcceptedByAdmin = auction.IsCommentAcceptedByAdmin,
+                CommentAcceptedAt = auction.CommentAcceptedAt,
+                IsCommentDeleted = auction.IsCommentDeleted,
+                CommentDeletedAt = auction.CommentDeletedAt,
+                IsFinished = auction.IsFinished,
+                ProductDtos = auction.Products.Select(o => new DetailedProductDto()
                 {
-                    Id = auction.Id,
-                    StartTime = auction.StartTime,
-                    EndTime = auction.EndTime,
-                    AcceptedCustomerName = auction.Offers.FirstOrDefault(o => o.AuctionId == auction.Id).User.FullNameToString(),
-                    FinalPrice = auction.FinalPrice,
-                    // har auction tanha be yek seller taalogh darad
-                    SellerName = auction.Products.FirstOrDefault().User.FullNameToString(),
-                    FinalCommentByCostumer = auction.FinalCommentByCostumer,
-                    IsCommentAcceptedByAdmin = auction.IsCommentAcceptedByAdmin,
-                    CommentAcceptedAt = auction.CommentAcceptedAt,
-                    IsCommentDeleted = auction.IsCommentDeleted,
-                    CommentDeletedAt = auction.CommentDeletedAt,
-                    IsFinished = auction.IsFinished,
-                    ProductDtos = auction.Products.Select(o => new DetailedProductDto()
-                    {
-                        Id = o.Id,
-                        ProductName = o.ProductName,
-                        Price = o.Price,
-                        SellerFullName = o.User.FullNameToString(),
-                        CategoryName = o.Category.Title,
-                        PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
-                        filePathSource = o.filePathSource
-                    }).ToList()
-                };
-            }
-            return new DetailedAuctionDto();
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+            }).FirstOrDefaultAsync() ?? new DetailedAuctionDto();
         }
 
         public Task<List<DetailedOfferDto>> GetOffersInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
@@ -359,9 +356,6 @@ namespace Repositories.Repository.ProductRepository
             return 0;
 
         }
-
-
-
 
         #endregion
 

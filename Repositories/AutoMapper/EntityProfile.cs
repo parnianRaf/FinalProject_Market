@@ -37,6 +37,7 @@ namespace Repositories.AutoMapper
                 .ForMember(dst=>dst.Products,opt=>
                 opt.MapFrom(src=>src.Products));
 
+
             CreateMap<Auction,AddAuctionDto > ()
             .ForMember(dst => dst.Products, opt =>
             opt.MapFrom(src => src.Products));
@@ -54,6 +55,14 @@ namespace Repositories.AutoMapper
             #region Offer
             CreateMap<AddOfferDto, Offer>();
             CreateMap<Offer, EditOfferDto>();
+
+
+            CreateMap<DetailedOfferDto, Offer>()
+                .ForMember(dst => dst.UserId, opt =>
+                opt.MapFrom(src => src.CustomerId));
+
+
+
             CreateMap<Offer, DetailedOfferDto>()
                 .ReverseMap();
             #endregion

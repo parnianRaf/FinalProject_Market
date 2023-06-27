@@ -59,7 +59,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         {
             AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
             await _auctionAppService.AddAuction(auctionDto, cancellation);
-            return RedirectToAction("Index", "AccountController");
+            return RedirectToAction("Index", "AccountController" ,new {area="admin"});
         }
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)

@@ -45,13 +45,14 @@ namespace AppService.Admin_
         #region Implementation
         public async Task AddOffer(DetailedOfferDto offerDto,CancellationToken cancellation)
         {
-            offerDto.Auction = await _auctionRepository.GetDetailedAuction(offerDto.AuctionId, cancellation);
+            Auction auction = await _auctionRepository.GetAuction(offerDto.AuctionId, cancellation);
             offerDto.IsAccepted = await _offerService.IsOfferAccepted(offerDto, cancellation);
             int offerId = _idGeneratorService.Execute<Offer>(await _offerService.GetAllOffers<Offer>(cancellation));
             User customer =await _account.GetUser<User>(cancellation);
             offerDto.Price = await _offerService.PriceCheck(offerDto.Price, cancellation);
             offerDto.SubmitAt = DateTime.Now;
-            await _offerService.AddOffer(offerId, customer, offerDto, cancellation);
+            Offer offer=_mapper.Map<Offer>(offerDto);
+            await _offerService.AddOffer(offerId, customer,auction, offer, cancellation);
         }
 
         public async Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation)

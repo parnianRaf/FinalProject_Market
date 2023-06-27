@@ -14,9 +14,9 @@ namespace Service
             _offerRepository = offerRepository;
         }
 
-        public async Task AddOffer(int offerId, User customer, DetailedOfferDto offerDto, CancellationToken cancellation)
+        public async Task AddOffer(int offerId, User customer,Auction auction ,Offer offerDto, CancellationToken cancellation)
         {
-            await _offerRepository.AddOffer(offerId, customer, offerDto, cancellation);
+            await _offerRepository.AddOffer(offerId, customer, auction,offerDto, cancellation);
         }
 
         public async Task<List<Offer>> GetAuctionOffers(int auctionId, CancellationToken cancellationToken)
