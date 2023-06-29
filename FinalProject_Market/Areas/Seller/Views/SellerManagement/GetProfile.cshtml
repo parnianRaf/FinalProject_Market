@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+@using AppCore.DtoModels.Seller;
+
+
+@model  FullDetailSellerDto
+
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            پروفایل کاربری
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                        <img class="profile-user-img img-responsive img-circle" src="~/images/@(this.User.Identity.Name+".jpg")" alt="User profile picture">
+
+                        <h3 class="profile-username text-center">@ViewBag.FullDetailSellerViewModel.FullName</h3>
+                        @if (ViewBag.FullDetailSellerViewModel.HasMedal)
+                        {
+                            <i class='fas fa-medal' style='font-size:48px;color:red'></i>
+                        }
+
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item">
+                                <b>سفارش های موفق</b> <a class="pull-left">@ViewBag.FullDetailSellerViewModel.CompletedOrderNumber</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>مزایده های برگذار شده</b> <a class="pull-left">@ViewBag.FullDetailSellerViewModel.CompletedAuctionNumber</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+                <!-- About Me Box -->
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </section>
+
+    <div class="card card-info justify-content-center ">
+        <div class="card-header">
+            <h3 class="card-title">مشخصات</h3>
+        </div>
+        <form class="card-body" method="post">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">آیدی</span>
+                </div>
+                <input type="number" class="form-control" asp-for="@Model.Id">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">نام</span>
+                </div>
+                <input type="text" class="form-control" asp-for="@Model.FirstName" placeholder="نام ">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">نام خانوادگی</span>
+                </div>
+                <input type="text" class="form-control" asp-for="@Model.LastName" placeholder="نام خانوادگی">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" asp-for="@Model.Email" placeholder="ایمیل">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                </div>
+                <input type="text" class="form-control " asp-for="@Model.PhoneNumber" placeholder="شماره همراه">
+            </div>
+            <!-- /.row -->
+            <!-- /input-group -->
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-danger" asp-controller="SellerManagement" asp-action="GetProfile">ویرایش</button>
+
+                </div>
+
+
+            </div>
+
+
+        </form>
+
+    </div>
+    <!-- /.content -->
+</div>
+
+
+

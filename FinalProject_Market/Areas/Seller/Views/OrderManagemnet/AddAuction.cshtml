@@ -1,0 +1,31 @@
+﻿@model AddAuctionViewModel
+
+
+<form class="form-control" method="post">
+    <div class="input-group mb-3">
+        <label asp-for="StartTime"></label>
+        <input type="datetime-local" asp-for="StartTime">
+    </div>
+    <div class="input-group mb-3">
+        <label asp-for="EndTime"></label>
+        <input type="datetime-local" asp-for="EndTime">
+    </div>
+    <div class="input-group mb-3">
+        <select asp-for="ProductDtoIds" multiple class="form-select" aria-label="Default select example">
+            @foreach (var item in ViewBag.Products)
+            {
+
+
+                @if (item.IsActive)
+                {
+                    <option value="@item.Id">@item.ProductName</option>
+
+                }
+            }
+
+        </select>
+    </div>-->
+    <div class="input-group mb-3">
+        <button type="submit" asp-controller="OrderManagemnet" asp-action="AddAuction" class="btn btn-primary mb-3">ثبت نهایی</button>
+    </div>
+</form>

@@ -21,7 +21,7 @@ namespace AppSqlDataBase.Configurations
             entity.Property(e => e.ProductName)
                 .HasMaxLength(50);
 
-            entity.Ignore(e => e.ImageFile);
+            entity.Ignore(e => e.ImageFiles);
                 
             #endregion
 
@@ -42,10 +42,10 @@ namespace AppSqlDataBase.Configurations
                 .HasForeignKey(d => d.DirectOrderId)
                 .HasConstraintName("FK_Product_ShoppingCart");
 
-            entity.HasOne(d => d.Seller)
+            entity.HasOne(d => d.User)
                 .WithMany(p => p.Products)
-                .HasForeignKey(d => d.SellerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("FK_Product_Seller");
             #endregion
 

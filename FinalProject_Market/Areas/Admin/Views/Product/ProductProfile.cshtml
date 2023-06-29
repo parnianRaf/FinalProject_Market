@@ -1,0 +1,139 @@
+﻿
+@using AppCore.DtoModels.Product;
+
+
+@{
+    Layout = "_Layout_3";
+}
+
+@model DetailedProductDto
+
+<div class="container m-5">
+    <div class="d-flex justify-content-start">
+        <div class="card  m-3" style="width:min-content">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="~/images/@Model.filePathSource.Split(",")[0]" alt="تصویر محصول" style="width:200px" class="product-image">
+
+                    </div>
+                    @for (int id = 1; id < Model.filePathSource.Split(",").Length; id++)
+                    {
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="~/images/@Model.filePathSource.Split(",")[id]" alt="تصویر محصول" style="width:200px" class="product-image">
+                        </div>
+                    }
+
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-dark">@Model.ProductName</h5>
+                <p class="card-text">@Model.Price$ </p>
+            </div>
+        </div>
+        <div>
+            @if (!Model.IsDeleted)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@Model.Id">حذف کاربر</a>
+            }
+            @if (!Model.IsDeleted && Model.IsActive == false)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Product" asp-action="ActiveProduct" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+            }
+            @if (Model.IsDeleted)
+            {
+                <div class="container">
+                    <div class="row">
+                        <h4> این کاربر در تاریخ حذف شده است:</h4>
+                    </div>
+                    <div class="row">
+                        <h5>@Model.DeletedAt</h5>
+                    </div>
+                    <div class="row">
+                        <a class="btn btn-danger" asp-controller="Product" asp-action="ActiveProduct" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+                    </div>
+                </div>
+
+            }
+            <div class="row">
+                <div class="card card-info justify-content-center ">
+                    <div class="card-header">
+                        <h3 class="card-title">مشخصات</h3>
+                    </div>
+
+                    <form class="card-body" method="post">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">آیدی</span>
+                            </div>
+                            <input type="number" class="form-control" asp-for="Id">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">نام</span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="ProductName" placeholder="نام ">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">قیمت</span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="Price" placeholder="نام خانوادگی">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">نام فروشنده</span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="SellerFullName" placeholder="ایمیل">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">دسته</i></span>
+                            </div>
+                            <input type="text" class="form-control " asp-for="CategoryName" placeholder="شماره همراه">
+                        </div>
+
+                        <!-- /.row -->
+                        <!-- /input-group -->
+                        @if (Model.IsActive == true)
+                        {
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-danger" asp-controller="Product" asp-action="ProductProfile">ویرایش</button>
+
+                                </div>
+                                <!-- /btn-group -->
+
+                            </div>
+                        }
+
+                    </form>
+
+
+
+
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

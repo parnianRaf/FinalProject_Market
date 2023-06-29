@@ -12,29 +12,28 @@ namespace AppCore.DtoModels.Auction
 
         public DateTime EndTime { get; set; }
 
-        public int? OfferSubmitByCustomerId { get; set; }
-
-        public decimal? OfferSubmitWithPrice { get; set; }
-
-        public int? AcceptedCustomerId { get; set; }
+        public string? AcceptedCustomerName { get; set; }
 
         public decimal? FinalPrice { get; set; }
 
-        public int SellerId { get; set; }
-
-        public string? CommentByCostumer { get; set; }
+        public string SellerName { get; set; }
 
         public bool IsCommentAcceptedByAdmin { get; set; }
 
+        public string ComissionPaidByauction { get; set; }
+
+        public DateTime? CommentAcceptedAt { get; set; }
+
         public bool IsCommentDeleted { get; set; }
+
+        public DateTime? CommentDeletedAt { get; set; }
 
         public string? FinalCommentByCostumer { get; set; }
 
         public bool IsFinished { get; set; }
 
-        public virtual List<DetailedOfferDto> OffersDto { get; set; }
-
         public virtual List<DetailedProductDto> ProductDtos { get; set; }
+
 
     }
 }

@@ -7,6 +7,8 @@ using AppCore.DtoModels.Product;
 using AppSqlDataBase;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using ExtensionMethods;
+using Microsoft.AspNetCore.Identity;
 
 namespace Repositories.Repository.ProductRepository
 {
@@ -15,38 +17,69 @@ namespace Repositories.Repository.ProductRepository
         #region field
         private readonly MarketContext _context;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
         #endregion
 
         #region ctor
         public DirectOrderRepository(MarketContext context
-            , IMapper mapper)
+            , IMapper mapper, UserManager<User> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
         }
         #endregion
 
         #region Implementation
-        //baraye list productha aval foroshandaro azash miprsim, list sefareshha tanha az yek maghaqze mitavanad bashad
-        public async Task AddDirectOrder(AddDirectDto oredrDto, CancellationToken cancellation)
+        public async Task<DirectOrder> AddDirectOrder(int orderId, User customer, Product product, CancellationToken cancellation)
         {
-            DirectOrder order = _mapper.Map<DirectOrder>(oredrDto);
-            order.CreatedAt = DateTime.Now;
-            //product.CreatedBy= .
+            DirectOrder order = new()
+            {
+                Id = orderId,
+                SellerId = product.UserId,
+                UserId = customer.Id,
+                User = customer,
+                TotalPrice = (decimal)product.Price,
+                CreatedBy = customer.Id,
+                CreatedAt=DateTime.UtcNow
+            };
+
+            product.IsActive = false;
+            product.DirectOrderId = orderId;
+            product.DirectOrder = order;
+            order.Products.Add(product);
             _context.DirectOrders.Add(order);
+            _context.Products.Update(product);
             await _context.SaveChangesAsync(cancellation);
+            return order;
 
         }
 
         //baraye buissiness =>inke sefareshesho taghir bede baraye list productha aval befahmim az hamin foroshande mitone bekhare ya foroshande dg
-        public async Task<EditDirectOrderDto> EditGetOrer(int id, CancellationToken cancellation)
+        public async Task<T> GetOrer<T>(int id, CancellationToken cancellation)
         {
-            DirectOrder? order = await _context.DirectOrders.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation);
-            if (order != null)
-            {
-                return _mapper.Map<EditDirectOrderDto>(order);
-            }
-            return new EditDirectOrderDto();
+            return _mapper.Map<T>( await _context.DirectOrders.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation));
+        }
+
+        public async Task AddProductToOrderList(User user, Product product,DirectOrder order,decimal productPrice,CancellationToken cancellation)
+        {
+            //DirectOrder directOrder =await _context.DirectOrders.FirstOrDefaultAsync(o=>o.Id== order.Id) ?? new DirectOrder();
+            //Product product1 = await _context.Products.FirstOrDefaultAsync(p => p.Id == product.Id) ?? new Product();
+            order.Products.Add(product);
+            order.TotalPrice = productPrice;
+            product.IsActive = false;
+            product.DirectOrder = order;
+            product.DirectOrderId = order.Id;
+            _context.Products.Update(product);
+            _context.DirectOrders.Update(order);
+            await _context.SaveChangesAsync(cancellation);
+        }
+
+        public async Task UpdateSubmitOrder(DirectOrder order,CancellationToken cancellation)
+        {
+            order.ModifiedAt = DateTime.Now;
+            _context.Update(order);
+            await _context.SaveChangesAsync(cancellation);
         }
 
         public async Task<bool> EditAuction(EditDirectOrderDto orderDto, CancellationToken cancellation)
@@ -93,7 +126,7 @@ namespace Repositories.Repository.ProductRepository
         public async Task<bool> AddCommentByCustomer(int orderId, int customerId, string comment, CancellationToken cancellation)
         {
             bool result = false;
-            DirectOrder? order = await _context.DirectOrders.Where(o => o.Id == orderId && o.CustomerId == customerId).FirstOrDefaultAsync(cancellation);
+            DirectOrder? order = await _context.DirectOrders.Where(o => o.Id == orderId && o.UserId == customerId).FirstOrDefaultAsync(cancellation);
             if (order != null)
             {
                 order.CommentByCostumer = comment;
@@ -112,9 +145,8 @@ namespace Repositories.Repository.ProductRepository
             if (order != null)
             {
                 order.IsCommentAcceptedByAdmin = true;
-                _context.DirectOrders.Update(order);
                 order.ModifiedAt = DateTime.Now;
-                //product.ModifiedBy
+                _context.DirectOrders.Update(order);
                 await _context.SaveChangesAsync();
                 return !result;
             }
@@ -128,8 +160,9 @@ namespace Repositories.Repository.ProductRepository
             if (order != null)
             {
                 order.IsCommentAcceptedByAdmin = false;
-                _context.DirectOrders.Update(order);
                 order.ModifiedAt = DateTime.Now;
+                order.IsCommentDeleted = true;
+                _context.DirectOrders.Update(order);
                 //product.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
@@ -137,21 +170,77 @@ namespace Repositories.Repository.ProductRepository
             return result;
         }
 
-        //customerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
-        public async Task<List<DetailedPaidDirectOrderDto>> GetAllPaidOrders(CancellationToken cancellation, int customerId)
+        public async Task<DirectOrder> GetCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation)
         {
-            List<DirectOrder> orders = await _context.DirectOrders.Where(p => p.CustomerId == customerId && p.IsPaid == true).ToListAsync(cancellation);
-            return _mapper.Map<List<DetailedPaidDirectOrderDto>>(orders);
+            DirectOrder order= await _context.DirectOrders.Include(o=>o.User).Include(o=>o.Products).Where(o => !o.IsPaid).Where(o => o.UserId == customerId).FirstOrDefaultAsync(cancellation) ?? new DirectOrder();
+            return order;
         }
 
-        //tanha yek sabad kharid pardakht nashode mitonim dashte bashim
-        public async Task<List<DetailedDirctOrderDto>> GetpaidOrder(int customerId, CancellationToken cancellation)
+        public async Task<DirectOrderCartDto> GetCart(int orderId,CancellationToken cancellation)
         {
-            List<DirectOrder> orders = await _context.DirectOrders.Where(p => p.CustomerId == customerId && p.IsPaid == false).ToListAsync();
-            return _mapper.Map<List<DetailedDirctOrderDto>>(orders);
+            return await _context.DirectOrders.Where(o => o.Id == orderId).Select(o => new DirectOrderCartDto()
+            {
+                Id=o.Id,
+                CustomerFullName = o.User.FullNameToString(),
+                FactorDate = DateTime.UtcNow,
+                FactorExpireDate = DateTime.UtcNow + TimeSpan.FromDays(20),
+                SellerName = o.Products.FirstOrDefault().User.FullNameToString(),
+                TotalPrice = o.TotalPrice,
+                ProductDtos = o.Products.Select(p => new DetailedProductDto()
+                {
+                    Id = p.Id,
+                    ProductName = p.ProductName,
+                    Price = p.Price
+
+                }).ToList()
+
+            }).FirstOrDefaultAsync(cancellation) ?? new DirectOrderCartDto();
         }
 
+        public async Task<List<DetailedDirctOrderDto>> GetAllPaidOrders(CancellationToken cancellation)
+        {
+            List<DetailedDirctOrderDto> dirctOrderDtos = await _context.DirectOrders.Where(d => d.IsPaid).Select(d => new DetailedDirctOrderDto()
+            {
+                Id = d.Id,
+                IsPaid = d.IsPaid,
+                TotalPrice = d.TotalPrice,
+                SellerName = d.Products.FirstOrDefault().User.FullNameToString(),
+                CustomerName = d.User.FullNameToString(),
+                CommentByCostumer = d.CommentByCostumer,
+                IsCommentAcceptedByAdmin = d.IsCommentAcceptedByAdmin,
+                IsCommentDeleted = d.IsCommentDeleted,
+                ComissionPaidByOrder=((d.Products.FirstOrDefault().User.HasMedal) &&(d.Products.FirstOrDefault().User.MedalAchievedAt<d.PaidAt)) ? "0" : Convert.ToString(d.TotalPrice*7/10),
+                ProductDtos = d.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
 
+            }).ToListAsync(cancellation);
+            var result = dirctOrderDtos;
+            return dirctOrderDtos;
+        }
+
+        public async Task<decimal> CommisionPaidBySellerDirectOredr(int sellerId,CancellationToken cancellation)
+        {
+            User? seller =await _userManager.FindByIdAsync(sellerId.ToString());
+            if (seller!=null)
+            {
+                if(seller.HasMedal)
+                {
+                    return await _context.DirectOrders.Where(o => o.PaidAt < seller.MedalAchievedAt).Select(o => o.TotalPrice).SumAsync(cancellation);
+                }
+                return await _context.DirectOrders.Select(o => o.TotalPrice).SumAsync(cancellation);
+
+            }
+            return 0;
+
+        }
 
         #endregion
 

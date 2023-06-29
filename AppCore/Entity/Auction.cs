@@ -26,19 +26,23 @@ public class Auction
 
     public int? AcceptedCustomerId { get; set; }
 
-    public decimal? FinalPrice { get; set; }
+    public decimal FinalPrice { get; set; }
 
     public int SellerId { get; set; }
 
-    public string? CommentByCostumer { get; set; }
-
     public bool IsCommentAcceptedByAdmin { get; set; }
 
+    public DateTime? CommentAcceptedAt { get; set; }
+
     public bool IsCommentDeleted { get; set; }
+
+    public DateTime? CommentDeletedAt { get; set; }
 
     public string? FinalCommentByCostumer { get; set; }
 
     public bool IsFinished { get; set; }
+
+    public DateTime? FinishedAt { get; set; }
 
     public DateTime CreateAt { get; set; }
 
@@ -53,6 +57,8 @@ public class Auction
     public int? DeleteBy { get; set; }
 
     public DateTime? DeleteAt { get; set; }
+
+    public bool? IsActive { get; set; }
     #endregion
 
     #region Navigation Property

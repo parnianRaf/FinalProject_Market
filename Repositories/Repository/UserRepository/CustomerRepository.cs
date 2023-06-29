@@ -14,16 +14,16 @@ namespace Repositories.UserRepository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        #region prop
-        private readonly UserManager<IdentityUser<int>> _userManager;
-        private readonly SignInManager<IdentityUser<int>> _signInManager;
+        #region field
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly IMapper _mapper;
         private readonly MarketContext _context;
         #endregion
 
         #region ctor
-        public CustomerRepository(UserManager<IdentityUser<int>> userManager
-            , SignInManager<IdentityUser<int>> signInManager
+        public CustomerRepository(UserManager<User> userManager
+            , SignInManager<User> signInManager
             , IMapper mapper, MarketContext context)
         {
             _userManager = userManager;
@@ -34,7 +34,7 @@ namespace Repositories.UserRepository
         #endregion
 
         #region Implementation
-        public async Task<bool> AddCustomer(AddCustomerDto customerDto, CancellationToken cancellation)
+        public async Task<IdentityResult> AddCustomer(AddCustomerDto customerDto, CancellationToken cancellation)
         {
             //var user = new IdentityUser<int>()
             //{
@@ -42,47 +42,45 @@ namespace Repositories.UserRepository
             //    PhoneNumber=customerDto.PhoneNumber,
             //     UserName=customerDto.UserName,
             //};
-            var user = _mapper.Map<IdentityUser<int>>(customerDto);
+            var user = _mapper.Map<User>(customerDto);
             var addResult = await _userManager.CreateAsync(user, customerDto.Password);
+            var addRole = await _userManager.AddToRoleAsync(user, "Customer");
+            return addRole;
 
 
-
-            if (addResult.Succeeded)
-            {
-                _userManager.AddToRoleAsync(user, "Customer");
-                _context.Customers.Add(_mapper.Map<Customer>(user));
-                await _context.SaveChangesAsync(cancellation);
-                //Logger.LogInformation("{0} added by {1}",user.UserName,user.Id);
-                return true;
-            }
-            return false;
         }
-        public async Task<bool> LogIn(LogInCustomerDto customerDto, CancellationToken cancellation)
+
+        public async Task<SignInResult> LogIn(LogInCustomerDto customerDto, CancellationToken cancellation)
         {
-            bool resultLogIn = false;
-            var result = await _signInManager.PasswordSignInAsync(customerDto.UserName, customerDto.Password, false, false);
-            if (result.Succeeded)
-            {
-                return !resultLogIn;
-            }
-            return resultLogIn;
+            var result = await _signInManager.PasswordSignInAsync(customerDto.UserName, customerDto.Password, customerDto.IsRememberMe, false);
+            return result;
         }
 
         public async Task LogOut(CancellationToken cancellation)
         {
-            bool resultLogIn = false;
             await _signInManager.SignOutAsync();
         }
 
-        public async Task<EditCustomerDto> GetCustomer(int id, CancellationToken cancellation)
+        public async Task<EditCustomerDto> GetUser(int id, CancellationToken cancellation)
         {
-            Customer? customer = await _context.Customers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellation);
-            if (customer != null)
+            User? user = await _userManager.FindByIdAsync(id.ToString());
+            if (user != null)
             {
-                return _mapper.Map<EditCustomerDto>(customer);
+                return _mapper.Map<EditCustomerDto>(user);
 
             }
             return new EditCustomerDto();
+        }
+
+        public async Task<FullDetailCustomerDto> GetCustomerProfile(int id, CancellationToken cancellation)
+        {
+            User? customer = await _userManager.FindByIdAsync(id.ToString());
+            if (customer != null)
+            {
+                return _mapper.Map<FullDetailCustomerDto>(customer);
+
+            }
+            return new FullDetailCustomerDto();
         }
 
         public async Task<bool> UpdateCustomer(EditCustomerDto customerDto, CancellationToken cancellation)
@@ -93,37 +91,52 @@ namespace Repositories.UserRepository
             //    PhoneNumber = customerDto.PhoneNumber,
             //    UserName = customerDto.UserName,
             //};
-            var user = _mapper.Map<IdentityUser<int>>(customerDto);
-            var editResult = await _userManager.UpdateAsync(user);
-            if (editResult.Succeeded)
+            User? user = await _userManager.FindByIdAsync(customerDto.Id.ToString());
+            if (user != null)
             {
-                _context.Customers.Update(_mapper.Map<Customer>(customerDto));
-                await _context.SaveChangesAsync(cancellation);
-                return true;
+                user.FirstName = customerDto.FirstName;
+                user.LastName = customerDto.LastName;
+                user.Email = customerDto.Email;
+                user.PhoneNumber = customerDto.PhoneNumber;
+                var res = await _userManager.UpdateAsync(user);
+                if (res.Succeeded)
+                {
+                    return true;
+                }
             }
+
+            //user = _mapper.Map<User>(customerDto);
+
+
             return false;
+
+
         }
 
         public async Task<bool> DeleteCustomer(int id, CancellationToken cancellationToken)
         {
             bool result = false;
-            Customer? customer = await _context.Customers.Where(c => c.Id == id).FirstOrDefaultAsync(cancellationToken);
+            User? customer = await _userManager.FindByIdAsync(id.ToString());
             if (customer != null)
             {
                 customer.IsDeleted = true;
-                customer.DeleteAt = DateTime.Now;
+                customer.DeletedAt = DateTime.Now;
+                var delteResult = await _userManager.UpdateAsync(customer);
                 //custoomer.DeleteBy
-                _context.Customers.Update(customer);
-                await _context.SaveChangesAsync(cancellationToken);
-                return !result;
+                if (delteResult.Succeeded)
+                {
+                    return !result;
+
+                }
             }
             return result;
 
         }
 
+
         public async Task<List<DetailCustomerDto>> GetAllCustomers(CancellationToken cancellationToken)
         {
-            var result = await (_context.Customers.ToListAsync(cancellationToken));
+            var result = await (_userManager.GetUsersInRoleAsync("customer"));
             return _mapper.Map<List<DetailCustomerDto>>(result);
         }
 

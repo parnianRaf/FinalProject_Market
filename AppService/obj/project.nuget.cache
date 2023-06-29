@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SLlPyEfW/XKc/DzW8OU6tQKX9bCgoQxQ6P2dNSAzLT0rSwkI3DnvHFKiWBOj1DJ8PEnn+VzQO5/KcEspyWBcDQ==",
+  "dgSpecHash": "p6BlaoWRISaJ9gZ2IAVVwVYnWGp1drX9mMV8uzgPLJThHr8XhmWb3HUaU9qTjNvVQUCn1+I7f0Tsk8ivrAH0AQ==",
   "success": true,
   "projectFilePath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/AppService.csproj",
   "expectedPackageFiles": [
@@ -63,6 +63,8 @@
     "/Users/parnianrafei/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "/Users/parnianrafei/.nuget/packages/serilog/2.12.0/serilog.2.12.0.nupkg.sha512",
+    "/Users/parnianrafei/.nuget/packages/serilog.extensions.logging/7.0.0/serilog.extensions.logging.7.0.0.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/system.configuration.configurationmanager/5.0.0/system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/system.diagnostics.diagnosticsource/5.0.0/system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",

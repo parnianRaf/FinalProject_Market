@@ -14,10 +14,17 @@
       <None Remove="Seller\" />
       <None Remove="Seller\Command\" />
       <None Remove="Seller\Query\" />
+      <None Remove="Admin_\" />
+      <None Remove="Admin_\Command\AccountAppServicesAccount" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Seller\" />
       <Folder Include="Seller\Command\" />
       <Folder Include="Seller\Query\" />
+      <Folder Include="Admin_\" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="2.12.0" />
+      <PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
     </ItemGroup>
 </Project>

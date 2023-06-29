@@ -1,0 +1,49 @@
+﻿@using AppCore.DtoModels.DirectOrder;
+
+
+@model DirectOrderCartDto
+
+
+        @foreach (var item in Model.ProductDtos)
+        {
+            <div class="product">
+                <div class="product-cart-details">
+                    <h4 class="product-title">
+                        <a>@item.ProductName</a>
+                    </h4>
+
+                    <span class="cart-product-info">
+                        <span class="cart-product-qty">1 x </span>
+                        @item.Price تومان
+                    </span>
+                </div><!-- End .product-cart-details -->
+
+                <figure class="product-image-container">
+                    <a class="product-image">
+                        @if (item.filePathSource is not null)
+                        {
+                            <img src="~/images/@item.filePathSource.Split(',')[0]" alt="product">
+                        }
+                    </a>
+                </figure>
+                <a class="btn-remove" title="حذف محصول"><i class="icon-close"></i></a>
+            </div><!-- End .product -->
+
+        }
+
+
+        <span>مجموع</span>
+
+        <span class="cart-total-price">@Model.TotalPrice تومان</span>
+
+    @if ((Model.ProductDtos.Count > 0))
+    {
+        <div class="dropdown-cart-action">
+            <a asp-area="customer" asp-controller="CustomerManagement" asp-action="SubmitOrder" asp-route-id="@Model.Id" class="btn btn-primary">نهایی کردن خرید</a>
+            <a class="btn btn-outline-primary-2">
+                <span>پرداخت</span><i class="icon-long-arrow-left"></i>
+            </a>
+        </div><!-- End .dropdown-cart-total -->
+
+    }
+

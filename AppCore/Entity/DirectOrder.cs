@@ -9,6 +9,7 @@ public class DirectOrder
     public DirectOrder()
     {
         Products = new List<Product>();
+        User = new User();
     }
     #endregion
 
@@ -17,11 +18,13 @@ public class DirectOrder
 
     public bool IsPaid { get; set; }
 
+    public DateTime? PaidAt { get; set; }
+
     public decimal TotalPrice { get; set; }
 
-    public int SellerId { get; set; }
+    public int UserId { get; set; }
 
-    public int CustomerId { get; set; }
+    public int SellerId { get; set; }
 
     public string? CommentByCostumer { get; set; }
 
@@ -46,6 +49,6 @@ public class DirectOrder
 
     #region Navigation Property
     public virtual List<Product> Products { get; set; }
-    public virtual Customer Customer { get; set; }
+    public virtual User User { get; set; }
     #endregion
 }

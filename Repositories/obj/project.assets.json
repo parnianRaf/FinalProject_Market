@@ -1515,7 +1515,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.2.0"
+          "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.5"
         },
         "compile": {
           "bin/placeholder/AppCore.dll": {}
@@ -1537,6 +1538,19 @@
         },
         "runtime": {
           "bin/placeholder/AppSqlDataBase.dll": {}
+        }
+      },
+      "ExtensionMethods/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "AppCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ExtensionMethods.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExtensionMethods.dll": {}
         }
       }
     }
@@ -4114,6 +4128,11 @@
       "type": "project",
       "path": "../AppSqlDataBase/AppSqlDataBase.csproj",
       "msbuildProject": "../AppSqlDataBase/AppSqlDataBase.csproj"
+    },
+    "ExtensionMethods/1.0.0": {
+      "type": "project",
+      "path": "../ExtensionMethods/ExtensionMethods.csproj",
+      "msbuildProject": "../ExtensionMethods/ExtensionMethods.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4121,7 +4140,8 @@
       "AppCore >= 1.0.0",
       "AppSqlDataBase >= 1.0.0",
       "AutoMapper >= 12.0.1",
-      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1"
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "ExtensionMethods >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4155,6 +4175,9 @@
             },
             "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppSqlDataBase/AppSqlDataBase.csproj": {
               "projectPath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppSqlDataBase/AppSqlDataBase.csproj"
+            },
+            "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/ExtensionMethods.csproj": {
+              "projectPath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/ExtensionMethods/ExtensionMethods.csproj"
             }
           }
         }
@@ -4194,7 +4217,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
       }
     }
   }

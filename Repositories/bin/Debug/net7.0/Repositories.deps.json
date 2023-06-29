@@ -11,7 +11,8 @@
           "AppCore": "1.0.0",
           "AppSqlDataBase": "1.0.0",
           "AutoMapper": "12.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "ExtensionMethods": "1.0.0"
         },
         "runtime": {
           "Repositories.dll": {}
@@ -964,7 +965,8 @@
       },
       "AppCore/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.2.0"
+          "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.5"
         },
         "runtime": {
           "AppCore.dll": {}
@@ -978,6 +980,14 @@
         },
         "runtime": {
           "AppSqlDataBase.dll": {}
+        }
+      },
+      "ExtensionMethods/1.0.0": {
+        "dependencies": {
+          "AppCore": "1.0.0"
+        },
+        "runtime": {
+          "ExtensionMethods.dll": {}
         }
       }
     }
@@ -1617,6 +1627,11 @@
       "sha512": ""
     },
     "AppSqlDataBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExtensionMethods/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

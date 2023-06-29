@@ -1,0 +1,24 @@
+﻿@model AddProductViewModel
+
+
+<form id="uploadform" class="form-control" method="post" enctype="multipart/form-data">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="نام محصول" aria-label="Username" aria-describedby="basic-addon1" asp-for="ProductName">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" asp-for="Price">
+        <span class="input-group-text">.00</span>
+    </div>
+    <div>
+        <label for="formFileLg" class="form-label">Large file input example</label>
+        <input multiple class="form-control form-control-lg" id="formFileLg" asp-for="fileImages" type="file">
+    </div>
+    <div class="input-group mb-3">
+        <button type="submit" asp-controller="ProductManagement" asp-action="AddProduct" class="btn btn-primary mb-3">ثبت نهایی</button>
+    </div>
+</form>
+
+
+

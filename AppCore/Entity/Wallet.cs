@@ -6,7 +6,7 @@ namespace AppCore;
 public class Wallet
 {
     #region Property
-    public int CustomerId { get; set; }
+    public int UserId { get; set; }
 
     public decimal Credit { get; set; }
 
@@ -26,6 +26,6 @@ public class Wallet
     #endregion
 
     #region Navigation Property
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
     #endregion
 }

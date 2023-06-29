@@ -1,0 +1,110 @@
+﻿@using ExtensionMethods;
+@{
+    Layout = "_Layout_3.cshtml";
+}
+@model List<GetCustomersViewModel>
+<div class="wrapper m-3">
+    <!-- Navbar -->
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container">
+                <!-- /.row -->
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h3 class="card-title">جدول مشتریان</h3>
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>شماره</th>
+                                        <th>نام کاربر</th>
+                                        <th>تاریخ</th>
+                                        <th>وضعیت</th>
+                                        <th>مشاهده کامل پروفایل</th>
+                          
+                                    </tr>
+                                    @foreach (var customer in Model)
+                                    {
+                                        @if (customer.IsActive != true && customer.IsDeleted != true)
+
+                                        {
+                                            <tr>
+                                                <td>@customer.Id</td>
+                                                <td>@customer.FullName</td>
+                                                <td>@customer.CreatedAt</td>
+                                                <td><span class="badge bg-danger">در حال بررسی</span></td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Account" asp-action="CustomerProfile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                            
+                                            </tr>
+
+                                        }
+                                    }
+
+                                    @foreach (var customer in Model)
+                                    {
+                                        @if (customer.IsDeleted == true)
+
+                                        {
+                                            <tr>
+                                                <td>@customer.Id</td>
+                                                <td>@customer.FullName</td>
+                                                <td>@customer.DeletedAt</td>
+                                                <td><span class="badge badge-danger">رد شده</span></td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Account" asp-action="CustomerProfile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                           
+                                            </tr>
+
+                                        }
+                                    }
+                                    @foreach (var customer in Model)
+                                    {
+                                        @if (customer.IsActive == true)
+
+                                        {
+                                            <tr>
+                                                <td>@customer.Id</td>
+                                                <td>@customer.FullName</td>
+                                                <td>@customer.ActivatedAt</td>
+                                                <td><span class="badge badge-success">تایید شده</span></td>
+                                                <td><a type="button" class="btn btn-primary" asp-controller="Account" asp-action="CustomerProfile" asp-route-id="@customer.Id">مشاهده جزییات</a></td>
+                                         
+                                            </tr>
+
+                                        }
+                                    }
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+</div>
+
+

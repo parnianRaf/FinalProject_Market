@@ -1,0 +1,24 @@
+﻿@using AppCore.DtoModels;
+@model List<PavilionDtoModel>
+
+
+@{
+    Layout = "_Layout.cshtml";
+}
+<h1>فروشگاه های من</h1>
+@foreach (PavilionDtoModel pavilionDto in Model)
+{
+    <div style="width:360px;display:flex" class="jsx-b2349dd13b8a662b">
+        <div class="jsx-b2349dd13b8a662b logo">
+            <img src="~/images/@pavilionDto.ImageFile" style="width:64px;height:auto;" alt="@pavilionDto.Title" class="jsx-b2349dd13b8a662b">
+        </div>
+        <div class="jsx-b2349dd13b8a662b title">
+            <a class="btn" asp-area="Seller" asp-controller="PavilionManagement" asp-action="PavilionProfile" asp-route-id="@pavilionDto.Id">
+                <h1 class="jsx-b2349dd13b8a662b">@pavilionDto.Title</h1>
+            </a>
+        </div>
+    </div>
+
+}
+
+

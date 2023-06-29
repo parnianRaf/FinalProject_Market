@@ -1,0 +1,279 @@
+﻿
+@using AppCore.DtoModels.Customer
+
+
+@{
+    Layout = "_Layout_3";
+}
+
+@model FullDetailSellerViewModel
+
+<div class="container m-2">
+    <div class="row m-2">
+        <input type="text" id="Commission" />
+    </div>
+    <div class="row m-2" >
+        <div class="d-flex justify-content-start">
+            @if (!Model.IsDeleted)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Account" asp-action="DeleteUser" asp-route-id="@Model.Id">حذف کاربر</a>
+            }
+            @if (!Model.IsDeleted && Model.IsActive == false)
+            {
+                <a class="btn btn-danger m-1" asp-controller="Account" asp-action="ActiveUser" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+            }
+            @if (Model.IsDeleted)
+            {
+                <div class="container">
+                    <div class="row">
+                        <h4> این کاربر به دلیل زیر حذف شده است:</h4>
+                    </div>
+                    <div class="row">
+                        <h5>@Model.DeleteComment</h5>
+                    </div>
+                    <div class="row">
+                        <a class="btn btn-danger" asp-controller="Account" asp-action="ActiveUser" asp-route-id="@Model.Id">برگرداندن کاربر</a>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="card card-info justify-content-center ">
+            <div class="card-header">
+                <h3 class="card-title">مشخصات</h3>
+            </div>
+           
+            <form class="card-body" method="post">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">آیدی</span>
+                    </div>
+                    <input type="number" class="form-control" asp-for="Id">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">نام</span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="FirstName" placeholder="نام ">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">نام خانوادگی</span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="LastName" placeholder="نام خانوادگی">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <input type="email" class="form-control" asp-for="Email" placeholder="ایمیل">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                    </div>
+                    <input type="text" class="form-control " asp-for="PhoneNumber" placeholder="شماره همراه">
+                </div>
+                <!-- /.row -->
+                <!-- /input-group -->
+                @if (Model.IsActive == true)
+                {
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button type="submit" class="btn btn-danger" asp-controller="Account" asp-action="SellerProfile">ویرایش</button>
+
+                        </div>
+                        <!-- /btn-group -->
+
+                    </div>
+                }
+
+            </form>
+
+
+
+           
+            <!-- /.card-body -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">جدول محصولات</h3>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>شماره</th>
+                            <th>نام کاربر</th>
+                            <th>تاریخ</th>
+                            <th>وضعیت</th>
+                            <th>مشاهده کامل پروفایل</th>
+                                           
+                        </tr>
+                        @foreach (var product in ViewBag.productDtos)
+                        {
+                            @if (product.IsActive != true && product.IsDeleted != true)
+
+                            {
+                                <tr>
+                                    <td>@product.Id</td>
+                                    <td>@product.ProductName</td>
+                                    <td>@product.CreatedAt</td>
+                                    <td><span class="badge bg-danger">در حال بررسی</span></td>
+                                    <td><a  class="btn btn-primary" asp-controller="Product" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
+                                                
+                                </tr>
+
+                            }
+                        }
+
+                        @foreach (var product in ViewBag.productDtos)
+                        {
+                            @if (product.IsDeleted == true)
+
+                            {
+                                <tr>
+                                    <td>@product.Id</td>
+                                    <td>@product.ProductName</td>
+                                    <td>@product.DeletedAt</td>
+                                    <td><span class="badge badge-danger">رد شده</span></td>
+                                    <td><a  class="btn btn-primary" asp-controller="Product" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
+                                             
+                                </tr>
+
+                            }
+                        }
+                        @foreach (var product in ViewBag.productDtos)
+                        {
+                            @if (product.IsActive == true)
+
+                            {
+                                <tr>
+                                    <td>@product.Id</td>
+                                    <td>@product.ProductName</td>
+                                    <td>@product.ActivatedAt</td>
+                                    <td><span class="badge badge-success">تایید شده</span></td>
+                                    <td><a class="btn btn-primary" asp-controller="Product" asp-action="ProductProfile" asp-route-id="@product.Id">مشاهده جزییات</a></td>
+                                               
+                                </tr>
+
+                            }
+                        }
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div><!-- /.row -->
+</div>
+
+<div class="container m-2">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">جدول مغازه ها</h3>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>شماره</th>
+                            <th>نام کاربر</th>
+                            <th>تاریخ</th>
+                            <th>وضعیت</th>
+                            <th>مشاهده کامل پروفایل</th>
+                                       
+                        </tr>
+                        @foreach (var pavilion in @ViewBag.pavilionDtos)
+                        {
+                            @if (pavilion.IsAccepted != true && pavilion.IsDeleted != true)
+
+                            {
+                                <tr>
+                                    <td>@pavilion.Id</td>
+                                    <td>@pavilion.Title</td>
+                                    <td>@pavilion.CreatedAt</td>
+                                    <td><span class="badge bg-danger">در حال بررسی</span></td>
+                                    <td><a type="button" class="btn btn-primary" asp-controller="Pavilion" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                        
+                                </tr>
+
+                            }
+                        }
+
+                        @foreach (var pavilion in @ViewBag.pavilionDtos)
+                        {
+                            @if (pavilion.IsDeleted == true)
+
+                            {
+                                <tr>
+                                    <td>@pavilion.Id</td>
+                                    <td>@pavilion.Title</td>
+                                    <td>@pavilion.DeletedAt</td>
+                                    <td><span class="badge badge-danger">رد شده</span></td>
+                                    <td><a type="button" class="btn btn-primary" asp-controller="Pavilion" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                              
+                                </tr>
+
+                            }
+                        }
+                        @foreach (var pavilion in @ViewBag.pavilionDtos)
+                        {
+                            @if (pavilion.IsAccepted == true)
+
+                            {
+                                <tr>
+                                    <td>@pavilion.Id</td>
+                                    <td>@pavilion.Title</td>
+                                    <td>@pavilion.AcceptedAt</td>
+                                    <td><span class="badge badge-success">تایید شده</span></td>
+                                    <td><a type="button" class="btn btn-primary" asp-controller="Pavilion" asp-action="pavilionProfile" asp-route-id="@pavilion.Id">مشاهده جزییات</a></td>
+                                           
+                                </tr>
+
+                            }
+                        }
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div><!-- /.row -->
+</div>
+
+

@@ -21,9 +21,10 @@ namespace AppSqlDataBase.Configurations
             #endregion
 
             #region Relational Property
-            entity.HasOne(d => d.Seller).
+            entity.HasOne(d => d.User).
                 WithMany(p => p.Pavilions)
-                .HasForeignKey(d => d.SellerId);
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
             #endregion
 
             #region Seed Data

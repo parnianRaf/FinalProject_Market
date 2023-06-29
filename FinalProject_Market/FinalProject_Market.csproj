@@ -10,9 +10,32 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <None Remove="Data\Migrations\" />
-    <None Remove="Models\ViewModels\" />
-    <None Remove="Views\Seller\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Admin\Views\Account\" />
+    <None Remove="Areas\Admin\Models\" />
+    <None Remove="Areas\Admin\Views\Product\" />
+    <None Remove="Models\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Views\Pavilion\" />
+    <None Remove="Areas\Admin\Views\Order\" />
+    <None Remove="Areas\Seller\" />
+    <None Remove="Areas\Seller\Controllers\" />
+    <None Remove="Areas\Seller\Models\" />
+    <None Remove="Areas\Seller\Views\" />
+    <None Remove="Areas\Seller\Views\SellerManagement\" />
+    <None Remove="Areas\Seller\Views\Shared\" />
+    <None Remove="Areas\Seller\Views\PavilionManagement\" />
+    <None Remove="Areas\Customer\" />
+    <None Remove="Areas\Customer\Controllers\" />
+    <None Remove="Areas\Customer\Models\" />
+    <None Remove="Areas\Customer\Views\" />
+    <None Remove="Areas\Customer\Views\ShowProductManagement\" />
+    <None Remove="Areas\Customer\Models\ViewModels\" />
+    <None Remove="Areas\Customer\Views\ShowPavilionManagement\" />
+    <None Remove="Areas\Customer\Views\CustomerManagement\" />
+    <None Remove="BackGroundServices\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -28,6 +51,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.5" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,14 +69,63 @@
     <ProjectReference Include="..\AppSqlDataBase\AppSqlDataBase.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\ExtensionMethods\ExtensionMethods.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="wwwroot\Images\" />
-    <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\Seller\" />
+    <Folder Include="wwwroot\AdminPannel\js\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Pavilion\" />
+    <Folder Include="Areas\Admin\Views\Order\" />
+    <Folder Include="Areas\Seller\" />
+    <Folder Include="Areas\Seller\Controllers\" />
+    <Folder Include="Areas\Seller\Models\" />
+    <Folder Include="Areas\Seller\Views\" />
+    <Folder Include="wwwroot\SellerLogIn\" />
+    <Folder Include="wwwroot\SellerLogIn\css\" />
+    <Folder Include="wwwroot\SellerLogIn\js\" />
+    <Folder Include="wwwroot\SellerLogIn\images\" />
+    <Folder Include="Areas\Seller\Views\SellerManagement\" />
+    <Folder Include="Areas\Seller\Views\Shared\" />
+    <Folder Include="wwwroot\SellerPannel\" />
+    <Folder Include="wwwroot\SellerPannel\css\" />
+    <Folder Include="wwwroot\SellerPannel\js\" />
+    <Folder Include="wwwroot\SellerPannel\image\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="Areas\Seller\Views\PavilionManagement\" />
+    <Folder Include="wwwroot\images\Categories\" />
+    <Folder Include="Areas\Customer\" />
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Models\" />
+    <Folder Include="Areas\Customer\Views\" />
+    <Folder Include="Areas\Customer\Views\ShowProductManagement\" />
+    <Folder Include="Areas\Customer\Models\ViewModels\" />
+    <Folder Include="Areas\Customer\Views\ShowPavilionManagement\" />
+    <Folder Include="Areas\Customer\Views\CustomerManagement\" />
+    <Folder Include="BackGroundServices\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\Images\" />
+    <Content Remove="wwwroot\AdminPannel\js\" />
+    <Content Remove="wwwroot\SellerLogIn\" />
+    <Content Remove="wwwroot\SellerLogIn\css\" />
+    <Content Remove="wwwroot\SellerLogIn\js\" />
+    <Content Remove="wwwroot\SellerLogIn\images\" />
+    <Content Remove="wwwroot\SellerPannel\" />
+    <Content Remove="wwwroot\SellerPannel\css\" />
+    <Content Remove="wwwroot\SellerPannel\js\" />
+    <Content Remove="wwwroot\SellerPannel\image\" />
+    <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\images\Categories\" />
   </ItemGroup>
 </Project>
