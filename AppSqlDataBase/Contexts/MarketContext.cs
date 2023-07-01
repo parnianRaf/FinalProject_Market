@@ -42,7 +42,6 @@ public class MarketContext : IdentityDbContext<User, IdentityRole<int>,int>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserEntityConfiguration).Assembly);
     }
     #endregion

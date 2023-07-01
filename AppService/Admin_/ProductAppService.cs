@@ -1,6 +1,6 @@
 ﻿using System;
 using AppCore;
-using AppCore.Contracts.AppServices.Account;
+using AppCore.Contracts.AppServices;
 using AppCore.Contracts.Services;
 using AppCore.DtoModels.Category;
 using AppCore.DtoModels.Product;
@@ -12,31 +12,28 @@ namespace AppService.Admin_
     public class ProductAppService : IProductAppService
     {
         #region field
-        private readonly IProductRepository _productRepository;
-        //private readonly IAuctionService _auctionService;
         private readonly ICategoryService _categoryService;
         private readonly IMapServices _mapServices;
         private readonly ICookieService _setCookieService;
         private readonly IIdGeneratorService _idGeneratorService;
         private readonly IAccountServices _accountService;
         private readonly IImageService _imageService;
-        //private readonly IProductService _productService;
+        private readonly IProductService _productService;
 
         #endregion
 
         #region ctor
-        public ProductAppService(IProductRepository productRepository,
-            ICategoryService categoryService, IMapServices mapServices,
+        public ProductAppService(ICategoryService categoryService, IMapServices mapServices,
             ICookieService setCookieService, IIdGeneratorService idGeneratorService,
-            IAccountServices accountService, IImageService imageService)
+            IAccountServices accountService, IImageService imageService, IProductService productService)
         {
-            _productRepository = productRepository;
             _categoryService = categoryService;
             _mapServices = mapServices;
             _setCookieService = setCookieService;
             _idGeneratorService = idGeneratorService;
             _accountService = accountService;
             _imageService = imageService;
+            _productService = productService;
             //_auctionService = auctionService;
             //_productService = productService;
         }
@@ -66,90 +63,62 @@ namespace AppService.Admin_
             int  pavilionId= Convert.ToInt16(_setCookieService.ReadCookies("PavilionId"));
             Product product = _mapServices.MapProduct(productDto);
             string filePath= _imageService.GetFilePath(productDto.ProductName,productDto.fileImages);
-            await _productRepository.AddProduct(id,sellerId, categoryId, pavilionId,filePath,category,product, cancellation);
+            await _productService.AddProduct(id,sellerId, categoryId, pavilionId,filePath,category,product, cancellation);
         }
 
         public async Task<List<DetailedProductDto>> GetAllSellerProducts( CancellationToken cancellation)
         {
             int sellerId = _accountService.GetCurrentUser();
-            return await _productRepository.GetAllProducts(cancellation, sellerId);
+            return await _productService.GetAllProducts(cancellation, sellerId);
         }
 
         public async Task<List<DetailedProductDto>> GetCategoryProducts(int categoryId,CancellationToken cancellation)
         {
-            return await _productRepository.GetCategoryProducts(categoryId, cancellation);
+            return await _productService.GetCategoryProducts(categoryId, cancellation);
         }
 
         public async Task<List<DetailedProductDto>> GetFirstPageProducts(CancellationToken cancellation)
         {
-            List<DetailedProductDto> productDtos = await _productRepository.GetAllProducts(cancellation);
+            List<DetailedProductDto> productDtos = await _productService.GetAllProducts(cancellation);
             return productDtos.Skip(29).Take(6).ToList();
         }
 
 
-
-        //public async Task<List<string>> GetAllProductNames( CancellationToken cancellation)
-        //{
-        //    int sellerId = _accountService.GetCurrentUser();
-        //    List<DetailedProductDto> productDtos =await _productRepository.GetAllProducts(cancellation, sellerId);
-        //    return _productService.GetProductNames(productDtos);
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
         public async Task<List<DetailedProductDto>> GetAllProducts(int sellerId, CancellationToken cancellation)
         {
-            return await _productRepository.GetAllProducts(cancellation, sellerId);
+            return await _productService.GetAllProducts(cancellation, sellerId);
         }
-
-
-
-
-
-
-
-
-
 
 
         public async Task<Product> GetEntityProduct(int id, CancellationToken cancellation)
         {
-            return await  _productRepository.GetEntityProduct(id, cancellation);
+            return await  _productService.GetEntityProduct(id, cancellation);
         }
 
         public async Task<DetailedProductDto> GetProduct(int id, CancellationToken cancellation)
         {
-            return await _productRepository.GetProduct(id, cancellation);
+            return await _productService.GetProduct(id, cancellation);
         }
 
         public async Task<List<DetailedProductDto>> GetAllProducts( CancellationToken cancellation)
         {
-            return await _productRepository.GetAllProducts(cancellation);
+            return await _productService.GetAllProducts(cancellation);
         }
 
 
         public async Task<bool> EditProduct(DetailedProductDto productDto, CancellationToken cancellation)
         {
-            return await _productRepository.EditProduct(productDto, cancellation);
+            return await _productService.EditProduct(productDto, cancellation);
         }
 
         public async Task<bool> RemoveProduct(int id, CancellationToken cancellation)
         {
-            return await _productRepository.RemoveProduct(id, cancellation);
+            return await _productService.RemoveProduct(id, cancellation);
         }
 
         public async Task AcceptProduct(int id, CancellationToken cancellation)
         {
-            await _productRepository.AcceptProduct(id, cancellation);
+            await _productService.AcceptProduct(id, cancellation);
         }
         #endregion
     }

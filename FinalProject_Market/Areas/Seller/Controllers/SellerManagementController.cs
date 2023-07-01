@@ -8,7 +8,6 @@ using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using AppService.Admin_;
-using AppService.Admin_.Command;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -4,7 +4,7 @@ using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using Microsoft.AspNetCore.Identity;
 
-namespace AppService.Admin_.Command
+namespace AppService.Admin_
 {
     public interface IAccountAppServices
     {

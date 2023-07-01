@@ -2,7 +2,7 @@
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 
-namespace AppCore.Contracts.AppServices.Account
+namespace AppCore.Contracts.AppServices
 {
     public interface IMapServices
     {

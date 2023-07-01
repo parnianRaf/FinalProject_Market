@@ -1,11 +1,10 @@
 ﻿using System;
 using AppCore;
-using AppCore.Contracts.AppServices.Account;
+using AppCore.Contracts.AppServices;
 using AppCore.Contracts.Services;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Comment;
 using AppCore.DtoModels.DirectOrder;
-using AppService.Admin_.Command;
 using Repositories.Repository.ProductRepository;
 using Service;
 
@@ -23,7 +22,8 @@ namespace AppService.Admin_
 
         #region ctor
         public DirectOrderAppService(IDirectOrderService directOrderService,
-            IIdGeneratorService idGenerator, IProductAppService productAppService, IAccountAppServices account, IMapServices mapper)
+            IIdGeneratorService idGenerator, IProductAppService productAppService,
+            IAccountAppServices account, IMapServices mapper)
         {
             _directOrderService = directOrderService;
             _idGenerator = idGenerator;

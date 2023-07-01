@@ -4,10 +4,8 @@ using AppCore.DtoModels.Category;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 
-namespace AppCore.Contracts.AppServices.Account
+namespace AppCore.Contracts.AppServices
 {
     public class MapServices : IMapServices
     {
@@ -21,6 +19,7 @@ namespace AppCore.Contracts.AppServices.Account
             _mapper = mapper;
         }
         #endregion
+
         public User MapUser<T>(T userDto)
         {
             return _mapper.Map<User>(userDto);

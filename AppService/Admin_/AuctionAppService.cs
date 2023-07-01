@@ -4,7 +4,6 @@ using AppCore.Contracts.Services;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.Product;
-using AppService.Admin_.Command;
 using AutoMapper;
 using Repositories.Repository.ProductRepository;
 using Service;
@@ -15,37 +14,36 @@ namespace AppService.Admin_
     {
         #region field
         private readonly IMapper _mapper;
-        //private readonly IAuctionService _auctionService;
-        private readonly IAuctionRepository _auctionRepository;
+        private readonly IProductService _productService;
+        private readonly IAuctionService _auctionService;
         private readonly IOfferService _offerService;
         private readonly IIdGeneratorService _idGeneratorService;
         private readonly IAccountAppServices _account;
         private readonly IAccountServices _accountService;
-        private readonly IProductRepository _productRepository;
         private readonly IProductAppService _productAppService;
         #endregion
 
         #region ctor
-        public AuctionAppService(IAuctionRepository auctionRepository, IIdGeneratorService idGeneratorService,
-            IAccountServices accountService, IMapper mapper, IProductRepository productRepository
-            , IProductAppService productAppService, IOfferService offerService, IAccountAppServices account)
+        public AuctionAppService(IIdGeneratorService idGeneratorService,
+            IAccountServices accountService, IMapper mapper
+            , IProductAppService productAppService, IOfferService offerService, IAccountAppServices account,
+            IAuctionService auctionService, IProductService productService)
         {
-            _auctionRepository = auctionRepository;
             _idGeneratorService = idGeneratorService;
-            //_auctionService = auctionService;
             _accountService = accountService;
             _mapper = mapper;
-            _productRepository = productRepository;
             _productAppService = productAppService;
             _offerService = offerService;
             _account = account;
+            _auctionService = auctionService;
+            _productService = productService;
         }
         #endregion
 
         #region Implementation
         public async Task AddOffer(DetailedOfferDto offerDto,CancellationToken cancellation)
         {
-            Auction auction = await _auctionRepository.GetAuction(offerDto.AuctionId, cancellation);
+            Auction auction = await _auctionService.GetAuction(offerDto.AuctionId, cancellation);
             offerDto.IsAccepted = await _offerService.IsOfferAccepted(offerDto, cancellation);
             int offerId = _idGeneratorService.Execute<Offer>(await _offerService.GetAllOffers<Offer>(cancellation));
             User customer =await _account.GetUser<User>(cancellation);
@@ -57,21 +55,21 @@ namespace AppService.Admin_
 
         public async Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation)
         {
-            int id = _idGeneratorService.Execute<Auction>(await _auctionRepository.GetAllEntityAuction(cancellation));
+            int id = _idGeneratorService.Execute<Auction>(await _auctionService.GetAllEntityAuction(cancellation));
             int sellerId = _accountService.GetCurrentUser();
             Auction auction=_mapper.Map<Auction>(auctionDto);
-            List<Product> products =await _productRepository.GetAllProducts(auctionDto.ProductDtoIds,cancellation,sellerId);
-            await _auctionRepository.AddAuction(id,sellerId,products,auction,cancellation);
+            List<Product> products =await _productService.GetAllProducts(auctionDto.ProductDtoIds,cancellation,sellerId);
+            await _auctionService.AddAuction(id,sellerId,products,auction,cancellation);
         }
 
         public async Task UpdateAuction(Auction auction,CancellationToken cancellation)
         {
-            await _auctionRepository.UpdateAuction(auction, cancellation);
+            await _auctionService.UpdateAuction(auction, cancellation);
         }
 
         public async Task AuctionOperation(int auctionId,CancellationToken cancellation,Double medalDiscount)
         {
-            Auction auction = await _auctionRepository.GetAuction(auctionId, cancellation);
+            Auction auction = await _auctionService.GetAuction(auctionId, cancellation);
             while(auction.StartTime<DateTime.Now && DateTime.Now<auction.EndTime)
             {
                 List<Offer> offers = await _offerService.GetAuctionOffers(auctionId, cancellation);
@@ -89,32 +87,32 @@ namespace AppService.Admin_
 
         public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation)
         {
-            return await _auctionRepository.GetAllAuctions(cancellation);
+            return await _auctionService.GetAllAuctions(cancellation);
         }
 
         public async Task<List<DetailedAuctionDto>> GetAllAvailableDetailedAuction(CancellationToken cancellation)
         {
-            return await _auctionRepository.GetAllAvailableAuctions(cancellation);
+            return await _auctionService.GetAllAvailableAuctions(cancellation);
         }
 
         public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)
         {
-            return await _auctionRepository.GetAllEntityAuction(cancellation);
+            return await _auctionService.GetAllEntityAuction(cancellation);
         }
 
         public async Task<DetailedAuctionDto> GetAuction(int id, CancellationToken cancellation)
         {
-            return await _auctionRepository.GetDetailedAuction(id, cancellation);
+            return await _auctionService.GetDetailedAuction(id, cancellation);
         }
 
         public async Task<bool> AcceptComment(int auctionId, CancellationToken cancellation)
         {
-            return await _auctionRepository.AcceptComment(auctionId, cancellation);
+            return await _auctionService.AcceptComment(auctionId, cancellation);
         }
 
         public async Task<bool> RejectComment(int auctionId, CancellationToken cancellation)
         {
-            return await _auctionRepository.RejectComment(auctionId, cancellation);
+            return await _auctionService.RejectComment(auctionId, cancellation);
         }
 
     

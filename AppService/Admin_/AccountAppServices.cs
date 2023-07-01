@@ -8,12 +8,12 @@ using System.Runtime.Serialization;
 using Serilog;
 using Microsoft.AspNetCore.Http;
 using Service;
-using AppCore.Contracts.AppServices.Account;
+using AppCore.Contracts.AppServices;
 using AppCore.DtoModels.Customer;
 using Microsoft.Extensions.Options;
 using AppCore.DtoModels.Seller;
 
-namespace AppService.Admin_.Command
+namespace AppService.Admin_
 {
     public class AccountAppServices : IAccountAppServices
     {
@@ -27,7 +27,7 @@ namespace AppService.Admin_.Command
         #region ctor
         public AccountAppServices(IAccountServices accountService,
             IMapServices mapService, UserManager<User> userManager,
-ISellerStatusService sellerStatus)
+            ISellerStatusService sellerStatus)
         {
 
             _accountService = accountService;
