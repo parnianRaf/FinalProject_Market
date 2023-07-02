@@ -25,19 +25,29 @@ namespace Service
                     string fileName = name + "_" + i.ToString() + photos[i].FileName;
 					string filePath = Path.Combine(uploadDir, fileName);
 					photos[i].CopyTo(new FileStream(filePath, FileMode.Create));
-					if (i != photos.Count() - 1)
-					{
-						dataBaseFileName += fileName+",";
-					}
-					else
-					{
-						dataBaseFileName += fileName;
-
-                    }
+                    dataBaseFileName+= i != photos.Count() - 1 ? fileName +"," : fileName; 
                 }
 			}
 			return dataBaseFileName;
 		}
-	}
+
+        public string GetFilePath(string name, IFormFile? photo)
+        {
+
+            string fileName = "";
+            if (photo != null && photo.Length> 0)
+            {
+                string uploadDir = Path.Combine(_hostingEnviroment.WebRootPath, "images", "UserImages");
+                fileName = name + Path.GetExtension(photo.FileName);
+                string dataBaseFileName = Path.Combine(uploadDir, fileName);
+                if (File.Exists(dataBaseFileName))
+                {
+                    File.Delete(dataBaseFileName);
+                }
+                photo.CopyTo(new FileStream(dataBaseFileName, FileMode.Create));
+            }
+            return fileName;
+        }
+    }
 }
 

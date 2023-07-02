@@ -8209,12 +8209,20 @@
       "PackagePath": "staticwebassets/images/Categories/کتابخانه.jpeg"
     },
     {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/amin.png",
-      "PackagePath": "staticwebassets/images/amin.png"
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/amin.png",
+      "PackagePath": "staticwebassets/images/UserImages/amin.png"
     },
     {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/pari.jpg",
-      "PackagePath": "staticwebassets/images/pari.jpg"
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/pari.jpg",
+      "PackagePath": "staticwebassets/images/UserImages/pari.jpg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/shani.jpg",
+      "PackagePath": "staticwebassets/images/UserImages/shani.jpg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/zaria.jpg",
+      "PackagePath": "staticwebassets/images/UserImages/zaria.jpg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/product-30-1.jpg",
@@ -8265,16 +8273,8 @@
       "PackagePath": "staticwebassets/images/product-35-2.jpg"
     },
     {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/shani.jpg",
-      "PackagePath": "staticwebassets/images/shani.jpg"
-    },
-    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/signin-image.jpg",
       "PackagePath": "staticwebassets/images/signin-image.jpg"
-    },
-    {
-      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/zaria.jpg",
-      "PackagePath": "staticwebassets/images/zaria.jpg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/با سلام.png",

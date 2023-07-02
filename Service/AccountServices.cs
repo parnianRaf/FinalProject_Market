@@ -131,6 +131,8 @@ public class AccountServices : IAccountServices
         user.Email = userDto.Email;
         user.PhoneNumber = userDto.PhoneNumber;
         user.NationalityCode = userDto.NationalityCode;
+        user.FilePathSource = userDto.FilePathSource;
+        user.ImageFile = userDto.UserFile;
         string id =_userManager.GetUserId(_httpContextAccessor.HttpContext.User) ?? user.Id.ToString();
         user.ModifiedBy = int.Parse(id);
         var updateResult=await _userManager.UpdateAsync(user);

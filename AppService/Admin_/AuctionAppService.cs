@@ -21,13 +21,14 @@ namespace AppService.Admin_
         private readonly IAccountAppServices _account;
         private readonly IAccountServices _accountService;
         private readonly IProductAppService _productAppService;
+        private readonly IAuctionCacheAppService _auctionCacheApp;
         #endregion
 
         #region ctor
         public AuctionAppService(IIdGeneratorService idGeneratorService,
             IAccountServices accountService, IMapper mapper
             , IProductAppService productAppService, IOfferService offerService, IAccountAppServices account,
-            IAuctionService auctionService, IProductService productService)
+            IAuctionService auctionService, IProductService productService, IAuctionCacheAppService auctionCacheApp)
         {
             _idGeneratorService = idGeneratorService;
             _accountService = accountService;
@@ -37,6 +38,7 @@ namespace AppService.Admin_
             _account = account;
             _auctionService = auctionService;
             _productService = productService;
+            _auctionCacheApp = auctionCacheApp;
         }
         #endregion
 
@@ -65,6 +67,12 @@ namespace AppService.Admin_
         public async Task UpdateAuction(Auction auction,CancellationToken cancellation)
         {
             await _auctionService.UpdateAuction(auction, cancellation);
+        }
+
+        public async Task UpdateAuctions(Auction auctions,CancellationToken cancellation)
+        {
+            auctions.IsActive = (auctions.StartTime < DateTime.Now && DateTime.Now < auctions.EndTime);
+            await UpdateAuction(auctions, cancellation);
         }
 
         public async Task AuctionOperation(int auctionId,CancellationToken cancellation,Double medalDiscount)
@@ -115,7 +123,11 @@ namespace AppService.Admin_
             return await _auctionService.RejectComment(auctionId, cancellation);
         }
 
-    
+        public async Task<List<DateTime>> GetStartDateTimes(CancellationToken cancellation)
+        {
+            List<Auction> auctions = await _auctionCacheApp.GetCache(cancellation);
+            return auctions.Select(a => a.StartTime).ToList();
+        }
         #endregion
 
     }

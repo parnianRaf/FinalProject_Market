@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R1iEFTTE/xU6KMXCrUfI3Uoc4yUPDq6QXpUjMzf85DA6kUzJSo5kdwhwJF4YtMDnXTN/qn/1trVidxwiTAKzqA==",
+  "dgSpecHash": "zkEgk/n7tvsEttDckgypOtV5UVi3rpgktjWMnWR9SfNEmdZRICH+QxCSlCdYkRA5+IHUbPRlTuAXNw5sjIg00A==",
   "success": true,
   "projectFilePath": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/FinalProject_Market.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/parnianrafei/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
+    "/Users/parnianrafei/.nuget/packages/hangfire/1.8.3/hangfire.1.8.3.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/hangfire.aspnetcore/1.8.3/hangfire.aspnetcore.1.8.3.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/hangfire.core/1.8.3/hangfire.core.1.8.3.nupkg.sha512",
     "/Users/parnianrafei/.nuget/packages/hangfire.netcore/1.8.3/hangfire.netcore.1.8.3.nupkg.sha512",

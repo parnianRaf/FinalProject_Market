@@ -33,4 +33,13 @@ public class Medal
     public double MedalPrice { get; set; }
     public double MedalDiscount { get; set; }
 }
+public class CronsAuction
+{
+    public string At12 { get; set; }
+}
+
+public class Root
+{
+    public CronsAuction Cron { get; set; }
+}
 

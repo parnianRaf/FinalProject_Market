@@ -21,6 +21,7 @@ namespace AppService.Admin_
         Task<bool> UpdateUser(EditUserDto userDto, CancellationToken cancellation);
         Task UpdateUser(User user, CancellationToken cancellation);
         Task<T> GetUser<T>(CancellationToken cancellation);
+        bool IsLogedIn();
         int GetUserId();
     }
 }

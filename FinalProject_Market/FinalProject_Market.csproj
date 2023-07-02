@@ -60,6 +60,7 @@
     <PackageReference Include="Hangfire.AspNetCore" Version="1.8.3" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.8.3" />
     <PackageReference Include="NetCore.AutoRegisterDi" Version="2.1.0" />
+    <PackageReference Include="Hangfire" Version="1.8.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -117,6 +118,7 @@
     <Folder Include="Areas\Customer\Views\ShowPavilionManagement\" />
     <Folder Include="Areas\Customer\Views\CustomerManagement\" />
     <Folder Include="BackGroundServices\" />
+    <Folder Include="wwwroot\images\UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\AdminPannel\js\" />
@@ -130,5 +132,6 @@
     <Content Remove="wwwroot\SellerPannel\image\" />
     <Content Remove="wwwroot\images\" />
     <Content Remove="wwwroot\images\Categories\" />
+    <Content Remove="wwwroot\images\UserImages\" />
   </ItemGroup>
 </Project>

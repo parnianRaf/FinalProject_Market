@@ -2,6 +2,7 @@
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
+using Microsoft.AspNetCore.Http;
 
 namespace AppCore.DtoModels.Customer
 {
@@ -20,6 +21,8 @@ namespace AppCore.DtoModels.Customer
         public string NationalityCode { get; set; }
 
         public string? FilePathSource { get; set; }
+
+        public IFormFile? UserFile { get; set; }
 
         public DateTime CreatedAt { get; set; }
 

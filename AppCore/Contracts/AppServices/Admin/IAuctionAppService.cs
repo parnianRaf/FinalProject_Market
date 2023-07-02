@@ -10,6 +10,7 @@ namespace AppService.Admin_
         Task AddOffer(DetailedOfferDto offerDto, CancellationToken cancellation);
         Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation);
         Task UpdateAuction(Auction auction, CancellationToken cancellation);
+        Task UpdateAuctions(Auction auctions, CancellationToken cancellation);
         Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAvailableDetailedAuction(CancellationToken cancellation);
@@ -17,6 +18,7 @@ namespace AppService.Admin_
         Task<bool> AcceptComment(int auctionId, CancellationToken cancellation);
         Task<bool> RejectComment(int auctionId, CancellationToken cancellation);
         Task AuctionOperation(int auctionId, CancellationToken cancellation,Double medalDiscount);
+        Task<List<DateTime>> GetStartDateTimes(CancellationToken cancellation);
 
     }
 }

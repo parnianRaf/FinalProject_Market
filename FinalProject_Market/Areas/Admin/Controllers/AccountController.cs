@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AppCore;
 using AppCore.DtoModels;
 using AppCore.DtoModels.Admin;
 using AppCore.DtoModels.Auction;
@@ -52,7 +53,6 @@ namespace FinalProject_Market.Controllers
         }
         #endregion
 
-        // GET: /<controller>/
         [AllowAnonymous]
         public async Task<IActionResult> Index(CancellationToken cancellation)
         {
@@ -60,8 +60,10 @@ namespace FinalProject_Market.Controllers
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
             ViewBag.Cart =await _directOrder.GetCurrentDirectOrder(cancellation);
             ViewBag.Auctions = await _auction.GetAllAvailableDetailedAuction(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_account.IsLogedIn(), await _account.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             return View();
         }
+
 
         [AllowAnonymous]
         public IActionResult Register(int id)
@@ -218,15 +220,6 @@ namespace FinalProject_Market.Controllers
             }
             return View(viewModel);
         }
-
-
-        //public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
-        //{
-        //    List<DetailedDirctOrderDto> dirctOrderDtos = await _paidOrders.Execute(cancellation);
-        //    List<DetailedAuctionDto> auctionDtos = await _auctions.Execute(cancellation);
-        //    ViewBag.directOrderDtos = dirctOrderDtos; 
-        //    return View(auctionDtos);
-        //}
   
         public async Task<IActionResult> DeleteUser(int id, CancellationToken cancellation)
         {
@@ -244,14 +237,8 @@ namespace FinalProject_Market.Controllers
 
         //public async Task<IActionResult> SeedData()
         //{
-
         //    var test1 = await _account.SeedAdminData();
-        //    if (!test1)
-        //    {
-        //        return RedirectToAction("Index", "Account");
-        //    }
         //    return RedirectToAction("Index", "Account");
-
         //}
     }
 }

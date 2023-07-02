@@ -27,6 +27,10 @@
       <None Remove="Contracts\Services\" />
       <None Remove="Contracts\AppServices\Account\" />
       <None Remove="DtoModels\Comment\" />
+      <None Remove="Entity\DataBaseEntity\" />
+      <None Remove="Entity\CacheEntity\" />
+      <None Remove="Entity\ConfigurationEntity\" />
+      <None Remove="Contracts\AppServices\Cache\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="DtoModels\" />
@@ -42,5 +46,9 @@
       <Folder Include="Contracts\Services\" />
       <Folder Include="Contracts\AppServices\Account\" />
       <Folder Include="DtoModels\Comment\" />
+      <Folder Include="Entity\DataBaseEntity\" />
+      <Folder Include="Entity\CacheEntity\" />
+      <Folder Include="Entity\ConfigurationEntity\" />
+      <Folder Include="Contracts\AppServices\Cache\" />
     </ItemGroup>
 </Project>

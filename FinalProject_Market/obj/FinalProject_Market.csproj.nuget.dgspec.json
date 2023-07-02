@@ -110,6 +110,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.3, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.3, )"
+            },
             "Serilog": {
               "target": "Package",
               "version": "[2.12.0, )"
@@ -323,6 +331,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.3, )"
+            },
             "Hangfire.AspNetCore": {
               "target": "Package",
               "version": "[1.8.3, )"

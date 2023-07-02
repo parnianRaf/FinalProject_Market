@@ -7,10 +7,10 @@ using AppCore.AppServices.Seller.Query;
 using AppCore.Contracts.AppServices;
 using AppCore.Contracts.Services;
 using AppService.Admin_;
-using AppService.Seller.Query;
 using AppSqlDataBase;
 using FinalProject_Market.BackGroundServices;
 using FinalProject_Market.Cache;
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NetCore.AutoRegisterDi;
@@ -47,11 +47,17 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.Development.json",false,true)
     .AddJsonFile("appsettings.json");
 
+
+
+builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.GetConnectionString("HangFire")));
+builder.Services.AddHangfireServer();
+
 builder.Services.AddHostedService<AuctionBackGroundService>();
 
 var configs = builder.Configuration.GetSection("Medal").Get<Medal>();
+var config2 = builder.Configuration.GetSection("CronsAuction").Get<CronsAuction>();
 builder.Services.AddSingleton<Medal>(configs);
-
+builder.Services.AddSingleton<CronsAuction>(config2);
 
 
 
@@ -142,6 +148,8 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseHangfireDashboard();
 
 app.UseEndpoints(endpoint =>
 {

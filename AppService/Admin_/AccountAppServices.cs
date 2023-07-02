@@ -21,19 +21,21 @@ namespace AppService.Admin_
         private readonly IAccountServices _accountService;
         private readonly ISellerStatusService _sellerStatus;
         private readonly IMapServices _mapService;
+        private readonly IImageService _imageService;
         private readonly UserManager<User> _userManager;
         #endregion
 
         #region ctor
         public AccountAppServices(IAccountServices accountService,
             IMapServices mapService, UserManager<User> userManager,
-            ISellerStatusService sellerStatus)
+            ISellerStatusService sellerStatus, IImageService imageService)
         {
 
             _accountService = accountService;
             _mapService = mapService;
             _userManager = userManager;
             _sellerStatus = sellerStatus;
+            _imageService = imageService;
         }
         #endregion
 
@@ -85,6 +87,11 @@ namespace AppService.Admin_
         //    return false;
 
         //}
+
+        public bool IsLogedIn()
+        {
+            return GetUserId() is not 0 ? true : false;
+        }
 
         public int GetUserId()
         {
@@ -162,6 +169,7 @@ namespace AppService.Admin_
         public async Task<bool> UpdateUser(EditUserDto userDto, CancellationToken cancellation)
         {
             User user = await _accountService.GetUser(userDto.Id);
+            userDto.FilePathSource =_imageService.GetFilePath(user.UserName, userDto.UserFile);
             return await _accountService.UpdateUser(user, userDto);
         }
 
@@ -246,6 +254,7 @@ namespace AppService.Admin_
             //    #endregion
 
         }
+
 
         
         #endregion
