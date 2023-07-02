@@ -7,6 +7,7 @@ using AppCore.AppServices.Seller.Query;
 using AppCore.Contracts.AppServices;
 using AppCore.Contracts.Services;
 using AppService.Admin_;
+using AppService.BackGroundJobs;
 using AppSqlDataBase;
 using FinalProject_Market.BackGroundServices;
 using FinalProject_Market.Cache;
@@ -53,6 +54,11 @@ builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.Ge
 builder.Services.AddHangfireServer();
 
 builder.Services.AddHostedService<AuctionBackGroundService>();
+//builder.Services.AddScoped<BackgroundTask>();
+
+
+
+
 
 var configs = builder.Configuration.GetSection("Medal").Get<Medal>();
 var config2 = builder.Configuration.GetSection("CronsAuction").Get<CronsAuction>();
