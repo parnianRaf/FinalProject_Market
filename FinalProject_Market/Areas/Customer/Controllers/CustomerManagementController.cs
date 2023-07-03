@@ -42,6 +42,8 @@ namespace FinalProject_Market.Areas.Customer.Controllers
         public async Task<IActionResult> Profile(CancellationToken cancellation)
         {
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             return View(await _userAppService.GetUser<FullDetailCustomerDto>(cancellation));
         }
 
@@ -50,6 +52,8 @@ namespace FinalProject_Market.Areas.Customer.Controllers
         {
             //ModelState.AddModelError(string.Empty, "تغییر مورد نظر قابل انجام نیست.");
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             //if (ModelState.IsValid)
             //{
             await _userAppService.UpdateUser(_mapper.Map<EditUserDto>(customerDto), cancellation);
@@ -71,18 +75,24 @@ namespace FinalProject_Market.Areas.Customer.Controllers
         public async Task<IActionResult> GetCart(int id,CancellationToken cancellation)
         {
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             return View(await _directOrder.GetDirectOrderCart(id, cancellation));
         }
 
         public async Task<IActionResult> SubmitOrder(int id,CancellationToken cancellation)
         {
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             return View("Factor", await _directOrder.SubmitOrder(id, cancellation));
         }
 
         public async Task<IActionResult> AddComment(int id,CancellationToken cancellation)
         {
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             return View(new AddCommentViewModel() {OrderId=id});
         }
 
@@ -96,6 +106,8 @@ namespace FinalProject_Market.Areas.Customer.Controllers
         public async Task<IActionResult> AddOffer(int id,CancellationToken cancellation)
         {
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
             return View( new AddOfferViewModel() { AuctionId=id});
         }
 

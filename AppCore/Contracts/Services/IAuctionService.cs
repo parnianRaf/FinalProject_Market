@@ -7,7 +7,7 @@ namespace Service
 {
     public interface IAuctionService
     {
-        Task<bool> AddAuction(int id, int sellerId, List<Product> products, Auction auction, CancellationToken cancellation);
+        Task<Auction> AddAuction(int id, int sellerId, List<Product> products, Auction auction, CancellationToken cancellation);
 
         Task<List<DetailedAuctionDto>> GetAllPaidOrUnPaidAuctions(CancellationToken cancellation);
 

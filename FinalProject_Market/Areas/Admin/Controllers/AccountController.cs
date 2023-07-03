@@ -59,8 +59,8 @@ namespace FinalProject_Market.Controllers
             ViewBag.Products = await _productAppService.GetFirstPageProducts(cancellation);
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
             ViewBag.Cart =await _directOrder.GetCurrentDirectOrder(cancellation);
-            ViewBag.Auctions = await _auction.GetAllAvailableDetailedAuction(cancellation);
             ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_account.IsLogedIn(), await _account.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
+            ViewBag.Auctions = await _auction.GetAllAvailableDetailedAuction(cancellation);
             return View();
         }
 

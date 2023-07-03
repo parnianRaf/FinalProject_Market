@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore;
 using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AppService.Admin_;
 using AutoMapper;
+using FinalProject_Market.Cache;
 using FinalProject_Market.Models.ViewModels;
+using Hangfire;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Repository.ProductRepository;
@@ -25,7 +28,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         private readonly IDirectOrderAppService _directOrderAppService;
         private readonly IProductAppService _productAppService;
         private readonly IMapper _mapper;
-        //private readonly Medal _medal;
+
         #endregion
 
         #region ctor
@@ -38,6 +41,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             _directOrderAppService = directOrderAppService;
             _productAppService = productAppService;
             _mapper = mapper;
+
         }
         #endregion
 
@@ -58,7 +62,9 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         public async Task<IActionResult> AddAuction(AddAuctionViewModel auctionViewModel, CancellationToken cancellation)
         {
             AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
-            await _auctionAppService.AddAuction(auctionDto, cancellation);
+            Auction auction =await _auctionAppService.AddAuction(auctionDto, cancellation);
+            BackgroundJob.Schedule<IAuctionAppService>(s =>s.UpdateAuctions(auction,cancellation), auction.StartTime);
+            BackgroundJob.Schedule<IAuctionAppService>(s => s.UpdateAuctions(auction, cancellation), auction.EndTime);
             return RedirectToAction("Index", "AccountController" ,new {area="admin"});
         }
 

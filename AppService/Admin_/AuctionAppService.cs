@@ -55,13 +55,13 @@ namespace AppService.Admin_
             await _offerService.AddOffer(offerId, customer,auction, offer, cancellation);
         }
 
-        public async Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation)
+        public async Task<Auction> AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation)
         {
             int id = _idGeneratorService.Execute<Auction>(await _auctionService.GetAllEntityAuction(cancellation));
             int sellerId = _accountService.GetCurrentUser();
             Auction auction=_mapper.Map<Auction>(auctionDto);
             List<Product> products =await _productService.GetAllProducts(auctionDto.ProductDtoIds,cancellation,sellerId);
-            await _auctionService.AddAuction(id,sellerId,products,auction,cancellation);
+            return await _auctionService.AddAuction(id,sellerId,products,auction,cancellation);
         }
 
         public async Task UpdateAuction(Auction auction,CancellationToken cancellation)
@@ -72,6 +72,13 @@ namespace AppService.Admin_
         public async Task UpdateAuctions(Auction auctions,CancellationToken cancellation)
         {
             auctions.IsActive = (auctions.StartTime < DateTime.Now && DateTime.Now < auctions.EndTime);
+            if (auctions.IsActive==false)
+            {
+                auctions.IsFinished = true;
+                auctions.FinishedAt = DateTime.Now;
+                auctions.FinalPrice = auctions.Offers.Where(o=>o.IsAccepted).FirstOrDefault().Price;
+                Offer offer = auctions.Offers.OrderBy(o => o.SubmitAt).OrderBy(o => o.Price).FirstOrDefault() ?? new Offer();
+            }
             await UpdateAuction(auctions, cancellation);
         }
 

@@ -190,7 +190,8 @@ namespace Repositories.Repository.ProductRepository
                 {
                     Id = p.Id,
                     ProductName = p.ProductName,
-                    Price = p.Price
+                    Price = p.Price,
+                    filePathSource =p.filePathSource
 
                 }).ToList()
 

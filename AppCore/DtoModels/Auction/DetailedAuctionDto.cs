@@ -12,6 +12,10 @@ namespace AppCore.DtoModels.Auction
 
         public DateTime EndTime { get; set; }
 
+        public string? ProductNames { get; set; }
+
+        public string? DurationHour { get; set; }
+
         public string? AcceptedCustomerName { get; set; }
 
         public decimal? FinalPrice { get; set; }
@@ -33,8 +37,6 @@ namespace AppCore.DtoModels.Auction
         public bool IsFinished { get; set; }
 
         public virtual List<DetailedProductDto> ProductDtos { get; set; }
-
-
     }
 }
 

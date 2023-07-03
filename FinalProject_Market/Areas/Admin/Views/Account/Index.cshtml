@@ -2,13 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 @{
-if (ViewBag.Massage != null)
-{
-    <div>
-        @ViewBag.Massage
-    </div>
-}
+    if (ViewBag.Massage != null)
+    {
+        <div>
+            @ViewBag.Massage
+        </div>
+    }
 
 }
 <div class="intro-slider-container">
@@ -53,7 +54,7 @@ if (ViewBag.Massage != null)
                     </span>
                 </h1><!-- End .intro-title -->
 
-                <a  class="btn btn-primary">
+                <a class="btn btn-primary">
                     <span>خرید</span>
                     <i class="icon-long-arrow-left"></i>
                 </a>
@@ -201,7 +202,7 @@ if (ViewBag.Massage != null)
     <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-3" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="products-featured-link" data-toggle="tab"
-                role="tab" aria-controls="products-featured-tab"
+               role="tab" aria-controls="products-featured-tab"
                aria-selected="true">مبلمان</a>
         </li>
 
@@ -254,7 +255,7 @@ if (ViewBag.Massage != null)
                                     <img src="~/images/@item.filePathSource.Split(',')[id]" alt="تصویر محصول"
                                          class="product-image-hover">
                                 }
-             
+
 
 
                             </a>
@@ -326,116 +327,115 @@ if (ViewBag.Massage != null)
                             <img src="assets/images/demos/demo-2/products/product-5-2.jpg" alt="تصویر محصول"
                                  class="product-image-hover">
                         </a>-->
+        <!--<div class="product-action-vertical">
+            <a href="#" class="btn-product-icon btn-wishlist">
+                <span>
+                    افزودن به
+                    لیست علاقه مندی
+                </span>
+            </a>
+        </div>-->
+        <!-- End .product-action-vertical -->
+        <!--</figure>--><!-- End .product-media -->
+        <!--<div class="product-body">
+            <h3 class="product-title text-center">
+                <a href="product.html">چراغ رومیزی زیبا</a>
+            </h3>-->
+        <!-- End .product-title -->
+        <!--<div class="product-price">
+            675,000 تومان
+        </div>-->
+        <!-- End .product-price -->
+        <!--<div class="product-nav product-nav-dots">
+            <a href="#" class="active" style="background: #74543e;">
+                <span class="sr-only">نام رنگ</span>
+            </a>
+            <a href="#" style="background: #e8e8e8;">
+                <span class="sr-only">
+                    نام
+                    رنگ
+                </span>
+            </a>
+        </div>-->
+        <!-- End .product-nav -->
+        <!--</div>--><!-- End .product-body -->
+        <!--<div class="product-action">
+            <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+        </div>-->
+        <!-- End .product-action -->
+        <!--</div>--><!-- End .product -->
+        <!--<div class="product product-11 text-center">
+            <figure class="product-media">
+                <a href="product.html">
+                    <img src="assets/images/demos/demo-2/products/product-6-1.jpg" alt="تصویر محصول"
+                         class="product-image">
+                    <img src="assets/images/demos/demo-2/products/product-6-2.jpg" alt="تصویر محصول"
+                         class="product-image-hover">
+                </a>-->
+        <!--<div class="product-action-vertical">
+            <a href="#" class="btn-product-icon btn-wishlist">
+                <span>
+                    افزودن به
+                    لیست علاقه مندی
+                </span>
+            </a>
+        </div>-->
+        <!-- End .product-action-vertical -->
+        <!--</figure>--><!-- End .product-media -->
+        <!--<div class="product-body">
+            <h3 class="product-title text-center">
+                <a href="product.html">
+                    صندلی پلاستیکی
+                </a>
+            </h3>-->
+        <!-- End .product-title -->
+        <!--<div class="product-price">
+            475,000 تومان
+        </div>-->
+        <!-- End .product-price -->
+        <!--</div>--><!-- End .product-body -->
+        <!--<div class="product-action">
+            <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+        </div>-->
+        <!-- End .product-action -->
+        <!--</div>--><!-- End .product -->
+        <!--<div class="product product-11 text-center">
+            <figure class="product-media">
+                <a href="product.html">
+                    <img src="assets/images/demos/demo-2/products/product-1-1.jpg" alt="تصویر محصول"
+                         class="product-image">
+                    <img src="assets/images/demos/demo-2/products/product-1-2.jpg" alt="تصویر محصول"
+                         class="product-image-hover">
+                </a>
 
-                        <!--<div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist">
-                                <span>
-                                    افزودن به
-                                    لیست علاقه مندی
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-action-vertical -->
-
-                    <!--</figure>--><!-- End .product-media -->
-
-                    <!--<div class="product-body">
-                        <h3 class="product-title text-center">
-                            <a href="product.html">چراغ رومیزی زیبا</a>
-                        </h3>-->
-                        <!-- End .product-title -->
-                        <!--<div class="product-price">
-                            675,000 تومان
-                        </div>--><!-- End .product-price -->
-
-                        <!--<div class="product-nav product-nav-dots">
-                            <a href="#" class="active" style="background: #74543e;">
-                                <span class="sr-only">نام رنگ</span>
-                            </a>
-                            <a href="#" style="background: #e8e8e8;">
-                                <span class="sr-only">
-                                    نام
-                                    رنگ
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-nav -->
-                    <!--</div>--><!-- End .product-body -->
-                    <!--<div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
-                    </div>--><!-- End .product-action -->
-                <!--</div>--><!-- End .product -->
-
-                <!--<div class="product product-11 text-center">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <img src="assets/images/demos/demo-2/products/product-6-1.jpg" alt="تصویر محصول"
-                                 class="product-image">
-                            <img src="assets/images/demos/demo-2/products/product-6-2.jpg" alt="تصویر محصول"
-                                 class="product-image-hover">
-                        </a>-->
-
-                        <!--<div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist">
-                                <span>
-                                    افزودن به
-                                    لیست علاقه مندی
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-action-vertical -->
-
-                    <!--</figure>--><!-- End .product-media -->
-
-                    <!--<div class="product-body">
-                        <h3 class="product-title text-center">
-                            <a href="product.html">
-                                صندلی پلاستیکی
-                            </a>
-                        </h3>-->
-                        <!-- End .product-title -->
-                        <!--<div class="product-price">
-                            475,000 تومان
-                        </div>--><!-- End .product-price -->
-                    <!--</div>--><!-- End .product-body -->
-                    <!--<div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
-                    </div>--><!-- End .product-action -->
-                <!--</div>--><!-- End .product -->
-
-                <!--<div class="product product-11 text-center">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <img src="assets/images/demos/demo-2/products/product-1-1.jpg" alt="تصویر محصول"
-                                 class="product-image">
-                            <img src="assets/images/demos/demo-2/products/product-1-2.jpg" alt="تصویر محصول"
-                                 class="product-image-hover">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist">
-                                <span>
-                                    افزودن به
-                                    لیست علاقه مندی
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-action-vertical -->
-
-                    <!--</figure>--><!-- End .product-media -->
-
-                    <!--<div class="product-body">
-                        <h3 class="product-title text-center">
-                            <a href="product.html">
-                                چهارپایه چوبی
-                            </a>
-                        </h3>-->
-                        <!-- End .product-title -->
-                        <!--<div class="product-price">
-                            251,000 تومان
-                        </div>--><!-- End .product-price -->
-                    <!--</div>--><!-- End .product-body -->
-                    <!--<div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
-                    </div>--><!-- End .product-action -->
-                <!--</div>--><!-- End .product -->
-            <!--</div>--><!-- End .owl-carousel -->
+                <div class="product-action-vertical">
+                    <a href="#" class="btn-product-icon btn-wishlist">
+                        <span>
+                            افزودن به
+                            لیست علاقه مندی
+                        </span>
+                    </a>
+                </div>-->
+        <!-- End .product-action-vertical -->
+        <!--</figure>--><!-- End .product-media -->
+        <!--<div class="product-body">
+            <h3 class="product-title text-center">
+                <a href="product.html">
+                    چهارپایه چوبی
+                </a>
+            </h3>-->
+        <!-- End .product-title -->
+        <!--<div class="product-price">
+            251,000 تومان
+        </div>-->
+        <!-- End .product-price -->
+        <!--</div>--><!-- End .product-body -->
+        <!--<div class="product-action">
+            <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+        </div>-->
+        <!-- End .product-action -->
+        <!--</div>--><!-- End .product -->
+        <!--</div>--><!-- End .owl-carousel -->
         <!--</div>--><!-- .End .tab-pane -->
         <!--<div class="tab-pane p-0 fade" id="products-top-tab" role="tabpanel"
              aria-labelledby="products-top-link">
@@ -484,181 +484,218 @@ if (ViewBag.Massage != null)
                                     لیست علاقه مندی
                                 </span>
                             </a>
-                        </div>--><!-- End .product-action-vertical -->
-                    <!--</figure>--><!-- End .product-media -->
+                        </div>-->
+        <!-- End .product-action-vertical -->
+        <!--</figure>--><!-- End .product-media -->
+        <!--<div class="product-body">
+            <h3 class="product-title text-center">
+                <a href="product.html">
+                    چراغ روشنایی اوکتو
+                    4240
+                </a>
+            </h3>-->
+        <!-- End .product-title -->
+        <!--<div class="product-price">
+            746,000 تومان
+        </div>-->
+        <!-- End .product-price -->
+        <!--<div class="product-nav product-nav-dots">
+            <a href="#" class="active" style="background: #1f1e18;">
+                <span class="sr-only">نام رنگ</span>
+            </a>
+            <a href="#" style="background: #e8e8e8;">
+                <span class="sr-only">
+                    نام
+                    رنگ
+                </span>
+            </a>
+        </div>-->
+        <!-- End .product-nav -->
+        <!--</div>--><!-- End .product-body -->
+        <!--<div class="product-action">
+            <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+        </div>-->
+        <!-- End .product-action -->
+        <!--</div>--><!-- End .product -->
+        <!--<div class="product product-11 text-center">
+            <figure class="product-media">
+                <span class="product-label label-circle label-new">جدید</span>
+                <a href="product.html">
+                    <img src="assets/images/demos/demo-2/products/product-3-1.jpg" alt="تصویر محصول"
+                         class="product-image">
+                    <img src="assets/images/demos/demo-2/products/product-3-2.jpg" alt="تصویر محصول"
+                         class="product-image-hover">
+                </a>
 
-                    <!--<div class="product-body">
-                        <h3 class="product-title text-center">
-                            <a href="product.html">
-                                چراغ روشنایی اوکتو
-                                4240
-                            </a>
-                        </h3>-->
-                        <!-- End .product-title -->
-                        <!--<div class="product-price">
-                            746,000 تومان
-                        </div>--><!-- End .product-price -->
+                <div class="product-action-vertical">
+                    <a href="#" class="btn-product-icon btn-wishlist">
+                        <span>
+                            افزودن به
+                            لیست علاقه مندی
+                        </span>
+                    </a>
+                </div>-->
+        <!-- End .product-action-vertical -->
+        <!--</figure>--><!-- End .product-media -->
+        <!--<div class="product-body">
+            <h3 class="product-title text-center">
+                <a href="product.html">
+                    صندلی راحتی جدید
+                </a>
+            </h3>-->
+        <!-- End .product-title -->
+        <!--<div class="product-price">
+            970,000 تومان
+        </div>-->
+        <!-- End .product-price -->
+        <!--</div>--><!-- End .product-body -->
+        <!--<div class="product-action">
+            <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+        </div>-->
+        <!-- End .product-action -->
+        <!--</div>--><!-- End .product -->
+        <!--<div class="product product-11 text-center">
+            <figure class="product-media">
+                <span class="product-label label-circle label-sale">فروش ویژه</span>
+                <a href="product.html">
+                    <img src="assets/images/demos/demo-2/products/product-4-1.jpg" alt="تصویر محصول"
+                         class="product-image">
+                    <img src="assets/images/demos/demo-2/products/product-4-2.jpg" alt="تصویر محصول"
+                         class="product-image-hover">
+                </a>
 
-                        <!--<div class="product-nav product-nav-dots">
-                            <a href="#" class="active" style="background: #1f1e18;">
-                                <span class="sr-only">نام رنگ</span>
-                            </a>
-                            <a href="#" style="background: #e8e8e8;">
-                                <span class="sr-only">
-                                    نام
-                                    رنگ
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-nav -->
-                    <!--</div>--><!-- End .product-body -->
-                    <!--<div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
-                    </div>--><!-- End .product-action -->
-                <!--</div>--><!-- End .product -->
-
-                <!--<div class="product product-11 text-center">
-                    <figure class="product-media">
-                        <span class="product-label label-circle label-new">جدید</span>
-                        <a href="product.html">
-                            <img src="assets/images/demos/demo-2/products/product-3-1.jpg" alt="تصویر محصول"
-                                 class="product-image">
-                            <img src="assets/images/demos/demo-2/products/product-3-2.jpg" alt="تصویر محصول"
-                                 class="product-image-hover">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist">
-                                <span>
-                                    افزودن به
-                                    لیست علاقه مندی
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-action-vertical -->
-
-                    <!--</figure>--><!-- End .product-media -->
-
-                    <!--<div class="product-body">
-                        <h3 class="product-title text-center">
-                            <a href="product.html">
-                                صندلی راحتی جدید
-                            </a>
-                        </h3>-->
-                        <!-- End .product-title -->
-                        <!--<div class="product-price">
-                            970,000 تومان
-                        </div>--><!-- End .product-price -->
-                    <!--</div>--><!-- End .product-body -->
-                    <!--<div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
-                    </div>--><!-- End .product-action -->
-                <!--</div>--><!-- End .product -->
-
-                <!--<div class="product product-11 text-center">
-                    <figure class="product-media">
-                        <span class="product-label label-circle label-sale">فروش ویژه</span>
-                        <a href="product.html">
-                            <img src="assets/images/demos/demo-2/products/product-4-1.jpg" alt="تصویر محصول"
-                                 class="product-image">
-                            <img src="assets/images/demos/demo-2/products/product-4-2.jpg" alt="تصویر محصول"
-                                 class="product-image-hover">
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist">
-                                <span>
-                                    افزودن به
-                                    لیست علاقه مندی
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-action-vertical -->
-
-                    <!--</figure>--><!-- End .product-media -->
-
-                    <!--<div class="product-body">
-                        <h3 class="product-title text-center">
-                            <a href="product.html">مبل تخت خواب شو</a>
-                        </h3>-->
-                        <!-- End .product-title -->
-                        <!--<div class="product-price">
-                            <span class="new-price">337,000 تومان</span>
-                            <span class="old-price">449,000</span>
-                        </div>--><!-- End .product-price -->
-
-                        <!--<div class="product-nav product-nav-dots">
-                            <a href="#" class="active" style="background: #878883;">
-                                <span class="sr-only">نام رنگ</span>
-                            </a>
-                            <a href="#" style="background: #dfd5c2;">
-                                <span class="sr-only">
-                                    نام
-                                    رنگ
-                                </span>
-                            </a>
-                        </div>--><!-- End .product-nav -->
-                    <!--</div>--><!-- End .product-body -->
-                    <!--<div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
-                    </div>--><!-- End .product-action -->
-                <!--</div>--><!-- End .product -->
-            <!--</div>--><!-- End .owl-carousel -->
+                <div class="product-action-vertical">
+                    <a href="#" class="btn-product-icon btn-wishlist">
+                        <span>
+                            افزودن به
+                            لیست علاقه مندی
+                        </span>
+                    </a>
+                </div>-->
+        <!-- End .product-action-vertical -->
+        <!--</figure>--><!-- End .product-media -->
+        <!--<div class="product-body">
+            <h3 class="product-title text-center">
+                <a href="product.html">مبل تخت خواب شو</a>
+            </h3>-->
+        <!-- End .product-title -->
+        <!--<div class="product-price">
+            <span class="new-price">337,000 تومان</span>
+            <span class="old-price">449,000</span>
+        </div>-->
+        <!-- End .product-price -->
+        <!--<div class="product-nav product-nav-dots">
+            <a href="#" class="active" style="background: #878883;">
+                <span class="sr-only">نام رنگ</span>
+            </a>
+            <a href="#" style="background: #dfd5c2;">
+                <span class="sr-only">
+                    نام
+                    رنگ
+                </span>
+            </a>
+        </div>-->
+        <!-- End .product-nav -->
+        <!--</div>--><!-- End .product-body -->
+        <!--<div class="product-action">
+            <a href="#" class="btn-product btn-cart"><span>افزودن به سبد خرید</span></a>
+        </div>-->
+        <!-- End .product-action -->
+        <!--</div>--><!-- End .product -->
+        <!--</div>--><!-- End .owl-carousel -->
         <!--</div>--><!-- .End .tab-pane -->
     </div><!-- End .tab-content -->
 </div><!-- End .container-fluid -->
 
 <div class="mb-5"></div><!-- End .mb-5 -->
 
-<div class="bg-light deal-container pt-5 pb-3 mb-5">
+<div class="bg-light deal-container p-2 m-3" style="direction:rtl">
     <div class="container">
         @foreach (var item in ViewBag.Auctions)
         {
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="deal">
-                        <div class="deal-content text-right">
+            
 
-                            <h2>پیشنهاد روزانه-مزایده</h2>
-                            @foreach (var product in item.ProductDtos)
-                            {
-                                <h3 class="product-title"><a>@product.ProductName</a></h3>
+                <div>
+                    <div class="m-4 p-4">
+                        <h2>پیشنهاد روزانه-مزایده</h2>
+
+
+
+
+
+
+                        <h3 class="product-title">@(item.ProductNames )</h3>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
                                 <div class="product-price">
                                     @if (item.FinalPrice is not null)
                                     {
-
                                         <span class="new-price">@item.FinalPrice تومان</span>
                                     }
-                                    <span class="old-price"> @product.Price </span>
+                                    <span class="old-price"> @item.ProductDtos[0].Price </span>
                                 </div><!-- End .product-price -->
-                                <div class="deal-image">
-                                    <a href="product.html">
-                                        <img src="~/images/@product.filePathSource.Split(',')[0]" class="product-image" alt="image">
-                                        @for (int id=1;id< product.filePathSource.Split(',').Length;id++)
-                                        {
-                                            <img src="~/images/@product.filePathSource.Split(',')[id]" class="product-image-hover" alt="image">
-                                        }
+                                <div class="deal-countdown" data-until="@(item.DurationHour)h"></div><!-- End .deal-countdown -->
+                            </div>
+                            <div>
+                                <div>
+                                    <figure class="product-media">
+                                        <a>
+                                            @for (int i = 0; i < item.ProductDtos.Count; i++)
+                                            {
+
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active">
+                                                        <img src="~/images/@item.ProductDtos[i].filePathSource.Split(',')[0]" class="product-image" alt="image">
+                                                    </div>
 
 
+                                                    @for (int id = 1; id < @item.ProductDtos[i].filePathSource.Split(',').Length; id++)
+                                                    {
+                                                        <div class="carousel-item">
+                                                            <img src="~/images/@item.ProductDtos[i].filePathSource.Split(',')[id]" class="product-image-hover" alt="image">
+                                                        </div>
+                                                    }
 
-                                    </a>
+                                                </div>
+
+                                                <!-- Left and right controls/icons -->
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon"></span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon"></span>
+                                                </button>
+
+                                            }
+
+                                        </a>
+
+
+                                    </figure><!-- End .product-media -->
+
+
                                 </div><!-- End .deal-image -->
+                            </div>
+                        </div>
 
-                            }
-
-                            <!-- End .product-title -->
-
-
-
-                            <div class="deal-countdown" data-until="@((item.StartTime - item.EndTime).Hours.ToString())h"></div><!-- End .deal-countdown -->
-
-                            <a asp-area="Customer" asp-controller="CustomerManagement" asp-action="AddOffer" asp-route-id="@item.Id" class="btn btn-primary">
-                                <span>ثبت پیشنهاد</span><i class="icon-long-arrow-left"></i>
-                            </a>
-                        </div><!-- End .deal-content -->
-               
-                    </div><!-- End .deal -->
-                </div><!-- End .col-lg-9 -->
+                        <a asp-area="Customer" asp-controller="CustomerManagement" asp-action="AddOffer" asp-route-id="@item.Id" class="btn btn-primary">
+                            <span>ثبت پیشنهاد</span><i class="icon-long-arrow-left"></i>
+                        </a>
 
 
-            </div><!-- End .row -->
+                        <!-- End .product-title -->
+
+
+
+
+
+                    </div><!-- End .deal-content -->
+
+                </div><!-- End .deal -->
+
+
+
 
         }
 
@@ -769,3 +806,4 @@ if (ViewBag.Massage != null)
         </div><!-- End .more-container -->
     </div><!-- End .container -->
 </div><!-- End .blog-posts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

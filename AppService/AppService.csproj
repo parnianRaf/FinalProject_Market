@@ -13,12 +13,10 @@
     <ItemGroup>
       <None Remove="Admin_\" />
       <None Remove="Admin_\Command\AccountAppServicesAccount" />
-      <None Remove="BackGroundJobs\" />
       <None Remove="Cache\" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Admin_\" />
-      <Folder Include="BackGroundJobs\" />
       <Folder Include="Cache\" />
     </ItemGroup>
     <ItemGroup>

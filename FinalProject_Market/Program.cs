@@ -1,15 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
-using System.Reflection;
 using AppCore;
-using AppCore.AppServices.Seller.Command;
-using AppCore.AppServices.Seller.Query;
 using AppCore.Contracts.AppServices;
-using AppCore.Contracts.Services;
 using AppService.Admin_;
-using AppService.BackGroundJobs;
 using AppSqlDataBase;
-using FinalProject_Market.BackGroundServices;
 using FinalProject_Market.Cache;
 using Hangfire;
 using Microsoft.AspNetCore.Identity;
@@ -53,8 +47,6 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
 builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.GetConnectionString("HangFire")));
 builder.Services.AddHangfireServer();
 
-builder.Services.AddHostedService<AuctionBackGroundService>();
-//builder.Services.AddScoped<BackgroundTask>();
 
 
 

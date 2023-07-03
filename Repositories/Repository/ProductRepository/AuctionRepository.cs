@@ -33,7 +33,7 @@ namespace Repositories.Repository.ProductRepository
         #endregion
 
         #region Implementation
-        public async Task<bool> AddAuction(int id, int sellerId,List<Product> products,Auction auction, CancellationToken cancellation)
+        public async Task<Auction> AddAuction(int id, int sellerId,List<Product> products,Auction auction, CancellationToken cancellation)
         {
             auction.Id = id;
             auction.SellerId = sellerId;
@@ -44,10 +44,8 @@ namespace Repositories.Repository.ProductRepository
             auction.Products.ForEach(p => _context.Products.Update(p));
             await _context.Auctions.AddAsync(auction);
             await _context.SaveChangesAsync(cancellation);
-            return true;
+            return auction;
         }
-
-        //moghe buissiness hatman baiad havasemon bashe ke datetime now o start auction moghayese shavad
 
         public async Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation)
         {
@@ -106,37 +104,23 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
         public async Task<List<DetailedAuctionDto>> GetAllSellerAuctions(CancellationToken cancellation, int SellerId)
         {
             List<Auction> auctions = await _context.Auctions.Where(p => p.SellerId == SellerId).ToListAsync(cancellation);
             return _mapper.Map<List<DetailedAuctionDto>>(auctions);
         }
 
-        //selerId baiad hamon htttpContext.User.Id????????????????????????!!!!!!!!!!!
         public async Task<List<DetailedAuctionDto>> GetAllCustomersAuctions(CancellationToken cancellation, int CustomerId)
         {
             List<Auction> auctions = await _context.Auctions.Where(p => p.AcceptedCustomerId == CustomerId).ToListAsync(cancellation);
             return _mapper.Map<List<DetailedAuctionDto>>(auctions);
         }
 
-        //public async Task<List<DetailedProductDto>> GetProductsInSpecificAuction(int sellerId, int auctionId, CancellationToken cancellation)
-        //{
-        //    List<Product> products = await _context.Products.Where(p => p.SellerId == sellerId && p.AuctionId == auctionId).ToListAsync();
-        //    return _mapper.Map<List<DetailedProductDto>>(products);
-        //}
-
         public async Task<List<DetailedOfferDto>> GetOffersInSpecificSellerAuction(int sellerId, int auctionId, CancellationToken cancellation)
         {
             List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.Auction.SellerId == sellerId).ToListAsync();
             return _mapper.Map<List<DetailedOfferDto>>(offers);
         }
-
-        //public async Task<List<DetailedOfferDto>> GetOffersInSpecificCustomerAuction(int customerId, int auctionId, CancellationToken cancellation)
-        //{
-        //    List<Offer> offers = await _context.Offers.Where(o => o.Auction.Id == auctionId && o.CustomerId == customerId).ToListAsync();
-        //    return _mapper.Map<List<DetailedOfferDto>>(offers);
-        //}
 
         public async Task<bool> AddCommentByCustomer(int auctionId, int customerId, string comment, CancellationToken cancellation)
         {
@@ -188,7 +172,7 @@ namespace Repositories.Repository.ProductRepository
         {
             return await _context.Auctions.ToListAsync();
         }
-        //tamame auctionhaye tamam shode
+
         public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation)
         {
             List<DetailedAuctionDto> auctionDtos =await _context.Auctions.Where(a=>a.IsFinished).Select(a => new DetailedAuctionDto()
@@ -240,8 +224,10 @@ namespace Repositories.Repository.ProductRepository
                 CommentAcceptedAt = a.CommentAcceptedAt,
                 IsCommentDeleted = a.IsCommentDeleted,
                 CommentDeletedAt = a.CommentDeletedAt,
+                DurationHour=(a.EndTime-a.StartTime).TotalHours.ToString(),
                 ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
                 IsFinished = a.IsFinished,
+                ProductNames=a.Products.ListMaker(),
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,

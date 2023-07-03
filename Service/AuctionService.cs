@@ -21,7 +21,7 @@ namespace Service
         #endregion
 
         #region Implementation
-        public async Task<bool> AddAuction(int id, int sellerId, List<Product> products, Auction auction, CancellationToken cancellation)
+        public async Task<Auction> AddAuction(int id, int sellerId, List<Product> products, Auction auction, CancellationToken cancellation)
         {
             return await _auctionRepository.AddAuction(id, sellerId, products, auction, cancellation);
         }

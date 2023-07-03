@@ -8,7 +8,7 @@ namespace AppService.Admin_
     public interface IAuctionAppService
     {
         Task AddOffer(DetailedOfferDto offerDto, CancellationToken cancellation);
-        Task AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation);
+        Task<Auction> AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation);
         Task UpdateAuction(Auction auction, CancellationToken cancellation);
         Task UpdateAuctions(Auction auctions, CancellationToken cancellation);
         Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);

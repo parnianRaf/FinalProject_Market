@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using AppCore;
+using AppCore.DtoModels.Product;
 
 namespace ExtensionMethods;
 public static class Extensions
@@ -26,8 +27,13 @@ public static class Extensions
         PersianCalendar calendar = new();
         string persianDateString = string.Format("{0}/{1}/{2}", calendar.GetYear(date), calendar.GetMonth(date), calendar.GetDayOfMonth(date));
         return persianDateString;
- 
 
+    }
+    public static string ListMaker(this List<Product> products)
+    {
+        string result = "";
+        products.ForEach(p => result +=p.ProductName+"-");
+        return result;
     }
 
 }
