@@ -609,11 +609,12 @@
 
 <div class="mb-5"></div><!-- End .mb-5 -->
 
-<div class="bg-light deal-container p-2 m-3" style="direction:rtl">
-    <div class="container">
-        @foreach (var item in ViewBag.Auctions)
-        {
-            if (item.IsActive == true)
+
+@foreach (var item in ViewBag.Auctions)
+{
+    <div class="bg-light deal-container p-2 m-3" style="direction:rtl">
+        <div class="container">
+            @if (item.IsActive == true)
             {
 
                 <div>
@@ -626,7 +627,7 @@
                                 <div class="product-price">
                                     @if (item.FinalPrice is not null)
                                     {
-                                        <span class="new-price">@item.FinalPrice تومان</span>
+                                        <span class="new-price">@item.OfferSubmitWithPrice تومان</span>
                                     }
                                     <span class="old-price"> @item.ProductDtos[0].Price </span>
                                 </div><!-- End .product-price -->
@@ -648,20 +649,20 @@
                                                         <img src="~/images/@item.ProductDtos[i].filePathSource.Split(',')[0]" alt="image">
                                                     </div>
 
-                                                 }
-                                                </div>
+                                                }
+                                            </div>
 
-                                                <!-- Left and right controls/icons -->
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon"></span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon"></span>
-                                                </button>
+                                            <!-- Left and right controls/icons -->
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon"></span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon"></span>
+                                            </button>
 
-                                           
 
-                                            </a>
+
+                                        </a>
 
 
                                     </figure><!-- End .product-media -->
@@ -684,17 +685,16 @@
                     </div><!-- End .deal-content -->
 
                 </div><!-- End .deal -->
-
             }
 
 
 
+        </div><!-- End .container -->
+    </div><!-- End .bg-light -->
+
+}
 
 
-        }
-
-    </div><!-- End .container -->
-</div><!-- End .bg-light -->
 
 <div class="mb-6"></div><!-- End .mb-6 -->
 

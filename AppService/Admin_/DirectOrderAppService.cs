@@ -107,6 +107,12 @@ namespace AppService.Admin_
         {
             return await _directOrderService.RejectComment(orderId, cancellation);
         }
+
+        public async Task<List<CommentOrderDto>> GetSellerComments(CancellationToken cancellation)
+        {
+            User seller = await _account.GetUser<User>(cancellation);
+            return await _directOrderService.GetSellerComments(seller, cancellation);
+        }
         #endregion
     }
 }

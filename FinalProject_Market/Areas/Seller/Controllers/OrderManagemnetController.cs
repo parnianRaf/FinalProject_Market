@@ -61,11 +61,23 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAuction(AddAuctionViewModel auctionViewModel, CancellationToken cancellation)
         {
-            AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
-            Auction auction =await _auctionAppService.AddAuction(auctionDto, cancellation);
-            BackgroundJob.Schedule<IAuctionAppService>(s =>s.UpdateAuctions(_mapper.Map<AuctionTime>(auction),cancellation), auction.StartTime);
-            BackgroundJob.Schedule<IAuctionAppService>(s => s.UpdateAuctions(_mapper.Map<AuctionTime>(auction), cancellation), auction.EndTime);
-            return RedirectToAction("Index", "Account" ,new {area="admin"});
+            if (ModelState.IsValid)
+            {
+                AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
+                Auction auction = await _auctionAppService.AddAuction(auctionDto, cancellation);
+                BackgroundJob.Schedule<IAuctionAppService>(s => s.UpdateAuctions(_mapper.Map<AuctionTime>(auction), cancellation), auction.StartTime);
+                BackgroundJob.Schedule<IAuctionAppService>(s => s.UpdateAuctions(_mapper.Map<AuctionTime>(auction), cancellation), auction.EndTime);
+                return RedirectToAction("Index", "Account", new { area = "admin" });
+            }
+            var x = ModelState;
+            ViewBag.Products = await _productAppService.GetAllSellerProducts(cancellation);
+            return View(auctionViewModel);
+        }
+
+
+        public IActionResult ValidateDateEqualOrGreater(DateTime Date)
+        {
+            return Json(Date >= DateTime.Now);
         }
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)

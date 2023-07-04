@@ -28,7 +28,7 @@ namespace Repositories.Repository.ProductRepository
         #region Implementation
 
         //dar buissines barname gofte shavad ke harmoghe offer sabt shod moghayese sorat girad.
-        public async Task AddOffer(int offerId,User customer,Auction auction,Offer offerDto, CancellationToken cancellation)
+        public async Task<Offer> AddOffer(int offerId,User customer,Auction auction,Offer offerDto, CancellationToken cancellation)
         {
             offerDto.UserId = customer.Id;
             offerDto.User = customer;
@@ -36,10 +36,10 @@ namespace Repositories.Repository.ProductRepository
             offerDto.Auction = auction;
             auction.Offers.Add(offerDto);
             customer.Offers.Add(offerDto);
-            _context.Add(offerDto);
-            _context.Update(auction);
-            _context.Update(customer);
+            await _context.Offers.AddAsync(offerDto);
+            _context.Auctions.Update(auction);
             await _context.SaveChangesAsync(cancellation);
+            return offerDto;
         }
 
         public async Task<Offer> GetAcceptedOffer(CancellationToken cancellation)

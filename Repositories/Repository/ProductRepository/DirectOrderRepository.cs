@@ -130,6 +130,7 @@ namespace Repositories.Repository.ProductRepository
             if (order != null)
             {
                 order.CommentByCostumer = comment;
+                order.CommentAcceptedAt = DateTime.UtcNow;
                 _context.DirectOrders.Update(order);
                 await _context.SaveChangesAsync();
                 return true;
@@ -145,7 +146,8 @@ namespace Repositories.Repository.ProductRepository
             if (order != null)
             {
                 order.IsCommentAcceptedByAdmin = true;
-                order.ModifiedAt = DateTime.Now;
+                order.CommentAcceptedAt = DateTime.UtcNow;
+                order.ModifiedAt = DateTime.UtcNow;
                 _context.DirectOrders.Update(order);
                 await _context.SaveChangesAsync();
                 return !result;
@@ -241,6 +243,17 @@ namespace Repositories.Repository.ProductRepository
             }
             return 0;
 
+        }
+
+        public async Task<List<CommentOrderDto>> GetSellerComments(User seller,CancellationToken cancellation)
+        {
+            return await _context.DirectOrders.Where(o => o.IsCommentAcceptedByAdmin).Where(o => !string.IsNullOrEmpty(o.CommentByCostumer)).Select(o => new CommentOrderDto()
+            {
+                Id = o.Id,
+                Comment = o.CommentByCostumer,
+                CommentSubmitedAt = (DateTime.Now - o.CommentSubmitedAt).TotalMinutes.ToString(),
+                CustomerImageFile = o.User.FilePathSource
+            }).ToListAsync(cancellation) ?? new List<CommentOrderDto>();
         }
 
         #endregion

@@ -11,6 +11,8 @@ namespace AppCore.DtoModels.Auction
 
         public DateTime EndTime { get; set; }
 
+        public decimal OfferSubmitWithPrice { get; set; }
+
         public virtual List<int> ProductDtoIds { get; set; }
 
         public virtual List<DetailedProductDto> Products { get; set; }

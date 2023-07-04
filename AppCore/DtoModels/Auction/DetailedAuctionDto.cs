@@ -8,6 +8,10 @@ namespace AppCore.DtoModels.Auction
     {
         public int Id { get; set; }
 
+        public decimal? FirstProductPrices { get; set; }
+
+        public decimal OfferSubmitWithPrice { get; set; }
+
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }

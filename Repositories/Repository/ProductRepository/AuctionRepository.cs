@@ -230,6 +230,8 @@ namespace Repositories.Repository.ProductRepository
                 IsFinished = a.IsFinished,
                 IsActive=a.IsActive,
                 ProductNames=a.Products.ListMaker(),
+                FirstProductPrices=a.Products.Sum(p=>p.Price),
+                OfferSubmitWithPrice=a.OfferSubmitWithPrice,
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,

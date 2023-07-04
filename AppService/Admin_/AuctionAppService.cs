@@ -46,11 +46,14 @@ namespace AppService.Admin_
         public async Task AddOffer(DetailedOfferDto offerDto,CancellationToken cancellation)
         {
             Auction auction = await _auctionService.GetAuction(offerDto.AuctionId, cancellation);
-            offerDto.IsAccepted = await _offerService.IsOfferAccepted(offerDto, cancellation);
+            offerDto.IsAccepted = await _offerService.IsOfferAccepted(offerDto,auction, cancellation);
+            if (offerDto.IsAccepted)
+            {
+                auction.OfferSubmitWithPrice = offerDto.Price;
+            }
             int offerId = _idGeneratorService.Execute<Offer>(await _offerService.GetAllOffers<Offer>(cancellation));
             User customer =await _account.GetUser<User>(cancellation);
-            offerDto.Price = await _offerService.PriceCheck(offerDto.Price, cancellation);
-            offerDto.SubmitAt = DateTime.Now;
+            offerDto.SubmitAt = DateTime.UtcNow;
             Offer offer=_mapper.Map<Offer>(offerDto);
             await _offerService.AddOffer(offerId, customer,auction, offer, cancellation);
         }

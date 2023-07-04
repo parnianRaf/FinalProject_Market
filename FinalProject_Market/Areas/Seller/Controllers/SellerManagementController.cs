@@ -41,8 +41,8 @@ namespace FinalProject_Market.Areas.Seller.Controllers
 
         public async Task<IActionResult> MainPage(CancellationToken cancellation)
         {
-            
             List<PavilionDtoModel> pavilionDtos = await _pavilionService.GetSellerPavilions(cancellation);
+            ViewBag.Massages=
             return View(pavilionDtos);
         }
 
@@ -52,7 +52,6 @@ namespace FinalProject_Market.Areas.Seller.Controllers
             ViewBag.FullDetailSellerViewModel = sellerDto.Item1;
             return View(sellerDto.Item2);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> GetProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)

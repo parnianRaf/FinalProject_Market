@@ -10,7 +10,7 @@ namespace Service
         Task<List<DetailedDirctOrderDto>> GetAllDirectOrder(CancellationToken cancellation);
         Task<EditDirectOrderDto> GetDirectOrder(int id, CancellationToken cancellation);
         Task<bool> RejectComment(int orderId, CancellationToken cancellation);
-        //bool IsExistCurrentUnPaidOrder(User user);
+        Task<List<CommentOrderDto>> GetSellerComments(User seller, CancellationToken cancellation);
         Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation);
         Task<DirectOrder> GetEntityDirectOrder(int id, CancellationToken cancellation);
         Task<DirectOrder> GetUnPaidDirectOrder(int customerId, CancellationToken cancellation);

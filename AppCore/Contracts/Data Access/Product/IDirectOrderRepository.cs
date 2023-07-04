@@ -15,6 +15,7 @@ namespace Repositories.Repository.ProductRepository
         Task<decimal> CommisionPaidBySellerDirectOredr(int sellerId, CancellationToken cancellation);
         Task<bool> RemoveAuction(int id, CancellationToken cancellation);
         Task<T> GetOrer<T>(int id, CancellationToken cancellation);
+        Task<List<CommentOrderDto>> GetSellerComments(User seller, CancellationToken cancellation);
         Task<DirectOrderCartDto> GetCart(int orderId, CancellationToken cancellation);
         Task<DirectOrder> GetCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation);
         Task AddProductToOrderList(User user, Product product, DirectOrder order, decimal productPrice, CancellationToken cancellation);

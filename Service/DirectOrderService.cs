@@ -27,11 +27,6 @@ namespace Service
             await _directOrderRepository.AddProductToOrderList(user,product, order, totalPrice, cancellation);
         }
 
-        //public async Task<bool> IsExistCurrentUnPaidOrder(int  userId,CancellationToken cancellation)
-        //{
-
-        //}
-
         public bool IsAllowed(Product product, DirectOrder order)
         {
             return product.UserId == order.SellerId;
@@ -61,6 +56,11 @@ namespace Service
         public async Task<EditDirectOrderDto> GetDirectOrder(int id, CancellationToken cancellation)
         {
             return await _directOrderRepository.GetOrer<EditDirectOrderDto>(id, cancellation);
+        }
+
+        public async Task<List<CommentOrderDto>> GetSellerComments(User seller, CancellationToken cancellation)
+        {
+            return await _directOrderRepository.GetSellerComments(seller, cancellation);
         }
 
         public async Task SubmitOrder(DirectOrder order,CancellationToken cancellation)

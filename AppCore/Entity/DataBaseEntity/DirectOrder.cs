@@ -28,9 +28,13 @@ public class DirectOrder
 
     public string? CommentByCostumer { get; set; }
 
+    public DateTime CommentSubmitedAt { get; set; }
+
     public bool IsCommentAcceptedByAdmin { get; set; }
 
     public bool IsCommentDeleted { get; set; }
+
+    public DateTime CommentAcceptedAt { get; set; }
 
     public DateTime CreatedAt { get; set; }
 

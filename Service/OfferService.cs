@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using AppCore;
 using AppCore.DtoModels.Offer;
 using Repositories.Repository.ProductRepository;
@@ -29,22 +30,12 @@ namespace Service
             return await _offerRepository.GetAllOffers<T>(cancellation);
         }
 
-        public async Task<bool> IsOfferAccepted(DetailedOfferDto offerDto,CancellationToken cancellation)
+        public async Task<bool> IsOfferAccepted(DetailedOfferDto offerDto,Auction auction,CancellationToken cancellation)
         {
-            return DateTime.Now > offerDto.Auction.StartTime && offerDto.Auction.EndTime > DateTime.Now && await CheckPrice(offerDto.Price, cancellation);
+            bool result = DateTime.Now > auction.StartTime && auction.EndTime > DateTime.Now && offerDto.Price > auction.OfferSubmitWithPrice;
+            return result ;
         }
 
-        public async Task<bool> CheckPrice(decimal price,CancellationToken cancellation)
-        {
-            Offer acceptedOffer = await _offerRepository.GetAcceptedOffer(cancellation);
-            return price > acceptedOffer.Price;
-        }
-
-        public async Task<decimal> PriceCheck(decimal price,CancellationToken cancellation)
-        {
-            Offer acceptedOffer =await _offerRepository.GetAcceptedOffer(cancellation);
-            return acceptedOffer.Price < price ? price : acceptedOffer.Price;
-        }
     }
 }
 

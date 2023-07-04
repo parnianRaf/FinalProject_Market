@@ -114,9 +114,17 @@ namespace FinalProject_Market.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult> AddOffer(AddOfferViewModel viewModel, CancellationToken cancellation)
         {
-            DetailedOfferDto offerDto = _mapper.Map<DetailedOfferDto>(viewModel);
-            await _auction.AddOffer(offerDto, cancellation);
-            return RedirectToAction("Index", "Account", new { area = "Admin" });
+            if (ModelState.IsValid)
+            {
+                DetailedOfferDto offerDto = _mapper.Map<DetailedOfferDto>(viewModel);
+                await _auction.AddOffer(offerDto, cancellation);
+                return RedirectToAction("Index", "Account", new { area = "Admin" });
+            }
+            ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
+            return View(viewModel.AuctionId);
+  
         }
 
         

@@ -22,7 +22,7 @@ public class Auction
 
     public int? OfferSubmitByCustomerId { get; set; }
 
-    public decimal? OfferSubmitWithPrice { get; set; }
+    public decimal OfferSubmitWithPrice { get; set; }
 
     public int? AcceptedCustomerId { get; set; }
 
