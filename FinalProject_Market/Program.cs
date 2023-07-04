@@ -1,12 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
+using System.Security.Cryptography;
 using AppCore;
 using AppCore.Contracts.AppServices;
 using AppService.Admin_;
 using AppSqlDataBase;
 using FinalProject_Market.Cache;
 using Hangfire;
+using Hangfire.Dashboard;
+using HangfireBasicAuthenticationFilter;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using NetCore.AutoRegisterDi;
 using Repositories.Repository.ProductRepository;
@@ -44,7 +48,7 @@ builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
 
 
 
-builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.GetConnectionString("HangFire")));
+builder.Services.AddHangfire(x => x.UseSqlServerStorage(()=>new Microsoft.Data.SqlClient.SqlConnection(builder.Configuration.GetConnectionString("HangFire"))));
 builder.Services.AddHangfireServer();
 
 
@@ -147,7 +151,21 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseHangfireDashboard();
+app.UseHangfireDashboard("/hangfire",new DashboardOptions
+{
+    DashboardTitle="HangfireDashBoard",
+    Authorization = new[]
+    {
+        new HangfireCustomBasicAuthenticationFilter
+        {
+            User=builder.Configuration.GetSection("HangFirePassword:userName").Value,
+            Pass=builder.Configuration.GetSection("HangFirePassword:password").Value
+        }
+    }
+
+});
+
+
 
 app.UseEndpoints(endpoint =>
 {

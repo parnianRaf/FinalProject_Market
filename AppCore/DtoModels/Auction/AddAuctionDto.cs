@@ -6,6 +6,7 @@ namespace AppCore.DtoModels.Auction
 {
 	public class AddAuctionDto
     {
+
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }

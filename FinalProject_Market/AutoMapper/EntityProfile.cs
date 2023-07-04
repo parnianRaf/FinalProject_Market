@@ -22,6 +22,8 @@ namespace Repositories.AutoMapper
 	{
 		public EntityProfile()
 		{
+            CreateMap<Auction, AuctionTime>();
+
             CreateMap<CategoryDtoModel, BaseModel>();
 
             CreateMap<FullDetailCustomerViewModel, EditUserDto>()

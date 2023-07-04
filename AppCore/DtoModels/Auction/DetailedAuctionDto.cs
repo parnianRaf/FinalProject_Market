@@ -12,6 +12,8 @@ namespace AppCore.DtoModels.Auction
 
         public DateTime EndTime { get; set; }
 
+        public bool? IsActive { get; set; }
+
         public string? ProductNames { get; set; }
 
         public string? DurationHour { get; set; }
@@ -34,7 +36,7 @@ namespace AppCore.DtoModels.Auction
 
         public string? FinalCommentByCostumer { get; set; }
 
-        public bool IsFinished { get; set; }
+        public bool? IsFinished { get; set; }
 
         public virtual List<DetailedProductDto> ProductDtos { get; set; }
     }

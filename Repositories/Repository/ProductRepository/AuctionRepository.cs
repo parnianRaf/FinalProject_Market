@@ -59,7 +59,7 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task UpdateAuction(Auction auction,CancellationToken cancellation)
         {
-            _context.Update(auction);
+            _context.Auctions.Update(auction);
             await _context.SaveChangesAsync(cancellation);
         }
 
@@ -175,7 +175,7 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation)
         {
-            List<DetailedAuctionDto> auctionDtos =await _context.Auctions.Where(a=>a.IsFinished).Select(a => new DetailedAuctionDto()
+            List<DetailedAuctionDto> auctionDtos =await _context.Auctions.Where(a=>a.IsFinished==true).Select(a => new DetailedAuctionDto()
             {
                 Id = a.Id,
                 StartTime = a.StartTime,
@@ -191,6 +191,7 @@ namespace Repositories.Repository.ProductRepository
                 CommentDeletedAt = a.CommentDeletedAt,
                 ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
                 IsFinished = a.IsFinished,
+                IsActive=a.IsActive,
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,
@@ -227,6 +228,7 @@ namespace Repositories.Repository.ProductRepository
                 DurationHour=(a.EndTime-a.StartTime).TotalHours.ToString(),
                 ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
                 IsFinished = a.IsFinished,
+                IsActive=a.IsActive,
                 ProductNames=a.Products.ListMaker(),
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {
@@ -268,6 +270,7 @@ namespace Repositories.Repository.ProductRepository
                 CommentDeletedAt = a.CommentDeletedAt,
                 ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
                 IsFinished = a.IsFinished,
+                IsActive=a.IsActive,
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,
@@ -307,6 +310,7 @@ namespace Repositories.Repository.ProductRepository
                 IsCommentDeleted = auction.IsCommentDeleted,
                 CommentDeletedAt = auction.CommentDeletedAt,
                 IsFinished = auction.IsFinished,
+                IsActive=auction.IsActive,
                 ProductDtos = auction.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,

@@ -69,17 +69,21 @@ namespace AppService.Admin_
             await _auctionService.UpdateAuction(auction, cancellation);
         }
 
-        public async Task UpdateAuctions(Auction auctions,CancellationToken cancellation)
+        public async Task UpdateAuctions(AuctionTime auctions,CancellationToken cancellation)
         {
-            auctions.IsActive = (auctions.StartTime < DateTime.Now && DateTime.Now < auctions.EndTime);
-            if (auctions.IsActive==false)
+            Auction auction = await _auctionService.GetAuction(auctions.Id, cancellation);
+            auction.IsActive = (auctions.StartTime < DateTime.Now && DateTime.Now < auctions.EndTime);
+            if (auction.IsActive==false)
             {
-                auctions.IsFinished = true;
-                auctions.FinishedAt = DateTime.Now;
-                auctions.FinalPrice = auctions.Offers.Where(o=>o.IsAccepted).FirstOrDefault().Price;
-                Offer offer = auctions.Offers.OrderBy(o => o.SubmitAt).OrderBy(o => o.Price).FirstOrDefault() ?? new Offer();
+                auction.IsFinished = true;
+                auction.FinishedAt = DateTime.Now;
+                if (auction.Offers.Any())
+                {
+                  auction.FinalPrice = auction.Offers.OrderBy(o => o.SubmitAt).OrderBy(o => o.Price).FirstOrDefault().Price ;
+                  auction.AcceptedCustomerId = auction.Offers.OrderBy(o => o.SubmitAt).OrderBy(o => o.Price).FirstOrDefault().UserId;
+                }
             }
-            await UpdateAuction(auctions, cancellation);
+            await UpdateAuction(auction, cancellation);
         }
 
         public async Task AuctionOperation(int auctionId,CancellationToken cancellation,Double medalDiscount)

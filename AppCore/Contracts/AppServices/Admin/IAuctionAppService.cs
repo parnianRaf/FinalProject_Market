@@ -10,7 +10,7 @@ namespace AppService.Admin_
         Task AddOffer(DetailedOfferDto offerDto, CancellationToken cancellation);
         Task<Auction> AddAuction(AddAuctionDto auctionDto, CancellationToken cancellation);
         Task UpdateAuction(Auction auction, CancellationToken cancellation);
-        Task UpdateAuctions(Auction auctions, CancellationToken cancellation);
+        Task UpdateAuctions(AuctionTime auctions, CancellationToken cancellation);
         Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAvailableDetailedAuction(CancellationToken cancellation);

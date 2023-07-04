@@ -63,9 +63,9 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         {
             AddAuctionDto auctionDto = _mapper.Map<AddAuctionDto>(auctionViewModel);
             Auction auction =await _auctionAppService.AddAuction(auctionDto, cancellation);
-            BackgroundJob.Schedule<IAuctionAppService>(s =>s.UpdateAuctions(auction,cancellation), auction.StartTime);
-            BackgroundJob.Schedule<IAuctionAppService>(s => s.UpdateAuctions(auction, cancellation), auction.EndTime);
-            return RedirectToAction("Index", "AccountController" ,new {area="admin"});
+            BackgroundJob.Schedule<IAuctionAppService>(s =>s.UpdateAuctions(_mapper.Map<AuctionTime>(auction),cancellation), auction.StartTime);
+            BackgroundJob.Schedule<IAuctionAppService>(s => s.UpdateAuctions(_mapper.Map<AuctionTime>(auction), cancellation), auction.EndTime);
+            return RedirectToAction("Index", "Account" ,new {area="admin"});
         }
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
@@ -118,9 +118,6 @@ namespace FinalProject_Market.Areas.Admin.Controllers
 
         public async Task<IActionResult> AuctionOperation(int auctionId,CancellationToken cancellation)
         {
-            //var x = _medal.MedalDiscount;
-            //var y = _medal.MedalPrice;
-            //await _auctionAppService.AuctionOperation(auctionId, cancellation);
             
             return View();
         }

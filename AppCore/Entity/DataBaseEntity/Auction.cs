@@ -40,7 +40,7 @@ public class Auction
 
     public string? FinalCommentByCostumer { get; set; }
 
-    public bool IsFinished { get; set; }
+    public bool? IsFinished { get; set; }
 
     public DateTime? FinishedAt { get; set; }
 
