@@ -34,7 +34,7 @@ public class DirectOrder
 
     public bool IsCommentDeleted { get; set; }
 
-    public DateTime CommentAcceptedAt { get; set; }
+    public DateTime? CommentAcceptedAt { get; set; }
 
     public DateTime CreatedAt { get; set; }
 

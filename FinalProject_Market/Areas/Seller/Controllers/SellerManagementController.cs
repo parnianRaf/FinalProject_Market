@@ -22,17 +22,21 @@ namespace FinalProject_Market.Areas.Seller.Controllers
     {
         #region field
         private readonly IPavilionAppService _pavilionService;
+        private readonly IDirectOrderAppService _directOrderAppService;
+        private readonly IAuctionAppService _auctionAppService;
         private readonly IAccountAppServices _accountAppService;
         private readonly IMapper _mapper;
         #endregion
 
 
         #region ctor
-        public SellerManagementController(IPavilionAppService pavilionService,IAccountAppServices accountAppService, IMapper mapper)
+        public SellerManagementController(IPavilionAppService pavilionService, IAccountAppServices accountAppService, IMapper mapper, IAuctionAppService auctionAppService, IDirectOrderAppService directOrderAppService)
         {
             _pavilionService = pavilionService;
             _accountAppService = accountAppService;
             _mapper = mapper;
+            _auctionAppService = auctionAppService;
+            _directOrderAppService = directOrderAppService;
         }
         #endregion
 
@@ -42,7 +46,7 @@ namespace FinalProject_Market.Areas.Seller.Controllers
         public async Task<IActionResult> MainPage(CancellationToken cancellation)
         {
             List<PavilionDtoModel> pavilionDtos = await _pavilionService.GetSellerPavilions(cancellation);
-            ViewBag.Massages=
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View(pavilionDtos);
         }
 

@@ -247,13 +247,15 @@ namespace Repositories.Repository.ProductRepository
 
         public async Task<List<CommentOrderDto>> GetSellerComments(User seller,CancellationToken cancellation)
         {
-            return await _context.DirectOrders.Where(o => o.IsCommentAcceptedByAdmin).Where(o => !string.IsNullOrEmpty(o.CommentByCostumer)).Select(o => new CommentOrderDto()
+            List<CommentOrderDto> orders= await _context.DirectOrders.Where(o => o.IsCommentAcceptedByAdmin).Where(o => !string.IsNullOrEmpty(o.CommentByCostumer)).Select(o => new CommentOrderDto()
             {
                 Id = o.Id,
                 Comment = o.CommentByCostumer,
-                CommentSubmitedAt = (DateTime.Now - o.CommentSubmitedAt).TotalMinutes.ToString(),
-                CustomerImageFile = o.User.FilePathSource
+                CommentSubmitedAt = (DateTime.UtcNow - o.CommentSubmitedAt).TotalMinutes,
+                CustomerImageFile = o.User.FilePathSource,
+                CustomerFullName=o.User.FullNameToString()
             }).ToListAsync(cancellation) ?? new List<CommentOrderDto>();
+            return orders;
         }
 
         #endregion

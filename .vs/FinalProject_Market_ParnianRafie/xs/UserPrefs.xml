@@ -15,18 +15,14 @@
           <Node name="FinalProject_Market_ParnianRafie">
             <Node name="src" expanded="True">
               <Node name="01-Domain" expanded="True">
-                <Node name="AppService" expanded="True">
-                  <Node name="AppService" expanded="True">
-                    <Node name="Admin_" expanded="True">
-                      <Node name="DirectOrderAppService.cs" selected="True" />
-                    </Node>
+                <Node name="AppService">
+                  <Node name="AppService">
+                    <Node name="Admin_" expanded="True" />
                   </Node>
                 </Node>
                 <Node name="Core" expanded="True" />
               </Node>
-              <Node name="02-Infrastructure" expanded="True">
-                <Node name="01-SqlDataBase" expanded="True" />
-              </Node>
+              <Node name="02-Infrastructure" expanded="True" />
               <Node name="03-Endpoint" expanded="True">
                 <Node name="FinalProject_Market" expanded="True">
                   <Node name="Areas" expanded="True">
