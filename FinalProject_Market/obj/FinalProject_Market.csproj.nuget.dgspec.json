@@ -385,6 +385,10 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
             "NetCore.AutoRegisterDi": {
               "target": "Package",
               "version": "[2.1.0, )"

@@ -79,6 +79,7 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(option =>
 
     option.User.RequireUniqueEmail = true;
 })
+    .AddDefaultUI()
     .AddEntityFrameworkStores<MarketContext>();
 
 builder.Services.AddControllersWithViews();

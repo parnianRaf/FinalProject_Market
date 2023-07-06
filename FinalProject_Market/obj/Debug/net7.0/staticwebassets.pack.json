@@ -165,6 +165,10 @@
       "PackagePath": "staticwebassets/SellerLogIn/images/favicon.ico"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/images/signup-image.jpg",
+      "PackagePath": "staticwebassets/SellerLogIn/images/signup-image.jpg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/animsition.min.js",
       "PackagePath": "staticwebassets/SellerLogIn/js/animsition.min.js"
     },
@@ -8033,6 +8037,10 @@
       "PackagePath": "staticwebassets/css/style3.css"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/css/style6.css",
+      "PackagePath": "staticwebassets/css/style6.css"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/IRANSansWeb_Light.woff",
       "PackagePath": "staticwebassets/fonts/IRANSansWeb_Light.woff"
     },
@@ -8095,6 +8103,10 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/icomoon/style.css",
       "PackagePath": "staticwebassets/fonts/icomoon/style.css"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/material-design-iconic-font.min.css",
+      "PackagePath": "staticwebassets/fonts/material-design-iconic-font.min.css"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/molla0ab20ab2.eot",
@@ -8215,6 +8227,10 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/pari.jpg",
       "PackagePath": "staticwebassets/images/UserImages/pari.jpg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/parisa.jpg",
+      "PackagePath": "staticwebassets/images/UserImages/parisa.jpg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/shani.jpg",
@@ -8399,6 +8415,10 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/jquery-ui.min.js",
       "PackagePath": "staticwebassets/js/jquery-ui.min.js"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/jquery.min.js",
+      "PackagePath": "staticwebassets/js/jquery.min.js"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/main.js",

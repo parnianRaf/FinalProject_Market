@@ -56,6 +56,7 @@ namespace Repositories.AutoMapper
             CreateMap<AddOfferViewModel, DetailedOfferDto>()
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => decimal.Parse(src.Price)))
                 .ReverseMap();
+            CreateMap<RegisterViewModel, AddUserDto>().ReverseMap();
                
 
             //CreateMap<FullDetailCustomerDto, FullDetailCustomerViewModel>();

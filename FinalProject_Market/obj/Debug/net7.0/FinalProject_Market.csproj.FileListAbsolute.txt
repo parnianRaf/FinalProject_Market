@@ -265,8 +265,6 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Connections.Abstractions.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.CookiePolicy.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Cors.dll
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Cryptography.Internal.dll
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.DataProtection.Abstractions.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.DataProtection.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -359,7 +357,6 @@
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Hosting.Abstractions.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Hosting.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Http.dll
-/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Identity.Core.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Identity.Stores.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Localization.Abstractions.dll
 /Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/bin/Debug/net7.0/refs/Microsoft.Extensions.Localization.dll

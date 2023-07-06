@@ -1,5 +1,5 @@
 ﻿@using AppCore.DtoModels.User;
-@model LogInUser
+@model LogInViewModel
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -31,25 +31,27 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">ورود</h2>
+                        <div asp-validation-summary="All"></div>
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label asp-for="UserName"></i></label>
                                 <input type="text" asp-for="UserName" id="your_name" placeholder="یوزرنیم" />
+                                <span asp-validation-for="UserName"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Password"></label>
                                 <input type="password" asp-for="Password" id="your_pass" placeholder="پسورد" />
+                                <span asp-validation-for="Password"></span>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" asp-for="IsRememberMe" id="remember-me" checked="checked" class="agree-term" />
                                 <label asp-for="IsRememberMe" class="label-agree-term"><span><span></span></span> مرا بخاطر بسپار</label>
-          
-                            
+                                <span asp-validation-for="IsRememberMe"></span>
                             </div>
                             <div class="form-group form-button">
                                 <div class=" d-flex justify-content-around">
                                     <button asp-controller="Account" asp-action="LogIn" asp-route-id="1" type="submit" id="signin" class="btn">ورود</button>
-                                    <button type="submit" class="signup-image-link btn" asp-controller="Account" asp-action="Register" asp-route-id="1"> ثبت نام</button>
+                                    <a type="submit" class="signup-image-link btn" formmethod="get" asp-controller="Account" asp-action="Register" asp-route-id="1"> ثبت نام</a>
                                 </div>
  
                             </div>

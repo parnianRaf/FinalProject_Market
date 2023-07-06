@@ -68,28 +68,20 @@ namespace FinalProject_Market.Controllers
         [AllowAnonymous]
         public IActionResult Register(int id)
         {
-            switch (id)
-            {
-                case 1:
-                    return PartialView("");
-                case 2:
-                    return PartialView();
-                case 3:
-                    return PartialView("LogIn");
-            }
-            return RedirectToAction("Index");
+            RegisterViewModel viewModel = new() { Id = id };
+            return 0 <id & id<3 ?  PartialView("Register" ,viewModel) : RedirectToAction("Index");
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register(int id, AddUserDto userDto)
+        public async Task<IActionResult> Register(int id, RegisterViewModel userDto)
         {
             if(ModelState.IsValid)
             {
                 switch (id)
                 {
                     case 1:
-                        var customerResult = await _account.Register("customer", userDto);
+                        var customerResult = await _account.Register("customer", _mapper.Map<AddUserDto>(userDto));
                         if (!customerResult.Any())
                         {
                            return RedirectToAction("Index");
@@ -98,7 +90,7 @@ namespace FinalProject_Market.Controllers
                         break;
    
                     case 2:
-                        var sellerResult = await _account.Register("seller", userDto);
+                        var sellerResult = await _account.Register("seller", _mapper.Map<AddUserDto>(userDto));
                         if(!sellerResult.Any())
                         {
                             return RedirectToAction("Index");
@@ -107,7 +99,7 @@ namespace FinalProject_Market.Controllers
                         break;
                 }
             }
-            return View(userDto);
+            return PartialView(userDto);
 
         }
 
@@ -142,7 +134,7 @@ namespace FinalProject_Market.Controllers
                         {
                             return RedirectToAction("Index");
                         }
-                        break;
+                        return PartialView("CustomerLogIn", viewModel);
                     case 2:
                         if (await _account.LogIn("seller", userDto, IsRememberMe))
                         {

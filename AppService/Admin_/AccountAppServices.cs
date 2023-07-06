@@ -45,13 +45,17 @@ namespace AppService.Admin_
             User user = _mapService.MapUser<AddUserDto>(userDto);
 
             IEnumerable<IdentityError> createErrors = await _accountService.CreateUser(user, userDto.Password);
-
-            if (await _accountService.IsRoleExist(role))
+            if (!createErrors.Any())
             {
-                var roleErrors = await _accountService.AddToRole(user, role);
-                roleErrors.ToList().ForEach(r => createErrors.Append(r));
-                await _accountService.SetCreateField(user);
+                if (await _accountService.IsRoleExist(role))
+                {
+                    var roleErrors = await _accountService.AddToRole(user, role);
+                    roleErrors.ToList().ForEach(r => createErrors.Append(r));
+                    await _accountService.SetCreateField(user);
+                }
+
             }
+  
             return createErrors;
         }
 

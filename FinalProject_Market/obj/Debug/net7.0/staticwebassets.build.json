@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WbyRmd9dnkqAWWjap1NDeDk0N/KSrH/C+9EaGmTnCNI=",
+  "Hash": "UEES9bhbT5bbWSV0Vq9KzgEq6oQJeTfgcEgi70HW0FU=",
   "Source": "FinalProject_Market",
   "BasePath": "_content/FinalProject_Market",
   "Mode": "Default",
@@ -34153,6 +34153,23 @@
       "OriginalItemSpec": "wwwroot/css/style3.css"
     },
     {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/css/style6.css",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "css/style6.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/style6.css"
+    },
+    {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/dana-fanum-regular.woff",
       "SourceId": "FinalProject_Market",
       "SourceType": "Discovered",
@@ -34423,6 +34440,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/fonts/IRANSansWeb_Light.woff2"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/material-design-iconic-font.min.css",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "fonts/material-design-iconic-font.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/fonts/material-design-iconic-font.min.css"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/fonts/molla0ab20ab2.eot",
@@ -35156,6 +35190,23 @@
       "OriginalItemSpec": "wwwroot/images/UserImages/pari.jpg"
     },
     {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/parisa.jpg",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "images/UserImages/parisa.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/UserImages/parisa.jpg"
+    },
+    {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/shani.jpg",
       "SourceId": "FinalProject_Market",
       "SourceType": "Discovered",
@@ -35715,6 +35766,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/jquery-ui.min.js"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/jquery.min.js",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "js/jquery.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/jquery.min.js"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/js/main.js",
@@ -38469,6 +38537,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/SellerLogIn/images/favicon.ico"
+    },
+    {
+      "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/images/signup-image.jpg",
+      "SourceId": "FinalProject_Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/",
+      "BasePath": "_content/FinalProject_Market",
+      "RelativePath": "SellerLogIn/images/signup-image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/SellerLogIn/images/signup-image.jpg"
     },
     {
       "Identity": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/SellerLogIn/js/animsition.min.js",
