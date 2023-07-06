@@ -75,10 +75,12 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         }
 
 
-        public IActionResult ValidateDateEqualOrGreater(DateTime Date)
+        public IActionResult ValidateDateEqualOrGreater(DateTime StartTime)
         {
-            return Json(Date >= DateTime.Now);
+            var result= Json(StartTime >= DateTime.Now);
+            return result;
         }
+
 
         public async Task<IActionResult> GetOrdersList(CancellationToken cancellation)
         {

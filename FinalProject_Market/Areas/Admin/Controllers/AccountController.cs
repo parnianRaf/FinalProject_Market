@@ -71,7 +71,7 @@ namespace FinalProject_Market.Controllers
             switch (id)
             {
                 case 1:
-                    return PartialView();
+                    return PartialView("");
                 case 2:
                     return PartialView();
                 case 3:

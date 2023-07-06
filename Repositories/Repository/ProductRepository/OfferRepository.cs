@@ -30,13 +30,16 @@ namespace Repositories.Repository.ProductRepository
         //dar buissines barname gofte shavad ke harmoghe offer sabt shod moghayese sorat girad.
         public async Task<Offer> AddOffer(int offerId,User customer,Auction auction,Offer offerDto, CancellationToken cancellation)
         {
+            offerDto.Id = offerId;
             offerDto.UserId = customer.Id;
             offerDto.User = customer;
             offerDto.AuctionId = auction.Id;
             offerDto.Auction = auction;
             auction.Offers.Add(offerDto);
             customer.Offers.Add(offerDto);
-            await _context.Offers.AddAsync(offerDto);
+            offerDto.CreatedAt = DateTime.UtcNow;
+            offerDto.CreatedBy = customer.Id;
+            var result=await _context.Offers.AddAsync(offerDto);
             _context.Auctions.Update(auction);
             await _context.SaveChangesAsync(cancellation);
             return offerDto;

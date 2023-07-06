@@ -63,6 +63,8 @@
     <PackageReference Include="NetCore.AutoRegisterDi" Version="2.1.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Hangfire.Dashboard.Authorization" Version="3.0.1" />
+    <PackageReference Include="foolproof" Version="0.9.4518" />
+    <PackageReference Include="FoolproofValidation" Version="0.9.4518" />
   </ItemGroup>
 
   <ItemGroup>
