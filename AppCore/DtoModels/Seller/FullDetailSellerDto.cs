@@ -2,6 +2,7 @@
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
+using Microsoft.AspNetCore.Http;
 
 namespace AppCore.DtoModels.Seller
 {
@@ -26,6 +27,10 @@ namespace AppCore.DtoModels.Seller
         public bool? IsActive { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public string? FilePathSource { get; set; }
+
+        public IFormFile? UserFile { get; set; }
 
         public DateTime? DeletedAt { get; set; }
 

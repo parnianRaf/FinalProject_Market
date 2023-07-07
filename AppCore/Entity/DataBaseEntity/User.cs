@@ -57,7 +57,7 @@ public class User: IdentityUser<int>
 
     public string? FilePathSource { get; set; }
 
-    public IFormFile? ImageFile { get; set; }
+    public IFormFile? UserFile { get; set; }
     #endregion
 
     #region Navigation Property

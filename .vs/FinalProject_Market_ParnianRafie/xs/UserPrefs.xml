@@ -1,22 +1,26 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+﻿<Properties StartupConfiguration="{DEE5F07C-4988-42FB-90B6-77B185FD2474}|https" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.ItemProperties.src.03-Endpoint.FinalProject__Market PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Market/Areas/Admin/Models/ViewModels/RegisterViewModel.cs">
-    <Files>
-      <File FileName="FinalProject_Market/Program.cs" Line="71" Column="5" />
-      <File FileName="FinalProject_Market/Areas/Admin/Models/ViewModels/RegisterViewModel.cs" Line="19" Column="35" />
-      <File FileName="FinalProject_Market/Areas/Admin/Views/Account/Register.cshtml" Line="52" Column="77" />
-      <File FileName="FinalProject_Market/Areas/Seller/Views/Shared/_Layout.cshtml" Line="133" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalProject_Market_ParnianRafie">
-            <Node name="src">
+            <Node name="src" expanded="True">
               <Node name="01-Domain" expanded="True">
+                <Node name="AppService" expanded="True">
+                  <Node name="AppService" expanded="True">
+                    <Node name="Admin_" expanded="True">
+                      <Node name="DirectOrderAppService.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
                 <Node name="Core" expanded="True">
                   <Node name="AppCore" expanded="True">
+                    <Node name="Contracts" expanded="True">
+                      <Node name="Services" expanded="True" />
+                    </Node>
                     <Node name="Entity" expanded="True">
                       <Node name="DataBaseEntity" expanded="True" />
                     </Node>
@@ -24,33 +28,13 @@
                 </Node>
               </Node>
               <Node name="03-Endpoint">
-                <Node name="FinalProject_Market" selected="True">
+                <Node name="FinalProject_Market" expanded="True">
                   <Node name="Areas" expanded="True">
-                    <Node name="Admin" expanded="True">
+                    <Node name="Customer" expanded="True">
                       <Node name="Controllers" expanded="True" />
-                      <Node name="Models" expanded="True">
-                        <Node name="ViewModels" expanded="True" />
-                      </Node>
-                      <Node name="Views" expanded="True">
-                        <Node name="Account" expanded="True" />
-                        <Node name="Order" expanded="True" />
-                        <Node name="Shared" expanded="True" />
-                      </Node>
                     </Node>
                     <Node name="Seller" expanded="True">
                       <Node name="Controllers" expanded="True" />
-                      <Node name="Views" expanded="True">
-                        <Node name="OrderManagemnet" expanded="True" />
-                        <Node name="SellerManagement" expanded="True" />
-                        <Node name="Shared" expanded="True" />
-                      </Node>
-                    </Node>
-                  </Node>
-                  <Node name="Controllers" expanded="True" />
-                  <Node name="wwwroot">
-                    <Node name="js" expanded="True" />
-                    <Node name="SellerLogIn" expanded="True">
-                      <Node name="images" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
@@ -63,15 +47,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" line="59" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/Admin_/AccountAppServices.cs" relfile="AppService/Admin_/AccountAppServices.cs" line="170" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/AccountServices.cs" relfile="Service/AccountServices.cs" line="127" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/AppService/Admin_/AccountAppServices.cs" relfile="AppService/Admin_/AccountAppServices.cs" line="173" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/Service/AccountServices.cs" relfile="Service/AccountServices.cs" line="134" column="1" />
+      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ProductManagementController.cs" line="63" column="1" />
       <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Seller/Controllers/ValidationController.cs" relfile="FinalProject_Market/Areas/Seller/Controllers/ValidationController.cs" line="15" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Controllers/AccountController.cs" relfile="FinalProject_Market/Areas/Admin/Controllers/AccountController.cs" line="70" column="1" />
-      <Breakpoint file="/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/Areas/Admin/Controllers/AccountController.cs" relfile="FinalProject_Market/Areas/Admin/Controllers/AccountController.cs" line="81" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

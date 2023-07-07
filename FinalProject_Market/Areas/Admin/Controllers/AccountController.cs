@@ -152,6 +152,12 @@ namespace FinalProject_Market.Controllers
             }
             return PartialView(viewModel);
         }
+
+        public IActionResult AdminPannel()
+        {
+            return PartialView("AdminPannel");
+        }
+
         [AllowAnonymous]
         public async Task<IActionResult> SignOut(CancellationToken cancellation)
         {
@@ -225,7 +231,13 @@ namespace FinalProject_Market.Controllers
             return RedirectToAction("CustomerProfile", new { id });
         }
 
-
+        [AllowAnonymous]
+        public async  Task<IActionResult> OrderHistory(CancellationToken cancellation)
+        {
+            return await _account.RoleCurrentUser(cancellation)==1 ? RedirectToAction("OrderHistory", "CustomerManagement", new {area="Customer"}) :
+               await _account.RoleCurrentUser(cancellation) == 2 ? RedirectToAction("OrderHistory", "SellerManagement", new {area="Seller"}):
+               RedirectToAction("Index");
+        }
 
         //public async Task<IActionResult> SeedData()
         //{

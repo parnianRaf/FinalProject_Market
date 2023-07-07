@@ -12,6 +12,8 @@ using AppCore.Contracts.AppServices;
 using AppCore.DtoModels.Customer;
 using Microsoft.Extensions.Options;
 using AppCore.DtoModels.Seller;
+using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.DirectOrder;
 
 namespace AppService.Admin_
 {
@@ -22,6 +24,7 @@ namespace AppService.Admin_
         private readonly ISellerStatusService _sellerStatus;
         private readonly IMapServices _mapService;
         private readonly IImageService _imageService;
+
         private readonly UserManager<User> _userManager;
         #endregion
 
@@ -36,6 +39,7 @@ namespace AppService.Admin_
             _userManager = userManager;
             _sellerStatus = sellerStatus;
             _imageService = imageService;
+
         }
         #endregion
 
@@ -182,6 +186,26 @@ namespace AppService.Admin_
             await _userManager.UpdateAsync(user);
 
         }
+
+        public async Task<int> RoleCurrentUser(CancellationToken cancellation)
+        {
+            User user = await GetUser<User>(cancellation);
+            return await _accountService.IsInRole(user, "customer") ? 1 :
+                await _accountService.IsInRole(user, "seller") ? 2
+                : 3;
+        }
+
+        //public async Task<bool> GetMedal(User user,CancellationToken cancellation)
+        //{
+        //    return _accountService.GetMedal(await SellerEarnWthCommission(user,cancellation));
+        //}
+
+        //public async Task<decimal> SellerEarnWthCommission(User user,CancellationToken cancellation)
+        //{
+        //    List<DetailedDirctOrderDto> dirctOrderDtos = await _directOrderAppService.GetAllPaidDirectOrders(user,cancellation);
+        //    List<DetailedAuctionDto> auctionDtos = await _auctionAppService.GetAllPaidAuctions(cancellation);
+        //    return (decimal)(dirctOrderDtos.Sum(o => o.TotalPrice) + auctionDtos.Sum(a => a.FinalPrice));
+        //}
 
         public async Task<bool> SeedAdminData()
         {

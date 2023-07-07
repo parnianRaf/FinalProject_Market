@@ -27,7 +27,7 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="~/images/@(this.User.Identity.Name+".jpg")" alt="User profile picture">
+                        <img class="profile-user-img img-responsive img-circle" src="~/images/UserImages/@Model.FilePathSource" alt="User profile picture">
 
                         <h3 class="profile-username text-center">@ViewBag.FullDetailSellerViewModel.FullName</h3>
                         @if (ViewBag.FullDetailSellerViewModel.HasMedal)
@@ -61,12 +61,18 @@
         <div class="card-header">
             <h3 class="card-title">مشخصات</h3>
         </div>
-        <form class="card-body" method="post">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
+        <form class="card-body" method="post" enctype="multipart/form-data" role="form">
+            @*<div class="input-group mb-3">*@
+                @*<div class="input-group-prepend">
                     <span class="input-group-text">آیدی</span>
-                </div>
-                <input type="number" class="form-control" asp-for="@Model.Id">
+                </div>*@
+
+                <input type="number" class="form-control" asp-for="@Model.Id" hidden>
+            @*</div>*@
+            <div class="input-group mb-3">
+                <img src="~/images/UserImages/@Model.FilePathSource" class="avatar img-circle img-thumbnail" alt="avatar">
+                <label for="formFileLg" class="form-label">تغییر عکس</label>
+                <input multiple class="form-control form-control-lg" id="formFileLg" asp-for="UserFile" type="file">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">

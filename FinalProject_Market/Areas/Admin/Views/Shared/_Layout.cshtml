@@ -99,7 +99,7 @@
                                                 <li class="user-header">
                                                     <img src="~/images/UserImages/@ViewBag.LogInUser.Item2.FilePathSource" alt="تصویر کاربر" style="border: 1px solid #ddd; border-radius:4px;  width:120px;">
 
-                                                    <p class="m-2 p-4" style="font-size:large">
+                                                    <p class="" style="font-size:large">
                                                         @(ViewBag.LogInUser.Item2.FirstName + " " + ViewBag.LogInUser.Item2.LastName)
                                                     </p>
                                                 </li>
@@ -108,13 +108,13 @@
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">صفحه من</a>
+                                        <a >صفحه من</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">فروش</a>
+                                        <a asp-controller="Account" asp-action="OrderHistory" asp-area="Admin">سوابق خرید و فروش</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">دوستان</a>
+                                        <a >دوستان</a>
                                     </div>
                                 </div>
                                 <!-- /.row -->
@@ -126,7 +126,7 @@
                                     <a asp-area="Customer" asp-controller="CustomerManagement" asp-action="Profile" class="btn btn-default btn-flat" style="font-size:medium">پروفایل</a>
                                 </div>
                                 <div class="pull-left">
-                                    <a asp-controller="Account" asp-action="SignOut" class="btn btn-default btn-flat" style="font-size:medium">خروج<span class="glyphicon glyphicon-log-out"></span></a>
+                                    <a asp-controller="Account" asp-action="SignOut" asp-area="Admin" class="btn btn-default btn-flat" style="font-size:medium">خروج<span class="glyphicon glyphicon-log-out"></span></a>
                                 </div>
                             </li>
                         </div>

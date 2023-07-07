@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="~/SellerPannel/css/bootstrap3-wysihtml5.min.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -52,22 +51,57 @@
 
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
+                        <li class="dropdown messages-menu">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">@ViewBag.Massages.Count</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">@ViewBag.Massages.Count پیام خوانده نشده</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        @foreach (var item in ViewBag.Massages)
+                                        {
+                                            <li>
+                                                <!-- start message -->
+                                                <a >
+                                                    <div class="pull-right">
+                                                        <img src="~/images/UserImages/@item.CustomerImageFile" class="img-circle" alt="User Image">
+                                                    </div>
+                                                    <h4>
+                                                        @item.CustomerFullName
+                                                        <small><i class="fa fa-clock-o"></i> @item.CommentSubmitedAt دقیقه پیش</small>
+                                                    </h4>
+                                                    <p>@item.Comment</p>
+                                                </a>
+                                            </li>
+
+                                        }
+
+                                        <!-- end message -->
+
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">نمایش تمام پیام ها</a></li>
+                            </ul>
+                        </li>
                         <!-- Messages: style can be found in dropdown.less-->
                         <!-- Notifications: style can be found in dropdown.less -->
                         <!-- Tasks: style can be found in dropdown.less -->
-                        <!--<li class="dropdown tasks-menu">
+                        <li class="dropdown tasks-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-flag-o"></i>
                                 <span class="label label-danger">۹</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">۹ کار برای انجام دارید</li>
-                                <li>-->
+                                <li>
                                     <!-- inner menu: contains the actual data -->
-                                    <!--<ul class="menu">
-                                        <li>-->
+                                    <ul class="menu">
+                                        <li>
                                             <!-- Task item -->
-                                            <!--<a href="#">
+                                            <a href="#">
                                                 <h3>
                                                     ساخت دکمه
                                                     <small class="pull-left">20%</small>
@@ -79,11 +113,11 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li>-->
+                                        </li>
                                         <!-- end task item -->
-                                        <!--<li>-->
+                                        <li>
                                             <!-- Task item -->
-                                            <!--<a href="#">
+                                            <a href="#">
                                                 <h3>
                                                     ساخت قالب جدید
                                                     <small class="pull-left">40%</small>
@@ -95,11 +129,11 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li>-->
+                                        </li>
                                         <!-- end task item -->
-                                        <!--<li>-->
+                                        <li>
                                             <!-- Task item -->
-                                            <!--<a href="#">
+                                            <a href="#">
                                                 <h3>
                                                     تبلیغات
                                                     <small class="pull-left">60%</small>
@@ -111,11 +145,11 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li>-->
+                                        </li>
                                         <!-- end task item -->
-                                        <!--<li>-->
+                                        <li>
                                             <!-- Task item -->
-                                            <!--<a href="#">
+                                            <a href="#">
                                                 <h3>
                                                     ساخت صفحه فرود
                                                     <small class="pull-left">80%</small>
@@ -127,26 +161,26 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li>-->
+                                        </li>
                                         <!-- end task item -->
-                                    <!--</ul>
+                                    </ul>
                                 </li>
                                 <li class="footer">
                                     <a href="#">نمایش همه</a>
                                 </li>
                             </ul>
-                        </li>-->
+                        </li>
                         <!-- User Account: style can be found in dropdown.less -->
-                        <!--<li class="dropdown user user-menu">
+                        <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="~/images/@(this.User.Identity.Name+".jpg")" class="user-image" alt="User Image">
+                                <img src="~/images/UserImages/@(this.User.Identity.Name+".jpg")" class="user-image" alt="User Image">
                                 <span class="hidden-xs">@this.User.Identity.Name</span>
                             </a>
-                            <ul class="dropdown-menu">-->
+                            <ul class="dropdown-menu">
                                 <!-- User image -->
-                                <!--<li class="user-header">
+                                <li class="user-header">
 
-                                    <img src="~/images/@(this.User.Identity.Name+".jpg")" class="img-circle" alt="User Image">
+                                    <img src="~/images/UserImages/@(this.User.Identity.Name+".jpg")" class="img-circle" alt="User Image">
 
                                     <p>
                                         @this.User.Identity.Name
@@ -154,7 +188,10 @@
                                 </li>
 
                             </ul>
-                        </li>-->
+                            <div>
+                                <a asp-area="Admin" asp-controller="Account" asp-action="SignOut"><i class="gg-log-out me-1"></i><p>خروج</p></a>
+                            </div>
+                        </li>
                         <!-- Control Sidebar Toggle Button -->
 
                     </ul>
@@ -168,14 +205,11 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-right image">
-                        <img src="~/images/@(this.User.Identity.Name+".jpg")" class="img-circle" alt="User Image">
+                        <img src="~/images/UserImages/@(this.User.Identity.Name+".jpg")" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
                         <p>@this.User.Identity.Name</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
-                    </div>
-                    <div>
-                        <a asp-area="Admin" asp-controller="Account" asp-action="SignOut" ><i class="gg-log-out me-1"></i><p>خروج</p></a>
                     </div>
                 </div>
                 <!-- search form -->
@@ -201,8 +235,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> داشبورد اول</a></li>
-                            <li><a href="index2.html"><i class="fa fa-circle-o"></i> داشبورد دوم</a></li>
+                            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> مغازه ها</a></li>
+                            <li><a href="index2.html"><i class="fa fa-circle-o"></i> محصولات</a></li>
+                            <li><a asp-controller="OrderManagemnet" asp-action="AddAuction" asp-area="Seller"><i class="fa fa-circle-o"></i> افزودن مزایده</a></li>
+                            <li><a asp-controller="Account" asp-action="Index" asp-area="Admin"><i class="fa fa-circle-o"></i> بازگشت به صفحه اصلی</a></li>
                         </ul>
                     </li>
 
@@ -265,6 +301,7 @@
     <script src="~/SellerPannel/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/SellerPannel/js/demo.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

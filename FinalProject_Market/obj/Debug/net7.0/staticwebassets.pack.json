@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/4_2.jpeg"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/.DS_Store",
+      "PackagePath": "staticwebassets/AdminPannel/.DS_Store"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/AdminPannel/css/adminlte.min.css",
       "PackagePath": "staticwebassets/AdminPannel/css/adminlte.min.css"
     },
@@ -8229,6 +8233,10 @@
       "PackagePath": "staticwebassets/images/UserImages/pari.jpg"
     },
     {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/paria.jpg",
+      "PackagePath": "staticwebassets/images/UserImages/paria.jpg"
+    },
+    {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/UserImages/parisa.jpg",
       "PackagePath": "staticwebassets/images/UserImages/parisa.jpg"
     },
@@ -8291,6 +8299,10 @@
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/signin-image.jpg",
       "PackagePath": "staticwebassets/images/signin-image.jpg"
+    },
+    {
+      "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/undraw_remotely_2j6y.svg",
+      "PackagePath": "staticwebassets/images/undraw_remotely_2j6y.svg"
     },
     {
       "Id": "/Users/parnianrafei/Documents/GitHub/FinalProject_Market/FinalProject_Market/wwwroot/images/با سلام.png",

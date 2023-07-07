@@ -2,6 +2,7 @@
 using AppCore;
 using AppCore.Contracts.Services;
 using AppCore.DtoModels.Auction;
+using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Offer;
 using AppCore.DtoModels.Product;
 using AutoMapper;
@@ -84,6 +85,7 @@ namespace AppService.Admin_
                 {
                   auction.FinalPrice = auction.Offers.OrderBy(o => o.SubmitAt).OrderBy(o => o.Price).FirstOrDefault().Price ;
                   auction.AcceptedCustomerId = auction.Offers.OrderBy(o => o.SubmitAt).OrderBy(o => o.Price).FirstOrDefault().UserId;
+
                 }
             }
             await UpdateAuction(auction, cancellation);
@@ -115,6 +117,13 @@ namespace AppService.Admin_
         public async Task<List<DetailedAuctionDto>> GetAllAvailableDetailedAuction(CancellationToken cancellation)
         {
             return await _auctionService.GetAllAvailableAuctions(cancellation);
+        }
+
+        public async Task<List<DetailedAuctionDto>> GetAllPaidAuctions(CancellationToken cancellation)
+        {
+            User user = await _account.GetUser<User>(cancellation) ?? new User();
+            return await _account.RoleCurrentUser(cancellation) == 1 ? await _auctionService.GetAllCustomerAuctions(user.Id, cancellation) :
+                await _auctionService.GetAllSuccededSellerAuctions(user.Id, cancellation);
         }
 
         public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)

@@ -70,7 +70,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-right image">
-                        <img src="~/images/@(this.User.Identity.Name+".jpg")" class="img-circle" alt="User Image">
+                        <img src="~/images/UserImages/@(this.User.Identity.Name+".jpg")" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
                         <p>@this.User.Identity.Name</p>
@@ -100,8 +100,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> داشبورد اول</a></li>
-                            <li><a href="index2.html"><i class="fa fa-circle-o"></i> داشبورد دوم</a></li>
+                            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> مغازه ها</a></li>
+                            <li><a href="index2.html"><i class="fa fa-circle-o"></i> محصولات</a></li>
+                            <li><a asp-controller="OrderManagemnet" asp-action="AddAuction" asp-area="Seller"><i class="fa fa-circle-o"></i> افزودن مزایده</a></li>
+                            <li><a asp-controller="Account" asp-action="Index" asp-area="Admin"><i class="fa fa-circle-o"></i> بازگشت به صفحه اصلی</a></li>
                         </ul>
                     </li>
 

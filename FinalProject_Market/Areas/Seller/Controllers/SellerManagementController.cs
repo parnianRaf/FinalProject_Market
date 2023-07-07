@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore;
 using AppCore.DtoModels;
+using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Customer;
+using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Product;
 using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using AppService.Admin_;
 using AutoMapper;
+using FinalProject_Market.Areas.Admin.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,21 +58,23 @@ namespace FinalProject_Market.Areas.Seller.Controllers
         {
             Tuple<SellerOverViewDto, FullDetailSellerDto> sellerDto =await _accountAppService.GetCurrentUserProfile<FullDetailSellerDto>(cancellation);
             ViewBag.FullDetailSellerViewModel = sellerDto.Item1;
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View(sellerDto.Item2);
         }
 
         [HttpPost]
         public async Task<IActionResult> GetProfile(FullDetailSellerViewModel viewModel, CancellationToken cancellation)
         {
-                var sellerDto = _mapper.Map<EditUserDto>(viewModel);
-                var result = await _accountAppService.UpdateUser(sellerDto, cancellation);
-                if (result)
-                {
-                    return RedirectToAction("GetProfile", new { viewModel.Id });
-                }
+            var sellerDto = _mapper.Map<EditUserDto>(viewModel);
+            var result = await _accountAppService.UpdateUser(sellerDto, cancellation);
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
+            return result ? RedirectToAction("GetProfile", new { viewModel.Id }) : View(viewModel);
+        }
 
-           
-            return View(viewModel);
+        public async Task<IActionResult> OrderHistory(CancellationToken cancellation)
+        {
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
+            return View(new Tuple<List<DetailedDirctOrderDto>, List<DetailedAuctionDto>>(await _directOrderAppService.GetAllCurrentUserPaidDirectOrders(cancellation), await _auctionAppService.GetAllPaidAuctions(cancellation)));
         }
         #endregion
 

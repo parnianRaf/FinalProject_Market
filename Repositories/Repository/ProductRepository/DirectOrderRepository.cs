@@ -55,7 +55,6 @@ namespace Repositories.Repository.ProductRepository
 
         }
 
-        //baraye buissiness =>inke sefareshesho taghir bede baraye list productha aval befahmim az hamin foroshande mitone bekhare ya foroshande dg
         public async Task<T> GetOrer<T>(int id, CancellationToken cancellation)
         {
             return _mapper.Map<T>( await _context.DirectOrders.Where(p => p.Id == id).FirstOrDefaultAsync(cancellation));
@@ -90,7 +89,6 @@ namespace Repositories.Repository.ProductRepository
             {
                 _context.DirectOrders.Update(order);
                 order.ModifiedAt = DateTime.Now;
-                //auction.ModifiedBy
                 await _context.SaveChangesAsync();
                 return !result;
             }
@@ -106,7 +104,6 @@ namespace Repositories.Repository.ProductRepository
                 {
                     order.IsDeleted = true;
                     order.DeletedAt = DateTime.Now;
-                    //auction.DeletedBy
                     var res = _context.DirectOrders.Update(order);
                     return true;
                 }
@@ -175,6 +172,75 @@ namespace Repositories.Repository.ProductRepository
         public async Task<DirectOrder> GetCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation)
         {
             DirectOrder order= await _context.DirectOrders.Include(o=>o.User).Include(o=>o.Products).Where(o => !o.IsPaid).Where(o => o.UserId == customerId).FirstOrDefaultAsync(cancellation) ?? new DirectOrder();
+            return order;
+        }
+
+        public async Task<List<DirectOrder>> GetSuccededSellerDirectOrder(int sellerId,CancellationToken cancellation)
+        {
+            List<DirectOrder> order = await _context.DirectOrders.Include(o => o.User).Include(o => o.Products).Where(o => o.IsPaid).Where(o => o.Products.FirstOrDefault().UserId==sellerId).ToListAsync(cancellation) ?? new List<DirectOrder>();
+            return order;
+        }
+
+        public async Task<List<DetailedDirctOrderDto>> GetSuccededDetailedSellerDirectOrder(int sellerId, CancellationToken cancellation)
+        {
+            List<DetailedDirctOrderDto> order = await _context.DirectOrders.Where(o => o.IsPaid).Where(o => o.Products.FirstOrDefault().UserId == sellerId).Select(d=>new DetailedDirctOrderDto()
+            {
+                Id = d.Id,
+                IsPaid = d.IsPaid,
+                TotalPrice = d.TotalPrice,
+                SellerName = d.Products.FirstOrDefault().User.FullNameToString(),
+                CustomerName = d.User.FullNameToString(),
+                CommentByCostumer = d.CommentByCostumer,
+                IsCommentAcceptedByAdmin = d.IsCommentAcceptedByAdmin,
+                IsCommentDeleted = d.IsCommentDeleted,
+                ComissionPaidByOrder = ((d.Products.FirstOrDefault().User.HasMedal) && (d.Products.FirstOrDefault().User.MedalAchievedAt < d.PaidAt)) ? "0" : Convert.ToString(d.TotalPrice * 7 / 10),
+                ProductDtos = d.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+
+            }).ToListAsync(cancellation) ?? new List<DetailedDirctOrderDto>();
+            return order;
+        }
+
+        public async Task<List<DirectOrder>> GetPaidCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation)
+        {
+            List<DirectOrder> order = await _context.DirectOrders.Include(o => o.User).Include(o => o.Products).Where(o => o.IsPaid).Where(o => o.UserId == customerId).ToListAsync(cancellation) ?? new List<DirectOrder>();
+            return order;
+        }
+
+        public async Task<List<DetailedDirctOrderDto>> GetDetailedPaidCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation)
+        {
+            List<DetailedDirctOrderDto> order = await _context.DirectOrders.Where(o => o.IsPaid).Where(o => o.UserId == customerId).Select(d=>new DetailedDirctOrderDto()
+            {
+                Id = d.Id,
+                IsPaid = d.IsPaid,
+                TotalPrice = d.TotalPrice,
+                SellerName = d.Products.FirstOrDefault().User.FullNameToString(),
+                CustomerName = d.User.FullNameToString(),
+                CommentByCostumer = d.CommentByCostumer,
+                IsCommentAcceptedByAdmin = d.IsCommentAcceptedByAdmin,
+                IsCommentDeleted = d.IsCommentDeleted,
+                ComissionPaidByOrder = ((d.Products.FirstOrDefault().User.HasMedal) && (d.Products.FirstOrDefault().User.MedalAchievedAt < d.PaidAt)) ? "0" : Convert.ToString(d.TotalPrice * 7 / 10),
+                ProductDtos = d.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+            }).ToListAsync(cancellation) ?? new List<DetailedDirctOrderDto>();
             return order;
         }
 

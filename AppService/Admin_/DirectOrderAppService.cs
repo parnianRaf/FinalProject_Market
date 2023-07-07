@@ -75,6 +75,19 @@ namespace AppService.Admin_
             return directOrderDto;
         }
 
+        public async Task<List<DetailedDirctOrderDto>> GetAllCurrentUserPaidDirectOrders(CancellationToken cancellation)
+        {
+            User user =await _account.GetUser<User>(cancellation) ?? new User();
+            return await _account.RoleCurrentUser(cancellation) == 1 ? await _directOrderService.GetDetailedPaidCurrentCustomerDirectOrders(user.Id, cancellation) :
+                await _directOrderService.GetSuccededDetailedSellerDirectOrder(user.Id, cancellation);
+        }
+
+        public async Task<List<DetailedDirctOrderDto>> GetAllPaidDirectOrders(User user,CancellationToken cancellation)
+        {
+            return await _account.RoleCurrentUser(cancellation) == 1 ? await _directOrderService.GetDetailedPaidCurrentCustomerDirectOrders(user.Id, cancellation) :
+                await _directOrderService.GetSuccededDetailedSellerDirectOrder(user.Id, cancellation);
+        }
+
         public async Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation)
         {
             return await _directOrderService.GetDirectOrderCart(orderId, cancellation);
@@ -89,6 +102,14 @@ namespace AppService.Admin_
         {
             DirectOrder order = await _directOrderService.GetEntityDirectOrder(id,cancellation);
             await _directOrderService.SubmitOrder(order, cancellation);
+            User user = order.Products.FirstOrDefault().User;
+            //if (await _account.GetMedal(user,cancellation))
+            //{
+            //    user.HasMedal = true;
+            //    user.MedalAchievedAt = DateTime.Now;
+            //    await _account.UpdateUser(user, cancellation);
+            //}
+
             return await _directOrderService.GetDirectOrderCart(id, cancellation);
         }
 
@@ -113,6 +134,7 @@ namespace AppService.Admin_
             User seller = await _account.GetUser<User>(cancellation);
             return await _directOrderService.GetSellerComments(seller, cancellation);
         }
+
         #endregion
     }
 }

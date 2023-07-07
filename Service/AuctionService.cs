@@ -36,6 +36,16 @@ namespace Service
             return await _auctionRepository.GetAllPaidOrUnPaidAuctions(cancellation);
         }
 
+        public async Task<List<DetailedAuctionDto>> GetAllCustomerAuctions(int customerId, CancellationToken cancellation)
+        {
+            return await _auctionRepository.GetAllCustomersAuctions(cancellation, customerId);
+        }
+
+        public async Task<List<DetailedAuctionDto>> GetAllSuccededSellerAuctions(int sellerId, CancellationToken cancellation)
+        {
+            return await _auctionRepository.GetAllSuccededSellerAuctions(sellerId, cancellation);
+        }
+
         public async Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation)
         {
             return await _auctionRepository.GetAllEntityAuction(cancellation);

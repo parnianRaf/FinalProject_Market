@@ -55,6 +55,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         public async Task<IActionResult> AddAuction(CancellationToken cancellation)
         {
             ViewBag.Products =await _productAppService.GetAllSellerProducts(cancellation);
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View();
         }
 
@@ -87,6 +88,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
             List<DetailedDirctOrderDto> dirctOrderDtos =await  _directOrderAppService.GetAllDirectOrder(cancellation);
             List<DetailedAuctionDto> auctionDtos = await _auctionAppService.GetAllAuctions(cancellation);
             ViewBag.directOrderDtos = dirctOrderDtos;
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View(auctionDtos);
         }
 
@@ -128,12 +130,6 @@ namespace FinalProject_Market.Areas.Admin.Controllers
                 return RedirectToAction("GetOrdersList");
             }
             return RedirectToAction("Index");
-        }
-
-        public async Task<IActionResult> AuctionOperation(int auctionId,CancellationToken cancellation)
-        {
-            
-            return View();
         }
         #endregion
 

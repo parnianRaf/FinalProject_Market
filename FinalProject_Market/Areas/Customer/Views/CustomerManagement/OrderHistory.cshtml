@@ -1,0 +1,234 @@
+﻿
+
+@using AppCore.DtoModels.Auction;
+@using AppCore.DtoModels.DirectOrder;
+
+@model Tuple<List<DetailedDirctOrderDto>, List<DetailedAuctionDto>>
+
+
+<div style="direction:rtl">
+    <div class="container">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">جدول مزایده ها</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>شماره</th>
+                                <th>تاریخ شروع مزایده</th>
+                                <th>تاریخ پایان مزایده</th>
+                                <th>برنده مزایده</th>
+                                <th>قیمت نهایی</th>
+                                <th>فروشنده</th>
+                                <th>مشاهده نظرات و کارمزد </th>
+                                <th>محصولات</th>
+
+                            </tr>
+                            @foreach (var auction in Model.Item2)
+                            {
+
+                                <tr>
+                                    <td>@auction.Id</td>
+                                    <td>@auction.StartTime</td>
+                                    <td>@auction.EndTime</td>
+                                    <td>@auction.AcceptedCustomerName</td>
+                                    <td>@auction.FinalPrice</td>
+                                    <td>@auction.SellerName</td>
+                                    <td>
+                                        <a id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#modalpopup_@auction.Id">مشاهده جزییات</a>
+                                        <div class="modal" id="modalpopup_@auction.Id">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3>سود بدست آمده از این معامله: @auction.ComissionPaidByauction</h3>
+                                                    </div>
+
+
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        <div class="container">
+                                                            @if (auction.IsCommentDeleted != false && auction.IsCommentAcceptedByAdmin == true)
+                                                            {
+                                                                <div class="d-flex justify-content-around">
+                                                                    <div>
+
+
+                                                                        <h4 class="modal-title">
+                                                                            @auction.FinalCommentByCostumer
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                            }
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </td>
+
+                                    <td>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    @foreach (var product in auction.ProductDtos)
+                                                    {
+                                                        <td>@product.ProductName</td>
+                                                    }
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div><!-- /.row -->
+    </div>
+
+    <div class="container">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">جدول سفارشات مستقیم</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>شماره</th>
+                                <th>قیمت نهایی</th>
+                                <th>فروشنده</th>
+                                <th>مشاهده نظرات و کارمزد </th>
+                                <th>محصولات</th>
+
+
+                            </tr>
+                            @foreach (var directOrder in Model.Item1)
+                            {
+                                @if (directOrder.IsPaid)
+
+                                {
+                                    <tr>
+                                        <td>@directOrder.Id</td>
+                                        <td>@directOrder.TotalPrice</td>
+                                        <td>@directOrder.SellerName</td>
+                                        <td>
+                                            <a id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#modalpopup2_@directOrder.Id">مشاهده جزییات</a>
+                                            <div class="modal" id="modalpopup2_@directOrder.Id">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3>سود بدست آمده از این معامله: @directOrder.ComissionPaidByOrder</h3>
+                                                        </div>
+
+
+
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <div class="container">
+                                                                @if (directOrder.IsCommentDeleted != false && directOrder.IsCommentAcceptedByAdmin == true)
+                                                                {
+                                                                    <div class="d-flex justify-content-around">
+                                                                        <div>
+
+
+                                                                            <h4 class="modal-title">
+                                                                                @directOrder.CommentByCostumer
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <!-- Modal footer -->
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        @foreach (var product in directOrder.ProductDtos)
+                                                        {
+                                                            <td>@product.ProductName</td>
+                                                        }
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+
+
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div><!-- /.row -->
+    </div>
+</div>
+
+
+<!-- The Modal -->

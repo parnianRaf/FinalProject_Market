@@ -22,22 +22,24 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly IProductAppService _productAppService;
         private readonly IPavilionAppService _pavilionAppService;
+        private readonly IDirectOrderAppService _directOrderAppService;
         #endregion
 
         #region ctor
         public PavilionManagementController(IAccountAppServices account,
             IMapper mapper, IProductAppService productAppService,
-            IPavilionAppService pavilionAppService)
+            IPavilionAppService pavilionAppService, IDirectOrderAppService directOrderAppService)
         {
             _account = account;
             _mapper = mapper;
             _productAppService = productAppService;
             _pavilionAppService = pavilionAppService;
+            _directOrderAppService = directOrderAppService;
         }
-    #endregion
+        #endregion
 
-    #region Implementation
-    // GET: /<controller>/
+        #region Implementation
+        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
@@ -45,6 +47,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         public async Task<IActionResult> PavilionProfile(int id, CancellationToken cancellation)
         {
             PavilionDtoModel detailedPavilion = await _pavilionAppService.GetPavilion(id, cancellation);
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View(detailedPavilion);
         }
 

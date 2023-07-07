@@ -23,17 +23,19 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly IProductAppService _productAppService;
         private readonly IPavilionAppService _pavilionAppService;
+        private readonly IDirectOrderAppService _directOrderAppService;
         #endregion
 
         #region ctor
         public ProductManagementController(IAccountAppServices account,
             IMapper mapper, IProductAppService productAppService,
-            IPavilionAppService pavilionAppService)
+            IPavilionAppService pavilionAppService, IDirectOrderAppService directOrderAppService)
         {
             _account = account;
             _mapper = mapper;
             _productAppService = productAppService;
             _pavilionAppService = pavilionAppService;
+            _directOrderAppService = directOrderAppService;
         }
         #endregion
 
@@ -44,12 +46,14 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         public async Task<IActionResult> SelectCategory(CancellationToken cancellation)
         {
             List<CategoryViewModel> categoryDtoModels =_mapper.Map<List<CategoryViewModel>>( await  _productAppService.GetCategories(cancellation));
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View("CategoryProduct" , categoryDtoModels);
         }
 
         public async Task<IActionResult> AddProduct(int id,CancellationToken cancellation)
         {
             await _productAppService.GetCategory(id, cancellation);
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View("AddProduct");
         }
 
@@ -71,6 +75,7 @@ namespace FinalProject_Market.Areas.Admin.Controllers
         public async Task<IActionResult> ProductProfile(int id, CancellationToken cancellation)
         {
             DetailedProductDto detailedProduct = await _productAppService.GetProduct(id,cancellation);
+            ViewBag.Massages = await _directOrderAppService.GetSellerComments(cancellation);
             return View(detailedProduct);
         }
 

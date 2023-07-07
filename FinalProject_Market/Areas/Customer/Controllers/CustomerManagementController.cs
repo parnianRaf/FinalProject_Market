@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore;
+using AppCore.DtoModels.Auction;
 using AppCore.DtoModels.Comment;
 using AppCore.DtoModels.Customer;
 using AppCore.DtoModels.DirectOrder;
 using AppCore.DtoModels.Offer;
+using AppCore.DtoModels.Seller;
 using AppCore.DtoModels.User;
 using AppService.Admin_;
 using AutoMapper;
@@ -38,13 +41,22 @@ namespace FinalProject_Market.Areas.Customer.Controllers
             _auction = auction;
         }
 
-
+        [AllowAnonymous]
         public async Task<IActionResult> Profile(CancellationToken cancellation)
         {
-            ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
-            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
-            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
-            return View(await _userAppService.GetUser<FullDetailCustomerDto>(cancellation));
+            switch (await _userAppService.RoleCurrentUser(cancellation))
+            {
+                case 1:
+                    ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+                    ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+                    ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
+                    return View(await _userAppService.GetUser<FullDetailCustomerDto>(cancellation));
+                case 2:
+                    return RedirectToAction("GetProfile", "SellerManagement",new {area="Seller"});
+                case 3:
+                    return RedirectToAction("AdminPannel", "Account", new {area="Admin"});
+            }
+            return View();
         }
 
         [HttpPost]
@@ -54,12 +66,8 @@ namespace FinalProject_Market.Areas.Customer.Controllers
             ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
             ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
             ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
-            //if (ModelState.IsValid)
-            //{
             await _userAppService.UpdateUser(_mapper.Map<EditUserDto>(customerDto), cancellation);
             return RedirectToAction("Index","Account", new {area="Admin"});
-            //}
-            //return View(customerDto);
         }
 
         public async Task<IActionResult> AddToCart(int id,CancellationToken cancellation)
@@ -127,7 +135,16 @@ namespace FinalProject_Market.Areas.Customer.Controllers
   
         }
 
-        
+        public async Task<IActionResult> OrderHistory (CancellationToken cancellation)
+        {
+            ViewBag.Category = _mapper.Map<List<BaseModel>>(await _productAppService.GetCategories(cancellation));
+            ViewBag.Cart = await _directOrder.GetCurrentDirectOrder(cancellation);
+            ViewBag.LogInUser = new Tuple<bool, EditUserDto>(_userAppService.IsLogedIn(), await _userAppService.GetUser<EditUserDto>(cancellation) ?? new EditUserDto());
+            return View(new Tuple<List<DetailedDirctOrderDto>, List<DetailedAuctionDto>>(await _directOrder.GetAllCurrentUserPaidDirectOrders(cancellation),await _auction.GetAllPaidAuctions(cancellation))); 
+        }
+
+
+
     }
 }
 

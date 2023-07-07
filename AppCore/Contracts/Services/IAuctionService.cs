@@ -13,6 +13,10 @@ namespace Service
 
         Task<Auction> GetAuction(int id, CancellationToken cancellation);
 
+        Task<List<DetailedAuctionDto>> GetAllCustomerAuctions(int customerId, CancellationToken cancellation);
+
+        Task<List<DetailedAuctionDto>> GetAllSuccededSellerAuctions(int sellerId, CancellationToken cancellation);
+
         Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
 
         Task UpdateAuction(Auction auction, CancellationToken cancellation);

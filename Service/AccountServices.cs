@@ -1,6 +1,7 @@
 ﻿using AppCore;
 using AppCore.DtoModels.User;
 using AutoMapper;
+using FinalProject_Market.Cache;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
@@ -12,23 +13,22 @@ public class AccountServices : IAccountServices
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly RoleManager<IdentityRole<int>> _rolemanager;
-    private readonly IMapper _mapper;
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly Medal _medal;
     #endregion
 
     #region ctor
     public AccountServices(UserManager<User> userManager
         , SignInManager<User> signInManager,
         RoleManager<IdentityRole<int>> rolemanager
-        , IMapper mapper,
-        IHttpContextAccessor httpContextAccessor)
+        ,IHttpContextAccessor httpContextAccessor,
+        Medal medal)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _rolemanager = rolemanager;
-        _mapper = mapper;
         _httpContextAccessor = httpContextAccessor;
-
+        _medal = medal;
     }
     #endregion
 
@@ -47,9 +47,9 @@ public class AccountServices : IAccountServices
     //{
     //    medal.
     //}
-    public void GetMedal(User user)
+    public bool GetMedal(decimal earned)
     {
-
+        return Convert.ToDecimal(_medal.MedalPrice) <= earned;
     }
 
     public async Task<IEnumerable<IdentityError>> CreateUser(User user, string password)
@@ -131,8 +131,7 @@ public class AccountServices : IAccountServices
         user.Email = userDto.Email;
         user.PhoneNumber = userDto.PhoneNumber;
         user.NationalityCode = userDto.NationalityCode;
-        user.FilePathSource = userDto.FilePathSource;
-        user.ImageFile = userDto.UserFile;
+        user.UserFile = userDto.UserFile;
         string id =_userManager.GetUserId(_httpContextAccessor.HttpContext.User) ?? user.Id.ToString();
         user.ModifiedBy = int.Parse(id);
         var updateResult=await _userManager.UpdateAsync(user);

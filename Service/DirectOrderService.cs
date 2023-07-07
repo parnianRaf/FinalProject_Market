@@ -43,6 +43,21 @@ namespace Service
             return order;
         }
 
+        public async Task<List<DirectOrder>> GetPaidCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation)
+        {
+            return await _directOrderRepository.GetPaidCurrentCustomerDirectOrders(customerId, cancellation);
+        }
+
+        public async Task<List<DetailedDirctOrderDto>> GetDetailedPaidCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation)
+        {
+            return await _directOrderRepository.GetDetailedPaidCurrentCustomerDirectOrders(customerId, cancellation);
+        }
+
+        public async Task<List<DetailedDirctOrderDto>> GetSuccededDetailedSellerDirectOrder(int sellerId, CancellationToken cancellation)
+        {
+            return await _directOrderRepository.GetSuccededDetailedSellerDirectOrder(sellerId, cancellation);
+        }
+        
         public async Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation)
         {
             return await _directOrderRepository.GetCart(orderId, cancellation);

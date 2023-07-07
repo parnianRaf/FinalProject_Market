@@ -182,7 +182,6 @@ namespace Repositories.Repository.ProductRepository
                 EndTime = a.EndTime,
                 AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id && o.IsAccepted).User.FullNameToString(),
                 FinalPrice = a.FinalPrice,
-                // har auction tanha be yek seller taalogh darad
                 SellerName = a.Products.FirstOrDefault().User.FullNameToString(),
                 FinalCommentByCostumer = a.FinalCommentByCostumer,
                 IsCommentAcceptedByAdmin = a.IsCommentAcceptedByAdmin,
@@ -192,6 +191,76 @@ namespace Repositories.Repository.ProductRepository
                 ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
                 IsFinished = a.IsFinished,
                 IsActive=a.IsActive,
+                ProductDtos = a.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+
+
+            }).ToListAsync(cancellation);
+            return auctionDtos;
+        }
+
+        public async Task<List<DetailedAuctionDto>> GetAllCustomerAuctions(int customerId,CancellationToken cancellation)
+        {
+            List<DetailedAuctionDto> auctionDtos = await _context.Auctions.Where(a => a.IsFinished == true).Where(a=>a.Offers.OrderBy(o=>o.SubmitAt).OrderBy(o=>o.Price).FirstOrDefault().UserId==customerId).Select(a => new DetailedAuctionDto()
+            {
+                Id = a.Id,
+                StartTime = a.StartTime,
+                EndTime = a.EndTime,
+                AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id && o.IsAccepted).User.FullNameToString(),
+                FinalPrice = a.FinalPrice,
+                SellerName = a.Products.FirstOrDefault().User.FullNameToString(),
+                FinalCommentByCostumer = a.FinalCommentByCostumer,
+                IsCommentAcceptedByAdmin = a.IsCommentAcceptedByAdmin,
+                CommentAcceptedAt = a.CommentAcceptedAt,
+                IsCommentDeleted = a.IsCommentDeleted,
+                CommentDeletedAt = a.CommentDeletedAt,
+                ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
+                IsFinished = a.IsFinished,
+                IsActive = a.IsActive,
+                ProductDtos = a.Products.Select(o => new DetailedProductDto()
+                {
+                    Id = o.Id,
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    SellerFullName = o.User.FullNameToString(),
+                    CategoryName = o.Category.Title,
+                    PavilionName = o.User.Pavilions.FirstOrDefault(p => p.Id == o.PavilionId).Title,
+                    filePathSource = o.filePathSource
+                }).ToList()
+
+
+
+            }).ToListAsync(cancellation);
+            return auctionDtos;
+        }
+
+        public async Task<List<DetailedAuctionDto>> GetAllSuccededSellerAuctions(int sellerId, CancellationToken cancellation)
+        {
+            List<DetailedAuctionDto> auctionDtos = await _context.Auctions.Where(a => a.IsFinished == true).Where(a => a.Products.FirstOrDefault().UserId == sellerId).Select(a => new DetailedAuctionDto()
+            {
+                Id = a.Id,
+                StartTime = a.StartTime,
+                EndTime = a.EndTime,
+                AcceptedCustomerName = a.Offers.FirstOrDefault(o => o.AuctionId == a.Id && o.IsAccepted).User.FullNameToString(),
+                FinalPrice = a.FinalPrice,
+                SellerName = a.Products.FirstOrDefault().User.FullNameToString(),
+                FinalCommentByCostumer = a.FinalCommentByCostumer,
+                IsCommentAcceptedByAdmin = a.IsCommentAcceptedByAdmin,
+                CommentAcceptedAt = a.CommentAcceptedAt,
+                IsCommentDeleted = a.IsCommentDeleted,
+                CommentDeletedAt = a.CommentDeletedAt,
+                ComissionPaidByauction = ((a.Products.FirstOrDefault().User.HasMedal) && (a.Products.FirstOrDefault().User.MedalAchievedAt < DateTime.Now)) ? "0" : Convert.ToString(a.FinalPrice * 7 / 10),
+                IsFinished = a.IsFinished,
+                IsActive = a.IsActive,
                 ProductDtos = a.Products.Select(o => new DetailedProductDto()
                 {
                     Id = o.Id,

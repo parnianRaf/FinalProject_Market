@@ -58,7 +58,7 @@
                     <div class="d-flex justify-content-around">
                         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                             <div class="image">
-                                <img src="~/images/Admin/UserImages/@(this.User.Identity.Name+".png")" class="img-circle elevation-2" alt="User Image">
+                                <img src="~/images/UserImages/@(this.User.Identity.Name+".png")" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
                                 <a class="d-block">@this.User.Identity.Name</a>
@@ -106,10 +106,16 @@
                                             <p>مدیریت سفارش ها</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a id="Dashboard3" asp-controller="Account" asp-action="Index" asp-area="Admin" class="nav-link active">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>بازگشت به صفحه اصلی</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
+                            @*<li class="nav-item">
                                 <a href="pages/calendar.html" class="nav-link">
                                     <i class="nav-icon fa fa-calendar"></i>
                                     <p>
@@ -117,7 +123,7 @@
                                         <span class="badge badge-info right">2</span>
                                     </p>
                                 </a>
-                            </li>
+                            </li>*@
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->

@@ -13,6 +13,8 @@ namespace Repositories.Repository.ProductRepository
         Task<bool> EditAuction(EditAuctionDto auctionDto, CancellationToken cancellation);
         Task<EditAuctionDto> EditGetAuction(int id, CancellationToken cancellation);
         Task<List<Auction>> GetAllEntityAuction(CancellationToken cancellation);
+        Task<List<DetailedAuctionDto>> GetAllCustomerAuctions(int customerId, CancellationToken cancellation);
+        Task<List<DetailedAuctionDto>> GetAllSuccededSellerAuctions(int sellerId, CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAvailableAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllAuctions(CancellationToken cancellation);
         Task<List<DetailedAuctionDto>> GetAllPaidOrUnPaidAuctions(CancellationToken cancellation);

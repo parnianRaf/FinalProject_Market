@@ -14,6 +14,9 @@ namespace Service
         Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation);
         Task<DirectOrder> GetEntityDirectOrder(int id, CancellationToken cancellation);
         Task<DirectOrder> GetUnPaidDirectOrder(int customerId, CancellationToken cancellation);
+        Task<List<DirectOrder>> GetPaidCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation);
+        Task<List<DetailedDirctOrderDto>> GetDetailedPaidCurrentCustomerDirectOrders(int customerId, CancellationToken cancellation);
+        Task<List<DetailedDirctOrderDto>> GetSuccededDetailedSellerDirectOrder(int sellerId, CancellationToken cancellation);
         Task SubmitOrder(DirectOrder order, CancellationToken cancellation);
         Task SubmitComment(DirectOrder order, string comment, CancellationToken cancellation);
         bool IsAllowed(Product product, DirectOrder order);

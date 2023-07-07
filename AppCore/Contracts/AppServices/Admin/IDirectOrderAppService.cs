@@ -10,6 +10,8 @@ namespace AppService.Admin_
         Task<EditDirectOrderDto> GetCurrentDirectOrder(CancellationToken cancellation);
         Task<DirectOrderCartDto> GetDirectOrderCart(int orderId, CancellationToken cancellation);
         Task<EditDirectOrderDto> GetDirectOrder(int id, CancellationToken cancellation);
+        Task<List<DetailedDirctOrderDto>> GetAllCurrentUserPaidDirectOrders(CancellationToken cancellation);
+        Task<List<DetailedDirctOrderDto>> GetAllPaidDirectOrders(User user, CancellationToken cancellation);
         Task<DirectOrderCartDto> SubmitOrder(int id, CancellationToken cancellation);
         Task<List<CommentOrderDto>> GetSellerComments(CancellationToken cancellation);
         Task AddComment(AddCommentDto commentDto, CancellationToken cancellation);

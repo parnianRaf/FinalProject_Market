@@ -20,5 +20,6 @@ namespace Service
         Task<bool> UpdateUser(User user, EditUserDto userDto);
         Task<bool> ActiveUser(User user);
         int GetCurrentUser();
+        bool GetMedal(decimal earned);
     }
 }
